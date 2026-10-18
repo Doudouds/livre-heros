@@ -1,0 +1,113 @@
+{
+  "id": "rain",
+  "title": "Les Digues de Clairval",
+  "description": "Découvrir qui retient le canal de crue, préparer les réparations et protéger le village.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du poste. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de contrôle. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de sécurité près de le coffret du verrou. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "climax_action": "Couper la corde de sécurité avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du poste, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de contrôle, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffret du verrou, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "climax_action": "Desserrer le crochet du volet avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du poste. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de contrôle. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du volet près de le coffret du verrou. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "climax_action": "Protéger ta main pour dégager le crochet du volet"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du poste. Elle désigne un côté de la porte du poste. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de contrôle. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffret de commande. Elle désigne un côté de le coffret du verrou. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "climax_action": "Trouver le crochet du volet avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du poste près de la porte du poste. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "first_action": "Ouvrir la serrure du poste avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de contrôle. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffret près de le coffret du verrou. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "climax_action": "Ouvrir la serrure du coffret avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "rain_intro",
+  "revelations": [
+    {
+      "id": "baron",
+      "actor": "le baron Orval",
+      "text": "Un ordre du baron Orval exige de fermer le canal de décharge. Il veut forcer les habitants à lui vendre les terres situées près de la rivière à bas prix. Il pensait seulement les inquiéter, mais la pluie a rendu son sabotage beaucoup plus dangereux. Le document indique le verrou ajouté à la vanne. Tu peux maintenant montrer aux ouvriers ce qu'il faut retirer."
+    },
+    {
+      "id": "witch",
+      "actor": "la sorcière Caldrine",
+      "text": "Le carnet de Caldrine décrit un sort de pluie destiné à remplir sa réserve. Elle a fait fermer le canal pour retenir l'eau près de son domaine. La formule continue de fonctionner malgré la montée de la rivière. Une page indique comment arrêter le sort et retirer le verrou de la vanne. Il faut accomplir ces deux tâches pour protéger Clairval."
+    },
+    {
+      "id": "builder",
+      "actor": "le contremaître Doran",
+      "text": "Les comptes de Doran révèlent une réparation cachée aux habitants. Il a fermé la vanne pour masquer les pièces qu'il n'avait pas remplacées, puis abandonné le poste quand la pluie a augmenté. Le plan montre le verrou ajouté et les éléments fragiles. Les ouvriers pourront s'en servir pour intervenir sans croire que le canal entier est solide."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "rain_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "rain_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "rain_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "rain_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "rain_end_resilient",
+      "when": {}
+    }
+  ]
+}

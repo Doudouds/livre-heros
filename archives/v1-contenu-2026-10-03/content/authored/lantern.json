@@ -1,0 +1,454 @@
+{
+  "id": "lantern",
+  "title": "La Lanterne des routes perdues",
+  "description": "Retrouver une lumière disparue et décider à qui appartiennent les chemins qu'elle ouvre.",
+  "intro": "Depuis trois nuits, les voyageurs arrivent aux mauvais villages. Une marchande partie vers l'est revient par le nord ; un messager retrouve son point de départ après une journée entière de marche. Sur la place, la vieille Lanterne des routes a disparu de son socle. Elle n'éclairait pourtant rien d'extraordinaire : seulement les croisements, les retours et les chemins vers les maisons. Une poussière dorée demeure sur la pierre. Lorsque tu approches la main, les grains s'alignent et dessinent un passage vers {location_name}. Le conseil du village te confie une mission simple à expliquer, moins simple à accomplir : retrouver la lanterne avant que les routes cessent complètement de se répondre. Tu prends le chemin indiqué, tandis que derrière toi les habitants suspendent des lampes ordinaires à leurs fenêtres.",
+  "revelations": [
+    {
+      "id": "warden",
+      "actor": "la gardienne Orane",
+      "text": "Une plaque de mémoire révèle la gardienne Orane, chargée autrefois de protéger les routes. Tu la vois emporter la lanterne lorsqu'un nouveau chemin a commencé à traverser les refuges des petites créatures. Elle voulait empêcher leur destruction. Mais en enfermant la lumière ici, elle a privé tous les autres passages de leurs repères. Son geste répond à une inquiétude réelle, et son remède a créé un problème plus vaste."
+    },
+    {
+      "id": "collector",
+      "actor": "le collectionneur Béril",
+      "text": "La plaque de mémoire montre Béril, un collectionneur de chemins anciens. Il a trouvé la lanterne pendant une visite au village et l'a emportée pour retrouver une route vers sa maison disparue. Il ne cherchait pas à perdre les voyageurs. Mais il a exigé de la lumière une seule destination, jusqu'à effacer les autres. Sa recherche sincère a transformé un repère partagé en une impasse."
+    },
+    {
+      "id": "sprite",
+      "actor": "la fée Tisseline",
+      "text": "Dans la plaque de mémoire, une petite fée nommée Tisseline traverse la place avec la lanterne. Elle croit que les humains l'ont oubliée, car personne ne vient plus lui raconter les voyages réussis. Elle a emporté la lumière pour lui offrir une histoire nouvelle. Le sort qu'elle a improvisé n'a gardé que les départs et perdu tous les retours. Il faut rétablir ces deux moitiés sans l'effrayer."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Une route sans retour",
+      "text": "Le sentier cesse de ressembler à celui que les grains dorés t'avaient montré. Une pierre revient deux fois, avec la même touffe de thym dans sa fente. Tu t'arrêtes avant de continuer à tourner. Plus loin, un poteau porte deux flèches opposées, toutes deux marquées du nom de ton village. Au pied du poteau, la poussière de la lanterne dessine un cercle incomplet. Elle n'a pas disparu : elle cherche encore une manière de relier les chemins. Tu pourrais compléter le cercle avec les petits repères présents sur place, ou suivre les traces fraîches qui le traversent. La première méthode aiderait aussi les voyageurs derrière toi ; la seconde te rapprocherait peut-être de la personne qui a emporté la lumière.",
+      "choices": [
+        {
+          "text": "Rétablir les repères du croisement",
+          "heroes": [
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Les flèches retrouvent leurs directions. Une ligne dorée te montre la suite du chemin.",
+            "Le chemin revient, mais une flèche continue de vibrer et attire la brume.",
+            "Les flèches se croisent encore. Tu trouves une sente latérale pour avancer malgré leur désordre."
+          ]
+        },
+        {
+          "text": "Suivre les traces qui traversent le cercle",
+          "heroes": [
+            "explorer",
+            "rogue",
+            "keeper"
+          ],
+          "results": [
+            "Les traces rejoignent un passage discret. Tu évites la boucle et gardes une piste précise.",
+            "Tu retrouves la piste, mais déplaces des grains dorés qui brouillent le croisement derrière toi.",
+            "Les traces s'effacent. Le bruit d'une clochette te conduit pourtant vers une autre entrée."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les deux empreintes",
+      "text": "À l'intérieur, une poussière grise recouvre le sol, sauf près d'une table étroite. Deux empreintes y sont visibles : une ronde, comme le pied d'une lampe, et une longue qui pourrait venir d'un coffret. Une corde les relie, puis disparaît sous une porte. Tu entends derrière cette porte un souffle régulier, suivi d'un petit cliquetis. Rien ne prouve encore que la lanterne se trouve de l'autre côté. Sur la table, un dessin représente le lieu avant son abandon, avec des accès désormais bouchés. Tu peux examiner les empreintes et écouter le mécanisme, ou chercher sur le dessin l'ancien chemin des personnes chargées de l'entretenir. Tu disposes de peu de certitudes, mais de deux indices qui ne racontent pas exactement la même chose.",
+      "choices": [
+        {
+          "text": "Étudier les empreintes et le bruit derrière la porte",
+          "heroes": [
+            "explorer",
+            "keeper",
+            "rogue"
+          ],
+          "results": [
+            "Tu distingues un mécanisme de transport. La lumière a bien emprunté ce passage.",
+            "L'indice est clair, mais la corde se tend et réveille le dispositif.",
+            "La poussière glisse sous tes doigts. Un plancher creux révèle tout de même un accès voisin."
+          ]
+        },
+        {
+          "text": "Retrouver le chemin d'entretien sur le dessin",
+          "heroes": [
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Le dessin révèle une porte de service dont tu repères immédiatement la poignée.",
+            "Tu trouves l'accès, mais une marque de surveillance s'allume lorsque tu l'ouvres.",
+            "Le dessin est incomplet. Son bord replié indique pourtant une galerie où poursuivre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le verrou de lumière",
+      "text": "La porte suivante n'a ni poignée ni charnière visible. Des signes tournent sur sa surface comme des lucioles prisonnières d'un cercle. Un petit socle garde l'empreinte ronde que tu as reconnue auparavant. La lanterne a dû passer ici. À côté, une grille laisse entrer un courant d'air qui sent la cire chaude. Tu poses ta main à distance des signes et sens une résistance souple : le passage répond à la lumière, pas à la force. Tu pourrais employer ton objet pour comprendre sa langue, ou longer la grille afin de trouver l'ouverture utilisée par l'air. Les deux voies semblent conduire au même endroit. L'une t'apprendrait le fonctionnement du verrou ; l'autre éviterait de lui demander la permission, au prix d'un détour plus étroit.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Les signes s'accordent à ton objet. La porte s'ouvre sans perdre sa lumière.",
+            "La porte s'ouvre, mais une traînée lumineuse annonce ton passage dans la salle suivante.",
+            "Les signes refusent l'accord. Une petite ouverture sous le socle te permet de poursuivre."
+          ]
+        },
+        {
+          "text": "Chercher l'accès derrière la grille d'aération",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "keeper"
+          ],
+          "results": [
+            "Tu repères une trappe d'entretien. Elle mène de l'autre côté du verrou.",
+            "La trappe te laisse passer, mais sa grille frotte et réveille une clochette.",
+            "La trappe résiste. Le souffle déplace un panneau voisin où tu trouves une autre ouverture."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le passage qui écoute",
+      "text": "Au-delà du verrou, tu découvres un passage où chaque bruit revient sous forme de lumière. Un pas fait briller une ligne ; une parole en fait briller trois. Les lignes se dirigent vers deux portes, dont l'une porte un signe de flamme et l'autre un signe de main ouverte. Tu ne sais pas encore s'il s'agit d'un avertissement ou d'une invitation. Une vieille inscription explique que les porteurs de la lanterne empruntaient ici deux routes : celle des signaux et celle des réparations. Tu peux avancer en répondant au rythme lumineux, ou choisir le chemin d'entretien, plus silencieux. Le premier pourrait révéler qui commande désormais la lumière ; le second te permettrait d'observer son installation sans te présenter tout de suite.",
+      "choices": [
+        {
+          "text": "Répondre au rythme du chemin des signaux",
+          "heroes": [
+            "mage",
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Les lignes te répondent. Tu rejoins une salle où des messages lumineux circulent encore.",
+            "Le rythme t'ouvre le chemin, mais ton signal se répète derrière toi.",
+            "Ton rythme ne convient pas. Une lumière de secours te guide malgré tout vers la salle des signaux."
+          ]
+        },
+        {
+          "text": "Emprunter le chemin silencieux des réparations",
+          "heroes": [
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Tu atteins une alcôve d'entretien sans interrompre les signaux qui traversent le lieu.",
+            "Le détour fonctionne, mais un panneau déplacé change le rythme des lumières.",
+            "Le chemin se ferme derrière toi. Une échelle intérieure te mène quand même à l'alcôve."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une carte de lumière",
+      "text": "Dans la salle des signaux, une carte lumineuse flotte au-dessus d'une table. Chaque route y apparaît comme un fil, mais certains fils s'arrêtent au milieu de rien. {encounter_name} te rejoint après avoir suivi le signal que tu as laissé dans le passage. Vous voyez un même point clignoter à plusieurs endroits : la lanterne semble appeler depuis un lieu qui ne figure plus sur les plans. {encounter_name} propose de comparer sa propre observation avec la carte. Tu peux prendre le temps de travailler ensemble et lui confier une partie du trajet, ou lui demander de rester ici pour maintenir le signal pendant que tu avances. Les deux rôles sont utiles. Ce qui change, c'est l'aide dont tu disposeras auprès de la lumière, et la solidité du chemin pour revenir.",
+      "choices": [
+        {
+          "text": "Comparer les indices et poursuivre ensemble",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Vos observations se complètent. {encounter_name} accepte de venir avec toi jusqu'à la lanterne.",
+            "Vous trouvez la piste ensemble, mais la carte absorbe une partie de sa propre lumière.",
+            "La carte résiste à vos essais. {encounter_name} reste pour surveiller les fils pendant que tu avances."
+          ]
+        },
+        {
+          "text": "Confier le signal de retour à {encounter_name}",
+          "heroes": [
+            "knight",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Le signal reste stable. Tu avances en sachant comment retrouver la salle.",
+            "Le signal tient, mais il faudra revenir avant que sa lumière ne diminue trop.",
+            "La carte brouille le signal. Une corde fixée au passage te fournit néanmoins un repère de retour."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ce que la lanterne reliait",
+      "text": "Un panneau ancien représente la lanterne entourée de petits chemins qui ne conduisent pas aux villages. L'un rejoint un terrier, un autre une source, un troisième un arbre creux. Tu pensais chercher l'objet des voyageurs ; tu découvres qu'il guidait aussi les créatures et les gardiens du lieu. Sous le panneau, deux rouleaux sont coincés dans une boîte. Le premier détaille les usages de la lumière. Le second rassemble les plaintes écrites avant sa disparition. Tu pourrais ouvrir le rouleau des usages pour apprendre un secret oublié, ou lire les plaintes pour mieux comprendre le geste de la personne qui a pris la lanterne. Les deux documents peuvent t'aider, mais le mécanisme qui les protège n'autorise qu'une ouverture avant de se refermer.",
+      "choices": [
+        {
+          "text": "Lire les usages oubliés de la lanterne",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "flag": "secret",
+          "results": [
+            "Tu apprends que la lanterne peut ouvrir un chemin nouveau sans effacer les anciens.",
+            "Tu lis l'essentiel, mais la boîte se ferme en retenant la dernière page.",
+            "Le rouleau reste fermé. Son étui porte néanmoins le dessin d'une route ouverte à tous."
+          ]
+        },
+        {
+          "text": "Comprendre les plaintes qui précèdent la disparition",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Les plaintes montrent une peur réelle. Tu sauras l'aborder sans accusation inutile.",
+            "Le message est lisible, mais une partie de l'encre se transforme en brume.",
+            "Le texte s'efface. Une signature et un lieu de rendez-vous demeurent au bas du rouleau."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le fil qui manque",
+      "text": "Le passage débouche sur un dispositif de cinq arcs. Quatre sont reliés par des fils lumineux ; le dernier reste sombre. La lanterne a laissé sa trace sur ce cinquième arc avant d'être emportée plus loin. Tu remarques que le fil manquant n'a pas été coupé : ses deux extrémités se cherchent de part et d'autre d'un vide. Les raccorder pourrait rendre le retour plus facile, mais le dispositif paraît fragile. Tu peux utiliser ton objet pour retrouver la liaison invisible, ou réparer d'abord les petits repères qui entourent les arcs. La première option te donnerait une piste directe vers la lanterne. La seconde apaiserait le lieu et pourrait corriger les perturbations laissées par tes tentatives précédentes, au prix d'un travail plus patient.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La liaison devient visible. Tu retrouves le fil qui conduit vers la lumière disparue.",
+            "Le fil apparaît, mais sa vibration gagne les arcs et complique le retour.",
+            "Le fil refuse de se rejoindre. Une pulsation voisine t'indique tout de même la direction à suivre."
+          ]
+        },
+        {
+          "text": "Réparer les repères autour des cinq arcs",
+          "heroes": [
+            "knight",
+            "explorer",
+            "keeper"
+          ],
+          "repair": true,
+          "results": [
+            "Les arcs se stabilisent. Tu effaces les perturbations avant de poursuivre vers la lanterne.",
+            "Les repères tiennent, même si un arc devra être réparé après ton départ.",
+            "Un repère cède. Le vide s'élargit, mais une voie d'entretien reste ouverte."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La lumière sous tension",
+      "text": "Une lueur chaude traverse désormais le mur devant toi. Elle s'étire en longues lignes lorsque tu bouges, puis se replie si tu t'arrêtes. La lanterne est proche, mais les chemins autour d'elle se disputent sa force. Tu trouves deux points d'observation : un balcon qui domine le dispositif, et un passage au ras du sol où les fils restent accessibles. Depuis le balcon, tu pourrais comprendre l'ensemble avant de choisir un geste. Au sol, tu pourrais déjà mettre en place une sortie de secours pour la lumière. Aucun choix n'annule le danger ; ils préparent deux manières différentes de l'affronter. Tu repenses à ce que ta formation t'a appris sur les situations qui changent pendant qu'on les observe, et sur les décisions qu'il faut savoir reprendre.",
+      "choices": [
+        {
+          "text": "Observer l'ensemble depuis le balcon",
+          "heroes": [
+            "explorer",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Tu repères le moment où tous les fils se détendent. Ton plan devient précis.",
+            "Tu comprends le rythme, mais le balcon attire un filament qui signale ta présence.",
+            "Le balcon tremble trop. Tu redescends avec une idée de la disposition des fils."
+          ]
+        },
+        {
+          "text": "Préparer une sortie de secours pour la lumière",
+          "heroes": [
+            "rogue",
+            "keeper"
+          ],
+          "repair": true,
+          "results": [
+            "La sortie est prête. Une partie de la force peut désormais quitter le dispositif sans secousse.",
+            "La sortie apaise le lieu, mais elle laissera un chemin provisoire à surveiller.",
+            "La sortie ne répond pas. Un conduit ancien reste pourtant disponible pour ton intervention finale."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La personne derrière la disparition",
+      "text": "Tu arrives devant une plaque translucide où un souvenir se rejoue. Elle contient les derniers instants de la lanterne sur la place du village. Tu reconnais le socle, les maisons et les lampes ordinaires ; puis une silhouette s'approche et soulève la lumière. Le souvenir n'explique pas tout à lui seul. À côté, une poignée permet de répéter la scène, tandis qu'une fenêtre donne sur la salle où la lanterne brille maintenant. Tu peux prendre le temps de comprendre le motif de la disparition, ou appeler directement la personne responsable pour ouvrir une discussion. Ce n'est plus seulement une recherche d'objet : tu devras résoudre ce qui a poussé quelqu'un à rompre les chemins. La plaque s'éclaire assez pour révéler enfin son identité.",
+      "choices": [
+        {
+          "text": "Comprendre le souvenir avant d'entrer",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu distingues le besoin caché derrière le geste. Tu entres avec une proposition concrète.",
+            "Le souvenir t'éclaire, mais sa dernière image transmet ton approche à la salle.",
+            "La plaque s'éteint. Le motif reste imparfaitement compris, mais la fenêtre permet d'engager le dialogue."
+          ]
+        },
+        {
+          "text": "Appeler la personne qui a emporté la lanterne",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Ton appel reçoit une réponse. La porte s'ouvre avant que la lumière ne se referme.",
+            "La réponse vient, mais un fil se tend pour séparer vos deux côtés de la salle.",
+            "Personne ne répond d'abord. Tu trouves une entrée latérale et peux encore parler face à face."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Un chemin pour chacun",
+      "text": "Face à toi, {revelation_actor} se tient près de la lanterne. La lumière repose dans un cadre qui ne lui laisse qu'une direction. Tu expliques ce qui arrive aux voyageurs et montres les traces de ses anciens usages. La personne t'écoute, puis pose une question difficile : que deviendra le chemin qu'elle voulait protéger ou retrouver ? Tu peux proposer de partager la lumière entre l'ancienne route et les autres passages, ou de créer d'abord un détour qui réponde à ce besoin. La première solution demande de changer le cadre pendant qu'il brille. La seconde exige de trouver une place pour un nouveau chemin. Tu ne peux pas simplement reprendre l'objet et partir ; le lieu continuerait à retenir une partie de sa force. La réponse doit tenir pour ceux qui resteront après toi.",
+      "choices": [
+        {
+          "text": "Proposer de partager la lumière entre les chemins",
+          "heroes": [
+            "keeper",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Ta proposition est acceptée. Le cadre s'entrouvre et laisse passer plusieurs fils lumineux.",
+            "Le partage est accepté, mais une route exigera un gardien pendant quelques jours.",
+            "Le cadre refuse le partage immédiat. Vous convenez d'une ouverture progressive plutôt que d'un arrachement."
+          ]
+        },
+        {
+          "text": "Créer un détour qui protège le besoin découvert",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Un détour devient possible. La personne accepte que la lanterne serve de nouveau tous les voyageurs.",
+            "Le détour fonctionne, mais il faudra déplacer un ancien repère avant son ouverture complète.",
+            "Le détour ne tient pas encore. Vous marquez un chemin provisoire pour éviter d'aggraver le désordre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La liaison de la lanterne",
+      "text": "Le cadre est désormais assez ouvert pour intervenir. La lanterne projette deux marques sur le sol : l'une représente les départs, l'autre les retours. Tant qu'elles restent séparées, une route peut appeler un voyageur sans lui permettre de rentrer. Tu comprends ce qui rendait les chemins si trompeurs. Ton objet répond à ces marques, comme il l'avait fait au verrou et au dispositif des arcs. Tu pourrais établir la liaison directement avec lui, ou utiliser les repères préparés autour de la salle pour guider la lumière à distance. La première méthode serait plus précise ; la seconde répartirait l'effort sur plusieurs points. Tu gardes assez de place pour reculer si la lanterne réagit trop vivement. Il reste une décision avant de libérer sa lumière dans les chemins.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Les départs et les retours se rejoignent. La lanterne retrouve un rythme paisible.",
+            "La liaison se forme, mais une pulsation échappe au cadre et traverse les passages voisins.",
+            "La liaison directe résiste. Tu gardes les marques accessibles pour tenter une ouverture répartie."
+          ]
+        },
+        {
+          "text": "Relier les marques avec les repères de la salle",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les repères portent la lumière ensemble. Le cadre cesse de tirer sur les chemins.",
+            "La liaison tient, mais quelques repères devront être remplacés après ton départ.",
+            "Un repère s'éteint. Les autres maintiennent une ouverture suffisante pour continuer l'intervention."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ouvrir les routes",
+      "text": "La lumière peut enfin quitter le cadre, mais il faut décider comment la transmettre. Tu entends au loin les clochettes des croisements : certaines répondent déjà, d'autres gardent le silence. Une ouverture centrale ferait revenir les routes en un seul mouvement. Elle pourrait aussi transmettre les secousses que le lieu garde encore. En passant par les anciens relais, tu rétablirais les chemins l'un après l'autre, avec davantage de lenteur et de contrôle. {revelation_actor} accepte de rester pour surveiller le premier trajet, quelle que soit ta décision. Tu prends une dernière fois la mesure de la salle, des retours possibles et des traces laissées par ton aventure. La lanterne n'attend plus qu'une direction. Cette fois, tu ne lui demandes pas de mener tout le monde au même endroit, mais de permettre à chacun de choisir son voyage.",
+      "choices": [
+        {
+          "text": "Rendre la lumière aux routes en un seul mouvement",
+          "heroes": [
+            "mage",
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les croisements répondent ensemble. Les chemins retrouvent des départs et des retours distincts.",
+            "Les routes s'ouvrent, mais un croisement garde une brume que le village devra surveiller.",
+            "L'ouverture est trop vive. Tu la ralentis et conserves un réseau provisoire pour les voyageurs."
+          ]
+        },
+        {
+          "text": "Rétablir les chemins par les anciens relais",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les relais répondent un à un. La lumière circule de nouveau sans emporter les anciens refuges.",
+            "Les routes reviennent progressivement. Une équipe devra terminer les derniers repères demain.",
+            "Quelques relais restent muets. Vous maintenez les trajets essentiels et préparez la suite des réparations."
+          ]
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "Dans l'alcôve d'entretien",
+    "text": "L'alcôve contient des boîtes d'huile, des chiffons et un établi couvert de fils dorés. Ce lieu modeste te raconte un travail régulier : quelqu'un entretenait la lanterne, pas seulement son éclat. {encounter_name} arrive par une trappe voisine après avoir repéré ton passage. Vous trouvez ensemble un carnet où les réparations ordinaires sont suivies d'une ligne brusquement interrompue. {encounter_name} pourrait venir avec toi pour reconnaître les mécanismes rencontrés plus loin, ou rester près de l'établi et remettre en état le dispositif de retour. Aucun de vous ne connaît encore la salle centrale. Tu dois choisir où cette aide sera la plus utile, tout en gardant une manière claire de vous retrouver. À travers les fils posés sur la table, une faible lumière indique déjà la sortie de l'alcôve.",
+    "choices": [
+      {
+        "text": "Prendre les outils utiles et poursuivre ensemble",
+        "heroes": [
+          "keeper",
+          "knight"
+        ],
+        "results": [
+          "Vous repérez les outils nécessaires. {encounter_name} vient avec toi pour suivre les fils.",
+          "Vous préparez l'aide ensemble, mais un outil déplace une liaison fragile de l'établi.",
+          "Les outils ne conviennent pas. {encounter_name} reste pour comprendre l'établi pendant que tu avances."
+        ]
+      },
+      {
+        "text": "Confier la remise en état du retour à {encounter_name}",
+        "heroes": [
+          "rogue",
+          "explorer",
+          "mage"
+        ],
+        "results": [
+          "Le retour retrouve ses repères. Tu peux avancer sans perdre la route de l'alcôve.",
+          "Le retour fonctionne, mais l'établi garde une petite fuite lumineuse à surveiller.",
+          "La réparation ne tient pas. Vous marquez un trajet manuel avant de vous séparer."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "Une route qui n'existait pas",
+      "text": "Tu reviens avec davantage qu'une réponse sur la disparition. Les usages oubliés de la lanterne montrent qu'un chemin nouveau peut rejoindre les anciens sans leur prendre leur lumière. Les habitants décident de préparer cette route ensemble, avec les créatures et les personnes qui en auront besoin. Tout n'est pas nécessairement réparé ce soir, mais le village sait maintenant comment poursuivre. À côté du socle, une petite flèche demeure sans nom. On te demande quelle destination elle devrait porter. Tu proposes d'attendre la première personne qui aura besoin d'un passage que personne n'avait encore imaginé."
+    },
+    "alliance": {
+      "title": "Les gardiens des retours",
+      "text": "Grâce à l'aide de {encounter_name}, vous conservez assez de repères pour ramener au village une lumière utile et une explication claire. Vous racontez aussi pourquoi quelqu'un avait voulu l'emporter. Les habitants ne se contentent pas de replacer un objet sur son socle : ils organisent une veille des chemins, où les voyageurs apportent nouvelles et observations. {encounter_name} accepte d'y participer. Tu comprends que l'aventure n'a pas tenu à un seul geste spectaculaire. Elle a tenu à plusieurs personnes capables de surveiller des endroits différents et de se répondre quand une route devenait incertaine."
+    },
+    "radiant": {
+      "title": "Toutes les fenêtres allumées",
+      "text": "La lumière retrouve sa place au village, et les premières clochettes annoncent des voyageurs arrivés à bon port. Tu expliques le besoin découvert derrière la disparition ; le conseil promet de l'intégrer aux nouvelles routes. Ce soir, chaque fenêtre garde une lampe, même si la grande lanterne fonctionne de nouveau. Les habitants veulent rappeler que les chemins appartiennent à ceux qui les empruntent et à ceux qui les accueillent. En traversant la place, tu vois ton propre trajet se dessiner brièvement dans l'air, puis se mêler aux autres. L'aventure est devenue une route parmi beaucoup d'autres."
+    },
+    "cost": {
+      "title": "La lumière du lendemain",
+      "text": "Le village retrouve assez de routes pour reprendre ses échanges, mais plusieurs croisements devront encore être surveillés. Tu racontes les difficultés sans les cacher. On prépare des repères ordinaires, des équipes de voyageurs et un calendrier de réparations. La lumière a changé : elle semble moins éclatante lorsqu'on la regarde seule, plus stable lorsque plusieurs lampes l'accompagnent. Tu as atteint une réponse qui demande du travail après ton retour. Les habitants l'acceptent, parce qu'ils peuvent enfin agir au lieu d'attendre. Au matin, le premier groupe part avec une carte que tes découvertes ont rendue possible."
+    },
+    "resilient": {
+      "title": "Le premier chemin sûr",
+      "text": "La lanterne ne reprend pas toute sa force immédiatement. Pourtant, tu reviens avec un trajet utilisable, des repères et l'identité de la personne qui connaissait le problème. Le village n'est plus prisonnier d'un mystère. On commence par ouvrir un chemin sûr, puis on préparera les suivants. Tu regardes les habitants tracer leurs premières marques et comprends ce que ton aventure a rendu possible : une suite, organisée et partagée. Les erreurs rencontrées ne disparaissent pas du récit, mais elles ne décident pas de sa fin. Ce soir, quelqu'un peut partir chercher de l'aide et retrouver sa maison."
+    }
+  }
+}

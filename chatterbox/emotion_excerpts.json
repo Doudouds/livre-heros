@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "status": "proposed",
+  "language_id": "fr",
+  "reference_audio": "chatterbox/Recording.wav",
+  "reference_sha256_at_proposal": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "notes": [
+    "Textes proposés pour validation avant génération audio.",
+    "Utiliser le même fichier de référence pour tous les extraits et recalculer son empreinte avant la génération.",
+    "Les émotions et intentions sont des objectifs d'écoute, pas des paramètres émotionnels natifs de Chatterbox.",
+    "Seul le champ text doit être prononcé. Conserver les textes lors des comparaisons de réglages."
+  ],
+  "excerpts": [
+    {
+      "id": "01_joie",
+      "emotion": "Joie enthousiaste",
+      "intention": "Une joie spontanée, un sourire audible et de l'élan.",
+      "text": "On a réussi ! Regarde, les lanternes se rallument dans tout le village ! Je savais que nous trouverions une solution. Viens, il faut prévenir les autres !"
+    },
+    {
+      "id": "02_tristesse",
+      "emotion": "Tristesse contenue",
+      "intention": "Une voix retenue, une peine intime, sans surjouer les sanglots.",
+      "text": "J'avais gardé une place pour lui, juste ici, près du feu. Je pensais qu'il reviendrait avant la nuit. Maintenant, je ne sais même plus à qui raconter notre aventure."
+    },
+    {
+      "id": "03_colere",
+      "emotion": "Colère",
+      "intention": "Une indignation nette, des mots appuyés et une tension croissante.",
+      "text": "Tu le savais depuis le début ! Tu nous as laissés chercher pendant des heures, alors que la clé était dans ta poche ! Cette fois, tu vas nous expliquer pourquoi."
+    },
+    {
+      "id": "04_peur",
+      "emotion": "Peur",
+      "intention": "Une inquiétude qui monte, une hésitation et une demande de protection.",
+      "text": "Attends. Tu as entendu ce bruit derrière la porte ? Il se rapproche. Je t'en prie, reste près de moi. Je ne veux pas traverser ce couloir tout seul."
+    },
+    {
+      "id": "05_emerveillement",
+      "emotion": "Émerveillement",
+      "intention": "Une admiration douce, une découverte qui suspend momentanément la parole.",
+      "text": "Regarde là-haut. Les étoiles descendent jusqu'à la rivière. On dirait qu'elles viennent boire dans l'eau. Je n'avais jamais imaginé qu'un endroit pareil puisse exister."
+    },
+    {
+      "id": "06_tendresse",
+      "emotion": "Tendresse rassurante",
+      "intention": "Une voix chaleureuse, proche, calme et protectrice.",
+      "text": "Viens près de moi. Tu peux te reposer, maintenant. Je reste ici, et je te tiendrai la main aussi longtemps qu'il le faudra. Nous repartirons quand tu seras prêt."
+    },
+    {
+      "id": "07_surprise",
+      "emotion": "Surprise et incrédulité",
+      "intention": "Une réaction vive, un étonnement franc, puis une curiosité amusée.",
+      "text": "Mais... c'est toi ? Comment es-tu arrivé ici avant nous ? Je t'ai vu partir dans l'autre direction ! Attends, ne me dis pas que tu connais un passage secret !"
+    },
+    {
+      "id": "08_determination",
+      "emotion": "Détermination",
+      "intention": "Une voix ferme et résolue, qui gagne en assurance sans crier.",
+      "text": "J'ai peur, oui. Mais je ne partirai pas sans elle. Il reste une chance de la retrouver, et je compte bien la saisir. Ouvre la porte. Nous y allons."
+    },
+    {
+      "id": "09_soulagement",
+      "emotion": "Soulagement",
+      "intention": "Une tension qui retombe, puis une chaleur soulagée à la fin.",
+      "text": "Te voilà enfin. Quand la passerelle s'est effondrée, j'ai cru que je ne te reverrais plus. Viens, laisse-moi te regarder. Tu n'as rien ? Alors nous pouvons souffler."
+    },
+    {
+      "id": "10_malice",
+      "emotion": "Malice joueuse",
+      "intention": "Une fausse innocence, un sourire complice et un amusement retenu.",
+      "text": "Oh, bien sûr, je n'ai absolument pas touché au gâteau. Cette trace de chocolat ? Quelle trace de chocolat ? À mon avis, nous avons affaire à un voleur très mystérieux."
+    }
+  ]
+}

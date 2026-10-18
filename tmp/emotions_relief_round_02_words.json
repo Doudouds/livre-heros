@@ -1,0 +1,166 @@
+{
+  "source": "audio\\experiments\\emotions\\essai_02_e12fed44e64c\\files\\09_soulagement.wav",
+  "sha256": "e3f22bfdf2d3c5f39d91eed4daf8abe1d7a43ec675bcb2452b76acac85a5940e",
+  "words": [
+    {
+      "word": " De",
+      "start": 0.0,
+      "end": 0.18
+    },
+    {
+      "word": " voilà",
+      "start": 0.18,
+      "end": 0.4
+    },
+    {
+      "word": " enfin.",
+      "start": 0.4,
+      "end": 0.8
+    },
+    {
+      "word": " Quand",
+      "start": 1.36,
+      "end": 1.52
+    },
+    {
+      "word": " la",
+      "start": 1.52,
+      "end": 1.64
+    },
+    {
+      "word": " passerelle",
+      "start": 1.64,
+      "end": 2.0
+    },
+    {
+      "word": " s",
+      "start": 2.0,
+      "end": 2.12
+    },
+    {
+      "word": "'est",
+      "start": 2.12,
+      "end": 2.16
+    },
+    {
+      "word": " effondrée,",
+      "start": 2.16,
+      "end": 2.68
+    },
+    {
+      "word": " j",
+      "start": 3.06,
+      "end": 3.1
+    },
+    {
+      "word": "'ai",
+      "start": 3.1,
+      "end": 3.18
+    },
+    {
+      "word": " cru",
+      "start": 3.18,
+      "end": 3.32
+    },
+    {
+      "word": " que",
+      "start": 3.32,
+      "end": 3.48
+    },
+    {
+      "word": " je",
+      "start": 3.48,
+      "end": 3.6
+    },
+    {
+      "word": " ne",
+      "start": 3.6,
+      "end": 3.68
+    },
+    {
+      "word": " te",
+      "start": 3.68,
+      "end": 3.8
+    },
+    {
+      "word": " reserrais",
+      "start": 3.8,
+      "end": 4.18
+    },
+    {
+      "word": " plus.",
+      "start": 4.18,
+      "end": 4.42
+    },
+    {
+      "word": " Bien.",
+      "start": 5.04,
+      "end": 5.44
+    },
+    {
+      "word": " Laisse",
+      "start": 6.18,
+      "end": 6.38
+    },
+    {
+      "word": "-moi",
+      "start": 6.38,
+      "end": 6.48
+    },
+    {
+      "word": " te",
+      "start": 6.48,
+      "end": 6.6
+    },
+    {
+      "word": " regarder.",
+      "start": 6.6,
+      "end": 6.82
+    },
+    {
+      "word": " Tu",
+      "start": 7.84,
+      "end": 8.06
+    },
+    {
+      "word": " n",
+      "start": 8.06,
+      "end": 8.18
+    },
+    {
+      "word": "'as",
+      "start": 8.18,
+      "end": 8.2
+    },
+    {
+      "word": " rien",
+      "start": 8.2,
+      "end": 8.42
+    },
+    {
+      "word": " ?",
+      "start": 8.42,
+      "end": 9.22
+    },
+    {
+      "word": " Alors",
+      "start": 9.22,
+      "end": 9.42
+    },
+    {
+      "word": " nous",
+      "start": 9.42,
+      "end": 9.6
+    },
+    {
+      "word": " pouvons",
+      "start": 9.6,
+      "end": 9.92
+    },
+    {
+      "word": " souffler.",
+      "start": 9.92,
+      "end": 10.34
+    }
+  ]
+}

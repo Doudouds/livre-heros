@@ -1,0 +1,45 @@
+{
+  "max_chars": 300,
+  "pause_ms": 150,
+  "whisper": false,
+  "compare_single_take": false,
+  "segments": [
+    {
+      "segment_id": "cages_intro_narration_eac30602611c32c7d23f",
+      "scene_id": "cages_intro",
+      "scene_number": 0,
+      "title": "La Maison aux Sept Cages",
+      "variant_number": 1,
+      "output_file": "D:\\livre_heros\\audio\\files\\cages_intro_narration_eac30602611c32c7d23f.wav",
+      "text": "« Quand la nuit descend sur les bois, le bon chemin mène chez soi », chante votre mère. Lison, ta petite sœur, préfère changer la fin : « Prends ma main, je rentre avec toi. » Elle glisse sa main dans la tienne en chantant ; elle le fait chaque fois.\n\nCe matin, elle est partie cueillir des mûres avec son panier d'osier. Lison est partie vers les mûriers de Valombre, le château abandonné. Les villageois ramassent les fruits dans son ancien verger. Depuis peu, une cheminée fume dans le logis qui borde la cour.\n\nAu repas, sa chaise reste vide. Votre mère laisse refroidir son bol. « Quelqu'un l'aura vue sur la route. Je vais demander. Toi, cherche-la sur son sentier ; nous nous retrouverons à la lisière. » Sa main demeure un instant sur ton épaule.\n\nTon apprentissage de la chevalerie t'a préparé à secourir les autres. Cette fois, c'est ta petite sœur qui a besoin de toi. Avec du pain, une gourde et l'épée enchantée, tu pars chercher Lison.\n\nSous un noisetier, des mûres tachent la terre autour d'un panier renversé. Tu reconnais celui de Lison au fil rouge noué à son anse. Plus haut pend le ruban bleu qu'elle portait ce matin. Tu le gardes dans ta main ; il est encore humide de pluie.",
+      "characters": 1197,
+      "chunks": [
+        {
+          "number": 1,
+          "characters": 250,
+          "text": "« Quand la nuit descend sur les bois, le bon chemin mène chez soi », chante votre mère. Lison, ta petite sœur, préfère changer la fin : « Prends ma main, je rentre avec toi. » Elle glisse sa main dans la tienne en chantant ; elle le fait chaque fois."
+        },
+        {
+          "number": 2,
+          "characters": 293,
+          "text": "Ce matin, elle est partie cueillir des mûres avec son panier d'osier. Lison est partie vers les mûriers de Valombre, le château abandonné. Les villageois ramassent les fruits dans son ancien verger. Depuis peu, une cheminée fume dans le logis qui borde la cour. Au repas, sa chaise reste vide."
+        },
+        {
+          "number": 3,
+          "characters": 277,
+          "text": "Votre mère laisse refroidir son bol. « Quelqu'un l'aura vue sur la route. Je vais demander. Toi, cherche-la sur son sentier ; nous nous retrouverons à la lisière. » Sa main demeure un instant sur ton épaule. Ton apprentissage de la chevalerie t'a préparé à secourir les autres."
+        },
+        {
+          "number": 4,
+          "characters": 256,
+          "text": "Cette fois, c'est ta petite sœur qui a besoin de toi. Avec du pain, une gourde et l'épée enchantée, tu pars chercher Lison. Sous un noisetier, des mûres tachent la terre autour d'un panier renversé. Tu reconnais celui de Lison au fil rouge noué à son anse."
+        },
+        {
+          "number": 5,
+          "characters": 113,
+          "text": "Plus haut pend le ruban bleu qu'elle portait ce matin. Tu le gardes dans ta main ; il est encore humide de pluie."
+        }
+      ]
+    }
+  ]
+}

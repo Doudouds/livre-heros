@@ -1,0 +1,930 @@
+{
+  "version": 2,
+  "seed": 42,
+  "configuration": {
+    "hero": "knight",
+    "location": "castle",
+    "item": "sword"
+  },
+  "forced_arc": "lantern",
+  "arc": "lantern",
+  "encounter": "lia",
+  "revelation": "captain",
+  "scenes": [
+    {
+      "id": "lantern_intro",
+      "variants": [],
+      "text": "La fête d'Aubépine devait commencer au lever du soleil. Chaque année, la reine prête sa couronne au village pour que les enfants la portent un instant pendant le défilé. Cette nuit, des voleurs l'ont emportée avec la caisse des offrandes. Le garde qui les a vus affirme qu'ils sont partis vers le château abandonné de Valombre. Personne n'a été blessé, mais les habitants craignent que le trésor soit vendu avant leur arrivée. La reine te confie une mission : retrouver la couronne et découvrir où se cache la bande. Elle ne te demande pas d'affronter plusieurs adultes. Si la situation devient trop dangereuse, tu devras rapporter des preuves et guider les gardes. Tu pars avec une description du coffre, un morceau de pain et la promesse que le village attendra ton retour avant de commencer la fête.\n\nTu as appris la chevalerie auprès des gardes du village. Ton maître t'a enseigné à tenir parole, à protéger les voyageurs et à ne jamais confondre le courage avec l'envie de se battre.\n\nLe forgeron te prête une épée courte dont la lame luit faiblement près des enchantements. Elle peut couper une corde ou détourner un sort léger.\n\nÀ l'entrée du chemin, tu rencontres Lia, une jeune cartographe. Elle porte des feuilles roulées, une corde et un couteau de voyage. Elle a entendu parler du problème au village et vient relever les passages.",
+      "spoken_text": "La fête d'Aubépine devait commencer au lever du soleil. Chaque année, la reine prête sa couronne au village pour que les enfants la portent un instant pendant le défilé. Cette nuit, des voleurs l'ont emportée avec la caisse des offrandes. Le garde qui les a vus affirme qu'ils sont partis vers le château abandonné de Valombre. Personne n'a été blessé, mais les habitants craignent que le trésor soit vendu avant leur arrivée. La reine te confie une mission : retrouver la couronne et découvrir où se cache la bande. Elle ne te demande pas d'affronter plusieurs adultes. Si la situation devient trop dangereuse, tu devras rapporter des preuves et guider les gardes. Tu pars avec une description du coffre, un morceau de pain et la promesse que le village attendra ton retour avant de commencer la fête.\n\nTu as appris la chevalerie auprès des gardes du village. Ton maître t'a enseigné à tenir parole, à protéger les voyageurs et à ne jamais confondre le courage avec l'envie de se battre.\n\nLe forgeron te prête une épée courte dont la lame luit faiblement près des enchantements. Elle peut couper une corde ou détourner un sort léger.\n\nÀ l'entrée du chemin, tu rencontres Lia, une jeune cartographe. Elle porte des feuilles roulées, une corde et un couteau de voyage. Elle a entendu parler du problème au village et vient relever les passages.",
+      "segment_id": "lantern_intro_narration_2175828210d8c09d80c6",
+      "choice_prompt": null,
+      "choice_segment_id": null,
+      "estimated_duration": 91.6
+    },
+    {
+      "id": "lantern_1",
+      "variants": [
+        "visit_castle"
+      ],
+      "text": "À l'entrée du lieu, deux traces de roues quittent la route. Un ruban rouge, semblable à ceux de la fête, pend à une branche. Tu le ramasses sans effacer les empreintes. Le chariot transportait quelque chose de lourd : ses roues se sont enfoncées dans la terre près du tournant. Un chemin large mène vers une entrée surveillée ; une petite piste contourne les premières constructions. Tu pourrais suivre les roues pour ne pas perdre le coffre, ou observer le détour avant d'approcher. Tu te rappelles la consigne de la reine et cherches aussi un endroit où laisser un message aux gardes. Plus loin, un chien aboie, puis quelqu'un lui ordonne de se taire. Les voleurs ne doivent pas être très loin.\n\nLes tours de Valombre dépassent les collines. Des ronces couvrent une partie du rempart, mais des traces récentes traversent la cour. Le pont a été réparé avec des planches neuves. Quelqu'un utilise donc encore cet endroit.",
+      "spoken_text": "À l'entrée du lieu, deux traces de roues quittent la route. Un ruban rouge, semblable à ceux de la fête, pend à une branche. Tu le ramasses sans effacer les empreintes. Le chariot transportait quelque chose de lourd : ses roues se sont enfoncées dans la terre près du tournant. Un chemin large mène vers une entrée surveillée ; une petite piste contourne les premières constructions. Tu pourrais suivre les roues pour ne pas perdre le coffre, ou observer le détour avant d'approcher. Tu te rappelles la consigne de la reine et cherches aussi un endroit où laisser un message aux gardes. Plus loin, un chien aboie, puis quelqu'un lui ordonne de se taire. Les voleurs ne doivent pas être très loin.\n\nLes tours de Valombre dépassent les collines. Des ronces couvrent une partie du rempart, mais des traces récentes traversent la cour. Le pont a été réparé avec des planches neuves. Quelqu'un utilise donc encore cet endroit.\n\nQue fais-tu ? Choix 1 : Suivre les roues du chariot. Ou choix 2 : Observer le détour avant de t’approcher.",
+      "segment_id": "lantern_1_narration_1520f2ca73311d74799e",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Suivre les roues du chariot. Ou choix 2 : Observer le détour avant de t’approcher.",
+      "choice_segment_id": null,
+      "estimated_duration": 69.6
+    },
+    {
+      "id": "lantern_2",
+      "variants": [],
+      "text": "Derrière un mur bas, tu aperçois une sentinelle assise sur une caisse. Elle compte des pièces en surveillant de temps en temps l'entrée. Le coffre royal n'est pas près d'elle, mais un morceau de tissu rouge dépasse d'un chariot vide. Tu attends pour comprendre les habitudes du garde. Quand une cloche sonne au loin, il tourne la tête et répond par un signe. Tu pourrais profiter de cet instant pour observer la cour, ou examiner le chariot afin de découvrir où le coffre a été porté. Une porte latérale porte des traces de métal sur son seuil. Tu t'accroupis pour regarder sans sortir de ton abri. Chaque détail peut t'éviter de devoir chercher au hasard parmi les bâtiments.\n\nTa formation t'aide à observer les abris et les passages. Un mur bas protège une personne accroupie ; une porte ouverte laisse une retraite possible. Tu vérifies aussi où poser les pieds sans glisser.",
+      "spoken_text": "Derrière un mur bas, tu aperçois une sentinelle assise sur une caisse. Elle compte des pièces en surveillant de temps en temps l'entrée. Le coffre royal n'est pas près d'elle, mais un morceau de tissu rouge dépasse d'un chariot vide. Tu attends pour comprendre les habitudes du garde. Quand une cloche sonne au loin, il tourne la tête et répond par un signe. Tu pourrais profiter de cet instant pour observer la cour, ou examiner le chariot afin de découvrir où le coffre a été porté. Une porte latérale porte des traces de métal sur son seuil. Tu t'accroupis pour regarder sans sortir de ton abri. Chaque détail peut t'éviter de devoir chercher au hasard parmi les bâtiments.\n\nTa formation t'aide à observer les abris et les passages. Un mur bas protège une personne accroupie ; une porte ouverte laisse une retraite possible. Tu vérifies aussi où poser les pieds sans glisser.\n\nQue fais-tu ? Choix 1 : Examiner le chariot et les traces du coffre. Ou choix 2 : Surveiller les déplacements de la sentinelle.",
+      "segment_id": "lantern_2_narration_5113783911de3bff85b1",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Examiner le chariot et les traces du coffre. Ou choix 2 : Surveiller les déplacements de la sentinelle.",
+      "choice_segment_id": null,
+      "estimated_duration": 68.8
+    },
+    {
+      "id": "lantern_3",
+      "variants": [],
+      "text": "La porte latérale donne accès au dépôt. Un verrou ancien la ferme et une corde retient un volet voisin. Des pointes rouillées bordent le cadre du volet ; tu devras protéger ta main si tu y passes. À travers une fente, tu distingues des caisses et le tissu rouge utilisé pour emballer la couronne. Un crochet placé à l'intérieur peut aussi libérer la porte. Tu examines les possibilités offertes par ton objet. Il reste une autre route : une ouverture haute donne sur un grenier où des sacs sont empilés. Elle exige de grimper, mais éviterait le verrou. Tu vérifies les appuis et écoutes les bruits de pas. Le garde de la cour est encore assez loin pour te laisser tenter une entrée.\n\nTu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "spoken_text": "La porte latérale donne accès au dépôt. Un verrou ancien la ferme et une corde retient un volet voisin. Des pointes rouillées bordent le cadre du volet ; tu devras protéger ta main si tu y passes. À travers une fente, tu distingues des caisses et le tissu rouge utilisé pour emballer la couronne. Un crochet placé à l'intérieur peut aussi libérer la porte. Tu examines les possibilités offertes par ton objet. Il reste une autre route : une ouverture haute donne sur un grenier où des sacs sont empilés. Elle exige de grimper, mais éviterait le verrou. Tu vérifies les appuis et écoutes les bruits de pas. Le garde de la cour est encore assez loin pour te laisser tenter une entrée.\n\nTu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.\n\nQue fais-tu ? Choix 1 : Couper la corde du volet avec ton épée. Ou choix 2 : Grimper jusqu’à l’ouverture du grenier.",
+      "segment_id": "lantern_3_narration_5dbf8253f1906160f835",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Couper la corde du volet avec ton épée. Ou choix 2 : Grimper jusqu’à l’ouverture du grenier.",
+      "choice_segment_id": null,
+      "estimated_duration": 75.2
+    },
+    {
+      "id": "lantern_4",
+      "variants": [],
+      "text": "Le dépôt ne contient plus le coffre. Sur une table, un billet annonce son transfert vers la salle centrale. Tu glisses le papier dans ta poche et suis les marques laissées par les porteurs. Deux chemins rejoignent la suite du repaire. Par le passage haut, tu pourrais observer les voleurs et leurs déplacements. Par le passage bas, tu resterais à l'abri des regards, mais sans savoir qui t'attend à la sortie. Une porte bat au vent au bout du couloir. Tu ne peux pas rester ici trop longtemps : la bande viendra chercher les dernières caisses. Tu prends le temps de choisir une route praticable et de retenir celle que tu pourrais employer au retour avec un objet lourd.\n\nUne galerie de pierre longe le rempart. Plusieurs dalles sont fendues et le parapet manque par endroits. Un escalier de service descend sous la galerie, puis remonte à son extrémité.",
+      "spoken_text": "Le dépôt ne contient plus le coffre. Sur une table, un billet annonce son transfert vers la salle centrale. Tu glisses le papier dans ta poche et suis les marques laissées par les porteurs. Deux chemins rejoignent la suite du repaire. Par le passage haut, tu pourrais observer les voleurs et leurs déplacements. Par le passage bas, tu resterais à l'abri des regards, mais sans savoir qui t'attend à la sortie. Une porte bat au vent au bout du couloir. Tu ne peux pas rester ici trop longtemps : la bande viendra chercher les dernières caisses. Tu prends le temps de choisir une route praticable et de retenir celle que tu pourrais employer au retour avec un objet lourd.\n\nUne galerie de pierre longe le rempart. Plusieurs dalles sont fendues et le parapet manque par endroits. Un escalier de service descend sous la galerie, puis remonte à son extrémité.\n\nQue fais-tu ? Choix 1 : Emprunter le passage haut pour surveiller la bande. Ou choix 2 : Passer en bas pour éviter les sentinelles.",
+      "segment_id": "lantern_4_narration_50b70680be82e6dde156",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Emprunter le passage haut pour surveiller la bande. Ou choix 2 : Passer en bas pour éviter les sentinelles.",
+      "choice_segment_id": null,
+      "estimated_duration": 68.0
+    },
+    {
+      "id": "lantern_5b",
+      "variants": [],
+      "text": "Le passage bas te conduit à une réserve. Des ballots et des sacs portent les noms de plusieurs villages. Tu retrouves Lia, qui a suivi un chemin voisin. Vous comprenez que la bande a volé plus que la couronne. Une porte rejoint l'escalier central, tandis qu'un couloir permet de sortir vers la route. Tu peux demander à Lia de t'accompagner pour reconnaître les biens et aider au transport. Tu peux aussi confier la réserve à cette personne, qui gardera les preuves et appellera les gardes. Vous devez laisser un signal clair pour vous retrouver. Tu notes les noms sur les sacs sans les ouvrir : les habitants pourront ainsi récupérer leurs affaires lorsque le repaire sera sécurisé.\n\nLia déroule son plan sur une pierre plate. Elle a mesuré les distances et repéré un passage qui évite le chemin principal. Elle sait aussi faire des nœuds solides. Elle pourrait te suivre pour comparer vos observations ou rester ici pour préparer le retour.",
+      "spoken_text": "Le passage bas te conduit à une réserve. Des ballots et des sacs portent les noms de plusieurs villages. Tu retrouves Lia, qui a suivi un chemin voisin. Vous comprenez que la bande a volé plus que la couronne. Une porte rejoint l'escalier central, tandis qu'un couloir permet de sortir vers la route. Tu peux demander à Lia de t'accompagner pour reconnaître les biens et aider au transport. Tu peux aussi confier la réserve à cette personne, qui gardera les preuves et appellera les gardes. Vous devez laisser un signal clair pour vous retrouver. Tu notes les noms sur les sacs sans les ouvrir : les habitants pourront ainsi récupérer leurs affaires lorsque le repaire sera sécurisé.\n\nLia déroule son plan sur une pierre plate. Elle a mesuré les distances et repéré un passage qui évite le chemin principal. Elle sait aussi faire des nœuds solides. Elle pourrait te suivre pour comparer vos observations ou rester ici pour préparer le retour.\n\nQue fais-tu ? Choix 1 : Poursuivre ensemble pour aider au transport. Ou choix 2 : Confier les preuves de la réserve à Lia.",
+      "segment_id": "lantern_5b_narration_075d9b4828b997728a83",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Poursuivre ensemble pour aider au transport. Ou choix 2 : Confier les preuves de la réserve à Lia.",
+      "choice_segment_id": null,
+      "estimated_duration": 72.4
+    },
+    {
+      "id": "lantern_6",
+      "variants": [
+        "memory_ally"
+      ],
+      "text": "Tu arrives dans une pièce où les voleurs ont rangé leurs cartes. Un dessin indique la salle centrale et la route prévue pour emporter le trésor. Sur une étagère, une petite boîte contient plusieurs étiquettes de caisses. L'une porte le sceau d'Aubépine. Tu pourrais examiner les papiers plus longtemps pour trouver un accès oublié, ou suivre immédiatement l'indication qui conduit au coffre. Un bruit de voix approche, puis s'éloigne vers la cour. Tu refermes doucement la porte. La recherche d'un secret pourrait donner une avance, mais elle exige de rester ici quelques instants. Tu observes le plan du lieu et vérifies où te cacher avant de toucher aux documents. Tu n'as pas oublié que les gardes auront besoin de preuves.\n\nTu découvres un plan de Valombre dans une pièce où dormait autrefois le portier. Il indique les cuisines, la grande salle et une sortie derrière le jardin. Des marques montrent qu'un passage a été condamné récemment.\n\nLia t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois.",
+      "spoken_text": "Tu arrives dans une pièce où les voleurs ont rangé leurs cartes. Un dessin indique la salle centrale et la route prévue pour emporter le trésor. Sur une étagère, une petite boîte contient plusieurs étiquettes de caisses. L'une porte le sceau d'Aubépine. Tu pourrais examiner les papiers plus longtemps pour trouver un accès oublié, ou suivre immédiatement l'indication qui conduit au coffre. Un bruit de voix approche, puis s'éloigne vers la cour. Tu refermes doucement la porte. La recherche d'un secret pourrait donner une avance, mais elle exige de rester ici quelques instants. Tu observes le plan du lieu et vérifies où te cacher avant de toucher aux documents. Tu n'as pas oublié que les gardes auront besoin de preuves.\n\nTu découvres un plan de Valombre dans une pièce où dormait autrefois le portier. Il indique les cuisines, la grande salle et une sortie derrière le jardin. Des marques montrent qu'un passage a été condamné récemment.\n\nLia t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois.\n\nQue fais-tu ? Choix 1 : Chercher un passage oublié dans les papiers. Ou choix 2 : Rejoindre directement la salle du coffre.",
+      "segment_id": "lantern_6_narration_dd7345515b2690017099",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Chercher un passage oublié dans les papiers. Ou choix 2 : Rejoindre directement la salle du coffre.",
+      "choice_segment_id": null,
+      "estimated_duration": 79.2
+    },
+    {
+      "id": "lantern_7",
+      "variants": [],
+      "text": "Une grille ferme le bas de l'escalier qui mène à la salle. Un cadenas protège son verrou ; une corde fixée à une poulie retient le battant. Tu distingues le crochet de sécurité derrière les barreaux. Il faudrait l'atteindre sans heurter les pointes du cadre. Ton objet pourrait aider à dégager cette attache. Une seconde méthode consiste à remonter la poulie avec la manivelle située sur le palier voisin. Elle paraît lourde, mais son mécanisme est ordinaire. Tu vérifies où la grille se déplacera lorsqu'elle sera libérée. Au-dessus de toi, une voix ordonne de préparer le coffre. Tu dois passer, tout en gardant l'escalier utilisable pour le retour et pour l'arrivée éventuelle des gardes.\n\nTu examines la corde de la grille près de la grille de l’escalier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "spoken_text": "Une grille ferme le bas de l'escalier qui mène à la salle. Un cadenas protège son verrou ; une corde fixée à une poulie retient le battant. Tu distingues le crochet de sécurité derrière les barreaux. Il faudrait l'atteindre sans heurter les pointes du cadre. Ton objet pourrait aider à dégager cette attache. Une seconde méthode consiste à remonter la poulie avec la manivelle située sur le palier voisin. Elle paraît lourde, mais son mécanisme est ordinaire. Tu vérifies où la grille se déplacera lorsqu'elle sera libérée. Au-dessus de toi, une voix ordonne de préparer le coffre. Tu dois passer, tout en gardant l'escalier utilisable pour le retour et pour l'arrivée éventuelle des gardes.\n\nTu examines la corde de la grille près de la grille de l’escalier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.\n\nQue fais-tu ? Choix 1 : Couper la corde de la grille avec ton épée. Ou choix 2 : Lever la grille avec la manivelle du palier.",
+      "segment_id": "lantern_7_narration_8b90e728b5ba7d496b6c",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Couper la corde de la grille avec ton épée. Ou choix 2 : Lever la grille avec la manivelle du palier.",
+      "choice_segment_id": null,
+      "estimated_duration": 74.0
+    },
+    {
+      "id": "lantern_8",
+      "variants": [
+        "unstable_echo"
+      ],
+      "text": "Tu regardes la salle depuis une ouverture. Deux voleurs discutent près de la porte principale. Le coffre est posé derrière l'estrade, hors de leur vue. La caisse des offrandes se trouve plus loin, à côté d'un sac de voyage. Tu pourrais détourner l'attention en provoquant un bruit dans le couloir, puis approcher le coffre. Tu pourrais aussi déplacer des caisses pour créer un abri et avancer lentement. Dans les deux cas, il faut éviter un affrontement. Tu vérifies ton chemin de retraite et cherches un endroit où cacher le trésor si tu ne peux pas l'emporter immédiatement. La lumière descend dans les fenêtres : le rendez-vous de la bande approche. Tu prends une respiration pour choisir une ruse que tu comprends vraiment.\n\nTu te rappelles les exercices de ta formation. Il faut annoncer son intention, protéger ce qui risque de tomber et garder une issue libre. Tu choisis un endroit solide pour te placer.\n\nLes difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative.",
+      "spoken_text": "Tu regardes la salle depuis une ouverture. Deux voleurs discutent près de la porte principale. Le coffre est posé derrière l'estrade, hors de leur vue. La caisse des offrandes se trouve plus loin, à côté d'un sac de voyage. Tu pourrais détourner l'attention en provoquant un bruit dans le couloir, puis approcher le coffre. Tu pourrais aussi déplacer des caisses pour créer un abri et avancer lentement. Dans les deux cas, il faut éviter un affrontement. Tu vérifies ton chemin de retraite et cherches un endroit où cacher le trésor si tu ne peux pas l'emporter immédiatement. La lumière descend dans les fenêtres : le rendez-vous de la bande approche. Tu prends une respiration pour choisir une ruse que tu comprends vraiment.\n\nTu te rappelles les exercices de ta formation. Il faut annoncer son intention, protéger ce qui risque de tomber et garder une issue libre. Tu choisis un endroit solide pour te placer.\n\nLes difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative.\n\nQue fais-tu ? Choix 1 : Attirer les sentinelles vers un bruit dans le couloir. Ou choix 2 : Approcher en préparant des abris derrière les caisses.",
+      "segment_id": "lantern_8_narration_90d93f936c26ef81c3fc",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Attirer les sentinelles vers un bruit dans le couloir. Ou choix 2 : Approcher en préparant des abris derrière les caisses.",
+      "choice_segment_id": null,
+      "estimated_duration": 83.6
+    },
+    {
+      "id": "lantern_9",
+      "variants": [],
+      "text": "Près de l'estrade, tu trouves un registre ouvert et plusieurs lettres. Elles expliquent qui a demandé le vol et où doit partir le trésor. Tu lis les lignes utiles sans chercher à tout emporter. L'un des papiers porte le sceau de la personne qui commande la bande. Tu peux prendre ce document pour le montrer à la reine, ou copier discrètement les informations de transport et garder le registre en place. Un voleur entre dans la salle et demande quand le chef arrivera. Les sentinelles lui répondent de préparer la route. Tu restes derrière l'estrade. Les noms et les horaires donnent enfin un sens à ce que tu as observé depuis ton arrivée ; tu peux décider comment utiliser cette preuve.\n\nUn registre porte le nom du capitaine Ronce, un ancien garde devenu chef de bande. Il veut vendre la couronne et les offrandes à un marchand qui viendra ce soir. Ses ordres indiquent le quai de livraison et le nombre de sentinelles. Tu connais enfin son plan : il faut empêcher le départ du coffre, pas te battre contre tous ses hommes.",
+      "spoken_text": "Près de l'estrade, tu trouves un registre ouvert et plusieurs lettres. Elles expliquent qui a demandé le vol et où doit partir le trésor. Tu lis les lignes utiles sans chercher à tout emporter. L'un des papiers porte le sceau de la personne qui commande la bande. Tu peux prendre ce document pour le montrer à la reine, ou copier discrètement les informations de transport et garder le registre en place. Un voleur entre dans la salle et demande quand le chef arrivera. Les sentinelles lui répondent de préparer la route. Tu restes derrière l'estrade. Les noms et les horaires donnent enfin un sens à ce que tu as observé depuis ton arrivée ; tu peux décider comment utiliser cette preuve.\n\nUn registre porte le nom du capitaine Ronce, un ancien garde devenu chef de bande. Il veut vendre la couronne et les offrandes à un marchand qui viendra ce soir. Ses ordres indiquent le quai de livraison et le nombre de sentinelles. Tu connais enfin son plan : il faut empêcher le départ du coffre, pas te battre contre tous ses hommes.\n\nQue fais-tu ? Choix 1 : Emporter la lettre qui prouve le vol. Ou choix 2 : Copier les indications du transport.",
+      "segment_id": "lantern_9_narration_fc9de7c78ade81c47b5e",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Emporter la lettre qui prouve le vol. Ou choix 2 : Copier les indications du transport.",
+      "choice_segment_id": null,
+      "estimated_duration": 80.0
+    },
+    {
+      "id": "lantern_10",
+      "variants": [
+        "memory_ally"
+      ],
+      "text": "Le coffre porte bien les fleurs d'Aubépine décrites par la reine. Deux courroies le maintiennent sur un petit chariot. La caisse des offrandes est à quelques pas. Tu entends le capitaine Ronce donner ses ordres près de l'entrée. Tu peux tenter de déplacer le chariot vers la sortie latérale, ou cacher d'abord le coffre derrière les caisses pour empêcher son départ. Le trésor est lourd, mais tu n'as pas besoin de tout porter dans tes bras. Tu observes les roues et le sol. Si tu réussis à le mettre hors de vue, tu gagneras le temps nécessaire pour l'ouvrir et prévenir les gardes. Tu gardes un accès vers l'escalier, car la bande peut changer de plan dès qu'elle découvre la disparition.\n\nLa grande salle du château conserve ses colonnes et une longue table de bois. Deux escaliers encadrent l'estrade. Des fenêtres hautes donnent assez de lumière pour voir les portes latérales.\n\nLia t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois.",
+      "spoken_text": "Le coffre porte bien les fleurs d'Aubépine décrites par la reine. Deux courroies le maintiennent sur un petit chariot. La caisse des offrandes est à quelques pas. Tu entends le capitaine Ronce donner ses ordres près de l'entrée. Tu peux tenter de déplacer le chariot vers la sortie latérale, ou cacher d'abord le coffre derrière les caisses pour empêcher son départ. Le trésor est lourd, mais tu n'as pas besoin de tout porter dans tes bras. Tu observes les roues et le sol. Si tu réussis à le mettre hors de vue, tu gagneras le temps nécessaire pour l'ouvrir et prévenir les gardes. Tu gardes un accès vers l'escalier, car la bande peut changer de plan dès qu'elle découvre la disparition.\n\nLa grande salle du château conserve ses colonnes et une longue table de bois. Deux escaliers encadrent l'estrade. Des fenêtres hautes donnent assez de lumière pour voir les portes latérales.\n\nLia t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois.\n\nQue fais-tu ? Choix 1 : Pousser le chariot vers la sortie latérale. Ou choix 2 : Cacher le coffre et bloquer le départ des voleurs.",
+      "segment_id": "lantern_10_narration_40743106cf1f4b5f141a",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Pousser le chariot vers la sortie latérale. Ou choix 2 : Cacher le coffre et bloquer le départ des voleurs.",
+      "choice_segment_id": null,
+      "estimated_duration": 78.4
+    },
+    {
+      "id": "lantern_11",
+      "variants": [],
+      "text": "Une corde nouée autour du coffre retient son couvercle en plus de la serrure. Tu aperçois une petite fermeture latérale qui peut libérer les courroies. Les bords du chariot sont couverts de clous mal rabattus. Ton objet pourrait permettre d'ouvrir le coffre et de sortir la couronne de son écrin. Une autre possibilité serait de transporter le coffre fermé avec une couverture passée sous ses poignées. Tu n'as pas encore la couronne en main : tu vérifies chaque attache avant de te réjouir. Derrière la toile, la caisse des offrandes attend elle aussi le retour au village. Tu décides quelle méthode donnera le plus de chances d'emporter au moins le bien le plus précieux, sans te laisser piéger par son poids.\n\nTu examines la corde du coffre près de le coffre royal. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "spoken_text": "Une corde nouée autour du coffre retient son couvercle en plus de la serrure. Tu aperçois une petite fermeture latérale qui peut libérer les courroies. Les bords du chariot sont couverts de clous mal rabattus. Ton objet pourrait permettre d'ouvrir le coffre et de sortir la couronne de son écrin. Une autre possibilité serait de transporter le coffre fermé avec une couverture passée sous ses poignées. Tu n'as pas encore la couronne en main : tu vérifies chaque attache avant de te réjouir. Derrière la toile, la caisse des offrandes attend elle aussi le retour au village. Tu décides quelle méthode donnera le plus de chances d'emporter au moins le bien le plus précieux, sans te laisser piéger par son poids.\n\nTu examines la corde du coffre près de le coffre royal. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.\n\nQue fais-tu ? Choix 1 : Couper la corde du coffre avec ton épée. Ou choix 2 : Préparer le transport du coffre fermé.",
+      "segment_id": "lantern_11_narration_9a608a7547ddf8b992e4",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Couper la corde du coffre avec ton épée. Ou choix 2 : Préparer le transport du coffre fermé.",
+      "choice_segment_id": null,
+      "estimated_duration": 74.8
+    },
+    {
+      "id": "lantern_12",
+      "variants": [
+        "prepared_echo"
+      ],
+      "text": "Un bruit de pas annonce que la bande a remarqué quelque chose. Tu disposes maintenant d'une sortie et de renseignements suffisants pour guider les gardes. Le trésor peut être rapporté directement si le chemin reste libre ; sinon, tu peux le laisser dans une cache connue et partir avec les preuves. Tu regardes où se trouvent les sentinelles, puis la route vers le village. Tu pourrais emprunter l'accès principal au moment où les voleurs se déplacent, ou utiliser le détour préparé pour sortir discrètement. le capitaine Ronce ne doit pas te retenir dans la salle. Ta mission ne sera pas perdue si les gardes doivent terminer le transport. Tu choisis le trajet qui protège le mieux ton retour et les informations nécessaires pour récupérer les biens du village.\n\nLa sortie principale traverse la cour jusqu'au pont. Une petite porte rejoint le chemin des jardins. La première route est large et visible ; la seconde permet de partir plus discrètement, mais oblige à avancer en file.\n\nTes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation.",
+      "spoken_text": "Un bruit de pas annonce que la bande a remarqué quelque chose. Tu disposes maintenant d'une sortie et de renseignements suffisants pour guider les gardes. Le trésor peut être rapporté directement si le chemin reste libre ; sinon, tu peux le laisser dans une cache connue et partir avec les preuves. Tu regardes où se trouvent les sentinelles, puis la route vers le village. Tu pourrais emprunter l'accès principal au moment où les voleurs se déplacent, ou utiliser le détour préparé pour sortir discrètement. le capitaine Ronce ne doit pas te retenir dans la salle. Ta mission ne sera pas perdue si les gardes doivent terminer le transport. Tu choisis le trajet qui protège le mieux ton retour et les informations nécessaires pour récupérer les biens du village.\n\nLa sortie principale traverse la cour jusqu'au pont. Une petite porte rejoint le chemin des jardins. La première route est large et visible ; la seconde permet de partir plus discrètement, mais oblige à avancer en file.\n\nTes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation.\n\nQue fais-tu ? Choix 1 : Profiter du déplacement des sentinelles pour sortir. Ou choix 2 : Revenir par le détour avec les preuves et le trésor disponible.",
+      "segment_id": "lantern_12_narration_3c3729f7720cef7f871b",
+      "choice_prompt": "Que fais-tu ? Choix 1 : Profiter du déplacement des sentinelles pour sortir. Ou choix 2 : Revenir par le détour avec les preuves et le trésor disponible.",
+      "choice_segment_id": null,
+      "estimated_duration": 87.6
+    },
+    {
+      "id": "lantern_end_alliance",
+      "variants": [],
+      "text": "Ton entente avec Lia aide les gardes à terminer la mission. Pendant que l'un surveille l'accès, l'autre indique les biens à rapporter. La bande ne peut plus emporter le coffre par une route oubliée. Au village, vous rendez la couronne ensemble. La reine écoute votre récit sans attribuer tout le mérite à une seule personne. Les habitants préparent du pain, des fruits et une place pour chacun à la fête. Lia conserve une copie du trajet parcouru. Tu comprends combien il était utile de convenir d'un signal et de partager les tâches avant d'approcher le trésor. Vous promettez de vous saluer lors du prochain marché.\n\nAu-delà du pont de Valombre, tu retrouves les collines et le chemin du village. Tu regardes une dernière fois les tours. Elles te semblent moins mystérieuses maintenant que tu connais leurs escaliers, leurs cuisines et leurs petites portes.\n\nDe retour chez toi, tu nettoies la lame et ranges l'épée dans son fourreau. Le forgeron écoute ton récit avant de vérifier sa garde. Il sourit surtout en apprenant les moments où tu as trouvé une solution sans combattre.",
+      "spoken_text": "Ton entente avec Lia aide les gardes à terminer la mission. Pendant que l'un surveille l'accès, l'autre indique les biens à rapporter. La bande ne peut plus emporter le coffre par une route oubliée. Au village, vous rendez la couronne ensemble. La reine écoute votre récit sans attribuer tout le mérite à une seule personne. Les habitants préparent du pain, des fruits et une place pour chacun à la fête. Lia conserve une copie du trajet parcouru. Tu comprends combien il était utile de convenir d'un signal et de partager les tâches avant d'approcher le trésor. Vous promettez de vous saluer lors du prochain marché.\n\nAu-delà du pont de Valombre, tu retrouves les collines et le chemin du village. Tu regardes une dernière fois les tours. Elles te semblent moins mystérieuses maintenant que tu connais leurs escaliers, leurs cuisines et leurs petites portes.\n\nDe retour chez toi, tu nettoies la lame et ranges l'épée dans son fourreau. Le forgeron écoute ton récit avant de vérifier sa garde. Il sourit surtout en apprenant les moments où tu as trouvé une solution sans combattre.",
+      "segment_id": "lantern_end_alliance_narration_4b8e6c55e12626a3c9af",
+      "choice_prompt": null,
+      "choice_segment_id": null,
+      "estimated_duration": 72.8
+    }
+  ],
+  "choices": [
+    {
+      "scene": "lantern_1",
+      "choice_index": 0,
+      "choice_id": "lantern_1_0",
+      "choice_text": "Suivre les roues du chariot",
+      "probabilities": {
+        "objective": 0.63,
+        "success": 0.44099999999999995,
+        "complication": 0.189,
+        "failure": 0.37,
+        "modifiers": []
+      },
+      "roll": 0.7415504997598329,
+      "outcome": "failure",
+      "text": "La piste disparaît sur les pierres. Un ruban oublié te permet néanmoins de retrouver la direction.",
+      "destination": "lantern_2",
+      "segment_id": "lantern_1_lantern_1_0_failure_b4c3aba98bb8cf230d7a"
+    },
+    {
+      "scene": "lantern_2",
+      "choice_index": 1,
+      "choice_id": "lantern_2_1",
+      "choice_text": "Surveiller les déplacements de la sentinelle",
+      "probabilities": {
+        "objective": 0.73,
+        "success": 0.511,
+        "complication": 0.219,
+        "failure": 0.27,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.24489185380347622,
+      "outcome": "success",
+      "text": "Tu repères une ronde régulière et un intervalle assez long pour avancer sans bruit.",
+      "destination": "lantern_3",
+      "segment_id": "lantern_2_lantern_2_1_success_0ba52dc50c0f76e1f33b"
+    },
+    {
+      "scene": "lantern_3",
+      "choice_index": 0,
+      "choice_id": "lantern_3_0",
+      "choice_text": "Couper la corde du volet avec ton épée",
+      "probabilities": {
+        "objective": 0.74,
+        "success": 0.518,
+        "complication": 0.222,
+        "failure": 0.26,
+        "modifiers": [
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.1395379285251439,
+      "outcome": "success",
+      "text": "Tu dégages l’accès avec ton objet et entres dans le dépôt en gardant une sortie libre.",
+      "destination": "lantern_4",
+      "segment_id": "lantern_3_lantern_3_0_success_504563267258825887b8"
+    },
+    {
+      "scene": "lantern_4",
+      "choice_index": 1,
+      "choice_id": "lantern_4_1",
+      "choice_text": "Passer en bas pour éviter les sentinelles",
+      "probabilities": {
+        "objective": 0.6499999999999999,
+        "success": 0.4549999999999999,
+        "complication": 0.19499999999999998,
+        "failure": 0.3500000000000001,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.1024951761715075,
+      "outcome": "success",
+      "text": "Tu traverses sans être vu et arrives dans une réserve proche de la salle centrale.",
+      "destination": "lantern_5b",
+      "segment_id": "lantern_4_lantern_4_1_success_8bf71e95f6aed4f54e6a"
+    },
+    {
+      "scene": "lantern_5b",
+      "choice_index": 0,
+      "choice_id": "lantern_5b_0",
+      "choice_text": "Poursuivre ensemble pour aider au transport",
+      "probabilities": {
+        "objective": 0.76,
+        "success": 0.5319999999999999,
+        "complication": 0.22799999999999998,
+        "failure": 0.24,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.7406677446676758,
+      "outcome": "complication",
+      "text": "Vous partez ensemble, mais un ballot tombe. Vous attendez que le bruit cesse avant de continuer.",
+      "destination": "lantern_6",
+      "segment_id": "lantern_5b_lantern_5b_0_complication_c829510f3199a7f3f269"
+    },
+    {
+      "scene": "lantern_6",
+      "choice_index": 1,
+      "choice_id": "lantern_6_1",
+      "choice_text": "Rejoindre directement la salle du coffre",
+      "probabilities": {
+        "objective": 0.8500000000000001,
+        "success": 0.595,
+        "complication": 0.255,
+        "failure": 0.1499999999999999,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.5453665337483498,
+      "outcome": "success",
+      "text": "Tu mémorises le plan et avances sans perdre de temps. La grande porte est désormais proche.",
+      "destination": "lantern_7",
+      "segment_id": "lantern_6_lantern_6_1_success_e829615b0d19d8a3a9dc"
+    },
+    {
+      "scene": "lantern_7",
+      "choice_index": 0,
+      "choice_id": "lantern_7_0",
+      "choice_text": "Couper la corde de la grille avec ton épée",
+      "probabilities": {
+        "objective": 0.8,
+        "success": 0.5599999999999999,
+        "complication": 0.24,
+        "failure": 0.19999999999999996,
+        "modifiers": [
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.5904925124490397,
+      "outcome": "complication",
+      "text": "La grille se lève, mais sa corde s’effiloche. Tu ajoutes un appui avant de passer.",
+      "destination": "lantern_8",
+      "segment_id": "lantern_7_lantern_7_0_complication_1dd1c09557a539879b84"
+    },
+    {
+      "scene": "lantern_8",
+      "choice_index": 1,
+      "choice_id": "lantern_8_1",
+      "choice_text": "Approcher en préparant des abris derrière les caisses",
+      "probabilities": {
+        "objective": 0.8500000000000001,
+        "success": 0.595,
+        "complication": 0.255,
+        "failure": 0.1499999999999999,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.03178267948178359,
+      "outcome": "success",
+      "text": "Tu déplaces les caisses sans bruit et rejoins le fond de la salle à couvert.",
+      "destination": "lantern_9",
+      "segment_id": "lantern_8_lantern_8_1_success_6b7a0053bedffe759a1b"
+    },
+    {
+      "scene": "lantern_9",
+      "choice_index": 0,
+      "choice_id": "lantern_9_0",
+      "choice_text": "Emporter la lettre qui prouve le vol",
+      "probabilities": {
+        "objective": 0.75,
+        "success": 0.5249999999999999,
+        "complication": 0.22499999999999998,
+        "failure": 0.25,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.09369523986159245,
+      "outcome": "success",
+      "text": "Tu ranges la lettre sous ta veste. Les gardes pourront identifier la personne qui dirige la bande.",
+      "destination": "lantern_10",
+      "segment_id": "lantern_9_lantern_9_0_success_6000ca4ef2669c451001"
+    },
+    {
+      "scene": "lantern_10",
+      "choice_index": 1,
+      "choice_id": "lantern_10_1",
+      "choice_text": "Cacher le coffre et bloquer le départ des voleurs",
+      "probabilities": {
+        "objective": 0.78,
+        "success": 0.5459999999999999,
+        "complication": 0.23399999999999999,
+        "failure": 0.21999999999999997,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.2326608933907396,
+      "outcome": "success",
+      "text": "Tu dissimules le coffre derrière les caisses et retires une roue du chariot de transport.",
+      "destination": "lantern_11",
+      "segment_id": "lantern_10_lantern_10_1_success_a70af42c9858a9e1f793"
+    },
+    {
+      "scene": "lantern_11",
+      "choice_index": 0,
+      "choice_id": "lantern_11_0",
+      "choice_text": "Couper la corde du coffre avec ton épée",
+      "probabilities": {
+        "objective": 0.8700000000000001,
+        "success": 0.609,
+        "complication": 0.261,
+        "failure": 0.1299999999999999,
+        "modifiers": [
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.6020187290499803,
+      "outcome": "success",
+      "text": "Le coffre s’ouvre. Tu enveloppes la couronne dans son tissu et gardes les preuves avec toi.",
+      "destination": "lantern_12",
+      "segment_id": "lantern_11_lantern_11_0_success_eb2f9021b926c7882f75"
+    },
+    {
+      "scene": "lantern_12",
+      "choice_index": 1,
+      "choice_id": "lantern_12_1",
+      "choice_text": "Revenir par le détour avec les preuves et le trésor disponible",
+      "probabilities": {
+        "objective": 0.9,
+        "success": 0.63,
+        "complication": 0.27,
+        "failure": 0.09999999999999998,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Aide du compagnon",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.561245062938613,
+      "outcome": "success",
+      "text": "Le détour reste libre. Tu conduis les gardes jusqu’au repaire pour achever la récupération.",
+      "destination": "$ending",
+      "segment_id": "lantern_12_lantern_12_1_success_a05106b97b9674bd0ace"
+    }
+  ],
+  "conclusion": "alliance",
+  "state": {
+    "hero_type": "knight",
+    "mandatory_location": "castle",
+    "chosen_item": "sword",
+    "seed": 42,
+    "arc_id": "lantern",
+    "current_scene": "lantern_end_alliance",
+    "current_act": 5,
+    "story_progress": 12,
+    "estimated_seconds": 1269.9999999999998,
+    "visited_locations": [
+      "castle"
+    ],
+    "met_characters": [
+      "lia"
+    ],
+    "allies": [
+      "companion"
+    ],
+    "enemies": [],
+    "flags": [
+      "prepared",
+      "revelation_captain"
+    ],
+    "inventory": [
+      "sword"
+    ],
+    "previous_outcomes": [
+      {
+        "scene": "lantern_1",
+        "choice_index": 0,
+        "choice_id": "lantern_1_0",
+        "choice_text": "Suivre les roues du chariot",
+        "probabilities": {
+          "objective": 0.63,
+          "success": 0.44099999999999995,
+          "complication": 0.189,
+          "failure": 0.37,
+          "modifiers": []
+        },
+        "roll": 0.7415504997598329,
+        "outcome": "failure",
+        "text": "La piste disparaît sur les pierres. Un ruban oublié te permet néanmoins de retrouver la direction.",
+        "destination": "lantern_2",
+        "segment_id": "lantern_1_lantern_1_0_failure_b4c3aba98bb8cf230d7a"
+      },
+      {
+        "scene": "lantern_2",
+        "choice_index": 1,
+        "choice_id": "lantern_2_1",
+        "choice_text": "Surveiller les déplacements de la sentinelle",
+        "probabilities": {
+          "objective": 0.73,
+          "success": 0.511,
+          "complication": 0.219,
+          "failure": 0.27,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.24489185380347622,
+        "outcome": "success",
+        "text": "Tu repères une ronde régulière et un intervalle assez long pour avancer sans bruit.",
+        "destination": "lantern_3",
+        "segment_id": "lantern_2_lantern_2_1_success_0ba52dc50c0f76e1f33b"
+      },
+      {
+        "scene": "lantern_3",
+        "choice_index": 0,
+        "choice_id": "lantern_3_0",
+        "choice_text": "Couper la corde du volet avec ton épée",
+        "probabilities": {
+          "objective": 0.74,
+          "success": 0.518,
+          "complication": 0.222,
+          "failure": 0.26,
+          "modifiers": [
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.1395379285251439,
+        "outcome": "success",
+        "text": "Tu dégages l’accès avec ton objet et entres dans le dépôt en gardant une sortie libre.",
+        "destination": "lantern_4",
+        "segment_id": "lantern_3_lantern_3_0_success_504563267258825887b8"
+      },
+      {
+        "scene": "lantern_4",
+        "choice_index": 1,
+        "choice_id": "lantern_4_1",
+        "choice_text": "Passer en bas pour éviter les sentinelles",
+        "probabilities": {
+          "objective": 0.6499999999999999,
+          "success": 0.4549999999999999,
+          "complication": 0.19499999999999998,
+          "failure": 0.3500000000000001,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.1024951761715075,
+        "outcome": "success",
+        "text": "Tu traverses sans être vu et arrives dans une réserve proche de la salle centrale.",
+        "destination": "lantern_5b",
+        "segment_id": "lantern_4_lantern_4_1_success_8bf71e95f6aed4f54e6a"
+      },
+      {
+        "scene": "lantern_5b",
+        "choice_index": 0,
+        "choice_id": "lantern_5b_0",
+        "choice_text": "Poursuivre ensemble pour aider au transport",
+        "probabilities": {
+          "objective": 0.76,
+          "success": 0.5319999999999999,
+          "complication": 0.22799999999999998,
+          "failure": 0.24,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.7406677446676758,
+        "outcome": "complication",
+        "text": "Vous partez ensemble, mais un ballot tombe. Vous attendez que le bruit cesse avant de continuer.",
+        "destination": "lantern_6",
+        "segment_id": "lantern_5b_lantern_5b_0_complication_c829510f3199a7f3f269"
+      },
+      {
+        "scene": "lantern_6",
+        "choice_index": 1,
+        "choice_id": "lantern_6_1",
+        "choice_text": "Rejoindre directement la salle du coffre",
+        "probabilities": {
+          "objective": 0.8500000000000001,
+          "success": 0.595,
+          "complication": 0.255,
+          "failure": 0.1499999999999999,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.5453665337483498,
+        "outcome": "success",
+        "text": "Tu mémorises le plan et avances sans perdre de temps. La grande porte est désormais proche.",
+        "destination": "lantern_7",
+        "segment_id": "lantern_6_lantern_6_1_success_e829615b0d19d8a3a9dc"
+      },
+      {
+        "scene": "lantern_7",
+        "choice_index": 0,
+        "choice_id": "lantern_7_0",
+        "choice_text": "Couper la corde de la grille avec ton épée",
+        "probabilities": {
+          "objective": 0.8,
+          "success": 0.5599999999999999,
+          "complication": 0.24,
+          "failure": 0.19999999999999996,
+          "modifiers": [
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.5904925124490397,
+        "outcome": "complication",
+        "text": "La grille se lève, mais sa corde s’effiloche. Tu ajoutes un appui avant de passer.",
+        "destination": "lantern_8",
+        "segment_id": "lantern_7_lantern_7_0_complication_1dd1c09557a539879b84"
+      },
+      {
+        "scene": "lantern_8",
+        "choice_index": 1,
+        "choice_id": "lantern_8_1",
+        "choice_text": "Approcher en préparant des abris derrière les caisses",
+        "probabilities": {
+          "objective": 0.8500000000000001,
+          "success": 0.595,
+          "complication": 0.255,
+          "failure": 0.1499999999999999,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.03178267948178359,
+        "outcome": "success",
+        "text": "Tu déplaces les caisses sans bruit et rejoins le fond de la salle à couvert.",
+        "destination": "lantern_9",
+        "segment_id": "lantern_8_lantern_8_1_success_6b7a0053bedffe759a1b"
+      },
+      {
+        "scene": "lantern_9",
+        "choice_index": 0,
+        "choice_id": "lantern_9_0",
+        "choice_text": "Emporter la lettre qui prouve le vol",
+        "probabilities": {
+          "objective": 0.75,
+          "success": 0.5249999999999999,
+          "complication": 0.22499999999999998,
+          "failure": 0.25,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.09369523986159245,
+        "outcome": "success",
+        "text": "Tu ranges la lettre sous ta veste. Les gardes pourront identifier la personne qui dirige la bande.",
+        "destination": "lantern_10",
+        "segment_id": "lantern_9_lantern_9_0_success_6000ca4ef2669c451001"
+      },
+      {
+        "scene": "lantern_10",
+        "choice_index": 1,
+        "choice_id": "lantern_10_1",
+        "choice_text": "Cacher le coffre et bloquer le départ des voleurs",
+        "probabilities": {
+          "objective": 0.78,
+          "success": 0.5459999999999999,
+          "complication": 0.23399999999999999,
+          "failure": 0.21999999999999997,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.2326608933907396,
+        "outcome": "success",
+        "text": "Tu dissimules le coffre derrière les caisses et retires une roue du chariot de transport.",
+        "destination": "lantern_11",
+        "segment_id": "lantern_10_lantern_10_1_success_a70af42c9858a9e1f793"
+      },
+      {
+        "scene": "lantern_11",
+        "choice_index": 0,
+        "choice_id": "lantern_11_0",
+        "choice_text": "Couper la corde du coffre avec ton épée",
+        "probabilities": {
+          "objective": 0.8700000000000001,
+          "success": 0.609,
+          "complication": 0.261,
+          "failure": 0.1299999999999999,
+          "modifiers": [
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.6020187290499803,
+        "outcome": "success",
+        "text": "Le coffre s’ouvre. Tu enveloppes la couronne dans son tissu et gardes les preuves avec toi.",
+        "destination": "lantern_12",
+        "segment_id": "lantern_11_lantern_11_0_success_eb2f9021b926c7882f75"
+      },
+      {
+        "scene": "lantern_12",
+        "choice_index": 1,
+        "choice_id": "lantern_12_1",
+        "choice_text": "Revenir par le détour avec les preuves et le trésor disponible",
+        "probabilities": {
+          "objective": 0.9,
+          "success": 0.63,
+          "complication": 0.27,
+          "failure": 0.09999999999999998,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Aide du compagnon",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.561245062938613,
+        "outcome": "success",
+        "text": "Le détour reste libre. Tu conduis les gardes jusqu’au repaire pour achever la récupération.",
+        "destination": "$ending",
+        "segment_id": "lantern_12_lantern_12_1_success_a05106b97b9674bd0ace"
+      }
+    ],
+    "events": [
+      "lantern_1:0:failure",
+      "lantern_2:1:success",
+      "lantern_3:0:success",
+      "lantern_4:1:success",
+      "lantern_5b:0:complication",
+      "lantern_6:1:success",
+      "lantern_7:0:complication",
+      "lantern_8:1:success",
+      "lantern_9:0:success",
+      "lantern_10:1:success",
+      "lantern_11:0:success",
+      "lantern_12:1:success"
+    ],
+    "success_count": 9,
+    "complication_count": 2,
+    "failure_count": 1,
+    "conclusion": "alliance",
+    "arc_title": "La Couronne d'Aubépine",
+    "scene_variants": [],
+    "next_probabilities": []
+  },
+  "pending": false
+}

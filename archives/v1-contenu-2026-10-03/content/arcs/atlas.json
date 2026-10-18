@@ -1,0 +1,71 @@
+{
+  "id": "atlas",
+  "title": "L'Atlas des terres impossibles",
+  "description": "Explorer un atelier interdit où naissent des paysages nouveaux et décider ce qu'une découverte autorise à emporter.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "atlas_intro",
+  "revelations": [
+    {
+      "id": "ferrier",
+      "actor": "la passeuse Érya",
+      "text": "Une image de l'atlas présente Érya, la passeuse qui relie l'atelier aux terres lointaines. Elle a fermé les trajets lorsqu'un explorateur a emporté une pierre qui soutenait un rivage. Elle ne refuse pas les rencontres ; elle attend une règle qui distingue un souvenir transportable d'un élément dont le lieu a besoin. La carte que tu prépares pourrait devenir cette règle."
+    },
+    {
+      "id": "surveyor",
+      "actor": "l'arpenteur Nohan",
+      "text": "L'atlas montre Nohan, un arpenteur qui a découvert que les paysages de l'atelier grandissent quand quelqu'un les décrit. Il a fermé l'accès pour éviter qu'une carte trop simplifiée efface ce qu'elle ne montre pas. Il attend une personne capable de dessiner aussi ses incertitudes. Ta feuille peut ouvrir la conversation, si elle ne prétend pas contenir tout ce que tu as vu."
+    },
+    {
+      "id": "glass",
+      "actor": "le dragon de verre",
+      "text": "Sur la page apparaît un dragon de verre qui conserve les reflets des terres visitées. Les anciens explorateurs le prenaient pour un coffre et arrachaient ses reflets. Il a donc fermé les passages. Il serait prêt à les rouvrir à des voyageurs capables d'observer sans emporter. Tu peux lui offrir le récit d'un trajet, au lieu de réclamer une image qui lui appartient."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "atlas_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "atlas_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "atlas_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "atlas_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "atlas_end_resilient",
+      "when": {}
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "names",
+  "title": "Le Royaume des noms effacés",
+  "description": "Résoudre la disparition des noms inscrits sur les cartes et rendre au royaume plusieurs façons de raconter son histoire.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "names_intro",
+  "revelations": [
+    {
+      "id": "scribe",
+      "actor": "l'archiviste Maëline",
+      "text": "Une page mobile révèle Maëline, une archiviste qui a trouvé plusieurs noms pour les mêmes villages. Elle voulait corriger les cartes en choisissant une seule version. Le registre qu'elle a réveillé n'a pas su reconnaître les différences : il a retiré tous les noms en attendant une réponse unique. Maëline cherche encore cette réponse, sans comprendre que les habitants peuvent nommer un lieu de plusieurs façons."
+    },
+    {
+      "id": "engraver",
+      "actor": "le graveur Cédrin",
+      "text": "La page montre Cédrin, un graveur chargé de restaurer les anciens panneaux. Il a utilisé une encre qui retourne au registre lorsqu'une inscription paraît incertaine. Or chaque nom a changé au fil des siècles. L'encre a donc tout repris pour vérifier. Cédrin voulait préserver l'histoire ; il faut lui montrer que cette histoire comprend aussi les transformations qu'il cherchait à effacer."
+    },
+    {
+      "id": "mirror",
+      "actor": "la gardienne du Miroir des titres",
+      "text": "La page révèle la gardienne du Miroir des titres, une présence qui classe les noms pour aider les voyageurs. Deux cartes contradictoires lui ont été confiées, et elle refuse de choisir injustement. Elle a rappelé les lettres pour les interroger toutes. Son attente bloque maintenant le royaume. Il faut lui offrir un classement où plusieurs noms peuvent se répondre sans devenir une erreur."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "names_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "names_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "names_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "names_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "names_end_resilient",
+      "when": {}
+    }
+  ]
+}

@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "feather_intro",
+      "arc": "feather",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "Le Premier Vol de Lume",
+      "text": "Au matin, une plume couleur de cuivre tombe sur ta fenêtre. Elle appartient à Lume, une jeune griffonne que les habitants ont soignée pendant l'hiver. Ses ailes sont assez fortes pour rejoindre son groupe, mais elle a disparu avant le départ. La plume porte un petit ruban, celui que l'on utilisait pour reconnaître ses affaires. Un message fixé au ruban indique seulement : Je l'ai mise à l'abri. Les adultes ont fouillé les refuges connus sans résultat. Tu remarques une seconde plume au bord d'un chemin vers {location_name}. Le groupe des griffons attendra jusqu'au coucher du soleil. Tu pars chercher Lume, avec une question déjà importante : qui a voulu la protéger, et pourquoi ne peut-elle plus rentrer ?\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "feather_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_1",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Les plumes et les traces",
+      "text": "Sur le chemin, tu trouves une plume coincée dans une branche et des empreintes de pattes près d'un petit ruisseau. Lume a marché au lieu de voler, accompagnée par quelqu'un dont les pas sont plus lourds. Une branche cassée montre un détour ; un morceau de ruban indique le chemin principal. Tu peux suivre les empreintes pour retrouver précisément le trajet de la griffonne, ou examiner le détour pour savoir pourquoi on l'a fait changer de route. La première piste t'aiderait à reconnaître son état au moment du passage. La seconde éclairerait la décision de la personne qui l'accompagnait. Tu évites de ramasser toutes les plumes : certaines pourraient guider son groupe si celui-ci vient la chercher à son tour.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_1_0",
+          "text": "Suivre les empreintes de Lume",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les pas restent réguliers. Tu retrouves sa route sans signe de blessure.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La piste est claire, mais une bourrasque disperse les derniers repères.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les empreintes s'effacent dans l'eau. Une plume t'indique un passage voisin.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_1_1",
+          "text": "Comprendre le détour marqué par la branche",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le détour évitait un courant violent. Tu comprends la première précaution du trajet.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères le danger, mais un autre courant brouille le chemin principal.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La branche ne suffit pas. Un ruban pris plus loin te guide vers l'entrée.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_2",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Un abri trop bien fermé",
+      "text": "À l'entrée, tu entends un appel bref, suivi d'un froissement d'ailes. Lume est donc vivante et éveillée. Une protection lumineuse court sur le sol, mais sa forme ne ressemble pas à une cage ordinaire. Elle ferme un passage chaque fois que le bruit augmente. Sur le côté, une gamelle contient encore quelques graines que la griffonne aime picorer. Tu peux observer comment le dispositif réagit à son appel, ou examiner les soins qui lui ont été apportés pour comprendre les habitudes de la personne responsable. La première piste révélerait la règle de la protection. La seconde pourrait t'aider à obtenir de la confiance. Tu restes à distance pour ne pas ajouter tes propres mouvements à ceux qui inquiètent déjà le mécanisme.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_2_0",
+          "text": "Observer la réaction du refuge à l'appel de Lume",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu comprends la règle : plus Lume cherche à sortir, plus le passage se ferme.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La règle apparaît, mais un appel prolongé réveille une protection supplémentaire.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le rythme reste confus. Un intervalle calme t'indique néanmoins où poursuivre.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_2_1",
+          "text": "Examiner les soins préparés dans le refuge",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les soins sont attentifs. Tu trouves un signe familier qui pourra rassurer Lume.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères les habitudes, mais déplacer la gamelle attire le dispositif.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les traces sont anciennes. Un ruban récent montre toutefois la route vers Lume.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_3",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "Le seuil qui se referme",
+      "text": "Le passage devant toi porte des marques de protection. Elles se rapprochent lorsque tu avances trop vite, puis s'écartent si tu t'arrêtes. Un ancien panneau montre que le refuge accueillait des créatures différentes, pas seulement des griffons. Il devait adapter son seuil à chacune. Aujourd'hui, il semble confondre mouvement et danger. Ton objet peut essayer de donner aux marques un rythme plus calme. Une autre voie consiste à emprunter un accès d'entretien, prévu pour renouveler l'eau sans traverser le seuil. La première option changerait la protection de l'intérieur. La seconde te rapprocherait de Lume sans demander au mécanisme de comprendre immédiatement. Tu entends la griffonne souffler, puis taper doucement une patte. Elle attend, et tu peux encore choisir une approche qui ne transforme pas son inquiétude en nouvelle alarme.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les marques ralentissent. Tu peux entrer sans resserrer le refuge autour de Lume.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le seuil s'ouvre, mais une protection intérieure prend le relais de sa vigilance.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les marques refusent l'accord. Un accès de secours te laisse néanmoins avancer.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_3_1",
+          "text": "Passer par l'accès réservé à l'eau du refuge",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L'accès est libre. Tu dépasses le seuil sans provoquer son mouvement.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes, mais un clapet d'eau déclenche une vérification du refuge.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accès est bouché. Sa canalisation révèle une ouverture d'entretien voisine.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_4",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Appeler ou approcher",
+      "text": "L'appel de Lume arrive par deux passages. Le premier est assez large pour qu'elle entende ta voix ; le second suit les traces de ses repas et reste caché par une vieille cloison. Tu peux lui répondre depuis le passage ouvert afin de lui montrer que quelqu'un cherche une solution. Tu peux aussi approcher par les traces de nourriture, pour comprendre la disposition de son refuge avant de te montrer. Répondre risquerait d'attirer l'attention du dispositif, mais pourrait calmer la griffonne. Observer d'abord garderait ton approche discrète, mais lui laisserait un peu plus longtemps son incertitude. Tu cherches une décision qui serve à la fois le sauvetage et la confiance. Les deux voies rejoignent les abords de son abri, par des salles où d'autres personnes ont laissé leurs traces.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_4_0",
+          "text": "Répondre doucement à l'appel de Lume",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Lume te répond d'un son plus calme. Tu rejoins le passage ouvert.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Elle entend ta voix, mais le refuge surveille désormais aussi ce passage.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Ta voix porte mal. Un appel plus proche te guide quand même vers l'abri.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_4_1",
+          "text": "Approcher en suivant les traces des repas",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les traces révèlent le chemin utilisé pour prendre soin de Lume.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu approches discrètement, mais une cloison mobile change la sortie du passage.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La piste s'interrompt. Une gamelle récente indique une ouverture latérale utile.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_5",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Une présence qui rassure",
+      "text": "Tu arrives dans une salle où l'on préparait les départs des créatures accueillies. Des tissus portent des odeurs familières, et un petit perchoir garde les marques de Lume. {encounter_name} te rejoint et propose de t'aider à maintenir un signal calme pendant ton approche. {encounter_name} pourrait venir avec toi et surveiller les réactions du refuge, ou rester près du passage pour préparer un chemin ouvert lorsque la griffonne sortira. Tu ne veux pas appeler Lume vers une issue qui se refermerait aussitôt. Vous observez donc les protections avant de vous répartir les rôles. La présence d'une seconde personne peut servir au centre ou à la sortie. Tu dois choisir ce qui compte le plus pour la prochaine étape : comprendre ensemble, ou préparer un départ que personne ne perdra de vue.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_5_0",
+          "text": "Approcher ensemble en gardant un signal calme",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le signal est stable. {encounter_name} vient avec toi pour observer le refuge.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous avancez ensemble, mais une protection garde votre signal en mémoire.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal inquiète le mécanisme. {encounter_name} reste pour préparer une autre réponse.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_5_1",
+          "text": "Confier la préparation du départ à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le chemin de sortie est marqué. Tu peux te concentrer sur Lume.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La sortie tient, mais un passage devra être maintenu manuellement pendant le départ.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La protection ferme un accès. Vous préparez une issue de rechange plus lente.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_6",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "La règle des premiers vols",
+      "text": "Un registre décrit les créatures passées par le refuge. Certaines étaient soignées, d'autres attendaient leur groupe, et plusieurs apprenaient simplement à voler. Tu trouves une règle ancienne : le départ doit être décidé avec la créature, et non à sa place. Cette phrase a été recouverte par une consigne de protection plus stricte. Tu peux étudier la règle oubliée pour rendre à Lume une part de choix, ou consulter son parcours pour préparer une sortie adaptée à ses ailes. La règle changerait le fonctionnement du refuge. Le parcours t'aiderait à éviter un départ trop difficile. Tu remarques une trace de patte sur la dernière page. Lume a probablement vu ce document, ou entendu parler de ce qu'il promettait. Elle ne cherche pas seulement à sortir ; elle attend son premier vrai vol.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_6_0",
+          "text": "Retrouver la règle qui laisse la créature participer",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La règle est lisible. Tu pourras demander au refuge de reconnaître le choix de Lume.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends la règle, mais une consigne récente garde une partie du contrôle.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La phrase reste couverte. Son signe de départ volontaire demeure pourtant visible.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_6_1",
+          "text": "Étudier le parcours prévu pour les ailes de Lume",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu trouves une sortie adaptée. Lume n'aura pas besoin d'un vol difficile.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le parcours est bon, mais une étape devra être déplacée pour rester sûre.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le parcours manque de repères. Un dessin indique néanmoins une terrasse de départ.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_7",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Une protection à détendre",
+      "text": "Les lignes du refuge se rejoignent près d'un dispositif dont une branche reste tendue. Tu reconnais le trajet du seuil, puis celui qui surveille les ailes de Lume. Ils se renforcent mutuellement : son inquiétude ferme la sortie, et la sortie fermée augmente son inquiétude. Ton objet peut t'aider à suivre une liaison plus souple entre ces deux réponses. Tu peux aussi remettre en état les points de repos qui permettent normalement au refuge d'interrompre sa surveillance. La première option rapprocherait ton intervention de la griffonne. La seconde apaiserait le système entier et pourrait réparer les perturbations précédentes. Tu écoutes l'appel de Lume, désormais plus espacé. Elle conserve ses forces. Tu veux lui offrir un départ réfléchi, sans transformer l'urgence du groupe en précipitation.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison se détend. Tu distingues le passage qui mène au refuge de Lume.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le passage apparaît, mais une ligne de protection se reporte sur la sortie.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La liaison résiste. Une marque de repos te montre quand même où avancer.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_7_1",
+          "text": "Rétablir les points de repos du dispositif",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La surveillance se calme. Les protections retrouvent un intervalle où laisser passer quelqu'un.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le repos fonctionne, mais une ligne devra être vérifiée après le sauvetage.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un point reste fermé. Les autres créent une pause suffisante pour poursuivre.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_8",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Préparer un départ sûr",
+      "text": "Tu peux voir le refuge sans encore l'atteindre. Lume s'y tient sur une marche, les ailes repliées, avec de l'eau et une couverture près d'elle. Elle n'est pas blessée. Elle observe chaque passage qui s'entrouvre, puis renonce quand la lumière se resserre. Tu pourrais lui montrer un signal simple pour qu'elle attende ton geste, ou préparer d'abord un itinéraire dont chaque étape reste visible. Le signal aiderait à coordonner le départ. L'itinéraire limiterait les changements de direction qui réveillent le refuge. Tu ne peux pas lui demander de croire à une sortie qu'elle ne voit pas. Ta formation t'offre une méthode pour préparer l'action sans oublier ce que la griffonne perçoit depuis sa marche. Tu prends le temps de rendre ton intention compréhensible.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_8_0",
+          "text": "Établir un signal simple avec Lume",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Lume reconnaît ton signal. Elle attend sans battre des ailes inutilement.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Elle comprend, mais une protection copie le signal et surveille son attente.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal n'est pas clair. Ton calme lui laisse néanmoins le temps d'observer.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_8_1",
+          "text": "Préparer un itinéraire visible jusqu'à la sortie",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les étapes restent visibles. Lume peut comprendre le trajet avant de l'emprunter.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'itinéraire tient, mais une étape devra être franchie pendant un bref silence.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une étape se ferme. Tu préserves un trajet plus court vers la première zone sûre.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_9",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "Pourquoi Lume est restée",
+      "text": "Un carnet posé près du refuge contient les décisions prises avant ton arrivée. Tu y retrouves le message du ruban, puis des essais pour ouvrir la protection. La personne responsable a continué à apporter de l'eau et de la nourriture. Elle ne savait plus comment faire sortir Lume. Tu peux lire ces essais pour comprendre le besoin derrière la consigne, ou appeler la personne afin de préparer ensemble une solution. La lecture donnera des détails sur ce qui a déjà échoué. L'appel permettra de demander une aide directe et d'éviter de recommencer les mêmes gestes. Tu regardes la griffonne, qui suit ton mouvement sans s'agiter. Le sauvetage devra résoudre une erreur, tout en conservant l'attention qui l'avait conduite ici. Le carnet révèle enfin le visage de la personne qui attend près du mécanisme central.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_9_0",
+          "text": "Comprendre les essais avant de modifier le refuge",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les essais te montrent la cause du blocage. Tu peux proposer un geste nouveau.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends le problème, mais le carnet active une ancienne consigne oubliée.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les essais sont incomplets. Un schéma reste assez clair pour engager la réparation.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_9_1",
+          "text": "Appeler la personne qui voulait protéger Lume",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Ton appel reçoit une réponse soulagée. Vous pouvez préparer le départ ensemble.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La personne répond, mais le refuge augmente sa vigilance devant la conversation.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'appel arrive tard. Une ouverture de service permet néanmoins la rencontre.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_10",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Protéger sans retenir",
+      "text": "Tu retrouves {revelation_actor} près du centre du refuge. La personne montre le dispositif, puis avoue qu'elle a continué à renforcer ce qu'elle voulait réparer. Lume te regarde depuis sa marche. Tu peux proposer de rendre au mécanisme sa consigne de départ accompagné, ou de lui montrer une route où la protection n'a plus besoin de se fermer. La première méthode demande de reconnaître que la griffonne est prête à participer. La seconde apporte une preuve concrète de sécurité. Les deux préservent les soins reçus, sans les transformer en obligation de rester. Tu rappelles que le groupe attend Lume et qu'un départ peut se préparer plutôt que s'imposer. Le refuge n'a pas besoin d'être détruit. Il doit apprendre à terminer correctement la tâche pour laquelle il avait été réveillé.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_10_0",
+          "text": "Rendre au refuge sa consigne de départ accompagné",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La consigne est reconnue. Le refuge accepte que Lume participe au départ.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le départ devient possible, mais une ancienne règle demandera encore un signal de retour.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La consigne ne change pas entièrement. Vous obtenez au moins une ouverture accompagnée.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_10_1",
+          "text": "Montrer une route qui n'exige plus de retenir Lume",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La route rassure le dispositif. Il cesse de confondre sortie et danger immédiat.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La preuve fonctionne, mais le refuge surveillera encore les premières étapes.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La preuve reste partielle. Vous préparez un trajet limité vers une zone sûre.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_11",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Ouvrir le lien du refuge",
+      "text": "Deux marques lumineuses restent séparées au pied de la marche de Lume : l'une désigne l'abri, l'autre le départ. Tant qu'elles ne se répondent pas, le dispositif pense devoir choisir entre protéger et laisser sortir. Ton objet connaît désormais ce langage. Tu peux l'employer pour établir une liaison précise, ou guider les deux marques par les étapes préparées autour du refuge. La première méthode demanderait de suivre les mouvements de la griffonne de très près. La seconde s'appuierait sur le trajet que tout le monde peut observer. Lume garde ses ailes repliées et attend ton signal. Tu lui laisses une place pour reculer si quelque chose l'inquiète. Ce choix doit ouvrir une possibilité, pas la pousser vers une sortie qu'elle n'est pas encore prête à prendre.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Abri et départ se relient. Le refuge laisse Lume approcher du seuil ouvert.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison tient, mais la protection suit encore un de ses mouvements d'aile.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le lien direct résiste. Les étapes visibles offrent une ouverture plus progressive.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_11_1",
+          "text": "Relier le refuge aux étapes du trajet préparé",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les étapes portent le changement. Lume peut avancer sans resserrer la protection.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le trajet s'ouvre, mais une étape devra rester sous surveillance quelques instants.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une étape bloque. Les autres permettent à Lume d'atteindre le premier espace libre.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_12",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Le premier battement d'ailes",
+      "text": "Lume peut enfin choisir une direction. Elle regarde le centre du lieu, puis les passages qui mènent dehors. Au loin, un appel de griffon traverse l'air : son groupe n'est pas encore parti. Tu peux ouvrir une sortie directe pour lui permettre de rejoindre rapidement cet appel, ou accompagner son départ par les étapes préparées jusqu'à une terrasse sûre. La sortie directe serait plus rapide, mais transmettrait les dernières réactions du refuge. Le départ accompagné prendrait davantage de temps et laisserait chacun vérifier le chemin. {revelation_actor} accepte de surveiller le mécanisme plutôt que de décider à la place de Lume. Tu donnes le signal convenu, puis attends sa réponse. La griffonne lève une patte et avance. Son premier vrai vol commence par un pas qu'elle peut faire elle-même.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_12_0",
+          "text": "Ouvrir une sortie directe vers l'appel du groupe",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Lume rejoint l'air libre. Son groupe répond lorsqu'elle ouvre enfin les ailes.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Elle sort, mais doit attendre sur une terrasse que la protection cesse de vibrer.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La sortie directe reste instable. Vous conduisez Lume jusqu'à un abri ouvert pour la suite.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_12_1",
+          "text": "Accompagner Lume par les étapes préparées",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Lume franchit les étapes à son rythme. Son départ ne referme aucun refuge.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le trajet fonctionne, mais le groupe devra attendre encore un peu pour le dernier envol.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une étape résiste. Vous atteignez une terrasse sûre où préparer un vol plus tardif.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_5b",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Le passage des gamelles",
+      "text": "Le chemin débouche sur une réserve où les repas de Lume sont préparés avec soin. Une note précise ce qu'elle préfère, ce qu'elle refuse et les sons qui la rassurent. {encounter_name} te rejoint par un petit escalier de service. Vous pouvez utiliser ces observations pour approcher la griffonne avec confiance. {encounter_name} pourrait venir au refuge et surveiller sa réaction pendant que tu agis. Il pourrait aussi rester pour préparer de l'eau et une halte sur la route du départ. Tu ne veux pas que le sauvetage lui demande d'aller d'une cage à une course épuisante. Les deux aides rendront l'aventure moins brusque. Tu choisis où placer cette attention, en gardant les notes qui montrent que quelqu'un avait essayé de bien faire.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_5b_0",
+          "text": "Approcher Lume ensemble avec les notes de soins",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les notes vous guident. {encounter_name} vient observer Lume pendant ton intervention.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préparez l'approche, mais une consigne de repas réveille la surveillance.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les notes restent insuffisantes. {encounter_name} demeure ici pour chercher d'autres repères.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_5b_1",
+          "text": "Confier la halte de départ à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La halte est prête. Lume pourra se reposer avant de rejoindre son groupe.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La halte fonctionne, mais un ancien accès doit rester fermé pour la sécuriser.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accès prévu ne convient pas. Vous préparez un repos dans un espace voisin.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_secret",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le refuge qui sait laisser partir",
+      "ending": "secret",
+      "text": "La règle oubliée change le sens du sauvetage : Lume peut participer à son départ, et le refuge apprend à terminer sa protection. Tu rapportes cette découverte aux personnes qui accueillent d'autres créatures. Elles préparent désormais des sorties avec celles qu'elles soignent. Le premier vol de Lume peut demander encore une étape, mais personne ne le décidera sans elle. Une plume de cuivre reste près du chemin. Tu la laisses sur place, comme un signe pour son groupe et pour les voyageurs qui viendront après toi.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_alliance",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Deux regards pour un départ",
+      "ending": "alliance",
+      "text": "Grâce à {encounter_name}, tu peux agir tout en sachant que les réactions de Lume et son trajet sont observés. Vous lui rendez une sortie sûre, puis racontez le problème au village. Les habitants comprennent qu'un sauvetage demande parfois autant de patience que de courage. {encounter_name} prépare un dessin du passage pour les prochaines créatures accueillies. Au-dessus du chemin, un appel de griffon reçoit une réponse plus jeune. Tu reconnais la voix de Lume et gardes le silence pour lui laisser toute sa place.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_radiant",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une plume dans le ciel",
+      "ending": "radiant",
+      "text": "Lume retrouve l'air libre et rejoint son groupe après un départ que le refuge ne cherche plus à empêcher. Tu regardes ses ailes prendre le vent, puis une silhouette plus grande se placer près d'elle. Au village, tu expliques comment une protection attentive était devenue trop stricte. Les soins de Lume ne sont pas oubliés ; ils servent à préparer de meilleurs refuges. Tu ne reçois ni laisse ni trophée. Une plume de cuivre tombe près du chemin, et tu la regardes briller un instant avant de repartir.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_cost",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Un envol à préparer encore",
+      "ending": "cost",
+      "text": "Lume quitte le refuge fermé, mais son départ vers le groupe demandera une halte et quelques réparations. Tu préviens les habitants avec les repères découverts. Ils organisent un endroit ouvert, où la griffonne peut choisir ses mouvements et retrouver ses forces. Son groupe répond aux appels depuis les hauteurs et accepte d'attendre. Le sauvetage a réussi à changer la situation, même si tout ne se termine pas par un envol immédiat. Tu vois Lume étendre une aile sans qu'une lumière se referme. Ce geste suffit à montrer le chemin parcouru.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_resilient",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La porte n'est plus une promesse vide",
+      "ending": "resilient",
+      "text": "Tu n'as pas ouvert toutes les protections, mais Lume dispose enfin d'un espace sûr et d'une sortie que l'on peut préparer avec elle. La personne responsable reste pour aider, au lieu d'ajouter de nouvelles consignes. Tu rapportes au village la cause du blocage et le trajet vers le refuge. Une équipe peut maintenant poursuivre le sauvetage avec des informations précises. Lume te répond avant ton départ, d'un appel plus calme. L'aventure n'a pas donné le vol espéré ce soir ; elle lui a rendu la possibilité d'un départ réel.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

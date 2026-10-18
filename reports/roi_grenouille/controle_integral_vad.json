@@ -1,0 +1,145 @@
+{
+  "passed": true,
+  "transcript": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, l'ivet un roi dont toutes les filles étaient belles. La pluie jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleuil, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuiait, elle prit sa balle en or, la jetant en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse l'a suivi des yeux, mais la balle disparu. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. comme elle gémissait ainsi quelqu'un lui cria. Pourquoi pleure-tu, princesse, si fort qu'une pierre s'en laisserait attendre-y ? Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Chois 1. Montrez l'endroit où la balle a disparu. Ou chois 2. Racontez comment la balle est tombée dans la fontaine.",
+  "expected_words": 260,
+  "recognized_words": 263,
+  "word_error_rate": 0.0654,
+  "tail_matched": true,
+  "choices_matched": true,
+  "reasons": [],
+  "choice_homophones_normalized": 2,
+  "segments": [
+    {
+      "start": 0.72,
+      "end": 5.58,
+      "text": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux,"
+    },
+    {
+      "start": 5.58,
+      "end": 8.58,
+      "text": "l'ivet un roi dont toutes les filles étaient belles."
+    },
+    {
+      "start": 8.58,
+      "end": 12.4,
+      "text": "La pluie jeune était si belle que le soleil, qui en a cependant en vue,"
+    },
+    {
+      "start": 12.4,
+      "end": 15.58,
+      "text": "s'étonnait chaque fois qu'il illuminait son visage."
+    },
+    {
+      "start": 15.58,
+      "end": 19.24,
+      "text": "Non loin du château du roi, il y avait une grande et sombre forêt,"
+    },
+    {
+      "start": 19.24,
+      "end": 24.32,
+      "text": "et, dans la forêt, sous un vieux tilleuil, une fontaine."
+    },
+    {
+      "start": 24.32,
+      "end": 28.16,
+      "text": "Un jour qu'il faisait très chaud, la royale enfant partit dans le bois"
+    },
+    {
+      "start": 28.16,
+      "end": 30.8,
+      "text": "et s'assit au bord de la source fraîche."
+    },
+    {
+      "start": 30.8,
+      "end": 33.68,
+      "text": "Et comme elle s'ennuiait, elle prit sa balle en or,"
+    },
+    {
+      "start": 33.68,
+      "end": 36.4,
+      "text": "la jetant en l'air et la rattrapa."
+    },
+    {
+      "start": 36.4,
+      "end": 38.36,
+      "text": "C'était son jeu favori."
+    },
+    {
+      "start": 38.36,
+      "end": 40.76,
+      "text": "Il arriva que la balle d'or, au lieu de revenir dans sa main,"
+    },
+    {
+      "start": 40.76,
+      "end": 44.08,
+      "text": "tomba sur le sol et roula tout droit dans l'eau."
+    },
+    {
+      "start": 44.08,
+      "end": 47.08,
+      "text": "La princesse l'a suivi des yeux, mais la balle disparu."
+    },
+    {
+      "start": 47.08,
+      "end": 50.36,
+      "text": "La fontaine était si profonde qu'on n'en voyait pas le fond."
+    },
+    {
+      "start": 50.36,
+      "end": 54.04,
+      "text": "La jeune fille se mit à pleurer, à pleurer de plus en plus fort."
+    },
+    {
+      "start": 54.04,
+      "end": 55.84,
+      "text": "Elle était inconsolable."
+    },
+    {
+      "start": 55.84,
+      "end": 58.84,
+      "text": "comme elle gémissait ainsi quelqu'un lui cria."
+    },
+    {
+      "start": 59.34,
+      "end": 63.34,
+      "text": "Pourquoi pleure-tu, princesse, si fort qu'une pierre s'en laisserait attendre-y ?"
+    },
+    {
+      "start": 63.84,
+      "end": 66.34,
+      "text": "Elle regarda autour d'elle pour voir d'où venait la voix"
+    },
+    {
+      "start": 66.34,
+      "end": 70.84,
+      "text": "et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse."
+    },
+    {
+      "start": 71.34,
+      "end": 72.84,
+      "text": "Que doit faire la princesse ?"
+    },
+    {
+      "start": 72.84,
+      "end": 74.34,
+      "text": "Chois 1."
+    },
+    {
+      "start": 74.34,
+      "end": 77.34,
+      "text": "Montrez l'endroit où la balle a disparu."
+    },
+    {
+      "start": 77.34,
+      "end": 78.84,
+      "text": "Ou chois 2."
+    },
+    {
+      "start": 78.84,
+      "end": 81.34,
+      "text": "Racontez comment la balle est tombée dans la fontaine."
+    }
+  ],
+  "method": "faster-whisper-small-vad",
+  "seconds": 17.062999999994645
+}

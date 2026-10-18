@@ -1,0 +1,496 @@
+{
+  "id": "feather",
+  "title": "Lume et les Braconniers",
+  "description": "Retrouver un jeune griffon capturé, ouvrir sa cage et le ramener auprès des siens.",
+  "intro": "Une petite plume dorée tombe devant la maison du garde forestier. Il la reconnaît : elle appartient à Lume, un jeune griffon qui vit sur les hauteurs près du village. Sa mère tourne au-dessus des arbres depuis le matin, mais le petit ne répond plus. Un voyageur a vu des braconniers transporter une cage vers {location_name}. Ils veulent vendre Lume à un riche collectionneur. Le garde forestier prépare une équipe, puis te demande de retrouver la cage et le trajet prévu pour son départ. Tu connais les lieux mieux que plusieurs adultes de passage et peux avancer sans attirer une troupe entière. Tu ne devras pas affronter les braconniers. Ton but est de repérer leur camp, d'aider le griffon si une occasion sûre se présente et de conserver assez d'informations pour guider l'équipe. Tu pars avec la plume rangée dans ta poche.",
+  "revelations": [
+    {
+      "id": "hunter",
+      "actor": "la chasseuse Varda",
+      "text": "Une liste de ventes porte le nom de Varda, la cheffe des braconniers. Elle veut livrer Lume à un collectionneur avant le lever du jour. Le trajet et le paiement sont indiqués. Elle a prévu de couvrir la cage pour que la mère du griffon ne repère pas son petit depuis le ciel. Tu sais désormais pourquoi il faut empêcher le transport de partir."
+    },
+    {
+      "id": "lord",
+      "actor": "le seigneur Marcen",
+      "text": "Une lettre signée par Marcen commande un griffon vivant pour sa ménagerie. Il exige un petit assez jeune pour l'habituer à sa cage. Le camp a préparé Lume pour répondre à cette commande. La lettre indique le messager et la route de livraison. Le garde forestier pourra s'en servir pour arrêter le trafic, au-delà de cette seule capture."
+    },
+    {
+      "id": "trapper",
+      "actor": "le trappeur Silve",
+      "text": "Le carnet du trappeur Silve explique ses pièges et ses rendez-vous avec les acheteurs. Il raconte que Lume s'est pris dans un filet en cherchant de la nourriture. Le griffon a été capturé pour être vendu, pas pour protéger les voyageurs. Tu repères sur le carnet le trajet du prochain convoi et le moyen de prévenir le garde forestier avant son départ."
+    }
+  ],
+  "stages": [
+    {
+      "title": "La plume et les roues",
+      "text": "Tu retrouves une plume près d'une ornière profonde. Le chariot de la cage a quitté la route à cet endroit. Les roues portent encore des brindilles fraîches et une trace de corde longe le sol. Tu pourrais suivre le chariot pour rejoindre directement le camp, ou chercher un point d'observation au-dessus de sa route. Tu regardes aussi le ciel. La mère de Lume continue de tourner au loin, mais une cage couverte resterait difficile à voir. Tu ne l'appelles pas tout de suite : si elle fondait sur le camp, les braconniers pourraient déplacer leur prisonnier. Tu cherches d'abord un abri et une piste claire. La plume dans ta poche te rappelle que le griffon n'est pas un objet à récupérer, mais une créature effrayée.",
+      "choices": [
+        {
+          "text": "Suivre les roues vers le camp",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La piste mène à un abri d’où tu aperçois les premières caisses du camp.",
+            "Tu retrouves le camp, mais une branche casse sous ton pied. Tu attends à couvert avant d’approcher.",
+            "Les roues passent sur des pierres. Une seconde plume te permet de retrouver leur direction."
+          ]
+        },
+        {
+          "text": "Chercher un point d’observation au-dessus du trajet",
+          "heroes": [
+            "knight",
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Tu trouves un point abrité et repères le camp sans être vu des braconniers.",
+            "Tu aperçois le camp, mais le détour est long. Tu mémorises une route plus directe pour redescendre.",
+            "Le premier point ne montre rien. Tu en trouves un autre près de la trace de corde."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le cri de Lume",
+      "text": "Un petit cri vient du fond du camp. Tu distingues une cage sous une toile brune. Un braconnier pose une gamelle puis s'éloigne vers un feu. Lume frappe les barreaux avec son bec, sans parvenir à les déplacer. Tu peux observer la ronde des gardiens ou te rapprocher à couvert pour vérifier si le griffon semble blessé. Tu gardes tes mains visibles lorsque tu passes près de la cage. Il ne connaît pas tes intentions et pourrait avoir peur de toute personne. Une aile paraît coincée sous une bande de tissu, mais il peut encore se lever. Tu dois découvrir assez de détails pour préparer une sortie calme. Ouvrir une porte ne suffirait pas si Lume se précipitait ensuite vers les braconniers.",
+      "choices": [
+        {
+          "text": "Observer la ronde et le trajet des gardiens",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu repères un intervalle calme entre deux passages. Tu pourras approcher la cage à ce moment.",
+            "Tu comprends la ronde, mais un gardien reste plus longtemps. Tu prépares un autre abri proche.",
+            "La ronde change sans cesse. Tu repères malgré tout l’endroit où les gardiens tournent le dos."
+          ]
+        },
+        {
+          "text": "Vérifier l’état du griffon depuis un abri proche",
+          "heroes": [
+            "keeper",
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Lume peut marcher. Il te regarde sans frapper les barreaux lorsque tu parles doucement.",
+            "Lume t’écoute, mais sursaute au bruit du feu. Tu recules un peu pour lui laisser de l’espace.",
+            "Lume reste agité. Tu observes son aile à distance et prépares une sortie qui évitera de le brusquer."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La remise des cages",
+      "text": "La remise du camp contient les outils, les filets et les serrures de rechange. Sa porte est verrouillée. Une corde retient un volet équipé d'un crochet intérieur, près de bords hérissés de clous. Tu pourrais utiliser ton objet pour entrer et chercher le dessin de la cage. Une ouverture haute donne aussi accès à la remise depuis un petit escalier. Tu vérifies que personne ne travaille à l'intérieur. Les braconniers ont besoin de leurs outils pour préparer le transport ; ils reviendront peut-être bientôt. Tu prends le temps de repérer un endroit où te cacher et une sortie libre. Tu veux comprendre comment ouvrir la cage avant d'approcher Lume de nouveau, plutôt que de secouer les barreaux et d'augmenter sa peur.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "L’accès s’ouvre. Tu entres dans la remise et trouves les instructions des fermetures de cage.",
+            "Tu entres, mais un filet tombe. Tu le ranges à l’écart avant de chercher le dessin.",
+            "La porte résiste. Une ouverture voisine permet néanmoins de rejoindre les outils de la remise."
+          ]
+        },
+        {
+          "text": "Entrer par l’ouverture haute de la remise",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les appuis tiennent. Tu entres et retrouves le dessin de la fermeture sur un établi.",
+            "Tu entres, mais un paquet bouge sous tes pieds. Tu le bloques avant de descendre.",
+            "L’accès haut est trop usé. Un passage sous la remise te conduit vers une autre ouverture."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Contourner le camp",
+      "text": "Le dessin montre deux attaches sur la cage et une fermeture de secours à l'arrière. Pour atteindre cette partie, tu peux traverser le passage haut qui domine le camp ou emprunter la route basse derrière les réserves. Les deux trajets rejoignent un ancien poste où tu pourras préparer la suite. Tu regardes les braconniers : ils rassemblent déjà des sacs de voyage. Il faut avancer sans perdre le retour. Tu glisses le dessin dans ta poche avec la plume et vérifies la solidité des premiers appuis. La voie haute donne une bonne vue, mais te montre davantage. La voie basse protège des regards, sans te permettre de voir tous les gardiens. Tu choisis selon ce qui te manque pour atteindre Lume.",
+      "choices": [
+        {
+          "text": "Passer en hauteur pour surveiller les gardiens",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu franchis le passage et rejoins le poste avec une vue claire sur la cage.",
+            "Tu avances, mais un appui glisse. Tu reprends ton équilibre avant de gagner le poste.",
+            "Le passage haut est abîmé. Un petit escalier te permet de rejoindre le même poste."
+          ]
+        },
+        {
+          "text": "Contourner les réserves par le passage bas",
+          "heroes": [
+            "keeper",
+            "rogue",
+            "mage"
+          ],
+          "results": [
+            "Tu restes caché et atteins une réserve proche de l’arrière de la cage.",
+            "Tu rejoins la réserve, mais une caisse gêne le chemin. Tu la contournes sans bruit.",
+            "Une clôture ferme le passage. Une porte de service permet néanmoins de rejoindre la réserve."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Un signal pour les secours",
+      "text": "{encounter_name} te retrouve au poste après avoir repéré une autre partie du camp. Vous savez maintenant où se trouve Lume et quand le chariot doit partir. Tu peux demander à cette personne de venir avec toi pour guider le griffon une fois la cage ouverte. Tu peux aussi la charger de prévenir le garde forestier et de surveiller la sortie. Vous choisissez un signal discret et un abri où attendre si l'un doit reculer. Lume est jeune ; il ne comprendra pas forcément tout de suite quel chemin prendre. Une aide près de lui serait utile, mais une équipe bien guidée pourrait aussi arrêter les braconniers. Tu réfléchis aux tâches avant de décider, sans supposer que la mère du griffon résoudra le problème à votre place.",
+      "choices": [
+        {
+          "text": "Préparer ensemble le trajet de Lume",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Vous repérez un trajet calme. {encounter_name} t’accompagne pour aider à guider le griffon.",
+            "Vous avancez ensemble, mais un gardien vous ralentit. Vous gardez le trajet préparé pour la sortie.",
+            "Le trajet à deux est trop visible. {encounter_name} reste pour surveiller le retour pendant que tu avances."
+          ]
+        },
+        {
+          "text": "Faire prévenir le garde forestier",
+          "heroes": [
+            "mage",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Le message peut partir. Tu poursuis avec un signal prévu pour guider l’équipe jusqu’à la cage.",
+            "Le message part par un détour. Tu devras gagner du temps avant l’arrivée de l’équipe.",
+            "La route du message est bloquée. {encounter_name} garde le retour et cherche un autre accès."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le passage vers le ciel",
+      "text": "Au poste, une vieille carte décrit les passages utilisés avant l'installation du camp. L'un pourrait conduire Lume jusqu'à un espace dégagé où sa mère le verra. Tu peux étudier les indications pour trouver cet accès ou te diriger directement vers l'arrière de la cage. Le terrain choisi par les braconniers offre plusieurs abris, mais tous ne permettent pas à une créature ailée de partir. Tu compares la largeur des portes et la hauteur des passages. Le griffon doit pouvoir marcher si son aile reste engourdie. Tu observes le plan du lieu et retiens la route qui rejoint l'air libre. Tu vérifies que le détour se termine bien à l'air libre, là où la mère de Lume pourrait retrouver son petit.",
+      "choices": [
+        {
+          "text": "Chercher l’ancien passage vers un espace dégagé",
+          "heroes": [
+            "explorer",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu découvres une sortie oubliée assez large pour Lume. Sa mère pourra le voir au-delà du camp.",
+            "Tu trouves une indication, mais pas encore un accès sûr. Tu la gardes pour l’équipe du garde forestier.",
+            "L’ancienne route est bouchée. Tu retiens le trajet principal et continues vers la cage."
+          ],
+          "flag": "secret"
+        },
+        {
+          "text": "Rejoindre l’arrière de la cage sans attendre",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Tu mémorises le chemin principal et approches la cage par un accès à couvert.",
+            "Tu atteins le chemin de la cage, mais dois attendre une ronde avant de continuer.",
+            "Le passage indiqué est fermé. Tu longes une réserve jusqu’à un accès voisin."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le sas du camp",
+      "text": "Une grille sépare les réserves de la cour où la cage est posée. Elle est fermée par un cadenas et retenue par une corde. Tu aperçois un crochet de sécurité derrière les barreaux, près d'un cadre couvert de pointes. Ton objet pourrait ouvrir cet accès. Une manivelle voisine permet aussi de lever la grille, à condition de maintenir son poids avec une cale. Tu regardes la largeur du passage : Lume devra peut-être l'emprunter, et une ouverture trop étroite le ferait paniquer. Tu prépares donc un appui avant de commencer. Les gardiens discutent près du feu. Tu écoutes leurs voix pour savoir quand t'arrêter, puis choisis un geste qui laissera derrière toi une voie de retour praticable.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La grille s’ouvre. Tu bloques son battant pour garder une voie assez large pour Lume.",
+            "L’accès se libère, mais une corde s’effiloche. Tu ajoutes un appui avant de continuer.",
+            "Le mécanisme résiste. Tu découvres une entrée latérale qui rejoint la cour de la cage."
+          ]
+        },
+        {
+          "text": "Lever la grille avec la manivelle et une cale",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "La manivelle ouvre le passage. Tu soutiens la grille pour éviter qu’elle retombe pendant la sortie.",
+            "La grille monte difficilement. Tu dégages assez d’espace et marques la pièce à surveiller.",
+            "La manivelle se bloque. Une porte de service te permet de rejoindre la cage malgré la grille."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Un chemin qui n’effraie pas",
+      "text": "Tu observes le trajet entre la cage et la sortie. Un filet traîne près du sol, et des caisses forment un passage étroit. Tu peux d'abord enlever les obstacles pour que Lume ne se blesse pas, ou préparer une diversion qui éloignera les gardiens au moment de sa sortie. Le griffon t'entend et cesse de frapper les barreaux. Tu lui parles doucement, sans ouvrir encore la porte. Tu regardes comment retenir la toile qui couvre la cage : si elle tombait sur ses ailes, elle pourrait l'affoler. La délivrance doit être suivie d'un chemin compréhensible pour lui. Tu choisis la tâche la plus utile en gardant un refuge proche pour attendre si les gardiens reviennent trop tôt.",
+      "choices": [
+        {
+          "text": "Dégager les filets et les caisses du trajet",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Le chemin devient large et sans attache au sol. Lume pourra marcher jusqu’à la sortie.",
+            "Tu dégages le chemin, mais une caisse grince. Tu attends que les gardiens reprennent leur discussion.",
+            "Un filet reste coincé. Tu marques un détour assez large pour éviter ses boucles."
+          ]
+        },
+        {
+          "text": "Préparer une diversion loin de la cage",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La diversion est prête près des réserves. Elle pourra éloigner les gardiens au moment de l’ouverture.",
+            "La diversion fonctionne seulement en partie. Tu prévois un arrêt à couvert pendant la sortie.",
+            "Les gardiens ne se laissent pas distraire. Tu gardes leur intervalle de ronde comme solution de secours."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "La commande du collectionneur",
+      "text": "Une sacoche oubliée près du chariot contient la commande de Lume. Tu y retrouves les noms, les horaires et les paiements qui expliquent la capture. Tu peux emporter la lettre comme preuve ou relever d'abord le trajet du convoi pour empêcher sa fuite. Les braconniers ne chassent pas un griffon dangereux : ils ont capturé un petit pour le vendre. Tu gardes cette différence en tête lorsque tu regardes les barreaux. Le garde forestier pourra arrêter d'autres captures si tu conserves les informations. Tu choisis les papiers utiles sans vider toute la sacoche. Le transport approche ; il faut maintenant préparer la sortie et éviter que la cage parte par une route que personne ne surveille.",
+      "choices": [
+        {
+          "text": "Conserver la lettre qui commande la capture",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu ranges la lettre au sec. Le garde forestier pourra identifier l’acheteur et la bande.",
+            "Tu conserves la preuve, mais une page manque. Le nom du commanditaire et la date restent lisibles.",
+            "La lettre est déchirée. Tu gardes un reçu signé qui suffit à confirmer la vente prévue."
+          ]
+        },
+        {
+          "text": "Relever le trajet et l’heure du convoi",
+          "heroes": [
+            "knight",
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Tu notes les indications. L’équipe pourra surveiller la route même si le camp se vide.",
+            "Tu retrouves le trajet, mais l’heure est raturée. Tu retiens les deux départs possibles.",
+            "Le trajet est incomplet. Tu identifies le prochain rendez-vous et le signe utilisé par les porteurs."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "À côté de la cage",
+      "text": "Tu rejoins enfin l'arrière de la cage. Lume se tourne vers ta voix et laisse retomber son aile. Les braconniers évoquent {revelation_actor} près du chariot. Tu peux déplacer un panneau pour créer un écran entre les gardiens et la porte, ou retirer une petite pièce du chariot afin d'empêcher son départ immédiat. Dans les deux cas, tu gardes une route de retour et évites de toucher au griffon tant qu'il n'est pas prêt. La cage possède une attache de secours, accessible du côté où tu te trouves. Tu observes la fermeture et l'espace où le battant s'ouvrira. Tout est presque prêt pour la délivrance ; il reste à gagner quelques instants sans transformer le camp en lieu de panique.",
+      "choices": [
+        {
+          "text": "Placer un écran entre la porte et les gardiens",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Le panneau masque l’ouverture. Tu peux préparer la cage sans rester à la vue du feu.",
+            "L’écran tient, mais laisse un côté visible. Tu choisis un appui mieux placé près de la cage.",
+            "Le panneau est trop lourd. Tu emploies une toile pour créer un abri plus petit."
+          ]
+        },
+        {
+          "text": "Ralentir le chariot de transport sans l’endommager",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "mage"
+          ],
+          "results": [
+            "Tu retires sa cale de direction et bloques une roue. La cage ne pourra pas partir immédiatement.",
+            "La roue est bloquée, mais les porteurs pourraient la dégager. Tu prépares la suite sans tarder.",
+            "La pièce résiste. Tu mets des caisses sur le trajet pour ralentir un départ précipité."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La fermeture de secours",
+      "text": "La porte arrière de la cage est retenue par une serrure, une corde et un crochet. Ton objet peut t'aider à libérer ces attaches. Tu dois ensuite soutenir le battant pour qu'il ne tombe pas devant Lume. Une autre méthode consiste à employer l'outil ordinaire trouvé dans la remise, en protégeant ta main des pointes du cadre. Le griffon suit ton geste du regard. Tu gardes ta voix calme et ne promets pas une sortie brusque. Si la serrure résiste encore, l'équipe pourra la démonter avec le dessin que tu as conservé. Tu choisis un geste précis, puis vérifies une dernière fois le trajet dégagé. La liberté de Lume commencera par une porte ouverte et un endroit où poser ses pattes.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La porte s’ouvre. Tu la bloques pendant que Lume avance doucement hors de la cage.",
+            "Tu ouvres la porte, mais une attache reste serrée. Lume dispose déjà de plus d’espace pour attendre l’aide.",
+            "La fermeture résiste. Tu dégages le cadre et prépares le démontage pour l’équipe qui approche."
+          ]
+        },
+        {
+          "text": "Employer l’outil de la remise et soutenir la porte",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "L’outil libère le crochet. Lume peut sortir sans recevoir le poids du battant.",
+            "Le crochet cède à moitié. Tu maintiens la porte et prépares la dernière attache pour les aides.",
+            "L’outil ne suffit pas. Tu retires les obstacles autour de la cage et notes la pièce à démonter."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rejoindre la mère de Lume",
+      "text": "La sortie préparée rejoint un espace où Lume pourra être aperçu depuis le ciel. Si sa cage reste encore attachée, le garde forestier connaît maintenant sa position et la pièce à démonter. Tu peux guider le griffon directement vers cette sortie ou préparer une étape dans un abri, le temps que l'équipe bloque les gardiens. Lume ne doit pas être forcé à courir avec une aile engourdie. Tu regardes les personnes qui approchent et le ciel au-dessus du camp. Les preuves empêchent {revelation_actor} de présenter la capture comme un simple transport d'animal. Tu choisis le trajet qui protégera le mieux la créature et les personnes qui l'aident. Le retour auprès des siens vaut mieux qu'une fuite rapide suivie d'un nouveau piège.",
+      "choices": [
+        {
+          "text": "Guider Lume vers l’espace dégagé",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Le trajet est libre. Lume rejoint l’espace ouvert et sa mère le repère depuis le ciel.",
+            "Lume avance lentement. L’équipe ferme la route des gardiens pendant que tu le guides.",
+            "Le passage direct est bloqué. Tu mets Lume à l’abri et guides l’équipe vers sa cage."
+          ]
+        },
+        {
+          "text": "Passer par un abri pendant l’arrivée du garde forestier",
+          "heroes": [
+            "keeper",
+            "knight",
+            "explorer"
+          ],
+          "results": [
+            "L’abri est calme. L’équipe sécurise le camp, puis accompagne Lume jusqu’à sa mère.",
+            "L’abri protège Lume, mais le départ attend un peu. Les aides retirent les dernières attaches.",
+            "Le premier abri est occupé. Tu retrouves le refuge prévu et conduis le garde forestier jusqu’au griffon."
+          ],
+          "repair": true
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "La réserve des filets",
+    "text": "Le passage bas rejoint une réserve de filets et de cordes. {encounter_name} t'y attend après avoir reconnu le trajet du chariot. Vous pouvez prendre du matériel pour soutenir la porte de la cage, puis avancer ensemble. Tu peux aussi demander à cette personne de garder la réserve et d'indiquer le camp au garde forestier. Une porte étroite mène vers l'arrière de la cage. Vous vérifiez qu'elle reste ouverte et choisissez un signal. Tu regardes les filets sans les dérouler partout : Lume pourrait s'y prendre s'il passait ici. Vous libérez d'abord le sol. La réserve devient une étape utile pour la délivrance, plutôt qu'un nouveau piège sur le chemin du griffon.",
+    "choices": [
+      {
+        "text": "Poursuivre ensemble avec les cordes utiles",
+        "heroes": [
+          "knight",
+          "keeper"
+        ],
+        "results": [
+          "Vous rangez les filets. {encounter_name} t’accompagne avec une corde pour soutenir la porte.",
+          "Vous avancez ensemble, mais un paquet gêne le passage. Vous le déplacez avant de poursuivre.",
+          "Le couloir est trop étroit à deux. {encounter_name} garde la réserve et tu rejoins la cage."
+        ]
+      },
+      {
+        "text": "Faire guider l’équipe depuis la réserve",
+        "heroes": [
+          "mage",
+          "rogue",
+          "explorer"
+        ],
+        "results": [
+          "Le sol est dégagé et le retour surveillé. Tu continues avec un signal prévu pour l’équipe.",
+          "La réserve est prête, mais le message prendra du temps. Tu poursuis vers la cage.",
+          "Le premier accès de l’équipe est bloqué. {encounter_name} cherche une route voisine pendant que tu avances."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "La sortie oubliée",
+      "text": "L'ancien passage découvert sur la carte permet de conduire Lume hors du camp sans traverser la zone surveillée. Le garde forestier termine les dernières attaches et bloque le transport des braconniers. Quand le griffon atteint l'espace dégagé, sa mère descend lentement et le touche du bec. Tu restes à distance pour ne pas interrompre leurs retrouvailles. Les preuves de la vente sont conservées afin d'empêcher une nouvelle capture. Tu récupères ensuite la petite plume laissée dans ta poche. Elle ne devient ni une clé ni un trésor magique : elle te rappelle simplement la piste suivie et la créature qui a retrouvé les siens. Au-dessus de toi, deux silhouettes ailées quittent le camp."
+    },
+    "alliance": {
+      "title": "Un griffon et une équipe",
+      "text": "Avec {encounter_name}, tu aides le garde forestier à dégager la cage et à guider Lume. L'un surveille les gardiens tandis que l'autre maintient le passage. Le griffon rejoint un abri, puis l'espace où sa mère l'attend. Tu remets les papiers de la vente à l'équipe. Elle pourra poursuivre les braconniers sans perdre la route de leurs acheteurs. {encounter_name} te rejoint après avoir rangé les cordes. Vous racontez la sortie au village, en expliquant les gestes qui ont calmé Lume. Le garde forestier remercie chacun pour sa tâche. Tu ne demandes pas que le griffon reste auprès de toi : sa famille et les hauteurs l'attendent."
+    },
+    "radiant": {
+      "title": "Deux ailes dans le ciel",
+      "text": "Lume retrouve sa mère dans un endroit dégagé. Son aile est un peu raide, mais le garde forestier vérifie qu'il peut marcher et repartir. La grande griffonne le protège de son aile avant de prendre de la hauteur. Le camp est sécurisé et les papiers permettent d'arrêter la vente. Tu observes le ciel jusqu'à ce que les deux créatures deviennent petites au-dessus des arbres. Le soir, les habitants te demandent si le griffon t'a offert un pouvoir. Tu leur racontes plutôt sa peur, les attaches de la cage et le chemin préparé pour sa sortie. Cette aventure t'a donné une chose plus simple : la joie de voir une créature rentrer chez elle."
+    },
+    "cost": {
+      "title": "Le repos avant le départ",
+      "text": "Lume doit rester un moment dans un abri pendant que l'équipe démonte les attaches et vérifie son aile. Tu apportes les dessins et indiques les passages où les gardiens pourraient revenir. Les braconniers ne peuvent plus emporter leur prisonnier. Sa mère attend sur une hauteur, guidée par les signaux du garde forestier. Le lendemain, le jeune griffon est conduit dans un espace ouvert et retrouve les siens. Tu as dû demander de l'aide et ralentir plusieurs fois. Cela a permis de protéger Lume plutôt que de le faire courir avec une aile douloureuse. Les papiers de la vente sont conservés, et le garde forestier commence à retirer les autres pièges du secteur."
+    },
+    "resilient": {
+      "title": "La cage ne partira pas",
+      "text": "Tu n'as pas pu terminer seul la délivrance, mais l'équipe connaît la cage, les attaches et le trajet du convoi. Le garde forestier arrive avec les outils nécessaires. Tu lui montres aussi l'endroit où Lume se calme quand on lui laisse de l'espace. Les adultes sécurisent le camp, puis démontent la fermeture. Le jeune griffon peut sortir et rejoindre sa mère après un court repos. Tu rends les documents qui permettront d'arrêter d'autres ventes. Tes essais manqués ont révélé les obstacles réels, au lieu de faire perdre toute la piste. Quand tu rentres au village, une plume tombe près du chemin. Tu la laisses dans l'herbe et regardes les ailes au-dessus des arbres."
+    }
+  },
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la remise des cages. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de le sas du camp. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de la porte près de la cage de Lume. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "climax_action": "Couper la corde de la porte avec ton épée"
+    },
+    "book": {
+      "first": "Devant la remise des cages, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant le sas du camp, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant la cage de Lume, tu relis le sort des attaches. La page conseille de viser seulement le crochet de la porte. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "climax_action": "Desserrer le crochet de la porte avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la remise des cages. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de le sas du camp. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet de la porte près de la cage de Lume. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "climax_action": "Protéger ta main pour dégager le crochet de la porte"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée de la remise. Elle désigne un côté de la remise des cages. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture du sas. Elle désigne un côté de le sas du camp. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture de la cage de Lume. Elle désigne un côté de la cage de Lume. Tu pourrais y actionner le crochet de la porte à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "climax_action": "Trouver le crochet de la porte avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure de la remise près de la remise des cages. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "first_action": "Ouvrir la serrure de la remise avec ta clé",
+      "second": "Tu remarques le cadenas du sas près de le sas du camp. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "second_action": "Ouvrir le cadenas du sas avec ta clé",
+      "climax": "Tu remarques la serrure de la cage près de la cage de Lume. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "climax_action": "Ouvrir la serrure de la cage avec ta clé"
+    }
+  }
+}

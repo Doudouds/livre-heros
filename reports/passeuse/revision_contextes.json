@@ -1,0 +1,106 @@
+{
+  "source": "La petite passeuse d'étoile.pdf",
+  "chapter": 1,
+  "reviewed_passages": 28,
+  "reviewed_scene_variants": 49,
+  "backup": "archives/passeuse-avant-explications-2026-10-10-184852",
+  "changes": [
+    {
+      "passage": 2,
+      "field": "text",
+      "choice": null,
+      "before": "Les pensionnaires descendaient dans leur ordre habituel. Sur un palier, un intervalle s'ouvrit entre deux groupes.",
+      "after": "Les pensionnaires descendaient dans leur ordre habituel. Dans la rue, les sentinelles mécaniques veillaient sur les files d'habitants. Sur un palier, un intervalle s'ouvrit entre deux groupes."
+    },
+    {
+      "passage": 5,
+      "field": "text",
+      "choice": null,
+      "before": "Elle réitéra l'opération autant que nécessaire.\n\n",
+      "after": "Elle réitéra l'opération autant que nécessaire.\n\nTout au long de la journée, les travailleurs déposaient leurs ouvrages sur un tapis roulant. Les pièces y défilaient entre plusieurs tiges gesticulantes qui en examinaient systématiquement chaque partie pour leur attribuer une note finale. Une bonne appréciation pouvait être récompensée par des confiseries ; une mauvaise était sanctionnée de remontrances.\n\n"
+    },
+    {
+      "passage": 5,
+      "field": "text",
+      "choice": null,
+      "before": "un ouvrier fixait de petites roues sous une maquette.",
+      "after": "un ouvrier fixait quatre petites roues sous le rectangle de bois d'une maquette."
+    },
+    {
+      "passage": 5,
+      "field": "text",
+      "choice": null,
+      "before": "Elle aurait voulu suivre ce montage jusqu'au bout, mais le tapis roulant attendait aussi son ouvrage.",
+      "after": "Elle aurait voulu suivre ce montage jusqu'au bout, mais son ouvrage devait lui aussi passer au contrôle."
+    },
+    {
+      "passage": 6,
+      "field": "text",
+      "choice": null,
+      "before": "Tout au long de la journée, les travailleurs entreposaient les ouvrages sur un tapis roulant avec, à ses bords, plusieurs tiges gesticulantes analysant systématiquement chaque partie de la pièce produite pour en attribuer une note finale. Une bonne appréciation pouvait être récompensée par des confiseries ; une mauvaise était sanctionnée de remontrances. ",
+      "after": ""
+    },
+    {
+      "passage": 14,
+      "field": "text",
+      "choice": null,
+      "before": "Derrière la grille, le couloir recevait encore un peu de lune.",
+      "after": "Derrière la grille de ventilation, à l'extrémité du conduit, le couloir recevait encore un peu de lune."
+    },
+    {
+      "passage": 15,
+      "field": "text",
+      "choice": null,
+      "before": "Le lourd battant en métal la séparait des marches, et elle en saisit la poignée.",
+      "after": "Une lourde porte de métal donnait accès aux marches ; Alex en saisit la poignée."
+    },
+    {
+      "passage": 19,
+      "field": "consequence",
+      "choice": 1,
+      "before": "En cherchant le sol, son pied heurta un tuyau ; le bruit résonna dans la pièce.",
+      "after": "En cherchant le sol, son pied heurta l'une des canalisations qui traversaient la pièce ; le bruit résonna dans le sous-sol."
+    },
+    {
+      "passage": 23,
+      "field": "text",
+      "choice": null,
+      "before": "La plateforme était maintenant proche.",
+      "after": "La plateforme de la grue était maintenant proche."
+    },
+    {
+      "passage": 27,
+      "field": "text",
+      "choice": null,
+      "before": "Propulsée par le courant, Alex heurta violemment des barreaux en métal rouillé par les années.",
+      "after": "Propulsée par le courant, Alex heurta violemment une grille de barreaux métalliques, rouillée par les années, qui barrait le passage sous le mur."
+    },
+    {
+      "passage": 27,
+      "field": "text",
+      "choice": null,
+      "before": "Ce mouvement répété et les vibrations générées vinrent peu à peu élargir les fissures naturellement créées.",
+      "after": "Ce mouvement répété et les vibrations générées vinrent peu à peu élargir les fissures naturellement créées dans la paroi, autour des barreaux."
+    },
+    {
+      "passage": 6,
+      "field": "text",
+      "choice": null,
+      "before": "Trop de remontrances valaient une peine de cachot",
+      "after": "La notation des pièces pouvait décider du sort des ouvriers. Trop de remontrances valaient une peine de cachot"
+    }
+  ],
+  "verification": {
+    "tests_passed": 12,
+    "test_report": "reports/passeuse/tests_contextes.txt",
+    "simulations": 2000,
+    "scene_variants_exercised": 49,
+    "source_sha256": "a619fbd62e733d8e6cd8f782027d0d904ca401cb2336b40fc05cb03999cfcb37",
+    "continuous_readings": [
+      "reports/passeuse/lecture_contextes_choix1.md",
+      "reports/passeuse/lecture_contextes_choix2.md"
+    ],
+    "authoring_matches_runtime": true,
+    "choice_structure_and_flags_preserved": true
+  }
+}

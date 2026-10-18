@@ -1,0 +1,35 @@
+test_all_configurations_and_extreme_outcomes_keep_a_complete_story (tests.test_cages.CagesTests.test_all_configurations_and_extreme_outcomes_keep_a_complete_story) ... ok
+test_choices_change_rescues_and_the_following_choices (tests.test_cages.CagesTests.test_choices_change_rescues_and_the_following_choices) ... ok
+test_explicit_plot_replays_without_changing_older_journals (tests.test_cages.CagesTests.test_explicit_plot_replays_without_changing_older_journals) ... ok
+test_failed_unlock_keeps_the_key_and_lison_remains_a_bird (tests.test_cages.CagesTests.test_failed_unlock_keeps_the_key_and_lison_remains_a_bird) ... ok
+test_mouse_promise_requires_actually_collecting_the_family (tests.test_cages.CagesTests.test_mouse_promise_requires_actually_collecting_the_family) ... ok
+test_new_games_have_three_distinct_middle_plots (tests.test_cages.CagesTests.test_new_games_have_three_distinct_middle_plots) ... ok
+test_pilot_ui_advances_directly_and_restarts_with_the_same_tale (tests.test_cages.CagesTests.test_pilot_ui_advances_directly_and_restarts_with_the_same_tale) ... ok
+test_remembered_key_and_alert_change_later_odds (tests.test_cages.CagesTests.test_remembered_key_and_alert_change_later_odds) ... ok
+test_replay_and_audio_use_the_actual_joined_passages (tests.test_cages.CagesTests.test_replay_and_audio_use_the_actual_joined_passages) ... ok
+test_transformation_is_witnessed_before_the_mouse_explains_the_spell (tests.test_cages.CagesTests.test_transformation_is_witnessed_before_the_mouse_explains_the_spell) ... ok
+test_all_125_configurations_across_all_arcs_and_two_routes (tests.test_engine.EngineTests.test_all_125_configurations_across_all_arcs_and_two_routes) ... ok
+test_audio_hash_identifies_the_actual_text (tests.test_engine.EngineTests.test_audio_hash_identifies_the_actual_text) ... ok
+test_branch_then_rejoin (tests.test_engine.EngineTests.test_branch_then_rejoin) ... ok
+test_debug_journal_complete_and_partial_replay (tests.test_engine.EngineTests.test_debug_journal_complete_and_partial_replay) ... ok
+test_every_result_keeps_all_twelve_decisions (tests.test_engine.EngineTests.test_every_result_keeps_all_twelve_decisions) ... ok
+test_initial_parameters_are_more_than_decorations (tests.test_engine.EngineTests.test_initial_parameters_are_more_than_decorations) ... ok
+test_invalid_input_and_double_click (tests.test_engine.EngineTests.test_invalid_input_and_double_click) ... ok
+test_new_adventure_erases_previous_world (tests.test_engine.EngineTests.test_new_adventure_erases_previous_world) ... ok
+test_previous_decisions_change_later_odds_and_text (tests.test_engine.EngineTests.test_previous_decisions_change_later_odds_and_text) ... ok
+test_probabilities_and_boundaries (tests.test_engine.EngineTests.test_probabilities_and_boundaries) ... ok
+test_rules_are_declarative_and_update_sets (tests.test_engine.EngineTests.test_rules_are_declarative_and_update_sets) ... ok
+test_seed_reproduces_text_variants_and_results (tests.test_engine.EngineTests.test_seed_reproduces_text_variants_and_results) ... ok
+test_seed_variation_changes_several_story_elements (tests.test_engine.EngineTests.test_seed_variation_changes_several_story_elements) ... ok
+test_simulator_statistics_and_repeatability (tests.test_engine.EngineTests.test_simulator_statistics_and_repeatability) ... ok
+test_template_cannot_execute_or_access_attributes (tests.test_engine.EngineTests.test_template_cannot_execute_or_access_attributes) ... ok
+test_audio_does_not_escape_project (tests.test_pc_audio_tts.AdapterTests.test_audio_does_not_escape_project) ... ok
+test_no_audio_files_is_silent_and_non_blocking (tests.test_pc_audio_tts.AdapterTests.test_no_audio_files_is_silent_and_non_blocking) ... ok
+test_pc_ui_full_story_and_debug_visibility (tests.test_pc_audio_tts.AdapterTests.test_pc_ui_full_story_and_debug_visibility) ... ok
+test_session_tts_has_resolved_text_and_matching_audio_paths (tests.test_pc_audio_tts.AdapterTests.test_session_tts_has_resolved_text_and_matching_audio_paths) ... ok
+test_wav_backend_uses_native_async_playback (tests.test_pc_audio_tts.AdapterTests.test_wav_backend_uses_native_async_playback) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 6.307s
+
+OK

@@ -1,0 +1,113 @@
+{
+  "id": "feather",
+  "title": "Lume et les Braconniers",
+  "description": "Retrouver un jeune griffon capturé, ouvrir sa cage et le ramener auprès des siens.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la remise des cages. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de le sas du camp. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de la porte près de la cage de Lume. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la délivrance de Lume.",
+      "climax_action": "Couper la corde de la porte avec ton épée"
+    },
+    "book": {
+      "first": "Devant la remise des cages, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant le sas du camp, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant la cage de Lume, tu relis le sort des attaches. La page conseille de viser seulement le crochet de la porte. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la délivrance de Lume reste ton objectif.",
+      "climax_action": "Desserrer le crochet de la porte avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la remise des cages. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de le sas du camp. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet de la porte près de la cage de Lume. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la délivrance de Lume.",
+      "climax_action": "Protéger ta main pour dégager le crochet de la porte"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée de la remise. Elle désigne un côté de la remise des cages. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture du sas. Elle désigne un côté de le sas du camp. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture de la cage de Lume. Elle désigne un côté de la cage de Lume. Tu pourrais y actionner le crochet de la porte à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la délivrance de Lume.",
+      "climax_action": "Trouver le crochet de la porte avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure de la remise près de la remise des cages. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "first_action": "Ouvrir la serrure de la remise avec ta clé",
+      "second": "Tu remarques le cadenas du sas près de le sas du camp. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "second_action": "Ouvrir le cadenas du sas avec ta clé",
+      "climax": "Tu remarques la serrure de la cage près de la cage de Lume. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la délivrance de Lume.",
+      "climax_action": "Ouvrir la serrure de la cage avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "feather_intro",
+  "revelations": [
+    {
+      "id": "hunter",
+      "actor": "la chasseuse Varda",
+      "text": "Une liste de ventes porte le nom de Varda, la cheffe des braconniers. Elle veut livrer Lume à un collectionneur avant le lever du jour. Le trajet et le paiement sont indiqués. Elle a prévu de couvrir la cage pour que la mère du griffon ne repère pas son petit depuis le ciel. Tu sais désormais pourquoi il faut empêcher le transport de partir."
+    },
+    {
+      "id": "lord",
+      "actor": "le seigneur Marcen",
+      "text": "Une lettre signée par Marcen commande un griffon vivant pour sa ménagerie. Il exige un petit assez jeune pour l'habituer à sa cage. Le camp a préparé Lume pour répondre à cette commande. La lettre indique le messager et la route de livraison. Le garde forestier pourra s'en servir pour arrêter le trafic, au-delà de cette seule capture."
+    },
+    {
+      "id": "trapper",
+      "actor": "le trappeur Silve",
+      "text": "Le carnet du trappeur Silve explique ses pièges et ses rendez-vous avec les acheteurs. Il raconte que Lume s'est pris dans un filet en cherchant de la nourriture. Le griffon a été capturé pour être vendu, pas pour protéger les voyageurs. Tu repères sur le carnet le trajet du prochain convoi et le moyen de prévenir le garde forestier avant son départ."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "feather_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "feather_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "feather_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "feather_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "feather_end_resilient",
+      "when": {}
+    }
+  ]
+}

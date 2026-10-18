@@ -1,0 +1,268 @@
+{
+  "count": 10000,
+  "simulation_seed": 20261003,
+  "choice_policy": "random",
+  "timing": {
+    "words_per_minute": 150,
+    "choice_seconds": 10,
+    "mean_minutes": 21.15,
+    "minimum_minutes": 20.593,
+    "maximum_minutes": 21.613,
+    "p05_minutes": 20.807,
+    "p95_minutes": 21.433,
+    "outside_target": 0
+  },
+  "decisions": {
+    "12": 10000
+  },
+  "arcs": {
+    "atlas": 1647,
+    "bell": 1702,
+    "feather": 1593,
+    "lantern": 1702,
+    "names": 1707,
+    "rain": 1649
+  },
+  "endings": {
+    "atlas:alliance": 394,
+    "atlas:cost": 375,
+    "atlas:radiant": 162,
+    "atlas:resilient": 296,
+    "atlas:secret": 420,
+    "bell:alliance": 397,
+    "bell:cost": 416,
+    "bell:radiant": 165,
+    "bell:resilient": 282,
+    "bell:secret": 442,
+    "feather:alliance": 401,
+    "feather:cost": 326,
+    "feather:radiant": 156,
+    "feather:resilient": 289,
+    "feather:secret": 421,
+    "lantern:alliance": 393,
+    "lantern:cost": 370,
+    "lantern:radiant": 211,
+    "lantern:resilient": 270,
+    "lantern:secret": 458,
+    "names:alliance": 421,
+    "names:cost": 402,
+    "names:radiant": 169,
+    "names:resilient": 305,
+    "names:secret": 410,
+    "rain:alliance": 390,
+    "rain:cost": 371,
+    "rain:radiant": 197,
+    "rain:resilient": 304,
+    "rain:secret": 387
+  },
+  "outcomes_total": {
+    "success": 63181,
+    "complication": 27009,
+    "failure": 29810
+  },
+  "outcomes_per_adventure": {
+    "success": 6.318,
+    "complication": 2.701,
+    "failure": 2.981
+  },
+  "scenes": {
+    "atlas_1": 1647,
+    "atlas_10": 1647,
+    "atlas_11": 1647,
+    "atlas_12": 1647,
+    "atlas_2": 1647,
+    "atlas_3": 1647,
+    "atlas_4": 1647,
+    "atlas_5": 813,
+    "atlas_5b": 834,
+    "atlas_6": 1647,
+    "atlas_7": 1647,
+    "atlas_8": 1647,
+    "atlas_9": 1647,
+    "atlas_end_alliance": 394,
+    "atlas_end_cost": 375,
+    "atlas_end_radiant": 162,
+    "atlas_end_resilient": 296,
+    "atlas_end_secret": 420,
+    "atlas_intro": 1647,
+    "bell_1": 1702,
+    "bell_10": 1702,
+    "bell_11": 1702,
+    "bell_12": 1702,
+    "bell_2": 1702,
+    "bell_3": 1702,
+    "bell_4": 1702,
+    "bell_5": 871,
+    "bell_5b": 831,
+    "bell_6": 1702,
+    "bell_7": 1702,
+    "bell_8": 1702,
+    "bell_9": 1702,
+    "bell_end_alliance": 397,
+    "bell_end_cost": 416,
+    "bell_end_radiant": 165,
+    "bell_end_resilient": 282,
+    "bell_end_secret": 442,
+    "bell_intro": 1702,
+    "feather_1": 1593,
+    "feather_10": 1593,
+    "feather_11": 1593,
+    "feather_12": 1593,
+    "feather_2": 1593,
+    "feather_3": 1593,
+    "feather_4": 1593,
+    "feather_5": 778,
+    "feather_5b": 815,
+    "feather_6": 1593,
+    "feather_7": 1593,
+    "feather_8": 1593,
+    "feather_9": 1593,
+    "feather_end_alliance": 401,
+    "feather_end_cost": 326,
+    "feather_end_radiant": 156,
+    "feather_end_resilient": 289,
+    "feather_end_secret": 421,
+    "feather_intro": 1593,
+    "lantern_1": 1702,
+    "lantern_10": 1702,
+    "lantern_11": 1702,
+    "lantern_12": 1702,
+    "lantern_2": 1702,
+    "lantern_3": 1702,
+    "lantern_4": 1702,
+    "lantern_5": 852,
+    "lantern_5b": 850,
+    "lantern_6": 1702,
+    "lantern_7": 1702,
+    "lantern_8": 1702,
+    "lantern_9": 1702,
+    "lantern_end_alliance": 393,
+    "lantern_end_cost": 370,
+    "lantern_end_radiant": 211,
+    "lantern_end_resilient": 270,
+    "lantern_end_secret": 458,
+    "lantern_intro": 1702,
+    "names_1": 1707,
+    "names_10": 1707,
+    "names_11": 1707,
+    "names_12": 1707,
+    "names_2": 1707,
+    "names_3": 1707,
+    "names_4": 1707,
+    "names_5": 832,
+    "names_5b": 875,
+    "names_6": 1707,
+    "names_7": 1707,
+    "names_8": 1707,
+    "names_9": 1707,
+    "names_end_alliance": 421,
+    "names_end_cost": 402,
+    "names_end_radiant": 169,
+    "names_end_resilient": 305,
+    "names_end_secret": 410,
+    "names_intro": 1707,
+    "rain_1": 1649,
+    "rain_10": 1649,
+    "rain_11": 1649,
+    "rain_12": 1649,
+    "rain_2": 1649,
+    "rain_3": 1649,
+    "rain_4": 1649,
+    "rain_5": 798,
+    "rain_5b": 851,
+    "rain_6": 1649,
+    "rain_7": 1649,
+    "rain_8": 1649,
+    "rain_9": 1649,
+    "rain_end_alliance": 390,
+    "rain_end_cost": 371,
+    "rain_end_radiant": 197,
+    "rain_end_resilient": 304,
+    "rain_end_secret": 387,
+    "rain_intro": 1649
+  },
+  "least_used_scenes": [
+    [
+      "feather_end_radiant",
+      156
+    ],
+    [
+      "atlas_end_radiant",
+      162
+    ],
+    [
+      "bell_end_radiant",
+      165
+    ],
+    [
+      "names_end_radiant",
+      169
+    ],
+    [
+      "rain_end_radiant",
+      197
+    ],
+    [
+      "lantern_end_radiant",
+      211
+    ],
+    [
+      "lantern_end_resilient",
+      270
+    ],
+    [
+      "bell_end_resilient",
+      282
+    ],
+    [
+      "feather_end_resilient",
+      289
+    ],
+    [
+      "atlas_end_resilient",
+      296
+    ]
+  ],
+  "most_used_scenes": [
+    [
+      "names_intro",
+      1707
+    ],
+    [
+      "names_9",
+      1707
+    ],
+    [
+      "names_8",
+      1707
+    ],
+    [
+      "names_7",
+      1707
+    ],
+    [
+      "names_6",
+      1707
+    ],
+    [
+      "names_4",
+      1707
+    ],
+    [
+      "names_3",
+      1707
+    ],
+    [
+      "names_2",
+      1707
+    ],
+    [
+      "names_12",
+      1707
+    ],
+    [
+      "names_11",
+      1707
+    ]
+  ]
+}

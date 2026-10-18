@@ -1,0 +1,844 @@
+{
+  "version": 1,
+  "seed": 42,
+  "configuration": {
+    "hero": "rogue",
+    "location": "city",
+    "item": "book"
+  },
+  "forced_arc": null,
+  "arc": "rain",
+  "encounter": "lia",
+  "revelation": "captain",
+  "scenes": [
+    {
+      "id": "rain_intro",
+      "variants": [],
+      "text": "La pluie s'arrête avant de toucher le sol. Des milliers de gouttes restent suspendues au-dessus du royaume et dessinent un plafond brillant. Les enfants en touchent d'abord quelques-unes depuis les fenêtres, puis les adultes remarquent que le plafond descend lentement. Toute l'eau des nuages semble rejoindre ce même endroit. Un vieux relevé de météo indique que les conduits magiques de la cité flottante d'Auralis peuvent répartir les averses entre les vallées. Ils n'ont pas servi depuis des années. Tu pars les retrouver pendant que les habitants mettent les récoltes et les animaux à l'abri. Il reste une nuit pour donner à cette pluie une issue qui n'emporte pas les chemins. La première goutte tombée dans ta main est chaude comme une pierre au soleil.\n\nTu sais repérer un loquet caché, traverser une cour sans bruit et rendre discrètement ce qu'on avait injustement pris. Ta ruse n'est pas une excuse pour oublier les autres : elle sert à ouvrir des chemins qui semblaient fermés.\n\nTon grimoire vivant remue légèrement dans ta sacoche. Il tourne parfois ses pages sans qu'on le touche. Il ne donne pas toutes les réponses, mais il aime reconnaître les questions que personne n'a encore osé poser.\n\nÀ l'entrée du chemin, tu rencontres Lia, une apprentie cartographe. Sa cape porte des petites poches pleines de morceaux de carte. Elle te montre un passage qu'elle vient de relever, puis explique qu'elle cherche à comprendre pourquoi les repères du lieu changent depuis quelques jours.",
+      "segment_id": "rain_intro_narration_69c2f1683dd719152f8e",
+      "choice_prompt": null,
+      "choice_segment_id": null,
+      "estimated_duration": 97.2
+    },
+    {
+      "id": "rain_1",
+      "variants": [
+        "visit_city"
+      ],
+      "text": "Le chemin brille sous les gouttes immobiles. Tu peux marcher entre elles, mais certains groupes se rapprochent lentement comme s'ils cherchaient un seul point de chute. Une rigole ancienne longe la route. Elle reste sèche, alors que le sol autour retient déjà l'humidité de l'air. Tu pourrais suivre cette rigole pour retrouver le réseau qui répartissait les pluies, ou examiner les groupes de gouttes afin de repérer ceux qui risquent de tomber d'abord. La rigole conduirait plus directement vers les mécanismes. Les gouttes donneraient une information utile aux habitants qui préparent les abris. Tu observes un intervalle assez large pour avancer sans les disperser, puis choisis la piste qui guidera ton arrivée dans le lieu.\n\nLa cité d'Auralis flotte au-dessus d'un lac, retenue par des anneaux de lumière. Une nacelle t'y conduit lentement. Les habitants ont attaché des rubans aux balcons pour lire le vent, mais tous les rubans pointent aujourd'hui vers le centre. Sous les terrasses, une pulsation traverse les chaînes sans produire de bruit.",
+      "segment_id": "rain_1_narration_9ec4fb30de6b76b82e08",
+      "choice_prompt": "Premier choix : Retrouver le réseau en suivant la rigole ancienne. Second choix : Observer les gouttes les plus proches de tomber.",
+      "choice_segment_id": "rain_1_choices_acf6573977ed0d3191ba",
+      "estimated_duration": 66.4
+    },
+    {
+      "id": "rain_2",
+      "variants": [],
+      "text": "Une jauge de pierre marque les niveaux de pluie que le lieu pouvait recevoir. Le trait supérieur correspond à une année entière, mais une aiguille mobile s'en approche déjà. Il reste pourtant des canaux secs. L'eau n'a pas trouvé leurs entrées ; elle attend au-dessus du royaume. À côté, des marques de couleur indiquent l'ordre dans lequel les conduits devaient s'ouvrir. Tu peux étudier la jauge pour mesurer la pression réelle, ou reconstituer cet ordre à partir des couleurs. La mesure t'aiderait à savoir quand agir sans transmettre une secousse. L'ordre montrerait comment distribuer la force entre les vallées. Tu ne cherches pas à retirer toute l'eau du ciel immédiatement. Tu cherches une manière de la faire passer sans la laisser se rassembler en un seul endroit.\n\nTon attention se porte sur les détails que l'on remarque rarement : une poignée polie d'un seul côté, une rayure près d'un loquet, une dalle dont le bord reste propre. Quelqu'un a utilisé un accès discret. Tu comprends son mécanisme sans avoir besoin de forcer les pierres ni de réveiller ce qui dort derrière.",
+      "segment_id": "rain_2_narration_72f8bb66aff5dc94f4ec",
+      "choice_prompt": "Premier choix : Mesurer la pression grâce à la jauge. Second choix : Reconstituer l'ordre des conduits colorés.",
+      "choice_segment_id": "rain_2_choices_7f040d7a90dc042d71a3",
+      "estimated_duration": 71.6
+    },
+    {
+      "id": "rain_3",
+      "variants": [],
+      "text": "La porte suivante porte un cercle de signes humides. Aucun ne laisse tomber de goutte, mais ils gonflent à chaque pulsation de la jauge. Le seuil empêche d'entrer pendant une pression trop forte. Il attend un signal que les anciens régulateurs savaient donner. Ton objet réagit aux signes et peut chercher cet accord. Un passage d'entretien permet aussi de rejoindre l'intérieur en suivant une canalisation vide. La première option ouvrirait le seuil avec une compréhension utile pour la suite. La seconde éviterait de toucher tout de suite à la retenue, au prix d'un détour où les pulsations sont plus difficiles à voir. Tu écoutes le bruit très léger de l'eau qui n'est pas encore tombée. Le lieu garde sa force, mais il te laisse encore le temps d'une action préparée.\n\nLe grimoire vivant ouvre une page où les signes du passage se déplacent entre les lignes. Il ne te dicte pas de sort ; il propose deux rythmes, puis attend que tu en choisisses un. Les pages pourront accompagner ta tentative si tu acceptes d'écouter leurs corrections au lieu de leur demander une solution toute faite.",
+      "segment_id": "rain_3_narration_7bccdac1f2f74603150e",
+      "choice_prompt": "Premier choix : Lire le rythme proposé par le grimoire vivant. Second choix : Passer par la canalisation d'entretien vide.",
+      "choice_segment_id": "rain_3_choices_8e4d85323c68b6af6077",
+      "estimated_duration": 74.0
+    },
+    {
+      "id": "rain_4",
+      "variants": [],
+      "text": "Le réseau se sépare entre une galerie de réserves et un passage qui commande les abris. Les réserves contiennent de l'eau gardée pour les périodes sèches. Les abris permettent de détourner une partie d'une averse trop forte. Tu peux commencer par les réserves pour comprendre comment le lieu conserve et redistribue l'eau, ou par les abris pour protéger les chemins pendant ta réparation. La première voie aiderait à employer utilement la pluie retenue. La seconde donnerait une marge si quelque chose cède plus tôt que prévu. Les deux conduisent au centre du réseau, mais ne racontent pas la même priorité. Tu regardes les marques de niveau, puis décides quelle sécurité préparer avant de faire descendre le plafond d'eau qui brille encore au-dessus du royaume.\n\nDeux terrasses de la cité sont reliées par un pont suspendu. Un conduit d'entretien passe sous son tablier et arrive au même palier. Les anneaux qui maintiennent Auralis en hauteur changent de couleur à chaque oscillation. Tu peux avancer avec le mouvement du pont ou te servir des prises fixes cachées dessous.",
+      "segment_id": "rain_4_narration_acf6d429cebdb36e2098",
+      "choice_prompt": "Premier choix : Comprendre les réserves qui redistribuent l'eau. Second choix : Préparer les abris et les chemins de détour.",
+      "choice_segment_id": "rain_4_choices_d4588e7dde3abe751a84",
+      "estimated_duration": 70.4
+    },
+    {
+      "id": "rain_5b",
+      "variants": [],
+      "text": "Le chemin des abris mène à une salle où des volets dirigent l'eau loin des routes habitées. Aucun ne fonctionne tout seul : il faut surveiller les niveaux des deux côtés. Lia te rejoint et propose de garder cette veille pendant ton avancée. Lia pourrait aussi venir au centre pour aider à lire les signaux, si tu prépares ici des repères assez clairs. Les deux tâches comptent autant. Tu observes les premières gouttes prises dans les volets et comprends qu'un abri ne sert pas seulement à attendre. Il peut donner à une force un autre chemin, à condition de ne pas l'envoyer vers quelqu'un d'autre sans prévenir. Vous convenez d'un signal pour les passages encore ouverts, puis tu choisis où placer l'aide disponible.\n\nLia déroule une carte dont les bords sont couverts de corrections. Elle a comparé les chemins de plusieurs époques et découvert qu'ils menaient tous à un point aujourd'hui inaccessible. Son savoir peut t'aider, mais elle ne veut pas décider à ta place. Elle préfère que tu choisisses la piste, puis vérifier avec toi ce qu'elle révèle.",
+      "segment_id": "rain_5b_narration_68be770db00981e2e815",
+      "choice_prompt": "Premier choix : Préparer les repères et continuer ensemble. Second choix : Confier la veille des abris à Lia.",
+      "choice_segment_id": "rain_5b_choices_cc8b14d214a134ce7aee",
+      "estimated_duration": 71.2
+    },
+    {
+      "id": "rain_6",
+      "variants": [
+        "memory_solo"
+      ],
+      "text": "Un registre de saisons raconte les usages du réseau. L'eau était répartie entre champs, forêts et réserves, puis les habitants envoyaient un signe lorsque chacun avait reçu assez. Une page cachée décrit une quatrième destination : une vallée presque oubliée, qui pouvait accueillir les pluies exceptionnelles sans habitation sur leur passage. Tu peux étudier cette destination pour retrouver une issue supplémentaire, ou reconstruire les besoins actuels à partir des marques des autres vallées. La page cachée offrirait un secret utile en cas de pression trop forte. Les besoins actuels permettraient de distribuer l'eau avec plus de justesse. Tu remarques que les anciens régulateurs ne cherchaient pas à faire disparaître la pluie. Ils cherchaient à lui donner des endroits où elle devenait une aide.\n\nDans une salle de navigation, une maquette d'Auralis montre ses quartiers autrefois reliés par de larges jardins. Les anneaux de lumière répondent encore à ces anciens chemins. La cité ne flotte donc pas grâce à un unique objet précieux : elle tient parce que ses différentes parties échangent une force que quelqu'un a interrompue.\n\nLia est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi.",
+      "segment_id": "rain_6_narration_7f035065476400a41226",
+      "choice_prompt": "Premier choix : Retrouver la vallée des pluies exceptionnelles. Second choix : Comprendre les besoins actuels des vallées.",
+      "choice_segment_id": "rain_6_choices_e80c931e93d55e9902cf",
+      "estimated_duration": 83.2
+    },
+    {
+      "id": "rain_7",
+      "variants": [],
+      "text": "Un canal central reste vide tandis que ses voisins vibrent. Deux marques lumineuses devraient relier son entrée à la retenue du ciel, mais la liaison ne se forme plus. Ton objet peut retrouver le lien invisible qui indique où le signal s'est interrompu. Tu peux aussi remettre en état les petites sorties latérales destinées à répartir une pression excessive. La première méthode te donnera une route directe vers la cause du blocage. La seconde protégera le réseau contre les secousses accumulées depuis le début de l'aventure. Tu vois une goutte monter au lieu de tomber. Elle revient vers le plafond parce qu'aucun passage ne l'accueille correctement. Tu dois créer une possibilité stable, avant de demander à beaucoup d'eau de l'emprunter en même temps.\n\nTon grimoire vivant fait apparaître une phrase inachevée. Quand tu le déplaces, les mots changent de place et suivent un lien invisible entre les mécanismes. Le livre reconnaît une relation, mais il te laisse décider de sa signification. Tu peux lui demander de préciser ce lien ou chercher toi-même ce que montrent les traces voisines.",
+      "segment_id": "rain_7_narration_e4c7d44268d541500388",
+      "choice_prompt": "Premier choix : Compléter la phrase que forme le grimoire. Second choix : Rétablir les sorties qui répartissent la pression.",
+      "choice_segment_id": "rain_7_choices_91088a9fb62f40d3889e",
+      "estimated_duration": 71.2
+    },
+    {
+      "id": "rain_8",
+      "variants": [
+        "unstable_echo"
+      ],
+      "text": "Le plafond d'eau descend encore, mais plus lentement près des conduits que tu as compris. Tu peux préparer une mesure de pression depuis un balcon, ou ouvrir un circuit de sécurité avant d'entrer au centre. La mesure te permettra de choisir le moment où la retenue peut se relâcher sans secousse trop forte. Le circuit réduira les conséquences si ce moment est manqué. Tu ne disposes pas d'une certitude parfaite. Tu disposes de repères que ton aventure a rendus plus clairs. En regardant les gouttes, tu remarques qu'elles ne bougent pas toutes ensemble : certaines attendent une réponse des vallées. Ta formation te rappelle une manière d'organiser l'action et de garder une issue, même lorsque la force devant toi paraît beaucoup plus grande que ton propre geste.\n\nTu étudies les habitudes du dispositif avant d'essayer de le tromper. La même lueur revient à intervalles réguliers et laisse une courte zone d'ombre. Ta ruse consiste à entrer dans ce silence, puis à déplacer seulement ce qui compte. Une petite intervention pourrait éviter un affrontement beaucoup plus difficile.\n\nUne vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage.",
+      "segment_id": "rain_8_narration_2e46dec379dba1a8e767",
+      "choice_prompt": "Premier choix : Mesurer le bon moment depuis le balcon. Second choix : Préparer un circuit de sécurité avant l'ouverture.",
+      "choice_segment_id": "rain_8_choices_91fdc286e5c3fff2cc3a",
+      "estimated_duration": 84.4
+    },
+    {
+      "id": "rain_9",
+      "variants": [],
+      "text": "Un relevé central montre le moment où la pluie a cessé de tomber. Tu y vois le signal de retenue, puis l'espace laissé vide par la réponse qui aurait dû le suivre. Le problème n'est pas une eau devenue hostile. C'est une force utile à laquelle on n'a pas donné d'issue. Tu peux envoyer un signe d'accueil pour annoncer que les vallées se préparent, ou transmettre d'abord les limites des conduits pour que la retenue sache combien libérer. Le premier signal réduirait l'attente. Le second rendrait la distribution plus précise. Tu regardes les relevés, puis les gouttes qui brillent près de la fenêtre. Leur immobilité a fini par sembler naturelle. Pourtant, leur place est dans les sols, les sources et les chemins d'eau que les habitants ont commencé à préparer.\n\nUn relevé montre Ysilde, une capitaine qui a détourné une violente averse pour protéger des voyageurs dans les hauteurs. Elle a demandé au système de retenir l'eau pendant leur passage. Le signal de libération n'a pas rejoint les anciens conduits, et la retenue attire maintenant toutes les pluies voisines. Ysilde cherche une issue sûre. Tu peux l'aider à répartir l'eau plutôt qu'à la relâcher d'un seul coup.",
+      "segment_id": "rain_9_narration_6fb39392756e914c30d3",
+      "choice_prompt": "Premier choix : Annoncer que les vallées se préparent à accueillir l'eau. Second choix : Transmettre les limites du réseau avant la libération.",
+      "choice_segment_id": "rain_9_choices_b177861de5d76e27b387",
+      "estimated_duration": 78.8
+    },
+    {
+      "id": "rain_10",
+      "variants": [
+        "memory_solo"
+      ],
+      "text": "Tu rencontres la capitaine des nuages Ysilde près du dispositif central. La personne ou la présence reconnaît les signaux que tu as retrouvés et comprend pourquoi la retenue ne peut plus continuer. Deux solutions peuvent ouvrir la nuit : répartir la pluie selon les besoins des vallées, ou employer d'abord les voies de sécurité pour réduire la pression avant une distribution plus fine. La première utiliserait mieux l'eau, mais exige une coordination précise. La seconde donnera une marge immédiate, au prix d'une partie de la pluie dirigée vers des sols qui en ont moins besoin. Tu n'as pas à choisir entre tout sauver parfaitement et tout abandonner. Tu choisis une méthode capable de protéger les chemins, puis de rendre l'eau utile autant que les réglages le permettront.\n\nAu centre d'Auralis, une place circulaire laisse voir le lac à travers un sol de verre. Les anneaux de sustentation se rejoignent sous ce disque. Autour de toi, les bâtiments s'inclinent très légèrement dans la même direction. Le trouble qui parcourait les terrasses vient d'ici, et sa réponse décidera de l'équilibre de toute la cité.\n\nLia est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi.",
+      "segment_id": "rain_10_narration_50b30ec567509283440a",
+      "choice_prompt": "Premier choix : Distribuer la pluie selon les besoins des vallées. Second choix : Réduire d'abord la pression par les voies de sécurité.",
+      "choice_segment_id": "rain_10_choices_19b54aaa094b585514ee",
+      "estimated_duration": 85.6
+    },
+    {
+      "id": "rain_11",
+      "variants": [],
+      "text": "Deux marques restent séparées : celle de l'eau retenue et celle des canaux qui l'attendent. Ton objet répond à leur langage comme aux premiers seuils du réseau. Tu peux établir une liaison précise pour donner à la pluie sa direction. Une autre méthode consiste à relier les marques par les témoins de niveau autour de la salle, afin que chaque canal confirme sa capacité avant de recevoir l'eau. La liaison directe serait plus rapide. Les témoins offriraient une réponse répartie, avec davantage de contrôle. Tu observes le plafond brillant au-delà de la fenêtre. Il ne disparaîtra pas parce que tu en auras eu le courage. Il changera parce qu'un geste assez clair permettra à cette force immense d'emprunter des chemins préparés pour elle.\n\nLe grimoire vivant garde ses pages ouvertes malgré les vibrations. Plusieurs lignes se répondent comme les voix d'un chœur, puis laissent une place vide. Ce silence attend ton intervention. Tu pourrais lire la suite indiquée par le livre pour relier les forces, en prenant garde de ne pas accélérer quand les lettres se mettent à courir.",
+      "segment_id": "rain_11_narration_20fa7fa1c5e36d33d371",
+      "choice_prompt": "Premier choix : Lire la dernière ligne du grimoire vivant. Second choix : Relier les marques par les témoins de niveau.",
+      "choice_segment_id": "rain_11_choices_edccecf75adb881ba9a0",
+      "estimated_duration": 71.2
+    },
+    {
+      "id": "rain_12",
+      "variants": [
+        "prepared_echo"
+      ],
+      "text": "La nuit touche à sa fin. Une goutte descend enfin jusqu'au sol, puis une seconde reste suspendue comme si elle attendait la décision suivante. Tu peux ouvrir la liaison centrale pour lancer rapidement la distribution, ou faire passer la pluie par les relais préparés afin que les vallées répondent l'une après l'autre. La première méthode libérerait vite le poids accumulé dans le ciel. La seconde ménagerait le réseau et les chemins qui portent encore les traces des difficultés. la capitaine des nuages Ysilde accepte de surveiller la retenue pendant ton dernier geste. Les habitants, au loin, ont allumé des lampes près des abris et des canaux. Tu ne les vois pas tous, mais leurs signaux montrent qu'ils sont prêts à recevoir une réponse. Tu choisis comment transformer ce plafond inquiétant en une pluie que l'on peut accompagner.\n\nDepuis le bord de la place, tu peux atteindre le nœud central ou les cinq anneaux qui répartissent la force entre les quartiers. Une intervention au centre sera immédiate ; une action dans les anneaux donnera aux habitants le temps d'accompagner le mouvement. Dans les deux cas, il faut ménager l'équilibre d'Auralis.\n\nLes repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu.",
+      "segment_id": "rain_12_narration_8b8e656b8a1fde8933ef",
+      "choice_prompt": "Premier choix : Ouvrir la distribution depuis la liaison centrale. Second choix : Libérer la pluie par les relais des vallées.",
+      "choice_segment_id": "rain_12_choices_c3ae63b9686c71f9c0a7",
+      "estimated_duration": 88.4
+    },
+    {
+      "id": "rain_end_radiant",
+      "variants": [],
+      "text": "Le plafond d'eau se défait sans emporter les chemins. Les averses trouvent leurs vallées et les réserves retrouvent des niveaux utiles. Tu racontes la cause de la retenue et les signaux qui permettent désormais de l'éviter. Le conseil remet le réseau en service, avec une veille à chaque saison. Au matin, les habitants sortent des abris sous une pluie ordinaire. Personne ne la trouve ordinaire tout de suite. Tu lèves la main et laisses plusieurs gouttes y tomber. Elles ne portent plus tout le poids d'une catastrophe ; elles ne font que mouiller ta peau.\n\nQuand la nacelle te ramène vers le lac, tu regardes les rubans d'Auralis. Ils ne pointent plus tous dans la même direction : chaque balcon suit de nouveau son propre vent. La cité garde sa place dans le ciel, et ses lumières semblent répondre aux villages sur les rives.\n\nTon grimoire tourne une page blanche, où apparaît lentement un dessin du chemin parcouru. Il ne résume pas tes erreurs et tes réussites. Il conserve la question que tu as appris à poser au bon moment.",
+      "segment_id": "rain_end_radiant_narration_41ea5935cd9bc78f5df8",
+      "choice_prompt": null,
+      "choice_segment_id": null,
+      "estimated_duration": 71.2
+    }
+  ],
+  "choices": [
+    {
+      "scene": "rain_1",
+      "choice_index": 0,
+      "choice_id": "rain_1_0",
+      "choice_text": "Retrouver le réseau en suivant la rigole ancienne",
+      "probabilities": {
+        "objective": 0.77,
+        "success": 0.5389999999999999,
+        "complication": 0.23099999999999998,
+        "failure": 0.22999999999999998,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          }
+        ]
+      },
+      "roll": 0.7415504997598329,
+      "outcome": "complication",
+      "text": "Le trajet est clair, mais un groupe de gouttes descend près du retour.",
+      "destination": "rain_2",
+      "segment_id": "rain_1_rain_1_0_complication_675ed48007189dd69a55"
+    },
+    {
+      "scene": "rain_2",
+      "choice_index": 1,
+      "choice_id": "rain_2_1",
+      "choice_text": "Reconstituer l'ordre des conduits colorés",
+      "probabilities": {
+        "objective": 0.8,
+        "success": 0.5599999999999999,
+        "complication": 0.24,
+        "failure": 0.19999999999999996,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          }
+        ]
+      },
+      "roll": 0.24489185380347622,
+      "outcome": "success",
+      "text": "Les couleurs retrouvent leur ordre. Tu identifies le premier canal à préparer.",
+      "destination": "rain_3",
+      "segment_id": "rain_2_rain_2_1_success_4e7bb5f2cd8ac7bb0248"
+    },
+    {
+      "scene": "rain_3",
+      "choice_index": 0,
+      "choice_id": "rain_3_0",
+      "choice_text": "Lire le rythme proposé par le grimoire vivant",
+      "probabilities": {
+        "objective": 0.81,
+        "success": 0.567,
+        "complication": 0.243,
+        "failure": 0.18999999999999995,
+        "modifiers": [
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.1395379285251439,
+      "outcome": "success",
+      "text": "Le seuil reçoit un signal stable. Les signes s'écartent pour te laisser passer.",
+      "destination": "rain_4",
+      "segment_id": "rain_3_rain_3_0_success_754db4d1dbf2dafbe442"
+    },
+    {
+      "scene": "rain_4",
+      "choice_index": 1,
+      "choice_id": "rain_4_1",
+      "choice_text": "Préparer les abris et les chemins de détour",
+      "probabilities": {
+        "objective": 0.8600000000000001,
+        "success": 0.602,
+        "complication": 0.258,
+        "failure": 0.1399999999999999,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.1024951761715075,
+      "outcome": "success",
+      "text": "Les abris sont reliés. Un détour reste disponible si une averse arrive trop tôt.",
+      "destination": "rain_5b",
+      "segment_id": "rain_4_rain_4_1_success_8d2839ff1a4b69505ede"
+    },
+    {
+      "scene": "rain_5b",
+      "choice_index": 0,
+      "choice_id": "rain_5b_0",
+      "choice_text": "Préparer les repères et continuer ensemble",
+      "probabilities": {
+        "objective": 0.69,
+        "success": 0.48299999999999993,
+        "complication": 0.207,
+        "failure": 0.31000000000000005,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.7406677446676758,
+      "outcome": "failure",
+      "text": "Les repères restent incertains. Lia demeure ici pour surveiller les niveaux.",
+      "destination": "rain_6",
+      "segment_id": "rain_5b_rain_5b_0_failure_212980e29508d7310cf5"
+    },
+    {
+      "scene": "rain_6",
+      "choice_index": 1,
+      "choice_id": "rain_6_1",
+      "choice_text": "Comprendre les besoins actuels des vallées",
+      "probabilities": {
+        "objective": 0.6499999999999999,
+        "success": 0.4549999999999999,
+        "complication": 0.19499999999999998,
+        "failure": 0.3500000000000001,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.5453665337483498,
+      "outcome": "complication",
+      "text": "La répartition est claire, mais une réserve devra recevoir son eau plus tard.",
+      "destination": "rain_7",
+      "segment_id": "rain_6_rain_6_1_complication_e2397bb1c35593abd7aa"
+    },
+    {
+      "scene": "rain_7",
+      "choice_index": 0,
+      "choice_id": "rain_7_0",
+      "choice_text": "Compléter la phrase que forme le grimoire",
+      "probabilities": {
+        "objective": 0.8799999999999999,
+        "success": 0.6159999999999999,
+        "complication": 0.26399999999999996,
+        "failure": 0.1200000000000001,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.5904925124490397,
+      "outcome": "success",
+      "text": "La liaison apparaît. Tu retrouves le trajet du signal jusqu'à la retenue.",
+      "destination": "rain_8",
+      "segment_id": "rain_7_rain_7_0_success_1cbd21408cf6839d43de"
+    },
+    {
+      "scene": "rain_8",
+      "choice_index": 1,
+      "choice_id": "rain_8_1",
+      "choice_text": "Préparer un circuit de sécurité avant l'ouverture",
+      "probabilities": {
+        "objective": 0.79,
+        "success": 0.5529999999999999,
+        "complication": 0.237,
+        "failure": 0.20999999999999996,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          },
+          {
+            "label": "Instabilité précédente",
+            "delta": -0.07
+          }
+        ]
+      },
+      "roll": 0.03178267948178359,
+      "outcome": "success",
+      "text": "Le circuit est prêt. Une secousse pourra se répartir sans gagner tous les chemins.",
+      "destination": "rain_9",
+      "segment_id": "rain_8_rain_8_1_success_0f6a4b48fec230cd39cd"
+    },
+    {
+      "scene": "rain_9",
+      "choice_index": 0,
+      "choice_id": "rain_9_0",
+      "choice_text": "Annoncer que les vallées se préparent à accueillir l'eau",
+      "probabilities": {
+        "objective": 0.69,
+        "success": 0.48299999999999993,
+        "complication": 0.207,
+        "failure": 0.31000000000000005,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.09369523986159245,
+      "outcome": "success",
+      "text": "Le signal est reçu. La pluie cesse d'attirer les nuages voisins.",
+      "destination": "rain_10",
+      "segment_id": "rain_9_rain_9_0_success_9b73be758175e84e70a2"
+    },
+    {
+      "scene": "rain_10",
+      "choice_index": 1,
+      "choice_id": "rain_10_1",
+      "choice_text": "Réduire d'abord la pression par les voies de sécurité",
+      "probabilities": {
+        "objective": 0.8600000000000001,
+        "success": 0.602,
+        "complication": 0.258,
+        "failure": 0.1399999999999999,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.2326608933907396,
+      "outcome": "success",
+      "text": "Les voies libèrent une marge. La retenue peut maintenant être ouverte sans précipitation.",
+      "destination": "rain_11",
+      "segment_id": "rain_10_rain_10_1_success_e0d20489a67cf3c23e37"
+    },
+    {
+      "scene": "rain_11",
+      "choice_index": 0,
+      "choice_id": "rain_11_0",
+      "choice_text": "Lire la dernière ligne du grimoire vivant",
+      "probabilities": {
+        "objective": 0.9,
+        "success": 0.63,
+        "complication": 0.27,
+        "failure": 0.09999999999999998,
+        "modifiers": [
+          {
+            "label": "Formation du héros",
+            "delta": 0.14
+          },
+          {
+            "label": "Objet choisi et disponible",
+            "delta": 0.12
+          },
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.6020187290499803,
+      "outcome": "success",
+      "text": "L'eau reconnaît sa direction. La retenue se relie aux canaux préparés.",
+      "destination": "rain_12",
+      "segment_id": "rain_11_rain_11_0_success_589cc369d258908dbc87"
+    },
+    {
+      "scene": "rain_12",
+      "choice_index": 1,
+      "choice_id": "rain_12_1",
+      "choice_text": "Libérer la pluie par les relais des vallées",
+      "probabilities": {
+        "objective": 0.72,
+        "success": 0.504,
+        "complication": 0.216,
+        "failure": 0.28,
+        "modifiers": [
+          {
+            "label": "Repères préparés",
+            "delta": 0.06
+          }
+        ]
+      },
+      "roll": 0.561245062938613,
+      "outcome": "complication",
+      "text": "La pluie se répartit lentement. Certaines averses attendront encore la journée suivante.",
+      "destination": "$ending",
+      "segment_id": "rain_12_rain_12_1_complication_445a3aa3533c1a84f98c"
+    }
+  ],
+  "conclusion": "radiant",
+  "state": {
+    "hero_type": "rogue",
+    "mandatory_location": "city",
+    "chosen_item": "book",
+    "seed": 42,
+    "arc_id": "rain",
+    "current_scene": "rain_end_radiant",
+    "current_act": 5,
+    "story_progress": 12,
+    "estimated_seconds": 1264.4000000000003,
+    "visited_locations": [
+      "city"
+    ],
+    "met_characters": [
+      "lia"
+    ],
+    "allies": [],
+    "enemies": [],
+    "flags": [
+      "prepared",
+      "revelation_captain"
+    ],
+    "inventory": [
+      "book"
+    ],
+    "previous_outcomes": [
+      {
+        "scene": "rain_1",
+        "choice_index": 0,
+        "choice_id": "rain_1_0",
+        "choice_text": "Retrouver le réseau en suivant la rigole ancienne",
+        "probabilities": {
+          "objective": 0.77,
+          "success": 0.5389999999999999,
+          "complication": 0.23099999999999998,
+          "failure": 0.22999999999999998,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            }
+          ]
+        },
+        "roll": 0.7415504997598329,
+        "outcome": "complication",
+        "text": "Le trajet est clair, mais un groupe de gouttes descend près du retour.",
+        "destination": "rain_2",
+        "segment_id": "rain_1_rain_1_0_complication_675ed48007189dd69a55"
+      },
+      {
+        "scene": "rain_2",
+        "choice_index": 1,
+        "choice_id": "rain_2_1",
+        "choice_text": "Reconstituer l'ordre des conduits colorés",
+        "probabilities": {
+          "objective": 0.8,
+          "success": 0.5599999999999999,
+          "complication": 0.24,
+          "failure": 0.19999999999999996,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            }
+          ]
+        },
+        "roll": 0.24489185380347622,
+        "outcome": "success",
+        "text": "Les couleurs retrouvent leur ordre. Tu identifies le premier canal à préparer.",
+        "destination": "rain_3",
+        "segment_id": "rain_2_rain_2_1_success_4e7bb5f2cd8ac7bb0248"
+      },
+      {
+        "scene": "rain_3",
+        "choice_index": 0,
+        "choice_id": "rain_3_0",
+        "choice_text": "Lire le rythme proposé par le grimoire vivant",
+        "probabilities": {
+          "objective": 0.81,
+          "success": 0.567,
+          "complication": 0.243,
+          "failure": 0.18999999999999995,
+          "modifiers": [
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.1395379285251439,
+        "outcome": "success",
+        "text": "Le seuil reçoit un signal stable. Les signes s'écartent pour te laisser passer.",
+        "destination": "rain_4",
+        "segment_id": "rain_3_rain_3_0_success_754db4d1dbf2dafbe442"
+      },
+      {
+        "scene": "rain_4",
+        "choice_index": 1,
+        "choice_id": "rain_4_1",
+        "choice_text": "Préparer les abris et les chemins de détour",
+        "probabilities": {
+          "objective": 0.8600000000000001,
+          "success": 0.602,
+          "complication": 0.258,
+          "failure": 0.1399999999999999,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.1024951761715075,
+        "outcome": "success",
+        "text": "Les abris sont reliés. Un détour reste disponible si une averse arrive trop tôt.",
+        "destination": "rain_5b",
+        "segment_id": "rain_4_rain_4_1_success_8d2839ff1a4b69505ede"
+      },
+      {
+        "scene": "rain_5b",
+        "choice_index": 0,
+        "choice_id": "rain_5b_0",
+        "choice_text": "Préparer les repères et continuer ensemble",
+        "probabilities": {
+          "objective": 0.69,
+          "success": 0.48299999999999993,
+          "complication": 0.207,
+          "failure": 0.31000000000000005,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.7406677446676758,
+        "outcome": "failure",
+        "text": "Les repères restent incertains. Lia demeure ici pour surveiller les niveaux.",
+        "destination": "rain_6",
+        "segment_id": "rain_5b_rain_5b_0_failure_212980e29508d7310cf5"
+      },
+      {
+        "scene": "rain_6",
+        "choice_index": 1,
+        "choice_id": "rain_6_1",
+        "choice_text": "Comprendre les besoins actuels des vallées",
+        "probabilities": {
+          "objective": 0.6499999999999999,
+          "success": 0.4549999999999999,
+          "complication": 0.19499999999999998,
+          "failure": 0.3500000000000001,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.5453665337483498,
+        "outcome": "complication",
+        "text": "La répartition est claire, mais une réserve devra recevoir son eau plus tard.",
+        "destination": "rain_7",
+        "segment_id": "rain_6_rain_6_1_complication_e2397bb1c35593abd7aa"
+      },
+      {
+        "scene": "rain_7",
+        "choice_index": 0,
+        "choice_id": "rain_7_0",
+        "choice_text": "Compléter la phrase que forme le grimoire",
+        "probabilities": {
+          "objective": 0.8799999999999999,
+          "success": 0.6159999999999999,
+          "complication": 0.26399999999999996,
+          "failure": 0.1200000000000001,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.5904925124490397,
+        "outcome": "success",
+        "text": "La liaison apparaît. Tu retrouves le trajet du signal jusqu'à la retenue.",
+        "destination": "rain_8",
+        "segment_id": "rain_7_rain_7_0_success_1cbd21408cf6839d43de"
+      },
+      {
+        "scene": "rain_8",
+        "choice_index": 1,
+        "choice_id": "rain_8_1",
+        "choice_text": "Préparer un circuit de sécurité avant l'ouverture",
+        "probabilities": {
+          "objective": 0.79,
+          "success": 0.5529999999999999,
+          "complication": 0.237,
+          "failure": 0.20999999999999996,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "delta": -0.07
+            }
+          ]
+        },
+        "roll": 0.03178267948178359,
+        "outcome": "success",
+        "text": "Le circuit est prêt. Une secousse pourra se répartir sans gagner tous les chemins.",
+        "destination": "rain_9",
+        "segment_id": "rain_8_rain_8_1_success_0f6a4b48fec230cd39cd"
+      },
+      {
+        "scene": "rain_9",
+        "choice_index": 0,
+        "choice_id": "rain_9_0",
+        "choice_text": "Annoncer que les vallées se préparent à accueillir l'eau",
+        "probabilities": {
+          "objective": 0.69,
+          "success": 0.48299999999999993,
+          "complication": 0.207,
+          "failure": 0.31000000000000005,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.09369523986159245,
+        "outcome": "success",
+        "text": "Le signal est reçu. La pluie cesse d'attirer les nuages voisins.",
+        "destination": "rain_10",
+        "segment_id": "rain_9_rain_9_0_success_9b73be758175e84e70a2"
+      },
+      {
+        "scene": "rain_10",
+        "choice_index": 1,
+        "choice_id": "rain_10_1",
+        "choice_text": "Réduire d'abord la pression par les voies de sécurité",
+        "probabilities": {
+          "objective": 0.8600000000000001,
+          "success": 0.602,
+          "complication": 0.258,
+          "failure": 0.1399999999999999,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.2326608933907396,
+        "outcome": "success",
+        "text": "Les voies libèrent une marge. La retenue peut maintenant être ouverte sans précipitation.",
+        "destination": "rain_11",
+        "segment_id": "rain_10_rain_10_1_success_e0d20489a67cf3c23e37"
+      },
+      {
+        "scene": "rain_11",
+        "choice_index": 0,
+        "choice_id": "rain_11_0",
+        "choice_text": "Lire la dernière ligne du grimoire vivant",
+        "probabilities": {
+          "objective": 0.9,
+          "success": 0.63,
+          "complication": 0.27,
+          "failure": 0.09999999999999998,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.6020187290499803,
+        "outcome": "success",
+        "text": "L'eau reconnaît sa direction. La retenue se relie aux canaux préparés.",
+        "destination": "rain_12",
+        "segment_id": "rain_11_rain_11_0_success_589cc369d258908dbc87"
+      },
+      {
+        "scene": "rain_12",
+        "choice_index": 1,
+        "choice_id": "rain_12_1",
+        "choice_text": "Libérer la pluie par les relais des vallées",
+        "probabilities": {
+          "objective": 0.72,
+          "success": 0.504,
+          "complication": 0.216,
+          "failure": 0.28,
+          "modifiers": [
+            {
+              "label": "Repères préparés",
+              "delta": 0.06
+            }
+          ]
+        },
+        "roll": 0.561245062938613,
+        "outcome": "complication",
+        "text": "La pluie se répartit lentement. Certaines averses attendront encore la journée suivante.",
+        "destination": "$ending",
+        "segment_id": "rain_12_rain_12_1_complication_445a3aa3533c1a84f98c"
+      }
+    ],
+    "events": [
+      "rain_1:0:complication",
+      "rain_2:1:success",
+      "rain_3:0:success",
+      "rain_4:1:success",
+      "rain_5b:0:failure",
+      "rain_6:1:complication",
+      "rain_7:0:success",
+      "rain_8:1:success",
+      "rain_9:0:success",
+      "rain_10:1:success",
+      "rain_11:0:success",
+      "rain_12:1:complication"
+    ],
+    "success_count": 8,
+    "complication_count": 3,
+    "failure_count": 1,
+    "conclusion": "radiant",
+    "arc_title": "La Nuit des pluies suspendues",
+    "scene_variants": [],
+    "next_probabilities": []
+  },
+  "pending": false
+}

@@ -1,0 +1,71 @@
+{
+  "id": "lantern",
+  "title": "La Lanterne des routes perdues",
+  "description": "Retrouver une lumière disparue et décider à qui appartiennent les chemins qu'elle ouvre.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "lantern_intro",
+  "revelations": [
+    {
+      "id": "warden",
+      "actor": "la gardienne Orane",
+      "text": "Une plaque de mémoire révèle la gardienne Orane, chargée autrefois de protéger les routes. Tu la vois emporter la lanterne lorsqu'un nouveau chemin a commencé à traverser les refuges des petites créatures. Elle voulait empêcher leur destruction. Mais en enfermant la lumière ici, elle a privé tous les autres passages de leurs repères. Son geste répond à une inquiétude réelle, et son remède a créé un problème plus vaste."
+    },
+    {
+      "id": "collector",
+      "actor": "le collectionneur Béril",
+      "text": "La plaque de mémoire montre Béril, un collectionneur de chemins anciens. Il a trouvé la lanterne pendant une visite au village et l'a emportée pour retrouver une route vers sa maison disparue. Il ne cherchait pas à perdre les voyageurs. Mais il a exigé de la lumière une seule destination, jusqu'à effacer les autres. Sa recherche sincère a transformé un repère partagé en une impasse."
+    },
+    {
+      "id": "sprite",
+      "actor": "la fée Tisseline",
+      "text": "Dans la plaque de mémoire, une petite fée nommée Tisseline traverse la place avec la lanterne. Elle croit que les humains l'ont oubliée, car personne ne vient plus lui raconter les voyages réussis. Elle a emporté la lumière pour lui offrir une histoire nouvelle. Le sort qu'elle a improvisé n'a gardé que les départs et perdu tous les retours. Il faut rétablir ces deux moitiés sans l'effrayer."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "lantern_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "lantern_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "lantern_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "lantern_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "lantern_end_resilient",
+      "when": {}
+    }
+  ]
+}

@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "lantern_intro",
+      "arc": "lantern",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "La Lanterne des routes perdues",
+      "text": "Depuis trois nuits, les voyageurs arrivent aux mauvais villages. Une marchande partie vers l'est revient par le nord ; un messager retrouve son point de départ après une journée entière de marche. Sur la place, la vieille Lanterne des routes a disparu de son socle. Elle n'éclairait pourtant rien d'extraordinaire : seulement les croisements, les retours et les chemins vers les maisons. Une poussière dorée demeure sur la pierre. Lorsque tu approches la main, les grains s'alignent et dessinent un passage vers {location_name}. Le conseil du village te confie une mission simple à expliquer, moins simple à accomplir : retrouver la lanterne avant que les routes cessent complètement de se répondre. Tu prends le chemin indiqué, tandis que derrière toi les habitants suspendent des lampes ordinaires à leurs fenêtres.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "lantern_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_1",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Une route sans retour",
+      "text": "Le sentier cesse de ressembler à celui que les grains dorés t'avaient montré. Une pierre revient deux fois, avec la même touffe de thym dans sa fente. Tu t'arrêtes avant de continuer à tourner. Plus loin, un poteau porte deux flèches opposées, toutes deux marquées du nom de ton village. Au pied du poteau, la poussière de la lanterne dessine un cercle incomplet. Elle n'a pas disparu : elle cherche encore une manière de relier les chemins. Tu pourrais compléter le cercle avec les petits repères présents sur place, ou suivre les traces fraîches qui le traversent. La première méthode aiderait aussi les voyageurs derrière toi ; la seconde te rapprocherait peut-être de la personne qui a emporté la lumière.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_1_0",
+          "text": "Rétablir les repères du croisement",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les flèches retrouvent leurs directions. Une ligne dorée te montre la suite du chemin.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le chemin revient, mais une flèche continue de vibrer et attire la brume.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les flèches se croisent encore. Tu trouves une sente latérale pour avancer malgré leur désordre.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_1_1",
+          "text": "Suivre les traces qui traversent le cercle",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les traces rejoignent un passage discret. Tu évites la boucle et gardes une piste précise.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu retrouves la piste, mais déplaces des grains dorés qui brouillent le croisement derrière toi.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les traces s'effacent. Le bruit d'une clochette te conduit pourtant vers une autre entrée.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_2",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Les deux empreintes",
+      "text": "À l'intérieur, une poussière grise recouvre le sol, sauf près d'une table étroite. Deux empreintes y sont visibles : une ronde, comme le pied d'une lampe, et une longue qui pourrait venir d'un coffret. Une corde les relie, puis disparaît sous une porte. Tu entends derrière cette porte un souffle régulier, suivi d'un petit cliquetis. Rien ne prouve encore que la lanterne se trouve de l'autre côté. Sur la table, un dessin représente le lieu avant son abandon, avec des accès désormais bouchés. Tu peux examiner les empreintes et écouter le mécanisme, ou chercher sur le dessin l'ancien chemin des personnes chargées de l'entretenir. Tu disposes de peu de certitudes, mais de deux indices qui ne racontent pas exactement la même chose.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_2_0",
+          "text": "Étudier les empreintes et le bruit derrière la porte",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu distingues un mécanisme de transport. La lumière a bien emprunté ce passage.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'indice est clair, mais la corde se tend et réveille le dispositif.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La poussière glisse sous tes doigts. Un plancher creux révèle tout de même un accès voisin.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_2_1",
+          "text": "Retrouver le chemin d'entretien sur le dessin",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le dessin révèle une porte de service dont tu repères immédiatement la poignée.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves l'accès, mais une marque de surveillance s'allume lorsque tu l'ouvres.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le dessin est incomplet. Son bord replié indique pourtant une galerie où poursuivre.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_3",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "Le verrou de lumière",
+      "text": "La porte suivante n'a ni poignée ni charnière visible. Des signes tournent sur sa surface comme des lucioles prisonnières d'un cercle. Un petit socle garde l'empreinte ronde que tu as reconnue auparavant. La lanterne a dû passer ici. À côté, une grille laisse entrer un courant d'air qui sent la cire chaude. Tu poses ta main à distance des signes et sens une résistance souple : le passage répond à la lumière, pas à la force. Tu pourrais employer ton objet pour comprendre sa langue, ou longer la grille afin de trouver l'ouverture utilisée par l'air. Les deux voies semblent conduire au même endroit. L'une t'apprendrait le fonctionnement du verrou ; l'autre éviterait de lui demander la permission, au prix d'un détour plus étroit.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les signes s'accordent à ton objet. La porte s'ouvre sans perdre sa lumière.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La porte s'ouvre, mais une traînée lumineuse annonce ton passage dans la salle suivante.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les signes refusent l'accord. Une petite ouverture sous le socle te permet de poursuivre.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_3_1",
+          "text": "Chercher l'accès derrière la grille d'aération",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères une trappe d'entretien. Elle mène de l'autre côté du verrou.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La trappe te laisse passer, mais sa grille frotte et réveille une clochette.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La trappe résiste. Le souffle déplace un panneau voisin où tu trouves une autre ouverture.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_4",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Le passage qui écoute",
+      "text": "Au-delà du verrou, tu découvres un passage où chaque bruit revient sous forme de lumière. Un pas fait briller une ligne ; une parole en fait briller trois. Les lignes se dirigent vers deux portes, dont l'une porte un signe de flamme et l'autre un signe de main ouverte. Tu ne sais pas encore s'il s'agit d'un avertissement ou d'une invitation. Une vieille inscription explique que les porteurs de la lanterne empruntaient ici deux routes : celle des signaux et celle des réparations. Tu peux avancer en répondant au rythme lumineux, ou choisir le chemin d'entretien, plus silencieux. Le premier pourrait révéler qui commande désormais la lumière ; le second te permettrait d'observer son installation sans te présenter tout de suite.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_4_0",
+          "text": "Répondre au rythme du chemin des signaux",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les lignes te répondent. Tu rejoins une salle où des messages lumineux circulent encore.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le rythme t'ouvre le chemin, mais ton signal se répète derrière toi.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Ton rythme ne convient pas. Une lumière de secours te guide malgré tout vers la salle des signaux.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_4_1",
+          "text": "Emprunter le chemin silencieux des réparations",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu atteins une alcôve d'entretien sans interrompre les signaux qui traversent le lieu.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le détour fonctionne, mais un panneau déplacé change le rythme des lumières.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le chemin se ferme derrière toi. Une échelle intérieure te mène quand même à l'alcôve.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_5",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Une carte de lumière",
+      "text": "Dans la salle des signaux, une carte lumineuse flotte au-dessus d'une table. Chaque route y apparaît comme un fil, mais certains fils s'arrêtent au milieu de rien. {encounter_name} te rejoint après avoir suivi le signal que tu as laissé dans le passage. Vous voyez un même point clignoter à plusieurs endroits : la lanterne semble appeler depuis un lieu qui ne figure plus sur les plans. {encounter_name} propose de comparer sa propre observation avec la carte. Tu peux prendre le temps de travailler ensemble et lui confier une partie du trajet, ou lui demander de rester ici pour maintenir le signal pendant que tu avances. Les deux rôles sont utiles. Ce qui change, c'est l'aide dont tu disposeras auprès de la lumière, et la solidité du chemin pour revenir.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_5_0",
+          "text": "Comparer les indices et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vos observations se complètent. {encounter_name} accepte de venir avec toi jusqu'à la lanterne.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous trouvez la piste ensemble, mais la carte absorbe une partie de sa propre lumière.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La carte résiste à vos essais. {encounter_name} reste pour surveiller les fils pendant que tu avances.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_5_1",
+          "text": "Confier le signal de retour à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le signal reste stable. Tu avances en sachant comment retrouver la salle.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le signal tient, mais il faudra revenir avant que sa lumière ne diminue trop.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La carte brouille le signal. Une corde fixée au passage te fournit néanmoins un repère de retour.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_6",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Ce que la lanterne reliait",
+      "text": "Un panneau ancien représente la lanterne entourée de petits chemins qui ne conduisent pas aux villages. L'un rejoint un terrier, un autre une source, un troisième un arbre creux. Tu pensais chercher l'objet des voyageurs ; tu découvres qu'il guidait aussi les créatures et les gardiens du lieu. Sous le panneau, deux rouleaux sont coincés dans une boîte. Le premier détaille les usages de la lumière. Le second rassemble les plaintes écrites avant sa disparition. Tu pourrais ouvrir le rouleau des usages pour apprendre un secret oublié, ou lire les plaintes pour mieux comprendre le geste de la personne qui a pris la lanterne. Les deux documents peuvent t'aider, mais le mécanisme qui les protège n'autorise qu'une ouverture avant de se refermer.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_6_0",
+          "text": "Lire les usages oubliés de la lanterne",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu apprends que la lanterne peut ouvrir un chemin nouveau sans effacer les anciens.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu lis l'essentiel, mais la boîte se ferme en retenant la dernière page.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le rouleau reste fermé. Son étui porte néanmoins le dessin d'une route ouverte à tous.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_6_1",
+          "text": "Comprendre les plaintes qui précèdent la disparition",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les plaintes montrent une peur réelle. Tu sauras l'aborder sans accusation inutile.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le message est lisible, mais une partie de l'encre se transforme en brume.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le texte s'efface. Une signature et un lieu de rendez-vous demeurent au bas du rouleau.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_7",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Le fil qui manque",
+      "text": "Le passage débouche sur un dispositif de cinq arcs. Quatre sont reliés par des fils lumineux ; le dernier reste sombre. La lanterne a laissé sa trace sur ce cinquième arc avant d'être emportée plus loin. Tu remarques que le fil manquant n'a pas été coupé : ses deux extrémités se cherchent de part et d'autre d'un vide. Les raccorder pourrait rendre le retour plus facile, mais le dispositif paraît fragile. Tu peux utiliser ton objet pour retrouver la liaison invisible, ou réparer d'abord les petits repères qui entourent les arcs. La première option te donnerait une piste directe vers la lanterne. La seconde apaiserait le lieu et pourrait corriger les perturbations laissées par tes tentatives précédentes, au prix d'un travail plus patient.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison devient visible. Tu retrouves le fil qui conduit vers la lumière disparue.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le fil apparaît, mais sa vibration gagne les arcs et complique le retour.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le fil refuse de se rejoindre. Une pulsation voisine t'indique tout de même la direction à suivre.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_7_1",
+          "text": "Réparer les repères autour des cinq arcs",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les arcs se stabilisent. Tu effaces les perturbations avant de poursuivre vers la lanterne.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les repères tiennent, même si un arc devra être réparé après ton départ.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un repère cède. Le vide s'élargit, mais une voie d'entretien reste ouverte.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_8",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "La lumière sous tension",
+      "text": "Une lueur chaude traverse désormais le mur devant toi. Elle s'étire en longues lignes lorsque tu bouges, puis se replie si tu t'arrêtes. La lanterne est proche, mais les chemins autour d'elle se disputent sa force. Tu trouves deux points d'observation : un balcon qui domine le dispositif, et un passage au ras du sol où les fils restent accessibles. Depuis le balcon, tu pourrais comprendre l'ensemble avant de choisir un geste. Au sol, tu pourrais déjà mettre en place une sortie de secours pour la lumière. Aucun choix n'annule le danger ; ils préparent deux manières différentes de l'affronter. Tu repenses à ce que ta formation t'a appris sur les situations qui changent pendant qu'on les observe, et sur les décisions qu'il faut savoir reprendre.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_8_0",
+          "text": "Observer l'ensemble depuis le balcon",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères le moment où tous les fils se détendent. Ton plan devient précis.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends le rythme, mais le balcon attire un filament qui signale ta présence.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le balcon tremble trop. Tu redescends avec une idée de la disposition des fils.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_8_1",
+          "text": "Préparer une sortie de secours pour la lumière",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La sortie est prête. Une partie de la force peut désormais quitter le dispositif sans secousse.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La sortie apaise le lieu, mais elle laissera un chemin provisoire à surveiller.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La sortie ne répond pas. Un conduit ancien reste pourtant disponible pour ton intervention finale.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_9",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La personne derrière la disparition",
+      "text": "Tu arrives devant une plaque translucide où un souvenir se rejoue. Elle contient les derniers instants de la lanterne sur la place du village. Tu reconnais le socle, les maisons et les lampes ordinaires ; puis une silhouette s'approche et soulève la lumière. Le souvenir n'explique pas tout à lui seul. À côté, une poignée permet de répéter la scène, tandis qu'une fenêtre donne sur la salle où la lanterne brille maintenant. Tu peux prendre le temps de comprendre le motif de la disparition, ou appeler directement la personne responsable pour ouvrir une discussion. Ce n'est plus seulement une recherche d'objet : tu devras résoudre ce qui a poussé quelqu'un à rompre les chemins. La plaque s'éclaire assez pour révéler enfin son identité.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_9_0",
+          "text": "Comprendre le souvenir avant d'entrer",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu distingues le besoin caché derrière le geste. Tu entres avec une proposition concrète.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le souvenir t'éclaire, mais sa dernière image transmet ton approche à la salle.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La plaque s'éteint. Le motif reste imparfaitement compris, mais la fenêtre permet d'engager le dialogue.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_9_1",
+          "text": "Appeler la personne qui a emporté la lanterne",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Ton appel reçoit une réponse. La porte s'ouvre avant que la lumière ne se referme.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réponse vient, mais un fil se tend pour séparer vos deux côtés de la salle.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Personne ne répond d'abord. Tu trouves une entrée latérale et peux encore parler face à face.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_10",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Un chemin pour chacun",
+      "text": "Face à toi, {revelation_actor} se tient près de la lanterne. La lumière repose dans un cadre qui ne lui laisse qu'une direction. Tu expliques ce qui arrive aux voyageurs et montres les traces de ses anciens usages. La personne t'écoute, puis pose une question difficile : que deviendra le chemin qu'elle voulait protéger ou retrouver ? Tu peux proposer de partager la lumière entre l'ancienne route et les autres passages, ou de créer d'abord un détour qui réponde à ce besoin. La première solution demande de changer le cadre pendant qu'il brille. La seconde exige de trouver une place pour un nouveau chemin. Tu ne peux pas simplement reprendre l'objet et partir ; le lieu continuerait à retenir une partie de sa force. La réponse doit tenir pour ceux qui resteront après toi.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_10_0",
+          "text": "Proposer de partager la lumière entre les chemins",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Ta proposition est acceptée. Le cadre s'entrouvre et laisse passer plusieurs fils lumineux.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le partage est accepté, mais une route exigera un gardien pendant quelques jours.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le cadre refuse le partage immédiat. Vous convenez d'une ouverture progressive plutôt que d'un arrachement.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_10_1",
+          "text": "Créer un détour qui protège le besoin découvert",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Un détour devient possible. La personne accepte que la lanterne serve de nouveau tous les voyageurs.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le détour fonctionne, mais il faudra déplacer un ancien repère avant son ouverture complète.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le détour ne tient pas encore. Vous marquez un chemin provisoire pour éviter d'aggraver le désordre.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_11",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "La liaison de la lanterne",
+      "text": "Le cadre est désormais assez ouvert pour intervenir. La lanterne projette deux marques sur le sol : l'une représente les départs, l'autre les retours. Tant qu'elles restent séparées, une route peut appeler un voyageur sans lui permettre de rentrer. Tu comprends ce qui rendait les chemins si trompeurs. Ton objet répond à ces marques, comme il l'avait fait au verrou et au dispositif des arcs. Tu pourrais établir la liaison directement avec lui, ou utiliser les repères préparés autour de la salle pour guider la lumière à distance. La première méthode serait plus précise ; la seconde répartirait l'effort sur plusieurs points. Tu gardes assez de place pour reculer si la lanterne réagit trop vivement. Il reste une décision avant de libérer sa lumière dans les chemins.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les départs et les retours se rejoignent. La lanterne retrouve un rythme paisible.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison se forme, mais une pulsation échappe au cadre et traverse les passages voisins.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La liaison directe résiste. Tu gardes les marques accessibles pour tenter une ouverture répartie.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_11_1",
+          "text": "Relier les marques avec les repères de la salle",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les repères portent la lumière ensemble. Le cadre cesse de tirer sur les chemins.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison tient, mais quelques repères devront être remplacés après ton départ.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un repère s'éteint. Les autres maintiennent une ouverture suffisante pour continuer l'intervention.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_12",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Ouvrir les routes",
+      "text": "La lumière peut enfin quitter le cadre, mais il faut décider comment la transmettre. Tu entends au loin les clochettes des croisements : certaines répondent déjà, d'autres gardent le silence. Une ouverture centrale ferait revenir les routes en un seul mouvement. Elle pourrait aussi transmettre les secousses que le lieu garde encore. En passant par les anciens relais, tu rétablirais les chemins l'un après l'autre, avec davantage de lenteur et de contrôle. {revelation_actor} accepte de rester pour surveiller le premier trajet, quelle que soit ta décision. Tu prends une dernière fois la mesure de la salle, des retours possibles et des traces laissées par ton aventure. La lanterne n'attend plus qu'une direction. Cette fois, tu ne lui demandes pas de mener tout le monde au même endroit, mais de permettre à chacun de choisir son voyage.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_12_0",
+          "text": "Rendre la lumière aux routes en un seul mouvement",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les croisements répondent ensemble. Les chemins retrouvent des départs et des retours distincts.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les routes s'ouvrent, mais un croisement garde une brume que le village devra surveiller.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'ouverture est trop vive. Tu la ralentis et conserves un réseau provisoire pour les voyageurs.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_12_1",
+          "text": "Rétablir les chemins par les anciens relais",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les relais répondent un à un. La lumière circule de nouveau sans emporter les anciens refuges.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les routes reviennent progressivement. Une équipe devra terminer les derniers repères demain.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Quelques relais restent muets. Vous maintenez les trajets essentiels et préparez la suite des réparations.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_5b",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Dans l'alcôve d'entretien",
+      "text": "L'alcôve contient des boîtes d'huile, des chiffons et un établi couvert de fils dorés. Ce lieu modeste te raconte un travail régulier : quelqu'un entretenait la lanterne, pas seulement son éclat. {encounter_name} arrive par une trappe voisine après avoir repéré ton passage. Vous trouvez ensemble un carnet où les réparations ordinaires sont suivies d'une ligne brusquement interrompue. {encounter_name} pourrait venir avec toi pour reconnaître les mécanismes rencontrés plus loin, ou rester près de l'établi et remettre en état le dispositif de retour. Aucun de vous ne connaît encore la salle centrale. Tu dois choisir où cette aide sera la plus utile, tout en gardant une manière claire de vous retrouver. À travers les fils posés sur la table, une faible lumière indique déjà la sortie de l'alcôve.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_5b_0",
+          "text": "Prendre les outils utiles et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous repérez les outils nécessaires. {encounter_name} vient avec toi pour suivre les fils.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préparez l'aide ensemble, mais un outil déplace une liaison fragile de l'établi.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les outils ne conviennent pas. {encounter_name} reste pour comprendre l'établi pendant que tu avances.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_5b_1",
+          "text": "Confier la remise en état du retour à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le retour retrouve ses repères. Tu peux avancer sans perdre la route de l'alcôve.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le retour fonctionne, mais l'établi garde une petite fuite lumineuse à surveiller.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La réparation ne tient pas. Vous marquez un trajet manuel avant de vous séparer.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_secret",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une route qui n'existait pas",
+      "ending": "secret",
+      "text": "Tu reviens avec davantage qu'une réponse sur la disparition. Les usages oubliés de la lanterne montrent qu'un chemin nouveau peut rejoindre les anciens sans leur prendre leur lumière. Les habitants décident de préparer cette route ensemble, avec les créatures et les personnes qui en auront besoin. Tout n'est pas nécessairement réparé ce soir, mais le village sait maintenant comment poursuivre. À côté du socle, une petite flèche demeure sans nom. On te demande quelle destination elle devrait porter. Tu proposes d'attendre la première personne qui aura besoin d'un passage que personne n'avait encore imaginé.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_alliance",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Les gardiens des retours",
+      "ending": "alliance",
+      "text": "Grâce à l'aide de {encounter_name}, vous conservez assez de repères pour ramener au village une lumière utile et une explication claire. Vous racontez aussi pourquoi quelqu'un avait voulu l'emporter. Les habitants ne se contentent pas de replacer un objet sur son socle : ils organisent une veille des chemins, où les voyageurs apportent nouvelles et observations. {encounter_name} accepte d'y participer. Tu comprends que l'aventure n'a pas tenu à un seul geste spectaculaire. Elle a tenu à plusieurs personnes capables de surveiller des endroits différents et de se répondre quand une route devenait incertaine.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_radiant",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Toutes les fenêtres allumées",
+      "ending": "radiant",
+      "text": "La lumière retrouve sa place au village, et les premières clochettes annoncent des voyageurs arrivés à bon port. Tu expliques le besoin découvert derrière la disparition ; le conseil promet de l'intégrer aux nouvelles routes. Ce soir, chaque fenêtre garde une lampe, même si la grande lanterne fonctionne de nouveau. Les habitants veulent rappeler que les chemins appartiennent à ceux qui les empruntent et à ceux qui les accueillent. En traversant la place, tu vois ton propre trajet se dessiner brièvement dans l'air, puis se mêler aux autres. L'aventure est devenue une route parmi beaucoup d'autres.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_cost",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La lumière du lendemain",
+      "ending": "cost",
+      "text": "Le village retrouve assez de routes pour reprendre ses échanges, mais plusieurs croisements devront encore être surveillés. Tu racontes les difficultés sans les cacher. On prépare des repères ordinaires, des équipes de voyageurs et un calendrier de réparations. La lumière a changé : elle semble moins éclatante lorsqu'on la regarde seule, plus stable lorsque plusieurs lampes l'accompagnent. Tu as atteint une réponse qui demande du travail après ton retour. Les habitants l'acceptent, parce qu'ils peuvent enfin agir au lieu d'attendre. Au matin, le premier groupe part avec une carte que tes découvertes ont rendue possible.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_resilient",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le premier chemin sûr",
+      "ending": "resilient",
+      "text": "La lanterne ne reprend pas toute sa force immédiatement. Pourtant, tu reviens avec un trajet utilisable, des repères et l'identité de la personne qui connaissait le problème. Le village n'est plus prisonnier d'un mystère. On commence par ouvrir un chemin sûr, puis on préparera les suivants. Tu regardes les habitants tracer leurs premières marques et comprends ce que ton aventure a rendu possible : une suite, organisée et partagée. Les erreurs rencontrées ne disparaissent pas du récit, mais elles ne décident pas de sa fin. Ce soir, quelqu'un peut partir chercher de l'aide et retrouver sa maison.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

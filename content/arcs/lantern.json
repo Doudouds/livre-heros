@@ -1,0 +1,113 @@
+{
+  "id": "lantern",
+  "title": "La Couronne d'Aubépine",
+  "description": "Poursuivre des voleurs, entrer dans leur repaire et rapporter une couronne au village.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de l’escalier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde du coffre près de le coffre royal. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "climax_action": "Couper la corde du coffre avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du dépôt, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de l’escalier, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffre royal, tu relis le sort des attaches. La page conseille de viser seulement la fermeture des courroies. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "climax_action": "Desserrer la fermeture des courroies avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du dépôt. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de l’escalier. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre la fermeture des courroies près de le coffre royal. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "climax_action": "Protéger ta main pour dégager la fermeture des courroies"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du dépôt. Elle désigne un côté de la porte du dépôt. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de l’escalier. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffre royal. Elle désigne un côté de le coffre royal. Tu pourrais y actionner la fermeture des courroies à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "climax_action": "Trouver la fermeture des courroies avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du dépôt près de la porte du dépôt. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "first_action": "Ouvrir la serrure du dépôt avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de l’escalier. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffre près de le coffre royal. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "climax_action": "Ouvrir la serrure du coffre avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "lantern_intro",
+  "revelations": [
+    {
+      "id": "captain",
+      "actor": "le capitaine Ronce",
+      "text": "Un registre porte le nom du capitaine Ronce, un ancien garde devenu chef de bande. Il veut vendre la couronne et les offrandes à un marchand qui viendra ce soir. Ses ordres indiquent le quai de livraison et le nombre de sentinelles. Tu connais enfin son plan : il faut empêcher le départ du coffre, pas te battre contre tous ses hommes."
+    },
+    {
+      "id": "steward",
+      "actor": "l'intendante Agathe",
+      "text": "Dans le registre, tu reconnais la signature de l'intendante Agathe. Elle a engagé les voleurs pour vendre la couronne et payer ses dettes en secret. Le transport doit partir ce soir. Une page détaille la cache du coffre et le prix demandé. Ces preuves permettront à la reine de découvrir la trahison, même si tu ne peux pas tout récupérer immédiatement."
+    },
+    {
+      "id": "merchant",
+      "actor": "le marchand Corbin",
+      "text": "Le registre révèle le nom du marchand Corbin. Il a promis une forte somme à la bande pour acquérir la couronne avant la fin du jour. Il prétend qu'elle lui revient, mais les documents montrent qu'il l'a fait voler. Son rendez-vous et sa route sont notés. Tu peux maintenant empêcher l'échange ou fournir aux gardes de quoi arrêter le transport."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "lantern_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "lantern_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "lantern_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "lantern_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "lantern_end_resilient",
+      "when": {}
+    }
+  ]
+}

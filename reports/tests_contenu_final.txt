@@ -1,0 +1,21 @@
+test_all_125_configurations_across_six_arcs_and_two_routes (tests.test_engine.EngineTests.test_all_125_configurations_across_six_arcs_and_two_routes) ... ok
+test_audio_hash_identifies_the_actual_text (tests.test_engine.EngineTests.test_audio_hash_identifies_the_actual_text) ... ok
+test_branch_then_rejoin (tests.test_engine.EngineTests.test_branch_then_rejoin) ... ok
+test_debug_journal_complete_and_partial_replay (tests.test_engine.EngineTests.test_debug_journal_complete_and_partial_replay) ... ok
+test_every_result_keeps_all_twelve_decisions (tests.test_engine.EngineTests.test_every_result_keeps_all_twelve_decisions) ... ok
+test_initial_parameters_are_more_than_decorations (tests.test_engine.EngineTests.test_initial_parameters_are_more_than_decorations) ... ok
+test_invalid_input_and_double_click (tests.test_engine.EngineTests.test_invalid_input_and_double_click) ... ok
+test_new_adventure_erases_previous_world (tests.test_engine.EngineTests.test_new_adventure_erases_previous_world) ... ok
+test_previous_decisions_change_later_odds_and_text (tests.test_engine.EngineTests.test_previous_decisions_change_later_odds_and_text) ... ok
+test_probabilities_and_boundaries (tests.test_engine.EngineTests.test_probabilities_and_boundaries) ... ok
+test_rules_are_declarative_and_update_sets (tests.test_engine.EngineTests.test_rules_are_declarative_and_update_sets) ... ok
+test_seed_reproduces_text_variants_and_results (tests.test_engine.EngineTests.test_seed_reproduces_text_variants_and_results) ... ok
+test_seed_variation_changes_several_story_elements (tests.test_engine.EngineTests.test_seed_variation_changes_several_story_elements) ... ok
+test_simulator_statistics_and_repeatability (tests.test_engine.EngineTests.test_simulator_statistics_and_repeatability) ... ok
+test_template_cannot_execute_or_access_attributes (tests.test_engine.EngineTests.test_template_cannot_execute_or_access_attributes) ... ok
+test_session_tts_has_resolved_text_and_matching_audio_paths (tests.test_pc_audio_tts.AdapterTests.test_session_tts_has_resolved_text_and_matching_audio_paths) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 3.679s
+
+OK

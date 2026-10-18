@@ -1,0 +1,209 @@
+{
+  "id": "cages",
+  "title": "La Maison aux Sept Cages",
+  "description": "Retrouver Lison changée en oiseau, avec Maître Merle, Maître Renard et Madame Souris.",
+  "decision_count": 12,
+  "conditions": {},
+  "start": "cages_intro",
+  "inline_consequences": true,
+  "text_values": {
+    "cages_mouse_memory": "Madame Souris est restée auprès de ses petits ; tu devras compter sur le merle pour distraire la femme.",
+    "cages_fox_memory": "Maître Renard est resté près du collet. Personne ne peut surveiller le jardin pour toi.",
+    "cages_merle_memory": "Maître Merle surveille une branche proche, prêt à te prévenir.",
+    "cages_lison_memory": "En t'entendant, elle cesse de trembler et se rapproche des barreaux.",
+    "cages_key_memory": "La clef d'argent manque encore. Tu dois choisir ce que tu peux tenter sans elle.",
+    "cages_rescue_memory": "Les sept cages restent fermées et les oiseaux regardent tes mains.",
+    "cages_promise_memory": "",
+    "cages_return_memory": "Vous rejoignez la maison familiale après la tombée du jour.",
+    "cages_scenario_hint": "La femme descend dans la cuisine et laisse les oiseaux dans la chambre.",
+    "cages_merle_watch": "Maître Merle chante encore près d'une fenêtre, mais la femme ne l'écoute plus.",
+    "cages_guide_arrival": "Tu poursuis ta recherche avec Maître Merle.",
+    "cages_garden_offer": "Tu te souviens du passage du jardin indiqué par Maître Renard.",
+    "cages_witch_call": "« Pourquoi ne chantez-vous plus ? » La sorcière vérifie sa clef et s'avance vers les cages.",
+    "cages_key_plan": "Sans la clef, tu peux tenter de reprendre l'anneau ou dégager un barreau pour mettre Lison hors de portée. Elle resterait un oiseau : sortir de la cage ne défait pas son sort.",
+    "cages_final_song": "Cette fois, tu chantes son dernier vers avec elle.",
+    "cages_position": "La sorcière occupée en bas, tu gagnes l'étage par l'escalier du fournil. Derrière la porte de la chambre, les sept cages attendent, près de la fenêtre où tu as vu la transformation.",
+    "cages_capture_position": "La femme t'a enfermé dans le cellier. Elle ouvre un instant pour te questionner, tout en gardant la clef des oiseaux à sa ceinture.",
+    "cages_capture_access": "la porte",
+    "cages_chase": "La sorcière ferme la porte, puis cherche le bruit des pas. Elle doit vous rattraper pour vous ramener aux cages.",
+    "cages_company": "Tu n'as encore pu sortir aucun prisonnier. Tu dois rentrer avec les faits que tu as vus et montrer le chemin à ceux qui viendront vous aider.",
+    "cages_mouse_ending": "Madame Souris est restée auprès des siens. Tu décris son abri aux adultes pour qu'ils ne l'abîment pas en entrant dans la maison.",
+    "cages_fox_ending": "Tu te souviens de Maître Renard et de son collet près de la route.",
+    "cages_other_ending": "Les six autres enfants sont encore prisonniers. Tu décris leurs cages aux voisins pour qu'ils puissent les retrouver eux aussi."
+  },
+  "hero_overrides": {
+    "knight": {
+      "cages_intro": "Ton apprentissage de la chevalerie t'a préparé à secourir les autres. Cette fois, c'est ta petite sœur qui a besoin de toi."
+    },
+    "mage": {
+      "cages_intro": "Tu connais quelques sortilèges, mais aucun ne te dira où Lison se trouve. Il faut partir sur ses traces."
+    },
+    "explorer": {
+      "cages_intro": "Tu connais les chemins du village. Ta carte t'aidera à chercher Lison sans risquer de t'égarer à ton tour."
+    },
+    "keeper": {
+      "cages_intro": "Les animaux du village te connaissent : tu les soignes lorsqu'ils sont blessés. Peut-être l'un d'eux a-t-il aperçu Lison."
+    },
+    "rogue": {
+      "cages_intro": "Tu sais reconnaître les traces et te déplacer sans bruit. Tu comptes sur ces talents pour retrouver Lison."
+    }
+  },
+  "location_overrides": {
+    "forest": {
+      "cages_setting": "Le chemin des mûres traverse la forêt des Murmures. Lison y connaît chaque noisetier. Au-delà du vieux pont, pourtant, les hêtres cachent une maison dont vous n'avez jamais vu les fenêtres ouvertes.",
+      "cages_house": "la maison au fond de la forêt des Murmures",
+      "cages_fox_way": "un passage sous la haie du jardin, derrière la maison",
+      "cages_merle_way": "le sentier des grands hêtres, qui longe les fenêtres de l'étage",
+      "cages_view": "Les hêtres entourent une cour pavée. Une fenêtre basse donne sur le fournil ; à l'étage, un volet entrouvert laisse voir une chambre.",
+      "cages_back": "la haie et le petit pont du bois",
+      "cages_front": "le grand sentier qui descend jusqu'à la lisière",
+      "cages_stop": "au vieux pont"
+    },
+    "castle": {
+      "cages_setting": "Lison est partie vers les mûriers de Valombre, le château abandonné. Les villageois ramassent les fruits dans son ancien verger. Depuis peu, une cheminée fume dans le logis qui borde la cour.",
+      "cages_house": "le logis du château abandonné de Valombre",
+      "cages_fox_way": "un trou sous le mur du verger, qui mène derrière le logis",
+      "cages_merle_way": "l'allée du château, sous les fenêtres du logis",
+      "cages_view": "Un logis habité borde la cour du château. Une fenêtre basse donne sur le fournil ; une chambre s'ouvre au-dessus de l'ancienne galerie.",
+      "cages_back": "le passage du verger et la petite porte du rempart",
+      "cages_front": "l'allée du château qui rejoint le pont principal",
+      "cages_stop": "au pont du château"
+    },
+    "mountain": {
+      "cages_setting": "À Brumecime, la montagne des dragons, les mûriers poussent près du refuge des bergers. Lison y est montée ce matin. Le sentier traverse un bois avant de rejoindre le refuge, sous les rochers du col.",
+      "cages_house": "le refuge de Brumecime, sur la montagne des dragons",
+      "cages_fox_way": "un passage derrière les rochers, jusqu'au jardin du refuge",
+      "cages_merle_way": "le sentier des bergers, devant les fenêtres du refuge",
+      "cages_view": "Le refuge se dresse sous les rochers du col. Son jardin est clos de pierres. Une fenêtre du fournil et un volet à l'étage donnent sur la pente.",
+      "cages_back": "le passage des rochers et les marches des bergers",
+      "cages_front": "le large sentier du refuge qui descend vers la vallée",
+      "cages_stop": "aux marches des bergers"
+    },
+    "city": {
+      "cages_setting": "Lison allait cueillir les mûres près du quai d'Auralis, la cité flottante. Une nacelle relie le bois aux jardins suspendus. La maison d'une vieille chanteuse se trouve près du quai d'arrivée.",
+      "cages_house": "la maison du quai d'Auralis, dans la cité flottante",
+      "cages_fox_way": "la nacelle des jardiniers, puis une ouverture dans la haie du quai",
+      "cages_merle_way": "la nacelle des voyageurs, puis l'allée sous les fenêtres du quai",
+      "cages_view": "La nacelle s'arrête devant une maison aux volets bleus. Un jardin borde son fournil. Les cordes du quai chantent doucement dans le vent.",
+      "cages_back": "le jardin du quai et la nacelle des jardiniers",
+      "cages_front": "le quai principal et la nacelle des voyageurs",
+      "cages_stop": "sur le quai d'arrivée"
+    },
+    "ruins": {
+      "cages_setting": "Les mûriers couvrent l'entrée de Nacreprofonde, des ruines souterraines oubliées. Lison les connaît bien. Sous la colline, une maison ancienne a été réparée et une lueur paraît derrière ses fenêtres.",
+      "cages_house": "la maison restaurée dans les ruines de Nacreprofonde",
+      "cages_fox_way": "l'escalier de service qui rejoint le jardin souterrain",
+      "cages_merle_way": "le grand escalier et la rue qui passe sous les fenêtres",
+      "cages_view": "La maison se dresse dans une rue souterraine éclairée par des cristaux. Son fournil ouvre sur un jardin de champignons ; une chambre donne sur l'ancien canal.",
+      "cages_back": "l'escalier de service et la sortie derrière la colline",
+      "cages_front": "la grande rue et les marches de l'entrée principale",
+      "cages_stop": "près de l'ancien canal"
+    }
+  },
+  "item_overrides": {
+    "sword": {
+      "cages_snare": "Glisser ton épée sous le lien du collet pour le couper",
+      "cages_use": "Tu gardes ton épée basse. Sa pointe pourrait accrocher l'anneau sans que tu avances la main jusqu'à la sorcière.",
+      "cages_take": "Tirer l'anneau vers toi avec la pointe de ton épée",
+      "cages_take_success": "Tu glisses la pointe sous l'anneau et ramènes la clef d'argent dans ta main.",
+      "cages_take_complication": "La pointe accroche l'anneau. Il tinte contre la lame, mais tu le retiens avant sa chute.",
+      "cages_escape": "Glisser la lame dans la fente pour soulever le verrou",
+      "cages_escaped": "Tu glisses la lame dans la fente et soulèves le verrou de l'autre côté.",
+      "cages_snare_result": "Tu glisses la lame sous la corde et la coupes sans toucher la patte."
+    },
+    "book": {
+      "cages_snare": "Lire le sort qui desserre les attaches du collet",
+      "cages_use": "Tu retrouves dans ton livre le sort qui desserre les attaches. Il pourrait faire glisser l'anneau jusqu'à ta main.",
+      "cages_take": "Murmurer le sort du livre pour faire glisser la clef",
+      "cages_take_success": "Tu murmures le sort des attaches. L'anneau glisse vers ta main sans heurter son support.",
+      "cages_take_complication": "Ton sort tire l'anneau, mais les clefs tintent. Tu le prends avant que la femme ne se retourne.",
+      "cages_escape": "Murmurer le sort du livre pour faire glisser le verrou",
+      "cages_escaped": "Tu murmures la formule des attaches. Le verrou glisse doucement dans sa rainure.",
+      "cages_snare_result": "Tu murmures le sort des attaches. La boucle se détend autour de la patte."
+    },
+    "amulet": {
+      "cages_snare": "Protéger ta main avec l'amulette pour desserrer la boucle",
+      "cages_use": "Ton amulette protégera ta main pendant quelques respirations. Tu la gardes prête pour un geste près de la femme.",
+      "cages_take": "Prendre la clef avec la protection de ton amulette",
+      "cages_take_success": "L'amulette protège ta main du geste de la sorcière. Tu prends l'anneau et recules derrière les cages.",
+      "cages_take_complication": "La femme aperçoit ta main. L'amulette la protège le temps de prendre l'anneau, puis sa chaleur s'éteint.",
+      "cages_escape": "Protéger ta main avec l'amulette pour déloger le verrou",
+      "cages_escaped": "L'amulette protège ta main des éclats de bois. Tu fais céder la petite planche qui retient le verrou.",
+      "cages_snare_result": "L'amulette protège tes doigts pendant que tu défais le nœud qui retient la boucle."
+    },
+    "compass": {
+      "cages_snare": "Faire chercher à la boussole la cheville enfouie du collet",
+      "cages_use": "Tu demandes à ta boussole de chercher la clef d'argent. Son aiguille suit les mouvements de l'anneau.",
+      "cages_take": "Suivre l'aiguille pour saisir la clef au moment où elle est posée",
+      "cages_take_success": "L'aiguille suit l'anneau jusque derrière les objets qui le cachent. Tu le prends pendant que la femme se retourne.",
+      "cages_take_complication": "La boussole indique l'anneau sous un pli du linge. Tu le tires, mais le linge bouge : tu dois reculer aussitôt.",
+      "cages_escape": "Chercher avec la boussole l'attache du verrou à desserrer",
+      "cages_escaped": "L'aiguille t'indique une cheville mal enfoncée. Tu la retires et la pièce qui retient le verrou se détache.",
+      "cages_snare_result": "L'aiguille te montre où la cheville est enterrée. Tu la dégages, puis détends la corde."
+    },
+    "key": {
+      "cages_snare": "Employer ta clé comme levier sous la cheville du collet",
+      "cages_use": "Ta clé ouvre les portes ordinaires. Celle de la sorcière appartient au sort des cages.",
+      "cages_take": "Accrocher l'anneau avec ta clé ancienne",
+      "cages_take_success": "Tu accroches l'anneau avec l'extrémité dentée de ta clé et le tires hors de portée de la femme.",
+      "cages_take_complication": "Ta clé accroche l'anneau, mais les deux clefs tintent. Tu les serres dans ta paume avant de reculer.",
+      "cages_escape": "Ouvrir le verrou ordinaire avec ta clé ancienne",
+      "cages_escaped": "Tu glisses ta clé dans la serrure. Le verrou est ordinaire : ta clé ancienne l'ouvre sans difficulté.",
+      "cages_snare_result": "Tu glisses ta clé sous la cheville et la soulèves. La corde se détend."
+    }
+  },
+  "revelations": [
+    {
+      "id": "quiet",
+      "actor": "la sorcière",
+      "text": "La maison silencieuse : la sorcière garde les sept cages dans sa chambre."
+    },
+    {
+      "id": "visitor",
+      "actor": "la visiteuse",
+      "text": "L'échange des voix : une visiteuse vient choisir un oiseau parmi les prisonniers."
+    },
+    {
+      "id": "departure",
+      "actor": "la sorcière",
+      "text": "Le départ du chariot : la sorcière prépare le transport de ses sept cages."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "cages_end_full",
+      "when": {
+        "all": [
+          {
+            "flag": "lison_free"
+          },
+          {
+            "flag": "others_free"
+          }
+        ]
+      }
+    },
+    {
+      "scene": "cages_end_lison",
+      "when": {
+        "flag": "lison_free"
+      }
+    },
+    {
+      "scene": "cages_end_bird",
+      "when": {
+        "flag": "lison_bird"
+      }
+    },
+    {
+      "scene": "cages_end_others",
+      "when": {
+        "flag": "others_free"
+      }
+    },
+    {
+      "scene": "cages_end_pending",
+      "when": {}
+    }
+  ]
+}

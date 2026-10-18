@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "rain_intro",
+      "arc": "rain",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "La Nuit des pluies suspendues",
+      "text": "La pluie s'arrête avant de toucher le sol. Des milliers de gouttes restent suspendues au-dessus du royaume et dessinent un plafond brillant. Les enfants en touchent d'abord quelques-unes depuis les fenêtres, puis les adultes remarquent que le plafond descend lentement. Toute l'eau des nuages semble rejoindre ce même endroit. Un vieux relevé de météo indique que les conduits magiques de {location_name} peuvent répartir les averses entre les vallées. Ils n'ont pas servi depuis des années. Tu pars les retrouver pendant que les habitants mettent les récoltes et les animaux à l'abri. Il reste une nuit pour donner à cette pluie une issue qui n'emporte pas les chemins. La première goutte tombée dans ta main est chaude comme une pierre au soleil.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "rain_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_1",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Sous le plafond d'eau",
+      "text": "Le chemin brille sous les gouttes immobiles. Tu peux marcher entre elles, mais certains groupes se rapprochent lentement comme s'ils cherchaient un seul point de chute. Une rigole ancienne longe la route. Elle reste sèche, alors que le sol autour retient déjà l'humidité de l'air. Tu pourrais suivre cette rigole pour retrouver le réseau qui répartissait les pluies, ou examiner les groupes de gouttes afin de repérer ceux qui risquent de tomber d'abord. La rigole conduirait plus directement vers les mécanismes. Les gouttes donneraient une information utile aux habitants qui préparent les abris. Tu observes un intervalle assez large pour avancer sans les disperser, puis choisis la piste qui guidera ton arrivée dans le lieu.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "rain_1_0",
+          "text": "Retrouver le réseau en suivant la rigole ancienne",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La rigole rejoint le lieu. Tu repères un passage lié aux anciens conduits.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le trajet est clair, mais un groupe de gouttes descend près du retour.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La rigole s'interrompt. Une pente voisine indique néanmoins la direction du réseau.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_1_1",
+          "text": "Observer les gouttes les plus proches de tomber",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères les groupes instables. Un signe laissé derrière toi aide les habitants.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Ton observation est utile, mais une goutte en attire d'autres autour du passage.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les groupes changent trop vite. Leur mouvement indique quand même une entrée voisine.",
+              "next": "rain_2",
+              "effects": {
+                "events": [
+                  "rain_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_2",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "La jauge oubliée",
+      "text": "Une jauge de pierre marque les niveaux de pluie que le lieu pouvait recevoir. Le trait supérieur correspond à une année entière, mais une aiguille mobile s'en approche déjà. Il reste pourtant des canaux secs. L'eau n'a pas trouvé leurs entrées ; elle attend au-dessus du royaume. À côté, des marques de couleur indiquent l'ordre dans lequel les conduits devaient s'ouvrir. Tu peux étudier la jauge pour mesurer la pression réelle, ou reconstituer cet ordre à partir des couleurs. La mesure t'aiderait à savoir quand agir sans transmettre une secousse. L'ordre montrerait comment distribuer la force entre les vallées. Tu ne cherches pas à retirer toute l'eau du ciel immédiatement. Tu cherches une manière de la faire passer sans la laisser se rassembler en un seul endroit.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_2_0",
+          "text": "Mesurer la pression grâce à la jauge",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La jauge révèle des pauses régulières. Tu pourras intervenir dans un intervalle stable.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La mesure est claire, mais l'aiguille transmet une vibration aux canaux voisins.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'aiguille bloque. Les marques fixes donnent néanmoins une limite à respecter.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_2_1",
+          "text": "Reconstituer l'ordre des conduits colorés",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les couleurs retrouvent leur ordre. Tu identifies le premier canal à préparer.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'ordre apparaît, mais un ancien témoin se rallume et attire de l'eau.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une couleur manque. Le relief des marques permet tout de même de poursuivre.",
+              "next": "rain_3",
+              "effects": {
+                "events": [
+                  "rain_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_3",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "Le seuil de la retenue",
+      "text": "La porte suivante porte un cercle de signes humides. Aucun ne laisse tomber de goutte, mais ils gonflent à chaque pulsation de la jauge. Le seuil empêche d'entrer pendant une pression trop forte. Il attend un signal que les anciens régulateurs savaient donner. Ton objet réagit aux signes et peut chercher cet accord. Un passage d'entretien permet aussi de rejoindre l'intérieur en suivant une canalisation vide. La première option ouvrirait le seuil avec une compréhension utile pour la suite. La seconde éviterait de toucher tout de suite à la retenue, au prix d'un détour où les pulsations sont plus difficiles à voir. Tu écoutes le bruit très léger de l'eau qui n'est pas encore tombée. Le lieu garde sa force, mais il te laisse encore le temps d'une action préparée.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le seuil reçoit un signal stable. Les signes s'écartent pour te laisser passer.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La porte s'ouvre, mais une pulsation plus forte rejoint les conduits intérieurs.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le seuil refuse l'accord. Une ouverture de sécurité permet néanmoins ton passage.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_3_1",
+          "text": "Passer par la canalisation d'entretien vide",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La canalisation reste sèche. Tu rejoins l'intérieur sans modifier la retenue.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes, mais un clapet déplacé change le mouvement d'une petite réserve.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La canalisation bloque. Son accès de service révèle une autre ouverture praticable.",
+              "next": "rain_4",
+              "effects": {
+                "events": [
+                  "rain_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_4",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Des abris ou des réserves",
+      "text": "Le réseau se sépare entre une galerie de réserves et un passage qui commande les abris. Les réserves contiennent de l'eau gardée pour les périodes sèches. Les abris permettent de détourner une partie d'une averse trop forte. Tu peux commencer par les réserves pour comprendre comment le lieu conserve et redistribue l'eau, ou par les abris pour protéger les chemins pendant ta réparation. La première voie aiderait à employer utilement la pluie retenue. La seconde donnerait une marge si quelque chose cède plus tôt que prévu. Les deux conduisent au centre du réseau, mais ne racontent pas la même priorité. Tu regardes les marques de niveau, puis décides quelle sécurité préparer avant de faire descendre le plafond d'eau qui brille encore au-dessus du royaume.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_4_0",
+          "text": "Comprendre les réserves qui redistribuent l'eau",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les réserves révèlent leur capacité. Tu peux éviter de remplir un seul bassin.",
+              "next": "rain_5",
+              "effects": {
+                "events": [
+                  "rain_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends les volumes, mais une vanne ancienne laisse entrer quelques gouttes.",
+              "next": "rain_5",
+              "effects": {
+                "events": [
+                  "rain_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les repères sont incomplets. Un conduit de trop-plein indique néanmoins la suite.",
+              "next": "rain_5",
+              "effects": {
+                "events": [
+                  "rain_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_4_1",
+          "text": "Préparer les abris et les chemins de détour",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les abris sont reliés. Un détour reste disponible si une averse arrive trop tôt.",
+              "next": "rain_5b",
+              "effects": {
+                "events": [
+                  "rain_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les passages tiennent, mais un volet devra rester maintenu pendant la libération.",
+              "next": "rain_5b",
+              "effects": {
+                "events": [
+                  "rain_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un abri ne s'ouvre pas. Les autres offrent tout de même une route protégée.",
+              "next": "rain_5b",
+              "effects": {
+                "events": [
+                  "rain_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_5",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Répartir les tâches avant la pluie",
+      "text": "Dans la galerie des réserves, tu trouves des bassins de tailles différentes. Chacun porte le nom d'une vallée et une marque de saison. {encounter_name} te rejoint et remarque qu'aucun bassin ne doit être rempli avant que le suivant soit prêt à recevoir son trop-plein. Votre aide peut se placer de deux manières : continuer ensemble pour vérifier les réglages, ou garder ici une surveillance des niveaux pendant ton avancée vers le centre. Le réseau ne demande pas un geste héroïque isolé. Il demande que des endroits différents restent capables de se répondre. Tu expliques les signes que tu as déjà compris, puis écoutes l'observation de {encounter_name}. Vous choisissez un rôle clair, avec un signal si le niveau change avant ton arrivée au dispositif principal.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_5_0",
+          "text": "Continuer ensemble pour vérifier les réglages",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vos vérifications se complètent. {encounter_name} vient avec toi jusqu'au centre.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préparez les réglages, mais une réserve exige une surveillance supplémentaire.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les niveaux restent difficiles à lire. {encounter_name} demeure ici pour les observer.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_5_1",
+          "text": "Confier la surveillance des niveaux à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les niveaux sont surveillés. Tu peux avancer avec un signal fiable derrière toi.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La surveillance fonctionne, mais le signal devra traverser un conduit presque fermé.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal direct ne porte pas. Vous convenez d'un témoin lumineux de remplacement.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_6",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "La pluie qui nourrissait les vallées",
+      "text": "Un registre de saisons raconte les usages du réseau. L'eau était répartie entre champs, forêts et réserves, puis les habitants envoyaient un signe lorsque chacun avait reçu assez. Une page cachée décrit une quatrième destination : une vallée presque oubliée, qui pouvait accueillir les pluies exceptionnelles sans habitation sur leur passage. Tu peux étudier cette destination pour retrouver une issue supplémentaire, ou reconstruire les besoins actuels à partir des marques des autres vallées. La page cachée offrirait un secret utile en cas de pression trop forte. Les besoins actuels permettraient de distribuer l'eau avec plus de justesse. Tu remarques que les anciens régulateurs ne cherchaient pas à faire disparaître la pluie. Ils cherchaient à lui donner des endroits où elle devenait une aide.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "rain_6_0",
+          "text": "Retrouver la vallée des pluies exceptionnelles",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La page révèle un conduit oublié. Une issue supplémentaire devient possible.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères la vallée, mais son conduit demande encore une vérification.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La page manque de détails. Une direction reste assez claire pour la suite.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_6_1",
+          "text": "Comprendre les besoins actuels des vallées",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les besoins se distinguent. Tu peux distribuer l'eau sans surcharger un seul lieu.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La répartition est claire, mais une réserve devra recevoir son eau plus tard.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Des marques manquent. Les besoins essentiels restent néanmoins reconnaissables.",
+              "next": "rain_7",
+              "effects": {
+                "events": [
+                  "rain_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_7",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Le canal qui ne reçoit plus rien",
+      "text": "Un canal central reste vide tandis que ses voisins vibrent. Deux marques lumineuses devraient relier son entrée à la retenue du ciel, mais la liaison ne se forme plus. Ton objet peut retrouver le lien invisible qui indique où le signal s'est interrompu. Tu peux aussi remettre en état les petites sorties latérales destinées à répartir une pression excessive. La première méthode te donnera une route directe vers la cause du blocage. La seconde protégera le réseau contre les secousses accumulées depuis le début de l'aventure. Tu vois une goutte monter au lieu de tomber. Elle revient vers le plafond parce qu'aucun passage ne l'accueille correctement. Tu dois créer une possibilité stable, avant de demander à beaucoup d'eau de l'emprunter en même temps.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison apparaît. Tu retrouves le trajet du signal jusqu'à la retenue.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le lien revient, mais une pulsation d'eau se reporte dans les canaux voisins.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La liaison résiste. Une goutte lumineuse indique néanmoins la direction du centre.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_7_1",
+          "text": "Rétablir les sorties qui répartissent la pression",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les sorties fonctionnent. Les canaux retrouvent une marge avant la prochaine pulsation.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La pression diminue, mais une sortie restera à surveiller pendant la pluie.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une sortie bloque. Les autres dégagent assez de force pour poursuivre.",
+              "next": "rain_8",
+              "effects": {
+                "events": [
+                  "rain_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_8",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Le temps d'une respiration",
+      "text": "Le plafond d'eau descend encore, mais plus lentement près des conduits que tu as compris. Tu peux préparer une mesure de pression depuis un balcon, ou ouvrir un circuit de sécurité avant d'entrer au centre. La mesure te permettra de choisir le moment où la retenue peut se relâcher sans secousse trop forte. Le circuit réduira les conséquences si ce moment est manqué. Tu ne disposes pas d'une certitude parfaite. Tu disposes de repères que ton aventure a rendus plus clairs. En regardant les gouttes, tu remarques qu'elles ne bougent pas toutes ensemble : certaines attendent une réponse des vallées. Ta formation te rappelle une manière d'organiser l'action et de garder une issue, même lorsque la force devant toi paraît beaucoup plus grande que ton propre geste.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "rain_8_0",
+          "text": "Mesurer le bon moment depuis le balcon",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères la pause de pression. Le prochain geste pourra suivre ce rythme.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La mesure est utile, mais une goutte déforme un témoin près du balcon.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le témoin se brouille. Les pulsations du canal te donnent un intervalle de secours.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_8_1",
+          "text": "Préparer un circuit de sécurité avant l'ouverture",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le circuit est prêt. Une secousse pourra se répartir sans gagner tous les chemins.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le circuit apaise le réseau, mais il faudra le refermer après la libération.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le circuit reste partiel. Il protège néanmoins les premiers passages vers les abris.",
+              "next": "rain_9",
+              "effects": {
+                "events": [
+                  "rain_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_9",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La pluie attend une réponse",
+      "text": "Un relevé central montre le moment où la pluie a cessé de tomber. Tu y vois le signal de retenue, puis l'espace laissé vide par la réponse qui aurait dû le suivre. Le problème n'est pas une eau devenue hostile. C'est une force utile à laquelle on n'a pas donné d'issue. Tu peux envoyer un signe d'accueil pour annoncer que les vallées se préparent, ou transmettre d'abord les limites des conduits pour que la retenue sache combien libérer. Le premier signal réduirait l'attente. Le second rendrait la distribution plus précise. Tu regardes les relevés, puis les gouttes qui brillent près de la fenêtre. Leur immobilité a fini par sembler naturelle. Pourtant, leur place est dans les sols, les sources et les chemins d'eau que les habitants ont commencé à préparer.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_9_0",
+          "text": "Annoncer que les vallées se préparent à accueillir l'eau",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le signal est reçu. La pluie cesse d'attirer les nuages voisins.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'accueil porte, mais une première averse attendra près des conduits.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal reste incomplet. La retenue ralentit néanmoins assez pour poursuivre.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_9_1",
+          "text": "Transmettre les limites du réseau avant la libération",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les limites sont reconnues. La retenue peut répartir sa force avec davantage de précision.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La mesure fonctionne, mais un canal réclame une marge plus grande.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les limites sont mal reçues. Un réglage réduit reste possible pour les premiers conduits.",
+              "next": "rain_10",
+              "effects": {
+                "events": [
+                  "rain_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_10",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Une issue pour toute cette eau",
+      "text": "Tu rencontres {revelation_actor} près du dispositif central. La personne ou la présence reconnaît les signaux que tu as retrouvés et comprend pourquoi la retenue ne peut plus continuer. Deux solutions peuvent ouvrir la nuit : répartir la pluie selon les besoins des vallées, ou employer d'abord les voies de sécurité pour réduire la pression avant une distribution plus fine. La première utiliserait mieux l'eau, mais exige une coordination précise. La seconde donnera une marge immédiate, au prix d'une partie de la pluie dirigée vers des sols qui en ont moins besoin. Tu n'as pas à choisir entre tout sauver parfaitement et tout abandonner. Tu choisis une méthode capable de protéger les chemins, puis de rendre l'eau utile autant que les réglages le permettront.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "rain_10_0",
+          "text": "Distribuer la pluie selon les besoins des vallées",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les besoins trouvent leurs conduits. Le réseau accepte une répartition utile de la pluie.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La distribution fonctionne, mais une vallée recevra son eau en deux étapes.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La coordination reste fragile. Vous préparez une distribution limitée aux premières vallées.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_10_1",
+          "text": "Réduire d'abord la pression par les voies de sécurité",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les voies libèrent une marge. La retenue peut maintenant être ouverte sans précipitation.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La pression baisse, mais une partie de l'eau demandera ensuite un nouveau trajet.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une voie résiste. Les autres dégagent assez de marge pour une ouverture progressive.",
+              "next": "rain_11",
+              "effects": {
+                "events": [
+                  "rain_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_11",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Le geste qui donne une direction",
+      "text": "Deux marques restent séparées : celle de l'eau retenue et celle des canaux qui l'attendent. Ton objet répond à leur langage comme aux premiers seuils du réseau. Tu peux établir une liaison précise pour donner à la pluie sa direction. Une autre méthode consiste à relier les marques par les témoins de niveau autour de la salle, afin que chaque canal confirme sa capacité avant de recevoir l'eau. La liaison directe serait plus rapide. Les témoins offriraient une réponse répartie, avec davantage de contrôle. Tu observes le plafond brillant au-delà de la fenêtre. Il ne disparaîtra pas parce que tu en auras eu le courage. Il changera parce qu'un geste assez clair permettra à cette force immense d'emprunter des chemins préparés pour elle.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L'eau reconnaît sa direction. La retenue se relie aux canaux préparés.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison tient, mais une pulsation supplémentaire devra traverser le circuit de sécurité.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le lien direct se défait. Les témoins gardent une possibilité d'ouverture plus lente.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_11_1",
+          "text": "Relier les marques par les témoins de niveau",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les témoins répondent ensemble. Chaque canal peut recevoir une part mesurée de pluie.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison fonctionne, mais un témoin impose de ralentir l'une des averses.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un témoin reste muet. Les autres permettent d'ouvrir les premières voies sûres.",
+              "next": "rain_12",
+              "effects": {
+                "events": [
+                  "rain_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_12",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "La première goutte qui tombe",
+      "text": "La nuit touche à sa fin. Une goutte descend enfin jusqu'au sol, puis une seconde reste suspendue comme si elle attendait la décision suivante. Tu peux ouvrir la liaison centrale pour lancer rapidement la distribution, ou faire passer la pluie par les relais préparés afin que les vallées répondent l'une après l'autre. La première méthode libérerait vite le poids accumulé dans le ciel. La seconde ménagerait le réseau et les chemins qui portent encore les traces des difficultés. {revelation_actor} accepte de surveiller la retenue pendant ton dernier geste. Les habitants, au loin, ont allumé des lampes près des abris et des canaux. Tu ne les vois pas tous, mais leurs signaux montrent qu'ils sont prêts à recevoir une réponse. Tu choisis comment transformer ce plafond inquiétant en une pluie que l'on peut accompagner.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "rain_12_0",
+          "text": "Ouvrir la distribution depuis la liaison centrale",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La pluie retrouve ses chemins. Le plafond d'eau se défait en averses réparties.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les averses commencent, mais un passage devra rester fermé jusqu'à la baisse du niveau.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'ouverture centrale résiste. Vous conservez une distribution réduite pendant les derniers réglages.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_12_1",
+          "text": "Libérer la pluie par les relais des vallées",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les vallées se répondent. L'eau descend sans se rassembler sur une seule route.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La pluie se répartit lentement. Certaines averses attendront encore la journée suivante.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Quelques relais restent fermés. Les premières vallées reçoivent assez d'eau pour alléger la retenue.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "rain_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_5b",
+      "arc": "rain",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Les passages à garder secs",
+      "text": "Le chemin des abris mène à une salle où des volets dirigent l'eau loin des routes habitées. Aucun ne fonctionne tout seul : il faut surveiller les niveaux des deux côtés. {encounter_name} te rejoint et propose de garder cette veille pendant ton avancée. {encounter_name} pourrait aussi venir au centre pour aider à lire les signaux, si tu prépares ici des repères assez clairs. Les deux tâches comptent autant. Tu observes les premières gouttes prises dans les volets et comprends qu'un abri ne sert pas seulement à attendre. Il peut donner à une force un autre chemin, à condition de ne pas l'envoyer vers quelqu'un d'autre sans prévenir. Vous convenez d'un signal pour les passages encore ouverts, puis tu choisis où placer l'aide disponible.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "rain_5b_0",
+          "text": "Préparer les repères et continuer ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les repères sont clairs. {encounter_name} vient lire les signaux avec toi.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préparez l'aide, mais un volet demande une surveillance que le repère ne remplace pas.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les repères restent incertains. {encounter_name} demeure ici pour surveiller les niveaux.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "rain_5b_1",
+          "text": "Confier la veille des abris à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les abris sont surveillés. Tu peux rejoindre le centre sans fermer leur route.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La veille fonctionne, mais un volet devra être maintenu lors de la première averse.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un accès devient humide. Vous gardez une autre voie protégée pour les habitants.",
+              "next": "rain_6",
+              "effects": {
+                "events": [
+                  "rain_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_end_secret",
+      "arc": "rain",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La vallée qui attendait la pluie",
+      "ending": "secret",
+      "text": "Le conduit oublié offre une issue supplémentaire à l'eau retenue. Tu rapportes sa place et sa règle d'usage, pour qu'il ne disparaisse plus des relevés. Une vallée sèche reçoit une pluie lente que personne n'avait prévue, tandis que les chemins habités restent sous surveillance. Les habitants découvrent qu'un ancien secours peut aussi devenir une ressource. Tout le réseau demandera encore de l'entretien, mais le royaume dispose d'une voie qu'il croyait perdue. Au matin, les premières pousses se redressent dans un sol qui n'avait pas bu depuis longtemps.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_end_alliance",
+      "arc": "rain",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La pluie que l'on accompagne",
+      "ending": "alliance",
+      "text": "L'aide de {encounter_name} permet de garder plusieurs signaux visibles pendant la libération. Vous ne contrôlez pas chaque goutte, mais vous donnez aux habitants le temps d'accompagner les averses et de protéger les passages fragiles. À votre retour, des équipes prennent le relais près des canaux. {encounter_name} montre les témoins qui ont guidé votre intervention. Tu regardes le ciel redevenir profond. Il a fallu des gestes modestes dans plusieurs endroits pour changer la direction d'une force immense. Les premières gouttes ordinaires semblent presque nouvelles sur tes mains.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_end_radiant",
+      "arc": "rain",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Un matin sous la pluie",
+      "ending": "radiant",
+      "text": "Le plafond d'eau se défait sans emporter les chemins. Les averses trouvent leurs vallées et les réserves retrouvent des niveaux utiles. Tu racontes la cause de la retenue et les signaux qui permettent désormais de l'éviter. Le conseil remet le réseau en service, avec une veille à chaque saison. Au matin, les habitants sortent des abris sous une pluie ordinaire. Personne ne la trouve ordinaire tout de suite. Tu lèves la main et laisses plusieurs gouttes y tomber. Elles ne portent plus tout le poids d'une catastrophe ; elles ne font que mouiller ta peau.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_end_cost",
+      "arc": "rain",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Les canaux du lendemain",
+      "ending": "cost",
+      "text": "La retenue baisse assez pour que les chemins ne soient plus menacés, mais plusieurs averses attendront encore leurs réglages. Tu rapportes les niveaux à surveiller et les passages fragiles. Les habitants organisent des veilles et des réparations, sans confondre urgence et précipitation. Une route restera fermée un moment ; une vallée recevra son eau plus tard. Ces conséquences sont visibles, mais elles ont une solution. Tu regardes les premières lampes s'éteindre au bord des abris. La nuit difficile a laissé du travail. Elle a aussi rendu au royaume un matin qu'il peut préparer.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "rain_end_resilient",
+      "arc": "rain",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Assez d'espace pour le matin",
+      "ending": "resilient",
+      "text": "Tu n'as pas libéré toute la pluie, mais les premières voies sûres allègent le ciel et donnent du temps aux habitants. Le plafond ne descend plus comme avant. Tu reviens avec la cause du blocage, les niveaux utiles et une méthode pour poursuivre sans tout relâcher. Une équipe peut prendre la suite avec des informations précises. Tu restes près du premier canal lorsqu'une averse courte commence enfin. Elle ne résout pas tout, mais elle prouve qu'un chemin existe. Le royaume peut travailler à sa sécurité au lieu d'attendre sans réponse.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

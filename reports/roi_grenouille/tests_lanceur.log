@@ -1,0 +1,19 @@
+test_compiler_rejects_text_changes_and_missing_consequence_annotation (tests.test_story_audio.MarkupTests.test_compiler_rejects_text_changes_and_missing_consequence_annotation) ... ok
+test_markup_roundtrip_preserves_punctuation_paragraphs_and_xml_characters (tests.test_story_audio.MarkupTests.test_markup_roundtrip_preserves_punctuation_paragraphs_and_xml_characters) ... ok
+test_corrupt_final_is_reassembled_from_verified_chunks_without_synthesis (tests.test_story_audio.ResumeTests.test_corrupt_final_is_reassembled_from_verified_chunks_without_synthesis) ... ok
+test_exhausted_full_retries_are_not_ready_and_next_run_uses_next_round (tests.test_story_audio.ResumeTests.test_exhausted_full_retries_are_not_ready_and_next_run_uses_next_round) ... ok
+test_finished_run_is_preserved_without_loading_tts_or_asr (tests.test_story_audio.ResumeTests.test_finished_run_is_preserved_without_loading_tts_or_asr) ... ok
+test_full_rejection_uses_separate_cache_round_and_can_then_finish (tests.test_story_audio.ResumeTests.test_full_rejection_uses_separate_cache_round_and_can_then_finish) ... ok
+test_hard_process_death_releases_locks_and_resumes_only_missing_chunks (tests.test_story_audio.ResumeTests.test_hard_process_death_releases_locks_and_resumes_only_missing_chunks) ... ok
+test_incompatible_voice_is_refused_before_other_outputs_or_status_are_changed (tests.test_story_audio.ResumeTests.test_incompatible_voice_is_refused_before_other_outputs_or_status_are_changed) ... ok
+test_interrupt_between_final_wav_and_receipt_is_recoverable (tests.test_story_audio.ResumeTests.test_interrupt_between_final_wav_and_receipt_is_recoverable) ... ok
+test_reference_copy_is_frozen_and_fingerprinted (tests.test_story_audio.ResumeTests.test_reference_copy_is_frozen_and_fingerprinted) ... ok
+test_rejected_chunk_is_retried_with_new_seeds (tests.test_story_audio.ResumeTests.test_rejected_chunk_is_retried_with_new_seeds) ... ok
+test_approved_first_segment_keeps_exactly_the_previous_identity_inputs (tests.test_story_audio.StoryPlanningTests.test_approved_first_segment_keeps_exactly_the_previous_identity_inputs) ... ok
+test_dry_run_has_no_torch_requirement_and_does_not_touch_completed_status (tests.test_story_audio.StoryPlanningTests.test_dry_run_has_no_torch_requirement_and_does_not_touch_completed_status) ... ok
+test_every_route_has_the_exact_runtime_text_and_all_consequences_are_voiced (tests.test_story_audio.StoryPlanningTests.test_every_route_has_the_exact_runtime_text_and_all_consequences_are_voiced) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 27.784s
+
+OK

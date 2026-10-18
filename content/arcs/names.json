@@ -1,0 +1,113 @@
+{
+  "id": "names",
+  "title": "Les Dormeurs de Roncelune",
+  "description": "Entrer dans un domaine endormi, retrouver un contre-sort et réveiller ses habitants.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la salle d’étude. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre le réveil de Roncelune.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille des ronces. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre le réveil de Roncelune.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde du coffre près de le coffre de la cloche. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre le réveil de Roncelune.",
+      "climax_action": "Couper la corde du coffre avec ton épée"
+    },
+    "book": {
+      "first": "Devant la salle d’étude, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : le réveil de Roncelune reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille des ronces, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : le réveil de Roncelune reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffre de la cloche, tu relis le sort des attaches. La page conseille de viser seulement le crochet du couvercle. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : le réveil de Roncelune reste ton objectif.",
+      "climax_action": "Desserrer le crochet du couvercle avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la salle d’étude. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre le réveil de Roncelune.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille des ronces. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre le réveil de Roncelune.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du couvercle près de le coffre de la cloche. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre le réveil de Roncelune.",
+      "climax_action": "Protéger ta main pour dégager le crochet du couvercle"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée de la salle d’étude. Elle désigne un côté de la salle d’étude. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers le réveil de Roncelune.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille des ronces. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers le réveil de Roncelune.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffre de la cloche. Elle désigne un côté de le coffre de la cloche. Tu pourrais y actionner le crochet du couvercle à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers le réveil de Roncelune.",
+      "climax_action": "Trouver le crochet du couvercle avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure de la salle près de la salle d’étude. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer le réveil de Roncelune.",
+      "first_action": "Ouvrir la serrure de la salle avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille des ronces. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer le réveil de Roncelune.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffre près de le coffre de la cloche. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer le réveil de Roncelune.",
+      "climax_action": "Ouvrir la serrure du coffre avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "names_intro",
+  "revelations": [
+    {
+      "id": "witch",
+      "actor": "la sorcière Bellombre",
+      "text": "Le journal révèle que Bellombre a lancé le sort pour chercher un joyau sans être dérangée. Elle savait que la cloche pouvait réveiller le domaine et l'a enfermée dans un coffret. La formule de sommeil suit celle qui ferme le coffret. Un ancien contre-sort reste lisible : il faudra ouvrir la cloche, puis la faire sonner dans la salle."
+    },
+    {
+      "id": "fairy",
+      "actor": "la fée Églantine",
+      "text": "Une lettre d'Églantine explique sa colère après qu'un intendant a détruit son jardin pour agrandir le domaine. Elle a endormi tout Roncelune, même les personnes qui n'y étaient pour rien. Un autre passage de la lettre reconnaît que la cloche peut rompre le sort. Il faudra réveiller les habitants et réparer le jardin, sans accepter une punition collective."
+    },
+    {
+      "id": "steward",
+      "actor": "l’intendant Néron",
+      "text": "Les notes de l'intendant Néron montrent qu'il a employé une poudre de sommeil enchantée pour voler les réserves du domaine. Le sort a duré plus longtemps qu'il ne le prévoyait. Il a alors enfermé la cloche pour cacher sa faute. Ses notes indiquent le coffret et l'ordre du contre-sort. Tu connais désormais un moyen concret de rendre Roncelune à ses habitants."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "names_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "names_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "names_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "names_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "names_end_resilient",
+      "when": {}
+    }
+  ]
+}

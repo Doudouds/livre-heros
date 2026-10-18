@@ -1,0 +1,71 @@
+{
+  "id": "bell",
+  "title": "Le Pacte de la cloche endormie",
+  "description": "Empêcher le réveil d'une puissance ancienne en comprenant le pacte qui réglait son sommeil.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "bell_intro",
+  "revelations": [
+    {
+      "id": "earth",
+      "actor": "la sentinelle d'argile",
+      "text": "Une fresque révèle une sentinelle d'argile qui maintient la terre stable pendant l'hiver. Son pacte prévoyait un appel au printemps et une réponse des habitants. L'appel a continué, mais la réponse a disparu. La sentinelle se réveille pour vérifier que ceux qu'elle protège sont toujours là. Elle n'a pas compris que le silence vient d'un oubli, et non d'une catastrophe."
+    },
+    {
+      "id": "wind",
+      "actor": "le veilleur des vents",
+      "text": "La fresque montre un veilleur des vents, immense mais patient, qui dort pour laisser les saisons se suivre. Son pacte demandait trois notes envoyées dans des conduits différents. Un conduit a été condamné, et le message reçu ressemble maintenant à un appel d'urgence. Le veilleur se prépare donc à agir. Il faut lui rendre le message entier plutôt que chercher à le faire taire."
+    },
+    {
+      "id": "dragon",
+      "actor": "la dragonne Sélambre",
+      "text": "Sur la fresque apparaît Sélambre, une dragonne qui réchauffe lentement les terres pendant son sommeil. Les habitants lui envoyaient autrefois un chant pour confirmer que la chaleur suffisait. Le chant incomplet qu'elle reçoit signifie que tout gèle au-dehors. Elle va libérer beaucoup trop de feu pour aider. Le pacte doit retrouver sa réponse, avec un signe qui lui montre le vrai état des saisons."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "bell_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "bell_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "bell_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "bell_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "bell_end_resilient",
+      "when": {}
+    }
+  ]
+}

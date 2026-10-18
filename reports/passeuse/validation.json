@@ -1,0 +1,273 @@
+{
+  "chapter": 1,
+  "decisions": 27,
+  "passages": 28,
+  "simulations": 2000,
+  "source_sha256": "a619fbd62e733d8e6cd8f782027d0d904ca401cb2336b40fc05cb03999cfcb37",
+  "narrative_person": 3,
+  "scene_variants_exercised": 49,
+  "conditional_consequences_exercised": 2737,
+  "words_before_choice": {
+    "min": 172,
+    "max": 331,
+    "mean": 237.6
+  },
+  "estimated_minutes": {
+    "min": 51.7,
+    "max": 53.2
+  },
+  "assets": [
+    {
+      "scene": "passeuse_1_01",
+      "image": "images/passeuse/ch1_01.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 18
+    },
+    {
+      "scene": "passeuse_1_02",
+      "image": "images/passeuse/ch1_02.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 16
+    },
+    {
+      "scene": "passeuse_1_03",
+      "image": "images/passeuse/ch1_03.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 19
+    },
+    {
+      "scene": "passeuse_1_04",
+      "image": "images/passeuse/ch1_04.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 17
+    },
+    {
+      "scene": "passeuse_1_05",
+      "image": "images/passeuse/ch1_05.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 17
+    },
+    {
+      "scene": "passeuse_1_06",
+      "image": "images/passeuse/ch1_06.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 18
+    },
+    {
+      "scene": "passeuse_1_07",
+      "image": "images/passeuse/ch1_07.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 15
+    },
+    {
+      "scene": "passeuse_1_08",
+      "image": "images/passeuse/ch1_08.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 15
+    },
+    {
+      "scene": "passeuse_1_09",
+      "image": "images/passeuse/ch1_09.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 17
+    },
+    {
+      "scene": "passeuse_1_10",
+      "image": "images/passeuse/ch1_10.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 19
+    },
+    {
+      "scene": "passeuse_1_11",
+      "image": "images/passeuse/ch1_11.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 18
+    },
+    {
+      "scene": "passeuse_1_12",
+      "image": "images/passeuse/ch1_12.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 18
+    },
+    {
+      "scene": "passeuse_1_13",
+      "image": "images/passeuse/ch1_13.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 17
+    },
+    {
+      "scene": "passeuse_1_14",
+      "image": "images/passeuse/ch1_14.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 16
+    },
+    {
+      "scene": "passeuse_1_15",
+      "image": "images/passeuse/ch1_15.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 17
+    },
+    {
+      "scene": "passeuse_1_16",
+      "image": "images/passeuse/ch1_16.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 21
+    },
+    {
+      "scene": "passeuse_1_17",
+      "image": "images/passeuse/ch1_17.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 22
+    },
+    {
+      "scene": "passeuse_1_18",
+      "image": "images/passeuse/ch1_18.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 18
+    },
+    {
+      "scene": "passeuse_1_19",
+      "image": "images/passeuse/ch1_19-v2.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 15
+    },
+    {
+      "scene": "passeuse_1_20",
+      "image": "images/passeuse/ch1_20.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 21
+    },
+    {
+      "scene": "passeuse_1_21",
+      "image": "images/passeuse/ch1_21-v2.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 16
+    },
+    {
+      "scene": "passeuse_1_22",
+      "image": "images/passeuse/ch1_22.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 23
+    },
+    {
+      "scene": "passeuse_1_23",
+      "image": "images/passeuse/ch1_23.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 14
+    },
+    {
+      "scene": "passeuse_1_24",
+      "image": "images/passeuse/ch1_24.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 16
+    },
+    {
+      "scene": "passeuse_1_25",
+      "image": "images/passeuse/ch1_25.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 15
+    },
+    {
+      "scene": "passeuse_1_26",
+      "image": "images/passeuse/ch1_26.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 21
+    },
+    {
+      "scene": "passeuse_1_27",
+      "image": "images/passeuse/ch1_27.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 26
+    },
+    {
+      "scene": "passeuse_1_28",
+      "image": "images/passeuse/ch1_28.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "max_channel_difference": 19
+    }
+  ]
+}

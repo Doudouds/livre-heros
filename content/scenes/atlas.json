@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "atlas_intro",
+      "arc": "atlas",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "La Fleur de Guérison",
+      "text": "La souveraine de Clairval est malade depuis le début de l'hiver. Les guérisseurs ont essayé leurs remèdes, mais sa fièvre revient chaque soir. Une vieille herboriste se souvient d'une fleur argentée qui pousse dans le jardin d'une fée, près de {location_name}. Ses pétales peuvent préparer un remède pour cette maladie précise. Plusieurs voyageurs ont renoncé au chemin, car le jardin demande de la patience, du courage et de l'attention. Tu proposes de partir avec les indications de l'herboriste. La fleur ne doit pas être arrachée au hasard : il faudra demander la permission à sa gardienne et protéger ses racines pendant le transport. Tu emportes une petite boîte humide et assez de nourriture pour partager si quelqu'un manque de provisions. La souveraine te remercie avant le départ. Tu veux l'aider, mais aussi découvrir une route que les prochains voyageurs pourront suivre sans se perdre.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "atlas_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_1",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Le voyageur sans provisions",
+      "text": "Au début du chemin, une vieille personne s'est arrêtée près d'une pierre. Son panier est vide et elle n'a plus d'eau. Elle te demande où se trouve le prochain abri. Tu peux partager ton pain et ta gourde avant de reprendre la route, ou aller chercher de l'eau au petit puits voisin pour conserver une partie de tes provisions. Tu n'as pas de raison de supposer qu'il s'agit d'une fée déguisée ; la fatigue de cette personne suffit pour lui venir en aide. Tu regardes les chemins et l'abri le plus proche. La fleur de guérison est importante, mais ton départ t'a laissé assez de temps pour ne pas passer sans rien faire devant quelqu'un qui en a besoin.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_1_0",
+          "text": "Partager ton pain et ta gourde",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La personne reprend des forces et t’indique un repère utile sur la route du jardin.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu partages tes provisions, mais il te reste moins d’eau. Tu rempliras la gourde au prochain abri.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Ton pain est trop sec pour être utile. Tu accompagnes la personne jusqu’à un abri où elle pourra boire.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_1_1",
+          "text": "Chercher de l’eau au puits et montrer le chemin de l’abri",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le puits est accessible. Tu rapportes de l’eau et indiques un trajet court jusqu’à l’abri.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves de l’eau, mais le détour prend du temps. Tu reprends ensuite la route du jardin.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le puits est fermé. Tu partages finalement ta gourde et montres l’abri le plus proche.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_2",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Le merle pris au filet",
+      "text": "Un merle se débat dans un petit filet oublié près du chemin. Il n'est pas gravement blessé, mais sa patte reste prise. Tu pourrais approcher doucement pour défaire les boucles, ou fixer le filet au sol avec des branches afin qu'il cesse de se resserrer avant de l'ouvrir. Tu poses ton sac à distance pour ne pas effrayer l'oiseau. Le merle ne te donnera peut-être rien en échange ; tu veux simplement le libérer. Tu observes le sens des fils et gardes ton visage loin de son bec. Plus loin, une grille laisse voir les premières fleurs du jardin. Tu pourras reprendre la mission après ce geste, en ayant appris une fois de plus qu'un obstacle demande d'être compris avant d'être forcé.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_2_0",
+          "text": "Défaire les boucles en approchant doucement",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La patte se libère. Le merle s’envole vers un arbre sans emporter de fil.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu défais les boucles, mais le merle s’agite. Tu le laisses reprendre son calme avant de terminer.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les boucles sont trop serrées. Tu immobilises le filet et trouves une partie facile à ouvrir.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_2_1",
+          "text": "Fixer le filet pour l’ouvrir sans tirer sur la patte",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les branches maintiennent les fils. Tu ouvres une boucle et le merle peut repartir.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le filet est stabilisé, mais une branche casse. Tu en places une autre pour finir prudemment.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le sol ne tient pas les branches. Tu poses un appui plus lourd et libères finalement une boucle.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_3",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La grille du premier jardin",
+      "text": "Une inscription accueille les visiteurs : le jardin offre une fleur à qui en prendra soin. La grille est retenue par une serrure ancienne, une corde et un crochet intérieur. Des branches épineuses bordent le cadre. Ton objet pourrait ouvrir l'accès sans arracher les plantes. Une petite passerelle permet aussi d'atteindre une porte de service plus haute. Tu regardes les racines près des marches pour éviter de les écraser. La première épreuve semble simple : entrer sans détruire ce qui pousse. Tu vérifies tes appuis et prépares une route de retour. Un merle chante derrière la grille ; peut-être celui que tu as aidé, peut-être un autre. Le jardin ne transforme pas chaque rencontre en récompense, mais les gestes prudents rendent le voyage plus facile.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu dégages la grille sans abîmer les plantes et entres dans le premier jardin.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’accès s’ouvre, mais une branche se plie. Tu la remets en place avant de continuer.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La grille résiste. Tu trouves une porte de service et entres en protégeant les racines.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_3_1",
+          "text": "Rejoindre la porte de service par la passerelle",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La passerelle tient. Tu entres par la porte de service sans marcher dans les plates-bandes.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu rejoins la porte, mais une planche glisse. Tu la replaces pour protéger le retour.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La passerelle est fermée. Un petit escalier voisin permet de rejoindre la porte de service.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_4",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Deux chemins dans les jardins",
+      "text": "Un panneau montre le jardin intérieur où pousse la fleur argentée. Deux trajets le rejoignent. Le passage haut offre une vue sur les plates-bandes et les bâtiments. Le passage bas longe les réserves d'eau et une serre. Tu peux choisir la vue dégagée pour préparer ton itinéraire, ou rester à l'abri pour éviter les zones fragiles. La gardienne n'apparaît pas encore, mais ses instructions sont claires : ne cueillir aucune fleur avant la dernière épreuve. Tu gardes ta boîte de transport fermée et vérifies qu'elle contient encore un peu d'humidité. Les racines devront rester fraîches au retour. Tu regardes la première traversée et choisis une route qui te permettra de revenir sans transformer ta mission de guérison en dégâts dans le jardin.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_4_0",
+          "text": "Suivre le passage haut pour observer les jardins",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu traverses et atteins un abri avec une vue claire sur la serre intérieure.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais un appui est fragile. Tu rejoins l’abri en passant près du mur.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La voie haute est abîmée. Un petit escalier te mène tout de même à l’abri.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_4_1",
+          "text": "Passer en bas près des réserves d’eau",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le trajet est abrité et tu rejoins la réserve qui donne accès à la serre.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu arrives à la réserve, mais une fuite mouille le passage. Tu poses des pierres pour le retour.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une porte ferme la voie basse. Tu trouves un accès de service qui rejoint aussi la réserve.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_5",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "La boîte du voyage",
+      "text": "{encounter_name} te rejoint près de l'abri après avoir suivi les indications du jardin. Vous examinez la boîte destinée au transport de la fleur. Elle doit retenir l'humidité sans écraser les racines. Tu peux proposer de poursuivre ensemble pour préparer le prélèvement et le retour. Tu peux aussi confier ici une réserve d'eau et demander à {encounter_name} de garder le chemin ouvert. La souveraine attend un remède, mais un voyage précipité pourrait dessécher la plante avant son arrivée. Vous convenez d'un signal et vérifiez les affaires utiles. Tu gardes la décision sur les tâches, en regardant ce que tu peux porter seul et ce qu'une aide au retour rendrait plus fiable.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_5_0",
+          "text": "Préparer le transport et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous préparez une doublure humide. {encounter_name} t’accompagne vers le jardin intérieur.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous partez ensemble, mais la boîte ferme mal. Vous gardez un tissu pour protéger la plante.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La boîte demande une réparation ici. {encounter_name} la prépare tandis que tu poursuis avec un récipient provisoire.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_5_1",
+          "text": "Garder une réserve d’eau et faire surveiller le retour",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’eau est prête et le trajet surveillé. Tu poursuis avec un signal pour revenir rapidement.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réserve est suffisante, mais son récipient fuit un peu. Tu continues pendant qu’il est remplacé.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier récipient est cassé. {encounter_name} cherche une réserve sûre pendant que tu avances.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_6",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Les pousses de l’an prochain",
+      "text": "Près d'une fontaine, un panneau décrit la croissance de la fleur argentée. Tu peux lire les explications jusqu'au bout pour trouver comment protéger ses jeunes pousses, ou suivre directement le plan vers la serre intérieure. L'herboriste t'a donné une description précise des pétales. Le jardin ajoute maintenant les renseignements sur les racines et la saison. Tu compares le dessin aux feuilles visibles sans rien cueillir. Une seule fleur suffira pour le remède ; emporter davantage risquerait de compromettre la prochaine récolte. Tu observes le plan du lieu et les voies de retour. Chercher un secret aurait un sens s'il permet de préserver le jardin, et non seulement d'obtenir un objet supplémentaire pour toi.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_6_0",
+          "text": "Lire comment protéger et replanter les jeunes pousses",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu découvres une méthode pour replanter une racine. Tu pourras laisser au jardin une pousse protégée.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les explications sont incomplètes. Tu notes la saison utile et gardes les indications pour la jardinière.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une partie du panneau est effacée. Tu suis la règle simple : ne toucher qu’à la fleur autorisée.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_6_1",
+          "text": "Rejoindre la serre avec les indications de l’herboriste",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu retiens la description et rejoins le jardin intérieur sans traverser les plates-bandes.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais un arrosoir ferme le chemin. Tu le ranges avant de continuer vers la serre.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le trajet indiqué est fermé. Tu suis une allée voisine qui rejoint la même serre.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_7",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "La serre intérieure",
+      "text": "Une grille ferme la serre intérieure. Sa serrure et sa corde protègent le battant ; un crochet de sécurité se trouve derrière le cadre épineux. Ton objet pourrait libérer l'accès. Une manivelle voisine permet aussi de lever la grille, puis de soutenir son poids avec une cale. Derrière, tu aperçois plusieurs plantes argentées. Toutes ne correspondent pas à la fleur du remède. Tu gardes ta boîte fermée : la permission de prélever ne viendra qu'après les dernières instructions. Tu examines l'ouverture et les pots près du sol. Il faut éviter qu'une grille libérée tombe sur les semis. Tu prépares donc les appuis avant de décider, en employant la même attention que celle nécessaire pour transporter la plante.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’accès se libère sans heurter les semis. Tu entres dans la serre intérieure.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille s’ouvre, mais un pot penche. Tu le remets à sa place avant de continuer.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’attache résiste. Une porte latérale permet de rejoindre la serre sans déplacer les semis.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_7_1",
+          "text": "Lever la grille et caler son poids",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La manivelle ouvre l’accès. Tu bloques la grille au-dessus des plantes avant de passer.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille monte lentement. Tu dégages assez d’espace et marques l’appui encore fragile.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La manivelle se bloque. Tu trouves une entrée de service qui rejoint le jardin intérieur.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_8",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Trois plantes argentées",
+      "text": "Sur une table poussent trois plantes aux feuilles claires. Une inscription te demande d'identifier celle décrite par l'herboriste, sans la cueillir. La première a des feuilles rondes, la deuxième des nervures violettes et la troisième une tige fine avec cinq pétales. Tu peux comparer soigneusement chaque détail au dessin ou observer les pots pour retrouver l'étiquette conservée par la jardinière. Ce n'est pas une devinette où toute réponse pourrait être juste. La fleur du remède possède des caractéristiques précises, et une autre plante serait inutile. Tu poses le dessin près de la table et prends le temps de regarder. Le courage de ton départ ne remplace pas cette attention : la souveraine a besoin du bon remède, préparé avec la bonne fleur.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_8_0",
+          "text": "Comparer les détails des plantes avec le dessin",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu reconnais la tige et les cinq pétales du remède. Tu marques le bon pot sans cueillir la fleur.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères la bonne forme, mais une feuille cache la tige. Tu attends de pouvoir vérifier le détail.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Deux plantes se ressemblent trop. Tu conserves ton doute et cherches l’étiquette au lieu de cueillir.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_8_1",
+          "text": "Retrouver l’étiquette du pot et vérifier ses indications",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’étiquette confirme la bonne plante. Tu compares encore ses pétales avant de marquer le pot.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’étiquette est tachée. Tu lis le nom puis vérifies la forme indiquée par l’herboriste.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’étiquette manque. Tu reviens au dessin et gardes la plante intacte jusqu’à l’arrivée de la gardienne.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_9",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La règle du jardin",
+      "text": "Un carnet posé dans la serre explique l'histoire de la fleur et les règles de sa récolte. Tu comprends pourquoi les portes sont protégées et pourquoi les visiteurs doivent faire attention. Tu peux recopier les instructions de transport pour les guérisseurs ou préparer une demande précise à la personne qui garde le jardin. Tu n'as besoin que d'une fleur pour soigner la maladie de la souveraine. Tu peux promettre de rapporter ensuite des nouvelles et d'indiquer ce qui reste dans le sol. Tu gardes le carnet à sa place, car les prochains voyageurs auront besoin de ces renseignements. Les épreuves ne te demandent pas d'être parfait : elles te demandent d'observer et de reconnaître ce que tu ne sais pas encore faire.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_9_0",
+          "text": "Recopier les instructions pour les guérisseurs",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu conserves la dose et la manière de préparer les pétales. Le remède pourra être employé correctement.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu copies l’essentiel, mais une ligne manque. Tu marqueras cette question pour la gardienne.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La copie serait trop longue. Tu notes le passage utile et prépares une demande d’explication.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_9_1",
+          "text": "Préparer une demande claire pour la gardienne du jardin",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu expliques la maladie et la quantité nécessaire. Ta demande respecte les besoins du jardin.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu prépares la demande, mais une indication te manque. Tu gardes la question plutôt que d’inventer une réponse.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Tu ne connais pas tous les mots du remède. Tu montres le dessin et attends une explication précise.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_10",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Le petit dragon du jardin",
+      "text": "Un petit dragon veille près du coffre vitré qui protège la fleur autorisée. Il bloque le passage en gonflant les ailes, mais une inscription indique qu'il redoute les mouvements brusques. {revelation_actor} a laissé un signal pour lui demander de s'écarter. Tu peux approcher calmement en montrant ton dessin, ou chercher le signal sur le mur avant d'avancer. Le dragon n'est pas un ennemi à vaincre. Il garde une plante fragile et attend qu'un visiteur suive les instructions. Tu surveilles sa respiration et gardes un abri proche. Si tu ne peux pas passer seul, tu pourras faire venir la gardienne avec les renseignements déjà recueillis. Le courage consiste ici à rester attentif devant une créature impressionnante.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_10_0",
+          "text": "Approcher calmement en montrant le dessin du remède",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le dragon reconnaît le dessin et recule. Tu atteins le coffre sans mouvement brusque.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Il te laisse approcher, mais garde une aile levée. Tu t’arrêtes un instant avant de continuer.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le dragon refuse de bouger. Tu restes à distance et cherches le signal laissé par la gardienne.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_10_1",
+          "text": "Lire le signal indiqué sur le mur",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu trouves le signal et l’emploies doucement. Le dragon libère le passage vers le coffre.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le signal est incomplet. Tu en reconnais assez pour gagner un espace près du coffre.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal est effacé. Tu appelles la gardienne depuis un abri plutôt que de forcer le passage.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_11",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Le coffre de la fleur",
+      "text": "La fleur autorisée repose avec ses racines dans un coffre vitré. Une serrure, une corde de sécurité et un crochet protègent son volet. Tu pourrais utiliser ton objet pour ouvrir l'accès, puis placer la plante dans sa boîte humide. Une autre méthode consiste à suivre les instructions du petit outil de réglage laissé par la gardienne. Tu regardes les pointes du cadre et prépares un tissu pour protéger ta main. La fleur est presque à portée, mais elle doit rester intacte. Tu vérifies la terre autour des racines et la quantité à emporter. Si le coffre ne s'ouvre pas, les renseignements déjà recueillis permettent de demander une aide précise. Tu prépares ton geste en pensant autant au jardin qu'au retour vers la souveraine.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le coffre s’ouvre. Tu places la fleur autorisée dans sa boîte sans arracher les jeunes pousses.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu ouvres le volet, mais une attache reste serrée. Tu gardes les racines humides pour terminer avec de l’aide.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le coffre résiste. Tu prépares la boîte et montres à la gardienne la fermeture à débloquer.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_11_1",
+          "text": "Employer l’outil de réglage selon les instructions",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’outil libère le crochet. La fleur peut être placée dans sa boîte avec une motte de terre.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le crochet se desserre lentement. Tu protèges la motte pendant que la dernière attache est préparée.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’outil ne suffit pas. Tu laisses la fleur intacte et demandes la pièce nécessaire à la gardienne.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_12",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Un remède à rapporter",
+      "text": "La gardienne peut terminer les attaches encore bloquées et confier la fleur une fois ta demande comprise. Tu dois maintenant organiser son retour. Tu peux choisir la route directe, avec des pauses pour garder les racines humides, ou le trajet abrité qui prend davantage de temps mais protège mieux la boîte. Tu conserves les instructions pour les guérisseurs. {revelation_actor} attend des nouvelles du remède et des pousses restées au jardin. Tu ne promets pas une guérison par un simple geste de ta main : les pétales doivent être préparés selon la recette. Tu regardes le chemin et tes provisions. Tu choisis le retour qui donnera à la souveraine une fleur vivante et aux guérisseurs les renseignements nécessaires pour s'en servir.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_12_0",
+          "text": "Prendre la route directe en surveillant l’humidité",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu rapportes la fleur et les instructions à temps. Les guérisseurs peuvent préparer le remède.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le trajet est rapide, mais la boîte doit être arrosée. Tu fais une pause avant de rejoindre le village.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un passage ferme la route directe. Tu mets la fleur à l’abri et rejoins le chemin de secours.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_12_1",
+          "text": "Revenir par le chemin abrité avec des étapes préparées",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La fleur reste fraîche jusqu’au village. Tu remets la boîte et la recette aux guérisseurs.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le retour prend plus de temps, mais la plante reste protégée. Les guérisseurs t’attendent avec leurs outils.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier abri est fermé. Tu retrouves une étape sûre et fais prévenir les guérisseurs de ton arrivée.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_5b",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "La réserve des jardiniers",
+      "text": "La route basse rejoint une réserve d'eau, de pots et de tissus. {encounter_name} t'y retrouve en suivant les indications du panneau. Vous examinez les affaires utiles pour rapporter une fleur vivante. Tu peux proposer de continuer ensemble avec un récipient humide et une corde. Tu peux aussi demander à cette personne de préparer ici une étape pour le retour. La porte de service mène vers la serre intérieure. Vous vérifiez que le chemin reste praticable et choisissez un signal. Les plantes de la réserve appartiennent au jardin ; vous n'en emportez aucune. Tu prends seulement le matériel autorisé, puis décides où une aide sera la plus utile pour protéger la fleur après sa récolte.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_5b_0",
+          "text": "Poursuivre ensemble avec un récipient adapté",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous préparez le récipient humide. {encounter_name} t’accompagne vers le jardin intérieur.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous partez ensemble, mais un récipient est fendu. Vous en choisissez un autre avant de continuer.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le récipient doit être préparé ici. {encounter_name} le garde tandis que tu avances avec la boîte provisoire.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_5b_1",
+          "text": "Préparer une étape de retour près de la réserve",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’eau et les tissus sont prêts. Tu poursuis avec un abri préparé pour protéger la fleur.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’étape est prête, mais le chemin doit encore être dégagé. Tu continues pendant cette préparation.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier abri est trop humide. {encounter_name} cherche une place voisine tandis que tu avances.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_secret",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une fleur et une nouvelle pousse",
+      "ending": "secret",
+      "text": "La méthode découverte sur le panneau permet de laisser une jeune racine protégée dans le jardin. La gardienne confie la fleur du remède après avoir vérifié le transport. Au village, les guérisseurs préparent les pétales selon la recette. La fièvre de la souveraine baisse dans les jours qui suivent, puis elle retrouve ses forces. Tu rapportes des nouvelles au jardin avec l'herboriste. La jeune pousse a pris dans la terre. Tu comprends que la quête n'a pas seulement trouvé une fleur pour aujourd'hui : elle a préservé la possibilité d'un prochain remède. La gardienne te montre comment noter les saisons dans ton carnet, afin que personne ne cueille les pétales avant leur maturité.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_alliance",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La boîte bien gardée",
+      "ending": "alliance",
+      "text": "Avec {encounter_name}, tu rapportes la fleur et les instructions. Vous partagez les tâches : l'un protège la boîte, l'autre vérifie le chemin et les étapes d'eau. La gardienne a terminé les attaches qui demandaient son outil. Les guérisseurs préparent le remède et surveillent la souveraine jusqu'à ce que sa fièvre baisse. Tu racontes aussi les gestes qui ont protégé les racines. Le village envoie ensuite des nouvelles au jardin et remercie sa gardienne. {encounter_name} garde le tissu employé pour le transport. Vous avez appris qu'une quête se termine parfois par des détails très simples : une boîte humide, une pause au bon endroit et une recette transmise sans oublier de ligne.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_radiant",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La fenêtre de la souveraine",
+      "ending": "radiant",
+      "text": "La fleur arrive fraîche au village. Les guérisseurs suivent les instructions de la gardienne et préparent le remède. Après quelques jours de repos, la souveraine peut ouvrir sa fenêtre et saluer les habitants. Elle te remercie de lui avoir rapporté les pétales sans détruire les autres pousses du jardin. Tu lui racontes le voyage, le merle et le petit dragon. La souveraine décide qu'une copie du trajet sera gardée chez l'herboriste, avec la recette et les saisons de récolte. Tu reçois un repas et un nouveau carnet, plutôt qu'une promesse de posséder le jardin. Au prochain printemps, tu pourras revenir y voir les fleurs que tu as laissées pousser.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_cost",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le remède préparé ensemble",
+      "ending": "cost",
+      "text": "La gardienne aide à terminer la récolte et vérifie la boîte avant le départ. Le retour demande plusieurs pauses, mais la fleur parvient au village avec ses racines humides. Les guérisseurs complètent la recette grâce aux explications que tu as conservées. La souveraine reprend ses forces peu à peu, sous leur surveillance. Tu racontes les difficultés du chemin pour que le prochain voyage soit mieux préparé. L'herboriste ajoute des étapes et la liste des outils à son carnet. Tu avais espéré tout réussir du premier coup ; l'aide de la gardienne et des guérisseurs a rendu la mission possible. La fleur n'a pas été perdue et le jardin pourra continuer de la cultiver.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_resilient",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une demande entendue",
+      "ending": "resilient",
+      "text": "Tu n'as pas franchi chaque obstacle seul, mais tu arrives avec le dessin du remède et une demande claire. La gardienne comprend la maladie de la souveraine et aide à ouvrir le coffre. Elle confie une fleur dans un récipient adapté, puis fait préciser la recette pour les guérisseurs. Tu rapportes ces renseignements et le remède au village. La souveraine se rétablit après plusieurs jours de soin. Tu notes les passages où il faudra prévoir de l'aide lors d'un prochain voyage. Les essais manqués ont montré ce que tu ne savais pas encore faire ; ils n'ont pas empêché de demander l'appui nécessaire. Au jardin, les autres fleurs restent en place pour les saisons suivantes.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

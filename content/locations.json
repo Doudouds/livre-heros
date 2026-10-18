@@ -1,0 +1,57 @@
+[
+  {
+    "id": "castle",
+    "label": "Un château abandonné",
+    "name": "le château abandonné de Valombre",
+    "approach": "Les tours de Valombre dépassent les collines. Des ronces couvrent une partie du rempart, mais des traces récentes traversent la cour. Le pont a été réparé avec des planches neuves. Quelqu'un utilise donc encore cet endroit.",
+    "hazard": "Une galerie de pierre longe le rempart. Plusieurs dalles sont fendues et le parapet manque par endroits. Un escalier de service descend sous la galerie, puis remonte à son extrémité.",
+    "secret": "Tu découvres un plan de Valombre dans une pièce où dormait autrefois le portier. Il indique les cuisines, la grande salle et une sortie derrière le jardin. Des marques montrent qu'un passage a été condamné récemment.",
+    "core": "La grande salle du château conserve ses colonnes et une longue table de bois. Deux escaliers encadrent l'estrade. Des fenêtres hautes donnent assez de lumière pour voir les portes latérales.",
+    "decision": "La sortie principale traverse la cour jusqu'au pont. Une petite porte rejoint le chemin des jardins. La première route est large et visible ; la seconde permet de partir plus discrètement, mais oblige à avancer en file.",
+    "departure": "Au-delà du pont de Valombre, tu retrouves les collines et le chemin du village. Tu regardes une dernière fois les tours. Elles te semblent moins mystérieuses maintenant que tu connais leurs escaliers, leurs cuisines et leurs petites portes."
+  },
+  {
+    "id": "forest",
+    "label": "Une forêt enchantée",
+    "name": "la forêt enchantée des Murmures",
+    "approach": "Dans la forêt des Murmures, les arbres sont si hauts que leurs branches cachent presque le ciel. Quelques lucioles brillent encore malgré le jour. Le sentier reste bien réel : tu y vois des pas, des roues et des feuilles écrasées.",
+    "hazard": "Un ravin coupe le sentier. Une passerelle de bois le franchit, mais une planche manque au milieu. Plus bas, un gué permet de traverser le ruisseau puis de remonter de l'autre côté.",
+    "secret": "Sous l'abri d'un ancien garde forestier, tu trouves une carte dessinée au charbon. Elle indique une source, un grand chêne fendu et plusieurs clairières. Tu reconnais deux endroits déjà traversés.",
+    "core": "Une grande clairière s'ouvre entre les arbres. Une maison de pierre occupe son côté nord, près d'une palissade et d'un puits. Des sentiers arrivent de trois directions. Tu peux voir presque tout le terrain depuis un tronc tombé.",
+    "decision": "Le grand sentier rejoint rapidement la lisière, mais on pourrait y remarquer ton passage. Un petit chemin suit le ruisseau derrière les arbres. Il offre de l'ombre et des endroits où s'arrêter.",
+    "departure": "À la lisière des Murmures, le ciel réapparaît au-dessus des champs. Un merle chante sur une branche et le vent remue les dernières feuilles. Tu reconnais le chemin de chez toi."
+  },
+  {
+    "id": "mountain",
+    "label": "La montagne des dragons",
+    "name": "la montagne des dragons de Brumecime",
+    "approach": "Le sentier de Brumecime monte entre des rochers gris. Très haut, un dragon passe devant un nuage sans s'approcher. Tu distingues un refuge, des bornes de pierre et des traces qui quittent la route principale.",
+    "hazard": "Une corniche contourne la paroi. Le vent y souffle fort et quelques pierres roulent sous les pieds. Des anneaux permettent d'y fixer une corde. Une galerie creusée dans la roche rejoint la même terrasse.",
+    "secret": "Dans un refuge vide, une carte indique les cols, les sources et les escaliers taillés dans la roche. Tu reconnais le sentier par lequel tu es arrivé. Un vieux guide a noté une voie de retour à l'abri des chutes de pierres.",
+    "core": "La terrasse centrale s'étend devant une grande grotte. Des piliers naturels soutiennent son entrée, assez haute pour laisser passer une créature ailée. Un escalier descend vers un refuge de pierre.",
+    "decision": "La route directe redescend par la corniche, avec une vue dégagée sur la vallée. L'ancien escalier passe derrière le refuge et rejoint un col plus bas. Il prend davantage de temps, mais protège du vent.",
+    "departure": "En redescendant de Brumecime, tu vois les toits du village entre deux nuages. Un dragon plane loin au-dessus du col. Tu t'arrêtes au refuge pour boire un peu d'eau, puis reprends le sentier."
+  },
+  {
+    "id": "city",
+    "label": "Une cité flottante",
+    "name": "la cité flottante d'Auralis",
+    "approach": "Une nacelle t'emporte jusqu'à Auralis, la cité que les anciens mages ont élevée au-dessus du lac. Des quais, des maisons et des jardins occupent ses terrasses. Les habitants y vivent comme ailleurs : ils portent des paniers et ferment leurs boutiques.",
+    "hazard": "Un pont suspendu relie deux terrasses. Une bourrasque fait bouger son tablier et plusieurs cordes ont besoin d'être retendues. En dessous, une passerelle de service rejoint le même palier. Elle est étroite, mais possède une rambarde.",
+    "secret": "Le bureau des nacelles conserve un plan de la cité. Tu y repères les quais, une vieille tour et les réserves d'eau. Une passerelle rarement utilisée relie les jardins au quai secondaire. Le responsable a laissé les horaires de départ sur une ardoise.",
+    "core": "La place centrale s'étend devant une tour aux portes de chêne. Une citerne recueille la pluie et des galeries bordent les maisons voisines. Tu aperçois les deux quais au-delà des toits.",
+    "decision": "Le grand quai accueille la nacelle la plus rapide. Le quai secondaire se trouve derrière les jardins, au bout d'une passerelle protégée. Son départ est plus discret, mais les places sont limitées.",
+    "departure": "La nacelle descend lentement d'Auralis jusqu'à la rive. Tu regardes les jardins suspendus devenir plus petits au-dessus de ta tête. Sur le quai du lac, une marchande vend du pain encore chaud."
+  },
+  {
+    "id": "ruins",
+    "label": "Des ruines souterraines oubliées",
+    "name": "les ruines souterraines de Nacreprofonde",
+    "approach": "Un escalier descend sous la colline jusqu'à Nacreprofonde. Des cristaux fixés aux murs éclairent une ancienne rue pavée. Les maisons sont vides, mais la poussière porte des empreintes fraîches. Tu avances en comptant les marches et les carrefours.",
+    "hazard": "Un canal traverse la rue. Un petit pont de pierre permet de le franchir, mais son bord est abîmé. Plus loin, un passage de service descend dans une partie sèche du canal et remonte derrière le pont.",
+    "secret": "Sur un mur, un plan gravé montre les anciennes rues de Nacreprofonde. Tu reconnais l'escalier d'entrée et le canal. Une sortie de service remonte de l'autre côté de la colline.",
+    "core": "Une place souterraine entoure un ancien bassin. Des colonnes soutiennent la voûte et quatre portes s'ouvrent vers les bâtiments voisins. La lumière des cristaux éclaire le sol sans atteindre tous les coins.",
+    "decision": "La grande rue ramène vers l'escalier d'entrée. Une voie de service mène à la seconde sortie, à travers un couloir plus étroit. Tu vérifies qu'aucun éboulement ne les ferme.",
+    "departure": "Quand tu remontes de Nacreprofonde, l'air frais de la colline te surprend. Tu retrouves l'herbe, les nuages et les bruits du village. Les marches sont désormais marquées pour les prochains visiteurs."
+  }
+]

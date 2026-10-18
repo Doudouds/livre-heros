@@ -1,0 +1,15 @@
+{
+  "words_per_minute": 150,
+  "choice_seconds": 10,
+  "minimum_seconds": 1080,
+  "maximum_seconds": 1320,
+  "probability_min": 0.35,
+  "probability_max": 0.90,
+  "audio_root": "audio/files",
+  "audio_lead_in_ms": 800,
+  "book_audio_roots": {
+    "passeuse_ch1": "audio/experiments/passeuse_ch1/files",
+    "roi_grenouille": "audio/experiments/roi_grenouille/files"
+  },
+  "gpio": {"left": null, "right": null, "debounce_ms": 180}
+}

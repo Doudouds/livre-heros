@@ -1,0 +1,37 @@
+[
+  {
+    "id": "knight",
+    "label": "Chevalier / Chevalière",
+    "origin": "Tu as appris la chevalerie auprès des gardes du village. Ton maître t'a enseigné à tenir parole, à protéger les voyageurs et à ne jamais confondre le courage avec l'envie de se battre.",
+    "observation": "Ta formation t'aide à observer les abris et les passages. Un mur bas protège une personne accroupie ; une porte ouverte laisse une retraite possible. Tu vérifies aussi où poser les pieds sans glisser.",
+    "plan": "Tu te rappelles les exercices de ta formation. Il faut annoncer son intention, protéger ce qui risque de tomber et garder une issue libre. Tu choisis un endroit solide pour te placer."
+  },
+  {
+    "id": "mage",
+    "label": "Apprenti magicien / apprentie magicienne",
+    "origin": "Tu connais quelques sorts simples : éclairer une pièce, déplacer une petite pierre et protéger une main de la chaleur. Ton enseignante exige surtout que tu comprennes ce que tu veux changer avant de prononcer une formule.",
+    "observation": "Tu observes les traces de magie sans les toucher. Les marques récentes brillent davantage que les anciennes ; certaines s'effacent quand tu détournes la lumière. Tu repères une inscription que l'on pourrait lire de plus près.",
+    "plan": "Tu vérifies les mots du sort que tu connais et prépares une formule courte. Les grands enchantements dépassent encore ton savoir, mais une petite protection peut donner le temps d'agir."
+  },
+  {
+    "id": "explorer",
+    "label": "Explorateur / Exploratrice",
+    "origin": "Tu sais retrouver un sentier, lire les traces dans la boue et préparer ton sac avant un départ. Tu as souvent accompagné les voyageurs, mais c'est la première fois que l'on te confie une mission aussi importante.",
+    "observation": "Tu compares les empreintes, les brindilles cassées et la poussière sur le sol. Une trace fraîche te renseigne mieux qu'une simple supposition. Tu cherches aussi un repère que tu reconnaîtras au retour.",
+    "plan": "Tu mesures la distance jusqu'au prochain abri et vérifies le terrain. Une marche rapide serait inutile si tu perdais ensuite le chemin du retour. Tu mémorises trois repères faciles à reconnaître."
+  },
+  {
+    "id": "keeper",
+    "label": "Gardien / Gardienne des créatures",
+    "origin": "Tu prends soin des animaux du village et connais quelques créatures des vieux contes. Tu as appris à parler doucement, à garder tes mains visibles et à laisser une bête effrayée s'approcher d'elle-même.",
+    "observation": "Tu remarques les petites bêtes que les autres oublient souvent. Un oiseau surveille une ouverture ; une souris rejoint un coin tranquille. Leurs réactions indiquent les endroits bruyants et les refuges.",
+    "plan": "Tu prépares ton geste sans mouvement brusque. Les créatures comprennent mieux une intention calme qu'une longue explication. Tu cherches un endroit où personne ne sera coincé et gardes de l'espace autour de toi."
+  },
+  {
+    "id": "rogue",
+    "label": "Voleur / Voleuse au grand cœur",
+    "origin": "Tu sais reconnaître un piège, ouvrir un loquet et traverser une cour sans bruit. Tu emploies ces talents pour rendre les biens volés et aider les personnes qui n'ont pas la force de se défendre.",
+    "observation": "Tu examines les petits détails : une rayure sur un verrou, une poignée récemment nettoyée, une ficelle presque invisible. Quelqu'un a pu préparer cet endroit pour surprendre un visiteur.",
+    "plan": "Tu observes les habitudes de ceux qui gardent le passage et cherches le moment le plus calme. Tu pourrais détourner leur attention ou te glisser par un accès secondaire. Tu prépares un refuge proche pour ne pas dépendre d'une seule ruse."
+  }
+]

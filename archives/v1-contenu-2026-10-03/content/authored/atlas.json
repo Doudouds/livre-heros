@@ -1,0 +1,454 @@
+{
+  "id": "atlas",
+  "title": "L'Atlas des terres impossibles",
+  "description": "Explorer un atelier interdit où naissent des paysages nouveaux et décider ce qu'une découverte autorise à emporter.",
+  "intro": "Dans la bibliothèque du village, tu trouves un atlas dont une page continue au-delà du bord du papier. Lorsque tu la tournes, une odeur de pluie et de pierre chaude traverse la salle. Un bibliothécaire te raconte qu'un atelier caché dans {location_name} permettait autrefois d'étudier des terres encore inaccessibles. Ses explorateurs ont fermé la porte après avoir rapporté des objets qui changeaient les lieux où on les posait. L'atelier n'est pas interdit par peur d'un monstre, mais parce que personne ne sait plus y entrer sans confondre découverte et possession. Tu proposes une expédition prudente. On te demande de rapporter une carte et une règle de voyage, plutôt qu'un trésor. L'atlas s'ouvre sur un passage que tu n'avais jamais vu.",
+  "revelations": [
+    {
+      "id": "ferrier",
+      "actor": "la passeuse Érya",
+      "text": "Une image de l'atlas présente Érya, la passeuse qui relie l'atelier aux terres lointaines. Elle a fermé les trajets lorsqu'un explorateur a emporté une pierre qui soutenait un rivage. Elle ne refuse pas les rencontres ; elle attend une règle qui distingue un souvenir transportable d'un élément dont le lieu a besoin. La carte que tu prépares pourrait devenir cette règle."
+    },
+    {
+      "id": "surveyor",
+      "actor": "l'arpenteur Nohan",
+      "text": "L'atlas montre Nohan, un arpenteur qui a découvert que les paysages de l'atelier grandissent quand quelqu'un les décrit. Il a fermé l'accès pour éviter qu'une carte trop simplifiée efface ce qu'elle ne montre pas. Il attend une personne capable de dessiner aussi ses incertitudes. Ta feuille peut ouvrir la conversation, si elle ne prétend pas contenir tout ce que tu as vu."
+    },
+    {
+      "id": "glass",
+      "actor": "le dragon de verre",
+      "text": "Sur la page apparaît un dragon de verre qui conserve les reflets des terres visitées. Les anciens explorateurs le prenaient pour un coffre et arrachaient ses reflets. Il a donc fermé les passages. Il serait prêt à les rouvrir à des voyageurs capables d'observer sans emporter. Tu peux lui offrir le récit d'un trajet, au lieu de réclamer une image qui lui appartient."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Le chemin dessiné à moitié",
+      "text": "L'atlas ne représente que la moitié du sentier. L'autre moitié apparaît à mesure que tu marches, puis reste sur la page après ton passage. Tu comprends que le livre recueille tes observations plutôt qu'il ne commande tes pas. À un croisement, deux détails demandent ton attention : une marque laissée par les anciens explorateurs, et une lumière qui n'existe sur aucune page. Tu peux suivre la marque pour retrouver leurs précautions, ou observer la lumière afin de découvrir ce qui a changé depuis leur départ. L'ancienne route rendrait l'approche plus lisible. La lumière donnerait à ton expédition une première question nouvelle. Tu vérifies que ton chemin de retour reste inscrit, puis décides comment compléter cette carte qui ne veut pas parler avant toi.",
+      "choices": [
+        {
+          "text": "Retrouver les précautions des anciens explorateurs",
+          "heroes": [
+            "knight",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les marques révèlent une route sûre. Ton atlas conserve ses étapes de retour.",
+            "La route est claire, mais une marque déplacée brouille une page voisine.",
+            "Les marques s'arrêtent. Le livre garde assez de repères pour un détour."
+          ]
+        },
+        {
+          "text": "Observer la lumière absente de l'atlas",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "La lumière révèle une entrée nouvelle. Tu la notes sans effacer l'ancienne route.",
+            "L'entrée apparaît, mais son reflet se répète et trouble les distances.",
+            "La lumière se retire. Une ombre différente indique néanmoins une autre entrée."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L'étiquette du premier voyage",
+      "text": "Une boîte ouverte contient trois étiquettes anciennes : vu, compris, emporté. Les explorateurs les plaçaient sur leurs découvertes, mais les mots ont été mélangés par le temps. Un galet posé à côté produit le bruit d'une mer lointaine. Rien ne prouve qu'il puisse être déplacé sans changer cette mer. Tu peux examiner les étiquettes pour retrouver la distinction prévue par les voyageurs, ou écouter le galet en observant ce qui réagit autour de lui. Les mots t'aideraient à formuler une règle. L'écoute te montrerait la relation entre un objet et son lieu. Tu ne mets rien dans ton sac. Ton expédition peut déjà produire une découverte en laissant chaque chose à sa place, pour peu que tu prennes le temps de comprendre ce qu'elle soutient.",
+      "choices": [
+        {
+          "text": "Retrouver le sens des étiquettes de voyage",
+          "heroes": [
+            "mage",
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les étiquettes distinguent observation et prélèvement. Tu conserves une règle utile.",
+            "La règle se précise, mais une étiquette attire le reflet d'un objet voisin.",
+            "Les mots restent mélangés. Un dessin au dos te donne un premier repère."
+          ]
+        },
+        {
+          "text": "Écouter le galet sans le déplacer",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Le bruit répond aux reflets. Tu comprends que le galet appartient à un rivage.",
+            "Tu perçois le lien, mais une vague de reflet traverse le passage.",
+            "Le bruit se tait. Une trace de sel indique pourtant le chemin vers l'atelier."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La porte entre les pages",
+      "text": "La porte de l'atelier se trouve entre deux murs ordinaires, mais sa surface ressemble à une page vue de très près. Les fibres dessinent des chemins minuscules qui s'écartent devant ton souffle. Des signes y forment une question sans mots : que viens-tu faire ici ? Ton objet répond à leur mouvement et pourrait transmettre une intention précise. À côté, un passage d'entretien conserve les traces des personnes qui réparaient les cartes. Tu pourrais entrer par ce chemin pour observer l'atelier avant de répondre. Employer l'objet engagerait immédiatement ton expédition dans la règle du lieu. Le passage discret laisserait plus de temps pour comprendre, sans te dispenser de répondre ensuite. Tu regardes ton atlas : son dessin de retour est toujours présent, et cela te donne assez de confiance pour choisir.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Les signes reconnaissent ton intention. La porte ouvre un passage entre ses fibres.",
+            "Le passage s'ouvre, mais la page garde une copie incomplète de ta réponse.",
+            "Les signes hésitent. Une marge de la porte se replie pour te laisser entrer."
+          ]
+        },
+        {
+          "text": "Emprunter l'accès des réparateurs de cartes",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "Tu trouves l'accès discret. Il garde une route de retour dans l'atlas.",
+            "Tu passes, mais un rouleau déroulé modifie les repères de la galerie.",
+            "L'accès résiste. Un escalier de service permet de rejoindre son autre côté."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Deux paysages à regarder",
+      "text": "L'atelier contient des ouvertures qui donnent sur des paysages impossibles. L'une montre un rivage où les pierres flottent juste au-dessus de l'eau. Une autre montre un jardin dont les fleurs gardent des morceaux de ciel. Tu peux approcher le rivage pour comprendre comment un lieu tient ensemble, ou le jardin pour observer comment il change quand on le décrit. Les deux chemins passent par des espaces de travail laissés par les anciens explorateurs. Tu ne dois pas traverser les ouvertures sans repère : une ligne au sol marque la limite depuis laquelle l'observation reste liée à ton retour. Tu poses l'atlas sur cette ligne et vois les deux paysages se dessiner légèrement. Ton choix donnera au livre une première terre à comprendre, avec ses règles et ses surprises.",
+      "choices": [
+        {
+          "text": "Observer le rivage et ses pierres suspendues",
+          "heroes": [
+            "explorer",
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Tu vois les liens entre les pierres. Le rivage devient lisible sans prélèvement.",
+            "Les liens apparaissent, mais une pierre change d'altitude et brouille la perspective.",
+            "Le rivage se voile. Un atelier voisin conserve des dessins qui permettent d'avancer."
+          ]
+        },
+        {
+          "text": "Étudier le jardin qui conserve le ciel",
+          "heroes": [
+            "keeper",
+            "rogue"
+          ],
+          "results": [
+            "Les fleurs répondent à ton observation. Tu repères les détails qui les distinguent.",
+            "Le jardin se révèle, mais une description trop brève rétrécit son reflet.",
+            "Les fleurs se ferment. Une note d'exploration te conduit vers la salle suivante."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ce qu'une carte peut oublier",
+      "text": "Dans l'espace du rivage, des dessins montrent les pierres suspendues, mais aucun ne représente les petits courants qui les relient. {encounter_name} te rejoint et remarque que ces courants changent avant les pierres elles-mêmes. Vous pouvez observer ensemble pour préparer une carte moins trompeuse, ou répartir les tâches : une personne garde le repère de retour, l'autre poursuit vers le centre. Une découverte devient plus solide lorsque plusieurs regards la corrigent. Elle devient aussi plus sûre quand quelqu'un se souvient du chemin par lequel on est arrivé. Tu ne peux pas confier toutes ces tâches à l'atlas. Il ne conserve que ce qu'on lui montre. Tu choisis donc comment utiliser l'aide proposée, en laissant au dessin une place pour les détails qui te manquent encore.",
+      "choices": [
+        {
+          "text": "Construire une carte avec deux regards et poursuivre ensemble",
+          "heroes": [
+            "keeper",
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Vos observations se complètent. {encounter_name} vient avec toi pour corriger la carte.",
+            "La carte gagne des détails, mais un courant change pendant votre observation.",
+            "Les regards ne s'accordent pas encore. {encounter_name} reste pour vérifier le rivage."
+          ]
+        },
+        {
+          "text": "Confier le repère de retour à {encounter_name}",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Le retour reste lisible. Tu peux avancer sans perdre le lien avec l'entrée.",
+            "Le repère tient, mais une page doit rester ouverte pour le conserver.",
+            "Le repère s'efface partiellement. Vous gardez une ligne de retour plus simple."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La découverte qui ne tient pas dans un sac",
+      "text": "Une table conserve les objets rapportés par les premiers voyageurs. Chacun est entouré d'un dessin du lieu qui lui manque : une pierre près d'un rivage brisé, une graine près d'un jardin sans ombre. Un carnet explique que les objets avaient d'abord paru magnifiques, puis impossibles à garder sans conséquence. Tu peux lire la règle qui permet d'en emporter une représentation plutôt qu'une partie réelle, ou étudier les observations prises avant chaque prélèvement. La règle offrirait un secret pour rouvrir les voyages. Les observations montreraient concrètement ce qui avait été ignoré. Tu regardes ton atlas, qui a déjà conservé des paysages sans déplacer leurs pierres. La découverte n'a peut-être pas besoin d'être un objet possédé pour accompagner ton retour au village.",
+      "choices": [
+        {
+          "text": "Apprendre à rapporter une représentation sans prélever",
+          "heroes": [
+            "mage",
+            "rogue",
+            "keeper"
+          ],
+          "flag": "secret",
+          "results": [
+            "Le carnet révèle une copie sans arrachement. Ton atlas peut porter ce savoir.",
+            "Tu comprends la méthode, mais un exemple garde une ombre qui demande vérification.",
+            "La règle reste partielle. Son symbole distingue néanmoins copie et possession."
+          ]
+        },
+        {
+          "text": "Comprendre ce que les premiers prélèvements avaient changé",
+          "heroes": [
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "Les observations montrent les liens oubliés. Tu peux expliquer pourquoi ils comptent.",
+            "Les liens deviennent clairs, mais une image ancienne se superpose à la tienne.",
+            "Des pages manquent. Un dessin conserve pourtant une conséquence suffisamment précise."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le lien avec l'autre rive",
+      "text": "Une ouverture du centre a perdu sa profondeur. Elle montre un paysage aplati, comme si l'on avait retiré tout ce que la carte ne savait pas nommer. Deux marques restent reliées par une lueur très fine. Ton objet peut retrouver la liaison qui permettait d'observer sans réduire. Tu peux aussi remettre en place les cadres de mesure autour de l'ouverture, pour distinguer ce qui est certain de ce qui reste inconnu. La liaison te donnerait un accès plus direct au centre. Les cadres corrigeraient les perturbations présentes dans les reflets et rendraient ton atlas plus honnête. Tu n'as pas besoin de remplir chaque espace blanc. Certains blancs avertissent simplement qu'une autre visite sera nécessaire. Tu choisis comment conserver cette différence avant que le paysage ne devienne une image trop simple.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La liaison retrouve sa profondeur. Tu peux suivre le reflet jusqu'au centre.",
+            "La profondeur revient, mais une image voisine change de taille dans l'atlas.",
+            "La liaison se dérobe. Une marge ouverte conserve néanmoins le passage suivant."
+          ]
+        },
+        {
+          "text": "Rétablir les cadres qui indiquent les mesures incertaines",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les cadres distinguent le connu du doute. Les reflets cessent de se déformer.",
+            "Les mesures s'apaisent, mais un cadre devra être repris lors d'une visite future.",
+            "Un cadre manque. Les autres préservent assez de profondeur pour continuer."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une carte avec des questions",
+      "text": "Avant d'atteindre le centre, tu trouves un pupitre destiné aux récits de voyage. Tu peux y déposer ta carte et marquer les endroits encore incertains, ou préparer une description orale qui relie les découvertes entre elles. La carte montrerait clairement tes limites. Le récit expliquerait les liens que le dessin seul rend mal visibles. Les deux approches pourraient convaincre la personne qui garde l'atelier de rouvrir un accès prudent. Tu sais maintenant que l'expédition ne sera pas jugée au nombre de trésors rapportés. Elle sera jugée à la qualité du retour : ce que les prochains voyageurs pourront comprendre sans croire que tout est déjà connu. Ta formation t'aide à organiser les observations, puis à choisir celles qui méritent d'être mises en avant sans effacer les autres.",
+      "choices": [
+        {
+          "text": "Marquer sur la carte ce qui reste incertain",
+          "heroes": [
+            "explorer",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "La carte devient honnête et lisible. Ses marges montrent où poursuivre l'enquête.",
+            "Les limites sont claires, mais une mesure ancienne contredit un de tes repères.",
+            "Les marques se confondent. Tu conserves deux questions précises à présenter."
+          ]
+        },
+        {
+          "text": "Préparer un récit qui explique les liens observés",
+          "heroes": [
+            "keeper",
+            "rogue"
+          ],
+          "repair": true,
+          "results": [
+            "Ton récit relie les découvertes. Les reflets retrouvent les relations qui leur manquaient.",
+            "Le récit apaise l'atelier, mais une relation devra être confirmée par une autre visite.",
+            "Le récit reste incomplet. Il ouvre néanmoins une conversation sur les liens essentiels."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le gardien des découvertes",
+      "text": "Une page de l'atlas se tourne sans montrer de paysage. Elle raconte la fermeture de l'atelier et présente la personne qui en garde les passages. Tu peux lui montrer les conséquences des anciens prélèvements, ou les précautions que tu as prises pendant ta propre visite. La première approche reconnaîtrait pourquoi l'interdiction était devenue nécessaire. La seconde montrerait qu'une autre manière d'explorer est possible. Tu n'as pas à prétendre que les anciens voyageurs étaient tous imprudents. Ils ignoraient une partie des liens, comme tu ignores encore certaines choses. Le centre attend une réponse capable de tenir compte de cet inconnu. Tu gardes les objets de la table là où ils sont, puis choisis le commencement d'une rencontre qui décidera ce que ton voyage peut ouvrir.",
+      "choices": [
+        {
+          "text": "Reconnaître les conséquences des anciens prélèvements",
+          "heroes": [
+            "keeper",
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Ta réponse montre une compréhension réelle. Le centre accepte d'examiner ta carte.",
+            "La réponse porte, mais un ancien reflet demande une réparation avant tout nouveau voyage.",
+            "L'explication reste fragile. Une conséquence précise suffit néanmoins à ouvrir l'échange."
+          ]
+        },
+        {
+          "text": "Présenter les précautions de ta propre visite",
+          "heroes": [
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Tes précautions sont reconnues. L'atelier distingue ton expédition d'une collecte.",
+            "La visite convainc, mais un repère devra être renforcé avant la prochaine entrée.",
+            "Des précautions manquent. Tu acceptes une visite plus limitée pour poursuivre la discussion."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une règle pour les prochains voyageurs",
+      "text": "Tu rencontres {revelation_actor} au centre de l'atelier. La personne regarde ta carte et les marges que tu as laissées. Tu peux proposer une règle de voyage fondée sur l'observation sans prélèvement, ou une expédition accompagnée où chaque visite serait vérifiée avant le retour. La première donnerait une autonomie prudente aux explorateurs. La seconde serait plus lente, mais permettrait de transmettre le savoir du lieu avec chaque passage. Tu ne demandes pas une porte ouverte sans condition. Tu demandes une règle que les voyageurs puissent comprendre et respecter. Le centre répond par des images de personnes revenant avec des cartes différentes. Ces différences ne sont plus un défaut : elles peuvent aider à voir ce qu'une seule expédition aurait laissé de côté.",
+      "choices": [
+        {
+          "text": "Proposer une règle d'observation sans prélèvement",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La règle est acceptée. Les prochaines visites pourront observer sans emporter les terres.",
+            "La règle tient, mais certains passages demanderont une autorisation supplémentaire.",
+            "La règle reste trop générale. Vous retenez un premier trajet où l'essayer."
+          ]
+        },
+        {
+          "text": "Préparer des explorations accompagnées",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "L'accompagnement est accepté. Chaque voyage gardera un lien avec ceux qui connaissent le lieu.",
+            "La méthode fonctionne, mais peu de trajets pourront ouvrir en même temps.",
+            "L'accompagnement manque de repères. Une première visite guidée reste néanmoins possible."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le retour sans arrachement",
+      "text": "Ton atlas doit maintenant retrouver sa liaison avec le monde ordinaire. Deux marques représentent l'observation et le retour. Si elles ne se répondent pas, le livre risque de rapporter un morceau réel du paysage au lieu de son récit. Ton objet peut établir une liaison précise, comme aux autres seuils. Tu peux aussi guider le retour par les cadres qui entourent le centre, afin de conserver une séparation claire entre la terre visitée et sa représentation. Le geste direct serait rapide et demanderait une attention fine. Les cadres offriraient une méthode visible pour les prochaines expéditions. Tu regardes les paysages ouverts autour de toi et résistes à l'envie de tout garder. Une carte utile peut accompagner ton voyage sans contenir les choses auxquelles elle doit son existence.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La liaison distingue récit et paysage. L'atlas peut repartir sans arracher de terre.",
+            "Le lien tient, mais un reflet restera à vérifier avant la prochaine ouverture.",
+            "Le lien direct reste fragile. Les cadres gardent une voie de retour plus lente."
+          ]
+        },
+        {
+          "text": "Guider le retour par les cadres de l'atelier",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les cadres gardent les paysages en place. Seules tes observations suivent l'atlas.",
+            "Le retour fonctionne, mais un cadre conserve une image qu'il faudra restituer.",
+            "Un cadre résiste. Les autres permettent de rapporter une carte partielle sans prélèvement."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ce que tu rapporteras",
+      "text": "Le chemin du retour est prêt, mais le centre te laisse choisir sa forme. Tu peux concentrer tes observations dans l'atlas pour revenir avec une carte immédiatement utilisable, ou répartir les repères entre le livre et les relais du lieu afin de préparer de nouvelles visites. La première option donnera vite une réponse à la bibliothèque. La seconde laissera davantage de questions ouvertes, avec un trajet pour les explorer. {revelation_actor} accepte de conserver les paysages pendant ton départ. Tu n'as rien à cacher dans ton sac, ni rien à arracher pour prouver que tu as voyagé. Le voyage a laissé des traces dans ta manière de regarder. Tu refermes doucement les pages déjà parcourues et choisis comment transmettre cette découverte à ceux qui n'ont pas encore franchi la porte.",
+      "choices": [
+        {
+          "text": "Rapporter une carte concentrée dans l'atlas",
+          "heroes": [
+            "mage",
+            "rogue",
+            "knight"
+          ],
+          "results": [
+            "La carte rejoint ton monde. Elle conserve les repères essentiels sans déplacer les paysages.",
+            "La carte revient, mais certaines images devront rester fermées jusqu'à vérification.",
+            "La carte reste partielle. Tu rapportes un premier trajet et ses précautions."
+          ]
+        },
+        {
+          "text": "Préparer des repères pour de futures visites",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les relais gardent le lien. D'autres voyageurs pourront poursuivre sans tout recommencer.",
+            "Les visites deviennent possibles, mais elles devront être espacées pendant les derniers réglages.",
+            "Tous les relais ne répondent pas. Un premier accès prudent reste disponible."
+          ]
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "Le jardin qui écoute les descriptions",
+    "text": "Dans le jardin, une fleur porte un reflet de nuage différent de celui de sa voisine. Les anciens dessins n'indiquent pourtant qu'une couleur générale. {encounter_name} te rejoint et remarque que les fleurs perdent un peu de leur forme lorsqu'on les décrit trop vite. Vous pouvez avancer ensemble pour comparer vos mots et vos observations. {encounter_name} peut aussi rester près du jardin afin de conserver les différences pendant que tu continues. Le livre ne gardera pas ce que personne ne regarde. Tu comprends alors pourquoi une carte doit parfois réserver un espace à des questions. Vous préparez un signe pour distinguer les certitudes des impressions, puis tu choisis où l'aide de {encounter_name} rendra le voyage le plus fidèle à ce lieu encore inconnu.",
+    "choices": [
+      {
+        "text": "Comparer vos descriptions et poursuivre ensemble",
+        "heroes": [
+          "keeper",
+          "mage",
+          "explorer"
+        ],
+        "results": [
+          "Les descriptions deviennent précises. {encounter_name} vient avec toi pour garder leurs différences.",
+          "Vos mots se complètent, mais un reflet change avant d'être noté.",
+          "Les descriptions restent hésitantes. {encounter_name} demeure ici pour observer plus longtemps."
+        ]
+      },
+      {
+        "text": "Confier les différences du jardin à {encounter_name}",
+        "heroes": [
+          "knight",
+          "rogue"
+        ],
+        "results": [
+          "Les détails restent visibles. Tu peux poursuivre sans réduire le jardin à une couleur.",
+          "Le jardin garde ses formes, mais une page devra rester ouverte jusqu'au retour.",
+          "Quelques reflets s'effacent. Vous conservez ceux dont les différences sont les plus nettes."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "Le savoir que l'on peut partager",
+      "text": "Tu rapportes la méthode oubliée qui permet de garder une représentation sans emporter ce qu'elle montre. La bibliothèque prépare une salle où les voyageurs compareront leurs observations au lieu d'exposer des trophées. L'atelier conserve ses paysages, et tes cartes ouvrent une manière nouvelle de les approcher. Certaines pages resteront prudentes ou incomplètes. Tu les présentes ainsi, avec leurs questions. Le bibliothécaire te demande quel trésor tu as trouvé. Tu lui montres un blanc sur la carte : une place assez claire pour accueillir la prochaine découverte."
+    },
+    "alliance": {
+      "title": "Une carte à deux regards",
+      "text": "Avec {encounter_name}, tu rapportes une carte qui conserve les différences observées par deux personnes. Elle ne prétend pas tout montrer, mais elle indique comment poursuivre avec prudence. La bibliothèque prépare des voyages accompagnés où chacun pourra corriger une mesure et expliquer ce qu'il n'a pas compris. {encounter_name} choisit la première question à reprendre. Tu reconnais dans ce choix un détail que tu aurais oublié. L'expédition a produit davantage qu'une image : elle a donné une méthode pour que d'autres regards rendent la carte meilleure."
+    },
+    "radiant": {
+      "title": "L'atelier retrouve des visiteurs",
+      "text": "Ton retour laisse les paysages en place et ouvre une règle de voyage assez claire pour être transmise. La bibliothèque reçoit l'atlas sans morceau de terre caché entre ses pages. On organise les premières visites, avec des repères de retour et des marges pour l'incertitude. L'interdiction devient une précaution comprise plutôt qu'une porte sans explication. Tu regardes la page qui débordait du livre au début de l'aventure. Elle garde son odeur de pluie, mais ne cherche plus à sortir. Le prochain voyage peut commencer sans prendre la place du précédent."
+    },
+    "cost": {
+      "title": "Des pages à laisser ouvertes",
+      "text": "Tu reviens avec une carte utile, mais plusieurs reflets demandent encore une vérification. La bibliothèque accepte de garder certaines pages fermées pendant que l'atelier retrouve son équilibre. Tu expliques les perturbations rencontrées et les repères qui permettent de les corriger. Les premières visites seront limitées. Elles auront pourtant une vraie route, une règle et des questions précises. Tu apprends à regarder les blancs de l'atlas sans les prendre pour un échec. Ils empêchent simplement le livre de prétendre connaître ce que personne n'a encore observé assez longtemps."
+    },
+    "resilient": {
+      "title": "Le premier trajet d'une autre carte",
+      "text": "L'atlas ne rapporte pas toutes les terres espérées, mais ton expédition établit un premier trajet prudent et explique pourquoi l'atelier avait été fermé. La bibliothèque dispose enfin d'une méthode pour poursuivre. Tu n'as pas transformé une découverte fragile en certitude forcée. Les pages incomplètes resteront disponibles pour d'autres voyageurs. En rangeant le livre, tu remarques une petite ligne qui n'était pas là avant ton départ : elle relie l'entrée au premier paysage. Ce n'est pas un monde possédé. C'est un chemin que l'on peut partager."
+    }
+  }
+}

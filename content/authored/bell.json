@@ -1,0 +1,496 @@
+{
+  "id": "bell",
+  "title": "Le Dragon et la Source",
+  "description": "Délivrer un dragon contraint de garder une source et rendre l'eau au village.",
+  "intro": "Depuis une semaine, la source qui alimente Clairval ne donne presque plus d'eau. Les jardiniers transportent leurs dernières réserves et le moulin reste immobile. Un berger revenu de {location_name} raconte qu'un dragon garde l'entrée de la source. Pourtant, la créature ne poursuit personne. Elle porte un collier de fer et pousse un cri chaque fois qu'elle tente de s'éloigner. La doyenne soupçonne un enchantement : quelqu'un aurait installé le dragon pour empêcher les habitants d'approcher. Elle te demande de comprendre la situation et de chercher un moyen de rétablir l'eau. Le forgeron préparera des outils dès que tu auras trouvé les mécanismes à réparer. Tu pars sans intention de tuer le dragon. Tu veux savoir qui l'a retenu, pourquoi la source est fermée et comment aider le village avant que ses réserves s'épuisent.",
+  "revelations": [
+    {
+      "id": "baron",
+      "actor": "le baron Grisel",
+      "text": "Une lettre du baron Grisel ordonne de retenir l'eau jusqu'à ce que Clairval accepte de payer un nouvel impôt. Il a fait poser le collier du dragon et fermer la vanne principale. Son serviteur viendra chercher l'argent demain. Tu comprends que le dragon est une victime du même chantage que les habitants ; la source doit être libérée des deux obstacles."
+    },
+    {
+      "id": "sorceress",
+      "actor": "la sorcière Malvenne",
+      "text": "Le carnet de Malvenne révèle son projet : détourner l'eau vers un jardin où elle cultive des plantes rares. Elle a enchaîné le dragon pour éloigner les visiteurs et garder le secret. Le sort du collier est écrit à côté du plan de la vanne. Il faudra défaire l'attache et rouvrir le conduit destiné au village."
+    },
+    {
+      "id": "miller",
+      "actor": "le meunier Vautrin",
+      "text": "Un compte signé par le meunier Vautrin explique son marché. Il veut vendre au village l'eau qu'il conserve derrière la vanne. Il a acheté un collier enchanté pour transformer le dragon en gardien. Tu retrouves le reçu et le plan du conduit. Ces preuves permettront aux habitants de réclamer la source après la libération de la créature."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Le ruisseau presque vide",
+      "text": "Tu remontes le lit du ruisseau jusqu'à un croisement. L'eau ne forme plus qu'un filet entre les pierres. Des marques de roues quittent le chemin vers un bâtiment ancien. Plus loin, des griffes ont creusé le sol sans arracher les arbres. Le dragon s'est donc déplacé ici, mais il ne semble pas avoir poursuivi un troupeau. Tu peux suivre le ruisseau pour découvrir ce qui bloque l'eau, ou observer les traces du chariot qui a transporté les outils. Une petite bergerie te donnerait un abri si la créature approchait. Tu regardes le ciel avant de choisir. Pour aider Clairval, il te faut une piste réelle, pas seulement la peur transmise par les voyageurs.",
+      "choices": [
+        {
+          "text": "Remonter le ruisseau jusqu’au barrage",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu repères une fermeture récente sur le conduit. L’eau est retenue, plutôt que tarie.",
+            "Tu trouves le conduit, mais les pierres glissent. Tu dois rejoindre un chemin plus stable.",
+            "Le ruisseau disparaît sous terre. Une conduite de bois t’indique toutefois la suite de son trajet."
+          ]
+        },
+        {
+          "text": "Suivre les traces du chariot de matériel",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Les roues conduisent à un dépôt de chaînes et d’outils. Tu sais où chercher des renseignements.",
+            "La piste mène au dépôt, mais un veilleur passe. Tu attends derrière un rocher avant d’approcher.",
+            "Les traces se croisent. Un anneau de fer perdu te remet sur le chemin du dépôt."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Un dragon qui ne chasse pas",
+      "text": "Depuis ton abri, tu aperçois le dragon. Il boit dans une flaque puis tire doucement sur la chaîne attachée à son collier. Une marque rouge luit et la créature s'arrête en grondant. Elle te remarque, mais recule lorsque tu lèves les mains. Tu pourrais observer le collier pour comprendre l'enchantement, ou poser de l'eau et un peu de nourriture à distance pour montrer que tu ne viens pas l'attaquer. Tu ne t'approches pas encore de sa gueule. Le dragon est grand, effrayé et probablement fatigué. Un mouvement brusque pourrait provoquer un accident. Tu cherches surtout à découvrir ce qu'il peut faire librement et ce que la chaîne l'empêche d'accomplir.",
+      "choices": [
+        {
+          "text": "Observer le collier et les limites de la chaîne",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu repères le verrou du collier et l’ancrage de la chaîne. Le dragon reste à distance.",
+            "Tu comprends l’attache, mais le collier s’allume. Tu recules jusqu’à l’abri pour continuer ton observation.",
+            "La fumée cache le verrou. Tu repères néanmoins l’ancrage qui retient la créature."
+          ]
+        },
+        {
+          "text": "Offrir de l’eau en restant à distance",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Le dragon boit puis baisse la tête. Tu gagnes assez de confiance pour observer ses attaches.",
+            "Le dragon accepte l’eau, mais reste inquiet. Tu lui laisses de l’espace avant de continuer.",
+            "Il refuse de s’approcher. Tu poses la gourde et reprends l’observation depuis un endroit sûr."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le dépôt fermé",
+      "text": "Le dépôt contient les outils utilisés près de la source. Sa porte est fermée par une vieille serrure et une corde retient un volet. Derrière les barreaux du volet, un crochet permet de libérer l'accès, mais les bords sont hérissés de clous. Tu aperçois un dessin du collier posé sur une table. Ton objet pourrait t'aider à entrer pour lire les instructions. Tu peux aussi emprunter une petite échelle extérieure jusqu'à une fenêtre haute. Tu regardes si ses barreaux sont solides et si quelqu'un garde le bâtiment. Le dragon ne pourra pas attendre indéfiniment ; pourtant, agir au hasard sur sa chaîne serait plus dangereux qu'une courte recherche. Tu prépares une entrée et un retour avant de toucher au dépôt.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Tu ouvres un accès au dépôt et retrouves le dessin du collier sur la table.",
+            "L’accès se libère, mais un outil tombe. Tu vérifies que personne n’approche avant d’entrer.",
+            "Le verrou résiste. Tu passes par une petite ouverture voisine et rejoins la table."
+          ]
+        },
+        {
+          "text": "Monter jusqu’à la fenêtre haute",
+          "heroes": [
+            "explorer",
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "L’échelle tient. Tu entres par la fenêtre et rejoins les instructions sans réveiller le veilleur.",
+            "Tu entres, mais une vitre fendue tinte. Tu attends derrière les outils avant de lire.",
+            "Un barreau est trop fragile. Un escalier extérieur te permet de rejoindre une autre ouverture."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les deux routes de la source",
+      "text": "Le dessin indique que le collier possède une fermeture de secours. Pour l'atteindre, il faut rejoindre la terrasse où le dragon est retenu. Deux routes y conduisent. Le passage haut donne une vue sur la chaîne et la vanne. Le passage bas longe une réserve, avec davantage d'abris. Tu pourrais choisir la voie haute pour mieux observer avant d'agir, ou la voie basse pour éviter le veilleur. La carte montre que les deux routes rejoignent un ancien poste d'entretien. Tu prends aussi le dessin du verrou : même si tu ne peux pas le défaire seul, le forgeron saura quoi préparer. Tu quittes le dépôt sans toucher aux réserves qui ne t'appartiennent pas.",
+      "choices": [
+        {
+          "text": "Choisir la route haute pour observer la source",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu franchis le passage et rejoins le poste d’entretien avec une vue claire sur la chaîne.",
+            "Tu traverses, mais le vent te ralentit. Tu arrives au poste après une courte pause.",
+            "La route haute est abîmée. Une marche latérale te ramène vers le poste d’entretien."
+          ]
+        },
+        {
+          "text": "Passer par la route basse et ses abris",
+          "heroes": [
+            "keeper",
+            "rogue",
+            "mage"
+          ],
+          "results": [
+            "Tu évites le veilleur et atteins une réserve qui mène au poste de la source.",
+            "La route est dégagée, mais un passage boueux te ralentit. Tu rejoins finalement la réserve.",
+            "Une grille ferme la route basse. Un couloir de service permet néanmoins de rejoindre la réserve."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "De l’aide pour le dragon",
+      "text": "Au poste d'entretien, tu retrouves {encounter_name}. Vous examinez ensemble le dessin du collier. Il faut maintenir la chaîne pendant l'ouverture, puis guider le dragon loin des personnes présentes. Tu peux demander à {encounter_name} de t'accompagner pour préparer ces gestes. Tu peux aussi confier le poste à cette personne, afin qu'elle garde une route ouverte et prévienne les villageois. Le dragon continue de tirer parfois sur son ancrage. Tu n'as pas besoin de l'approcher tout de suite. Vous choisissez d'abord où placer les outils et comment signaler un danger. Une aide près de toi et une aide au retour ont chacune leur utilité. Tu prends le temps de décider laquelle te manque le plus.",
+      "choices": [
+        {
+          "text": "Préparer la libération ensemble",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Vous rassemblez les outils. {encounter_name} vient avec toi pour surveiller la chaîne.",
+            "Vous partez ensemble, mais un outil manque. Vous devrez employer un appui trouvé près de la source.",
+            "Le passage à deux attirerait le veilleur. {encounter_name} reste pour préparer le retour et tu avances."
+          ]
+        },
+        {
+          "text": "Faire surveiller le retour et prévenir le village",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Le poste devient un refuge fiable. Tu poursuis avec un signal convenu pour appeler de l’aide.",
+            "Le retour est surveillé, mais le message prendra du temps. Tu continues avec les outils disponibles.",
+            "Le message ne peut pas partir immédiatement. {encounter_name} garde le poste et cherche une autre route."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le conduit oublié",
+      "text": "Dans le poste, une plaque décrit l'ancienne arrivée d'eau. Elle montre le conduit principal et un petit canal utilisé pendant les réparations. Ce canal pourrait donner à Clairval de quoi boire même si la grande vanne reste coincée. Tu peux étudier la plaque pour chercher son entrée, ou suivre les instructions qui conduisent directement à la chaîne. Tu entends le dragon respirer au-delà du mur. Son collier et le barrage sont deux problèmes distincts : libérer la créature ne rouvrira pas tout seul le ruisseau. Tu retiens cette différence avant de continuer. Un levier ancien dépasse sous la plaque ; tu regardes où il mène et si quelqu'un l'a utilisé récemment, sans le tirer au hasard.",
+      "choices": [
+        {
+          "text": "Chercher l’entrée du petit canal de secours",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu localises une vanne secondaire. Ce canal pourra fournir de l’eau pendant les réparations.",
+            "Tu trouves une indication, mais le canal reste difficile d’accès. Tu gardes sa position pour les ouvriers.",
+            "La plaque est abîmée. Tu repères seulement le conduit principal et poursuis vers la chaîne."
+          ],
+          "flag": "secret"
+        },
+        {
+          "text": "Rejoindre la chaîne par le chemin indiqué",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Les instructions sont précises. Tu trouves l’ancrage sans traverser la zone où le dragon peut bouger.",
+            "Tu avances jusqu’à la chaîne, mais dois contourner des outils. Tu arrives avec un peu de retard.",
+            "Le chemin indiqué est fermé. Tu suis un mur jusqu’à un accès voisin de l’ancrage."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L’ancrage de fer",
+      "text": "La chaîne du dragon est fixée à une porte grillagée qui protège la vanne. Il faut ouvrir cette grille pour accéder au mécanisme et à la fermeture de secours du collier. Une corde retient le battant ; un cadenas et un crochet assurent le verrouillage. Le dragon te regarde depuis l'autre côté, sans pouvoir atteindre ton abri. Ton objet pourrait libérer l'accès. Une manivelle permet aussi de soulever la grille, mais elle demande de maintenir le poids avec une cale. Tu vérifies la direction de la chaîne avant d'agir. Elle ne doit pas se tendre brusquement autour du cou du dragon. Tu lui parles doucement pour annoncer ton mouvement, puis prépares le geste choisi.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La grille s’ouvre sans tirer sur la chaîne. Tu accèdes enfin au mécanisme de la source.",
+            "L’accès se libère, mais la grille penche. Tu ajoutes une cale pour protéger le dragon.",
+            "L’attache reste bloquée. Tu trouves un passage latéral qui mène au mécanisme derrière la grille."
+          ]
+        },
+        {
+          "text": "Lever la grille avec la manivelle et une cale",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "La grille monte lentement. Tu bloques son poids et gardes la chaîne détendue.",
+            "La manivelle est dure à tourner. Tu ouvres assez d’espace pour passer sans tirer sur le collier.",
+            "La manivelle se bloque. Un espace latéral permet de rejoindre le mécanisme malgré la grille."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Préparer deux libérations",
+      "text": "Près de la vanne, tu distingues une poignée et un tuyau qui part vers un autre bâtiment. Une partie de l'eau a été détournée. Le collier du dragon possède un petit coffret de commande fixé au mur voisin. Tu ne peux pas encore l'ouvrir, mais tu peux préparer la suite. Une méthode consiste à caler la vanne pour qu'elle ne claque pas quand elle sera débloquée. L'autre consiste à préparer un espace tranquille où le dragon pourra reculer une fois libre. Tu surveilles sa respiration et gardes une bonne distance. Les deux tâches comptent, mais la plus urgente dépend de ce que tu as déjà réussi à sécuriser. Tu veux éviter qu'une délivrance réussie provoque une chute ou une panique.",
+      "choices": [
+        {
+          "text": "Caler la vanne avant de la rouvrir",
+          "heroes": [
+            "knight",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La vanne repose sur un appui solide. Tu pourras la manœuvrer sans mouvement brusque.",
+            "L’appui tient, mais une fuite apparaît. Tu prépares un seau pour garder le sol praticable.",
+            "L’appui est trop court. Tu limites le mouvement de la vanne avec une corde et poursuis."
+          ]
+        },
+        {
+          "text": "Préparer un refuge calme pour le dragon",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu dégages un espace de recul. Le dragon comprend qu’il pourra sortir sans être poursuivi.",
+            "L’espace est prêt, mais un bruit l’inquiète. Tu reprends une voix calme avant de continuer.",
+            "Le premier refuge est trop étroit. Tu dégages une autre zone à distance des visiteurs."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Qui a retenu l’eau ?",
+      "text": "Dans le coffret voisin, des papiers expliquent le détournement de la source. Tu reconnais les marques du collier sur un dessin. La personne qui a organisé le barrage a laissé des ordres, des comptes et une formule de commande. Tu peux conserver les preuves pour le village ou lire d'abord la procédure de secours qui permet de défaire l'enchantement. Le dragon regarde ta main sur le papier et laisse retomber ses ailes. Tu lui parles sans promettre une liberté immédiate : il reste encore une serrure et une vanne à ouvrir. En comprenant le projet du responsable, tu sauras mieux empêcher qu'il recommence. Tu places les documents à l'abri de l'eau avant de choisir leur premier usage.",
+      "choices": [
+        {
+          "text": "Conserver les preuves du détournement",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu mets les documents au sec. Le village saura qui réclamer pour les réparations de la source.",
+            "Tu gardes les preuves, mais une page se mouille. Les signatures et le plan restent lisibles.",
+            "Plusieurs pages sont déchirées. Tu conserves un ordre signé et le reçu du collier."
+          ]
+        },
+        {
+          "text": "Lire la procédure qui neutralise le collier",
+          "heroes": [
+            "mage",
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "La procédure indique le coffret à ouvrir. Tu peux préparer la délivrance sans employer de force.",
+            "La procédure est incomplète. Tu repères néanmoins la fermeture de secours et son sens d’ouverture.",
+            "La formule seule ne suffit pas. Le dessin montre un verrou mécanique que tu peux encore tenter."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le gardien attend",
+      "text": "Tu rejoins l'espace devant la source. Le dragon baisse la tête et montre le côté de son collier. {revelation_actor} n'a laissé ici qu'un veilleur, qui surveille surtout le départ de l'eau. Tu pourrais lui présenter les preuves et exiger qu'il se retire, ou l'attirer vers le conduit détourné pour agir pendant son absence. Tu gardes un abri entre toi et la créature, car la peur pourrait encore la faire bouger. Le collier tient jusqu'à l'ouverture du coffret ; le dragon ne peut pas le briser lui-même. Tu prépares un signal pour indiquer quand il devra reculer. La source coule derrière le mur, bien réelle et accessible. Il reste à rendre cette eau au village et la liberté à son gardien.",
+      "choices": [
+        {
+          "text": "Montrer les preuves au veilleur depuis ton abri",
+          "heroes": [
+            "knight",
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Le veilleur comprend que le secret est découvert. Il recule et te laisse approcher le coffret.",
+            "Le veilleur hésite, mais cesse de barrer le passage. Tu profites de cet espace pour avancer.",
+            "Le veilleur refuse de partir. Tu empruntes une ouverture latérale et prépares l’intervention à couvert."
+          ]
+        },
+        {
+          "text": "Détourner le veilleur vers la fuite du conduit",
+          "heroes": [
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Le veilleur va contrôler la fuite. Tu atteins le coffret sans passer près de lui.",
+            "Il regarde la fuite sans quitter sa place. Tu gagnes un abri plus proche du coffret.",
+            "La diversion échoue. Tu attends son tour de ronde pour atteindre l’accès latéral."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le coffret du collier",
+      "text": "Le coffret possède une serrure, une corde de sécurité et un petit crochet derrière son volet. Tu sens la chaleur des pierres proches du dragon. Ton objet pourrait ouvrir le volet en protégeant ton geste. À l'intérieur, une poignée neutralise l'enchantement ; il faudra la tourner avant de défaire le collier. Tu peux aussi essayer l'outil ordinaire laissé dans le dépôt, en gardant une couverture entre ta main et le cadre brûlant. Tu vérifies que le dragon dispose d'espace pour reculer. Même si le verrou résiste, tu pourras rapporter aux artisans la forme exacte de la fermeture. Tu cherches à accomplir un geste précis, et non à lancer un sort contre la créature qui attend ton aide.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Le coffret s’ouvre. Tu neutralises l’enchantement et le dragon peut enfin détendre son cou.",
+            "Tu ouvres le coffret, mais le collier reste accroché. Le sort cesse et l’attache pourra être démontée.",
+            "Le coffret résiste. Tu marques sa fermeture pour les artisans et maintiens le dragon au calme."
+          ]
+        },
+        {
+          "text": "Essayer l’outil du dépôt avec une protection de tissu",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "L’outil libère la poignée. Le sort du collier s’éteint et le dragon recule lentement.",
+            "La poignée tourne à moitié. La contrainte faiblit, assez pour préparer le démontage du collier.",
+            "L’outil ne convient pas. Tu prépares un appui et notes la forme de la pièce à remplacer."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rendre l’eau à Clairval",
+      "text": "La vanne de la source peut être manœuvrée maintenant que tu en connais les attaches. Si le collier reste fermé, les artisans pourront venir terminer son démontage par le passage préparé. Tu peux ouvrir la grande vanne progressivement et surveiller le conduit, ou employer d'abord un écoulement limité pour que les ouvriers vérifient les canalisations. Le dragon observe le ruisseau et attend sans souffler de feu. {revelation_actor} ne pourra plus prétendre que l'eau a disparu naturellement : les documents montrent le barrage. Tu prépares le retour avec ces preuves et un signal vers le village. Clairval a besoin d'eau aujourd'hui, puis d'une source protégée demain. Tu choisis la manière de rétablir le passage sans oublier les réparations qui restent.",
+      "choices": [
+        {
+          "text": "Rouvrir progressivement la grande vanne",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "L’eau reprend son chemin vers Clairval. Les artisans peuvent terminer les attaches encore fragiles.",
+            "Le ruisseau revient, mais une fuite demande une réparation. Tu signales la pièce aux ouvriers.",
+            "La grande vanne reste coincée. Tu maintiens un petit débit et guides les artisans jusqu’au mécanisme."
+          ]
+        },
+        {
+          "text": "Établir un débit limité et faire vérifier le conduit",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Un débit régulier atteint le village. Les ouvriers vérifient la source pendant que le dragon se repose.",
+            "L’eau revient lentement. Les habitants pourront remplir leurs réserves pendant la réparation du conduit.",
+            "Le premier conduit reste bouché. Tu guides les ouvriers pour ouvrir un écoulement provisoire."
+          ],
+          "repair": true
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "La réserve des conduites",
+    "text": "La route basse mène à une réserve remplie de tuyaux et de pièces de vanne. {encounter_name} t'y rejoint après avoir suivi les marques du chariot. Vous retrouvez une copie du dessin du collier et une corde assez forte pour soutenir la grille. Tu peux proposer de poursuivre ensemble, avec les outils utiles. Tu peux aussi demander à {encounter_name} de préparer ici un passage pour les artisans de Clairval. Le dragon aura peut-être besoin d'une aide que vous ne pouvez pas fournir seuls. Vous choisissez un signal et rangez les pièces sans les disperser. Tu vérifies le couloir qui rejoint la source. Le détour vous a donné du matériel ; il reste à décider où cette aide sera la plus efficace.",
+    "choices": [
+      {
+        "text": "Emporter les outils et continuer ensemble",
+        "heroes": [
+          "keeper",
+          "knight"
+        ],
+        "results": [
+          "Vous choisissez les pièces utiles. {encounter_name} t’accompagne vers la source avec la corde.",
+          "Vous partez ensemble, mais un outil est trop lourd. Vous le laissez dans une cache repérée.",
+          "Les outils doivent être surveillés ici. {encounter_name} garde la réserve et tu continues seul."
+        ]
+      },
+      {
+        "text": "Préparer l’accès des artisans avec {encounter_name}",
+        "heroes": [
+          "mage",
+          "explorer",
+          "rogue"
+        ],
+        "results": [
+          "Le passage et les pièces sont prêts. Tu poursuis tandis que l’aide du village peut être guidée.",
+          "La préparation avance, mais une caisse gêne le couloir. Tu continues pendant que l’accès est dégagé.",
+          "Le couloir reste trop étroit. {encounter_name} cherche un autre accès pour les artisans pendant que tu avances."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "Le petit canal sauvé",
+      "text": "Le canal de secours découvert sur la plaque fournit de l'eau pendant que les artisans remettent la grande vanne en état. Clairval peut remplir ses réserves sans attendre la fin des réparations. Tu montres aussi la procédure du collier. Le dragon est délivré, puis rejoint un endroit où personne ne l'oblige à garder un trésor. Les habitants placent une clôture autour des mécanismes et conservent leur plan dans la maison commune. On te demande d'y ajouter le petit canal que tout le monde avait oublié. Lorsque le moulin tourne de nouveau, tu reconnais le bruit de l'eau : il signifie cette fois du pain à préparer et des jardins à arroser."
+    },
+    "alliance": {
+      "title": "Une source et deux amis",
+      "text": "Avec {encounter_name}, tu aides les ouvriers à retrouver les attaches et les passages. L'un surveille le dragon pendant que l'autre montre les outils nécessaires. Le collier est retiré, puis la source reprend un débit suffisant pour Clairval. Le village conserve les preuves du détournement et refuse désormais qu'une seule personne commande la vanne. Au repas du soir, vous racontez comment vous avez partagé les tâches. Le dragon apparaît un instant sur une hauteur, libre de repartir. {encounter_name} te montre le dessin de la grille réparée. Tu te rappelles votre premier signal : il semblait peu de chose, mais il a permis de demander de l'aide au bon moment."
+    },
+    "radiant": {
+      "title": "Le dragon libre",
+      "text": "Le dragon baisse une dernière fois la tête devant toi, puis déploie ses ailes. Le collier repose au sol, sans lumière ni pouvoir. L'eau retourne vers Clairval et les habitants ouvrent les petits canaux des jardins. Les documents permettent de réclamer des comptes au responsable du barrage. Tu ne portes ni trophée ni écaille arrachée : ta réussite est une créature libre et un village qui peut boire. Au coucher du soleil, le dragon passe au-dessus de la vallée sans s'arrêter à la source. Le moulin commence à tourner. Tu souris en entendant les premières discussions sur la farine, les légumes et la lessive, ces travaux ordinaires que l'aventure a rendus possibles."
+    },
+    "cost": {
+      "title": "Les réparations de la source",
+      "text": "La source donne de nouveau un peu d'eau, mais les artisans doivent encore réparer la vanne et retirer les dernières pièces du collier. Tu les conduis par le passage que tu as préparé. Le dragon reste calme quand les ouvriers suivent tes indications et lui laissent de l'espace. Clairval organise une distribution d'eau jusqu'à la fin des travaux. Tu expliques ce que tu as réussi et ce qui demandera une main plus experte. Deux jours plus tard, le grand conduit fonctionne et le dragon quitte la vallée. Le village n'a pas retrouvé ses réserves en un seul geste. Il sait maintenant comment protéger la source et qui avait essayé de la lui prendre."
+    },
+    "resilient": {
+      "title": "La fin du chantage",
+      "text": "Tu rapportes les preuves, le dessin du collier et la position de la vanne. Les artisans n'ont plus à chercher au hasard ni à craindre un dragon qui attaquerait sans raison. Ils viennent avec des outils adaptés et une réserve d'eau. Tu leur montres les abris et les gestes qui ont inquiété la créature. Le démontage prend du temps, mais le dragon est finalement délivré. Les habitants ouvrent le conduit et remplissent leurs gourdes. Tes tentatives n'ont pas toutes réussi ; elles ont découvert ce qui empêchait la réparation. Clairval garde les documents dans sa maison commune, et la source ne sert plus d'instrument de chantage."
+    }
+  },
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de la source. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de sécurité près de le coffret du collier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "climax_action": "Couper la corde de sécurité avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du dépôt, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de la source, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffret du collier, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "climax_action": "Desserrer le crochet du volet avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du dépôt. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de la source. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du volet près de le coffret du collier. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "climax_action": "Protéger ta main pour dégager le crochet du volet"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du dépôt. Elle désigne un côté de la porte du dépôt. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de la source. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver la poignée du collier. Elle désigne un côté de le coffret du collier. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "climax_action": "Trouver le crochet du volet avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du dépôt près de la porte du dépôt. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "first_action": "Ouvrir la serrure du dépôt avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de la source. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffret près de le coffret du collier. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "climax_action": "Ouvrir la serrure du coffret avec ta clé"
+    }
+  }
+}

@@ -1,0 +1,454 @@
+{
+  "id": "feather",
+  "title": "Le Premier Vol de Lume",
+  "description": "Retrouver une jeune griffonne et lui rendre un départ qu'une protection trop stricte empêche.",
+  "intro": "Au matin, une plume couleur de cuivre tombe sur ta fenêtre. Elle appartient à Lume, une jeune griffonne que les habitants ont soignée pendant l'hiver. Ses ailes sont assez fortes pour rejoindre son groupe, mais elle a disparu avant le départ. La plume porte un petit ruban, celui que l'on utilisait pour reconnaître ses affaires. Un message fixé au ruban indique seulement : Je l'ai mise à l'abri. Les adultes ont fouillé les refuges connus sans résultat. Tu remarques une seconde plume au bord d'un chemin vers {location_name}. Le groupe des griffons attendra jusqu'au coucher du soleil. Tu pars chercher Lume, avec une question déjà importante : qui a voulu la protéger, et pourquoi ne peut-elle plus rentrer ?",
+  "revelations": [
+    {
+      "id": "healer",
+      "actor": "le soigneur Tovan",
+      "text": "Un carnet montre que Tovan, le soigneur de Lume, l'a conduite ici après avoir aperçu une tempête sur la route du groupe. Il voulait attendre un ciel plus calme. Mais le refuge qu'il a activé considère chaque mouvement d'aile comme un danger et resserre sa protection. Tovan ne parvient plus à l'ouvrir. Il faut sauver Lume du dispositif sans oublier la vraie question du départ."
+    },
+    {
+      "id": "inventor",
+      "actor": "l'ingénieure Ilvane",
+      "text": "Le carnet révèle Ilvane, qui a construit un parcours pour aider les jeunes griffons à voler. Elle a conduit Lume ici afin de lui faire essayer une dernière étape. Le parcours s'est relié aux anciennes protections du lieu et refuse maintenant tout départ non prévu. Ilvane cherche à le réparer, mais chaque essai ajoute une nouvelle épreuve. Lume a surtout besoin qu'on lui rende une sortie réelle."
+    },
+    {
+      "id": "golem",
+      "actor": "le golem des nids",
+      "text": "Le carnet raconte que le golem des nids a accueilli Lume lorsqu'elle cherchait un abri. Son ancienne consigne est de ne laisser sortir aucune créature avant le retour de son gardien. Ce gardien a quitté le lieu depuis longtemps. Le golem protège Lume avec soin, mais ne comprend pas que son groupe peut l'accueillir. Il faut lui montrer un retour possible plutôt que lui ordonner d'abandonner sa mission."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Les plumes et les traces",
+      "text": "Sur le chemin, tu trouves une plume coincée dans une branche et des empreintes de pattes près d'un petit ruisseau. Lume a marché au lieu de voler, accompagnée par quelqu'un dont les pas sont plus lourds. Une branche cassée montre un détour ; un morceau de ruban indique le chemin principal. Tu peux suivre les empreintes pour retrouver précisément le trajet de la griffonne, ou examiner le détour pour savoir pourquoi on l'a fait changer de route. La première piste t'aiderait à reconnaître son état au moment du passage. La seconde éclairerait la décision de la personne qui l'accompagnait. Tu évites de ramasser toutes les plumes : certaines pourraient guider son groupe si celui-ci vient la chercher à son tour.",
+      "choices": [
+        {
+          "text": "Suivre les empreintes de Lume",
+          "heroes": [
+            "keeper",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les pas restent réguliers. Tu retrouves sa route sans signe de blessure.",
+            "La piste est claire, mais une bourrasque disperse les derniers repères.",
+            "Les empreintes s'effacent dans l'eau. Une plume t'indique un passage voisin."
+          ]
+        },
+        {
+          "text": "Comprendre le détour marqué par la branche",
+          "heroes": [
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Le détour évitait un courant violent. Tu comprends la première précaution du trajet.",
+            "Tu repères le danger, mais un autre courant brouille le chemin principal.",
+            "La branche ne suffit pas. Un ruban pris plus loin te guide vers l'entrée."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Un abri trop bien fermé",
+      "text": "À l'entrée, tu entends un appel bref, suivi d'un froissement d'ailes. Lume est donc vivante et éveillée. Une protection lumineuse court sur le sol, mais sa forme ne ressemble pas à une cage ordinaire. Elle ferme un passage chaque fois que le bruit augmente. Sur le côté, une gamelle contient encore quelques graines que la griffonne aime picorer. Tu peux observer comment le dispositif réagit à son appel, ou examiner les soins qui lui ont été apportés pour comprendre les habitudes de la personne responsable. La première piste révélerait la règle de la protection. La seconde pourrait t'aider à obtenir de la confiance. Tu restes à distance pour ne pas ajouter tes propres mouvements à ceux qui inquiètent déjà le mécanisme.",
+      "choices": [
+        {
+          "text": "Observer la réaction du refuge à l'appel de Lume",
+          "heroes": [
+            "keeper",
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Tu comprends la règle : plus Lume cherche à sortir, plus le passage se ferme.",
+            "La règle apparaît, mais un appel prolongé réveille une protection supplémentaire.",
+            "Le rythme reste confus. Un intervalle calme t'indique néanmoins où poursuivre."
+          ]
+        },
+        {
+          "text": "Examiner les soins préparés dans le refuge",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les soins sont attentifs. Tu trouves un signe familier qui pourra rassurer Lume.",
+            "Tu repères les habitudes, mais déplacer la gamelle attire le dispositif.",
+            "Les traces sont anciennes. Un ruban récent montre toutefois la route vers Lume."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le seuil qui se referme",
+      "text": "Le passage devant toi porte des marques de protection. Elles se rapprochent lorsque tu avances trop vite, puis s'écartent si tu t'arrêtes. Un ancien panneau montre que le refuge accueillait des créatures différentes, pas seulement des griffons. Il devait adapter son seuil à chacune. Aujourd'hui, il semble confondre mouvement et danger. Ton objet peut essayer de donner aux marques un rythme plus calme. Une autre voie consiste à emprunter un accès d'entretien, prévu pour renouveler l'eau sans traverser le seuil. La première option changerait la protection de l'intérieur. La seconde te rapprocherait de Lume sans demander au mécanisme de comprendre immédiatement. Tu entends la griffonne souffler, puis taper doucement une patte. Elle attend, et tu peux encore choisir une approche qui ne transforme pas son inquiétude en nouvelle alarme.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Les marques ralentissent. Tu peux entrer sans resserrer le refuge autour de Lume.",
+            "Le seuil s'ouvre, mais une protection intérieure prend le relais de sa vigilance.",
+            "Les marques refusent l'accord. Un accès de secours te laisse néanmoins avancer."
+          ]
+        },
+        {
+          "text": "Passer par l'accès réservé à l'eau du refuge",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "L'accès est libre. Tu dépasses le seuil sans provoquer son mouvement.",
+            "Tu passes, mais un clapet d'eau déclenche une vérification du refuge.",
+            "L'accès est bouché. Sa canalisation révèle une ouverture d'entretien voisine."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Appeler ou approcher",
+      "text": "L'appel de Lume arrive par deux passages. Le premier est assez large pour qu'elle entende ta voix ; le second suit les traces de ses repas et reste caché par une vieille cloison. Tu peux lui répondre depuis le passage ouvert afin de lui montrer que quelqu'un cherche une solution. Tu peux aussi approcher par les traces de nourriture, pour comprendre la disposition de son refuge avant de te montrer. Répondre risquerait d'attirer l'attention du dispositif, mais pourrait calmer la griffonne. Observer d'abord garderait ton approche discrète, mais lui laisserait un peu plus longtemps son incertitude. Tu cherches une décision qui serve à la fois le sauvetage et la confiance. Les deux voies rejoignent les abords de son abri, par des salles où d'autres personnes ont laissé leurs traces.",
+      "choices": [
+        {
+          "text": "Répondre doucement à l'appel de Lume",
+          "heroes": [
+            "keeper",
+            "knight",
+            "mage"
+          ],
+          "results": [
+            "Lume te répond d'un son plus calme. Tu rejoins le passage ouvert.",
+            "Elle entend ta voix, mais le refuge surveille désormais aussi ce passage.",
+            "Ta voix porte mal. Un appel plus proche te guide quand même vers l'abri."
+          ]
+        },
+        {
+          "text": "Approcher en suivant les traces des repas",
+          "heroes": [
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Les traces révèlent le chemin utilisé pour prendre soin de Lume.",
+            "Tu approches discrètement, mais une cloison mobile change la sortie du passage.",
+            "La piste s'interrompt. Une gamelle récente indique une ouverture latérale utile."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une présence qui rassure",
+      "text": "Tu arrives dans une salle où l'on préparait les départs des créatures accueillies. Des tissus portent des odeurs familières, et un petit perchoir garde les marques de Lume. {encounter_name} te rejoint et propose de t'aider à maintenir un signal calme pendant ton approche. {encounter_name} pourrait venir avec toi et surveiller les réactions du refuge, ou rester près du passage pour préparer un chemin ouvert lorsque la griffonne sortira. Tu ne veux pas appeler Lume vers une issue qui se refermerait aussitôt. Vous observez donc les protections avant de vous répartir les rôles. La présence d'une seconde personne peut servir au centre ou à la sortie. Tu dois choisir ce qui compte le plus pour la prochaine étape : comprendre ensemble, ou préparer un départ que personne ne perdra de vue.",
+      "choices": [
+        {
+          "text": "Approcher ensemble en gardant un signal calme",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Le signal est stable. {encounter_name} vient avec toi pour observer le refuge.",
+            "Vous avancez ensemble, mais une protection garde votre signal en mémoire.",
+            "Le signal inquiète le mécanisme. {encounter_name} reste pour préparer une autre réponse."
+          ]
+        },
+        {
+          "text": "Confier la préparation du départ à {encounter_name}",
+          "heroes": [
+            "knight",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Le chemin de sortie est marqué. Tu peux te concentrer sur Lume.",
+            "La sortie tient, mais un passage devra être maintenu manuellement pendant le départ.",
+            "La protection ferme un accès. Vous préparez une issue de rechange plus lente."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La règle des premiers vols",
+      "text": "Un registre décrit les créatures passées par le refuge. Certaines étaient soignées, d'autres attendaient leur groupe, et plusieurs apprenaient simplement à voler. Tu trouves une règle ancienne : le départ doit être décidé avec la créature, et non à sa place. Cette phrase a été recouverte par une consigne de protection plus stricte. Tu peux étudier la règle oubliée pour rendre à Lume une part de choix, ou consulter son parcours pour préparer une sortie adaptée à ses ailes. La règle changerait le fonctionnement du refuge. Le parcours t'aiderait à éviter un départ trop difficile. Tu remarques une trace de patte sur la dernière page. Lume a probablement vu ce document, ou entendu parler de ce qu'il promettait. Elle ne cherche pas seulement à sortir ; elle attend son premier vrai vol.",
+      "choices": [
+        {
+          "text": "Retrouver la règle qui laisse la créature participer",
+          "heroes": [
+            "keeper",
+            "mage",
+            "rogue"
+          ],
+          "flag": "secret",
+          "results": [
+            "La règle est lisible. Tu pourras demander au refuge de reconnaître le choix de Lume.",
+            "Tu comprends la règle, mais une consigne récente garde une partie du contrôle.",
+            "La phrase reste couverte. Son signe de départ volontaire demeure pourtant visible."
+          ]
+        },
+        {
+          "text": "Étudier le parcours prévu pour les ailes de Lume",
+          "heroes": [
+            "knight",
+            "explorer"
+          ],
+          "results": [
+            "Tu trouves une sortie adaptée. Lume n'aura pas besoin d'un vol difficile.",
+            "Le parcours est bon, mais une étape devra être déplacée pour rester sûre.",
+            "Le parcours manque de repères. Un dessin indique néanmoins une terrasse de départ."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une protection à détendre",
+      "text": "Les lignes du refuge se rejoignent près d'un dispositif dont une branche reste tendue. Tu reconnais le trajet du seuil, puis celui qui surveille les ailes de Lume. Ils se renforcent mutuellement : son inquiétude ferme la sortie, et la sortie fermée augmente son inquiétude. Ton objet peut t'aider à suivre une liaison plus souple entre ces deux réponses. Tu peux aussi remettre en état les points de repos qui permettent normalement au refuge d'interrompre sa surveillance. La première option rapprocherait ton intervention de la griffonne. La seconde apaiserait le système entier et pourrait réparer les perturbations précédentes. Tu écoutes l'appel de Lume, désormais plus espacé. Elle conserve ses forces. Tu veux lui offrir un départ réfléchi, sans transformer l'urgence du groupe en précipitation.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "La liaison se détend. Tu distingues le passage qui mène au refuge de Lume.",
+            "Le passage apparaît, mais une ligne de protection se reporte sur la sortie.",
+            "La liaison résiste. Une marque de repos te montre quand même où avancer."
+          ]
+        },
+        {
+          "text": "Rétablir les points de repos du dispositif",
+          "heroes": [
+            "knight",
+            "explorer",
+            "rogue"
+          ],
+          "repair": true,
+          "results": [
+            "La surveillance se calme. Les protections retrouvent un intervalle où laisser passer quelqu'un.",
+            "Le repos fonctionne, mais une ligne devra être vérifiée après le sauvetage.",
+            "Un point reste fermé. Les autres créent une pause suffisante pour poursuivre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Préparer un départ sûr",
+      "text": "Tu peux voir le refuge sans encore l'atteindre. Lume s'y tient sur une marche, les ailes repliées, avec de l'eau et une couverture près d'elle. Elle n'est pas blessée. Elle observe chaque passage qui s'entrouvre, puis renonce quand la lumière se resserre. Tu pourrais lui montrer un signal simple pour qu'elle attende ton geste, ou préparer d'abord un itinéraire dont chaque étape reste visible. Le signal aiderait à coordonner le départ. L'itinéraire limiterait les changements de direction qui réveillent le refuge. Tu ne peux pas lui demander de croire à une sortie qu'elle ne voit pas. Ta formation t'offre une méthode pour préparer l'action sans oublier ce que la griffonne perçoit depuis sa marche. Tu prends le temps de rendre ton intention compréhensible.",
+      "choices": [
+        {
+          "text": "Établir un signal simple avec Lume",
+          "heroes": [
+            "keeper",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Lume reconnaît ton signal. Elle attend sans battre des ailes inutilement.",
+            "Elle comprend, mais une protection copie le signal et surveille son attente.",
+            "Le signal n'est pas clair. Ton calme lui laisse néanmoins le temps d'observer."
+          ]
+        },
+        {
+          "text": "Préparer un itinéraire visible jusqu'à la sortie",
+          "heroes": [
+            "rogue",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les étapes restent visibles. Lume peut comprendre le trajet avant de l'emprunter.",
+            "L'itinéraire tient, mais une étape devra être franchie pendant un bref silence.",
+            "Une étape se ferme. Tu préserves un trajet plus court vers la première zone sûre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pourquoi Lume est restée",
+      "text": "Un carnet posé près du refuge contient les décisions prises avant ton arrivée. Tu y retrouves le message du ruban, puis des essais pour ouvrir la protection. La personne responsable a continué à apporter de l'eau et de la nourriture. Elle ne savait plus comment faire sortir Lume. Tu peux lire ces essais pour comprendre le besoin derrière la consigne, ou appeler la personne afin de préparer ensemble une solution. La lecture donnera des détails sur ce qui a déjà échoué. L'appel permettra de demander une aide directe et d'éviter de recommencer les mêmes gestes. Tu regardes la griffonne, qui suit ton mouvement sans s'agiter. Le sauvetage devra résoudre une erreur, tout en conservant l'attention qui l'avait conduite ici. Le carnet révèle enfin le visage de la personne qui attend près du mécanisme central.",
+      "choices": [
+        {
+          "text": "Comprendre les essais avant de modifier le refuge",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les essais te montrent la cause du blocage. Tu peux proposer un geste nouveau.",
+            "Tu comprends le problème, mais le carnet active une ancienne consigne oubliée.",
+            "Les essais sont incomplets. Un schéma reste assez clair pour engager la réparation."
+          ]
+        },
+        {
+          "text": "Appeler la personne qui voulait protéger Lume",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Ton appel reçoit une réponse soulagée. Vous pouvez préparer le départ ensemble.",
+            "La personne répond, mais le refuge augmente sa vigilance devant la conversation.",
+            "L'appel arrive tard. Une ouverture de service permet néanmoins la rencontre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Protéger sans retenir",
+      "text": "Tu retrouves {revelation_actor} près du centre du refuge. La personne montre le dispositif, puis avoue qu'elle a continué à renforcer ce qu'elle voulait réparer. Lume te regarde depuis sa marche. Tu peux proposer de rendre au mécanisme sa consigne de départ accompagné, ou de lui montrer une route où la protection n'a plus besoin de se fermer. La première méthode demande de reconnaître que la griffonne est prête à participer. La seconde apporte une preuve concrète de sécurité. Les deux préservent les soins reçus, sans les transformer en obligation de rester. Tu rappelles que le groupe attend Lume et qu'un départ peut se préparer plutôt que s'imposer. Le refuge n'a pas besoin d'être détruit. Il doit apprendre à terminer correctement la tâche pour laquelle il avait été réveillé.",
+      "choices": [
+        {
+          "text": "Rendre au refuge sa consigne de départ accompagné",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "La consigne est reconnue. Le refuge accepte que Lume participe au départ.",
+            "Le départ devient possible, mais une ancienne règle demandera encore un signal de retour.",
+            "La consigne ne change pas entièrement. Vous obtenez au moins une ouverture accompagnée."
+          ]
+        },
+        {
+          "text": "Montrer une route qui n'exige plus de retenir Lume",
+          "heroes": [
+            "knight",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La route rassure le dispositif. Il cesse de confondre sortie et danger immédiat.",
+            "La preuve fonctionne, mais le refuge surveillera encore les premières étapes.",
+            "La preuve reste partielle. Vous préparez un trajet limité vers une zone sûre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ouvrir le lien du refuge",
+      "text": "Deux marques lumineuses restent séparées au pied de la marche de Lume : l'une désigne l'abri, l'autre le départ. Tant qu'elles ne se répondent pas, le dispositif pense devoir choisir entre protéger et laisser sortir. Ton objet connaît désormais ce langage. Tu peux l'employer pour établir une liaison précise, ou guider les deux marques par les étapes préparées autour du refuge. La première méthode demanderait de suivre les mouvements de la griffonne de très près. La seconde s'appuierait sur le trajet que tout le monde peut observer. Lume garde ses ailes repliées et attend ton signal. Tu lui laisses une place pour reculer si quelque chose l'inquiète. Ce choix doit ouvrir une possibilité, pas la pousser vers une sortie qu'elle n'est pas encore prête à prendre.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Abri et départ se relient. Le refuge laisse Lume approcher du seuil ouvert.",
+            "La liaison tient, mais la protection suit encore un de ses mouvements d'aile.",
+            "Le lien direct résiste. Les étapes visibles offrent une ouverture plus progressive."
+          ]
+        },
+        {
+          "text": "Relier le refuge aux étapes du trajet préparé",
+          "heroes": [
+            "knight",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Les étapes portent le changement. Lume peut avancer sans resserrer la protection.",
+            "Le trajet s'ouvre, mais une étape devra rester sous surveillance quelques instants.",
+            "Une étape bloque. Les autres permettent à Lume d'atteindre le premier espace libre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le premier battement d'ailes",
+      "text": "Lume peut enfin choisir une direction. Elle regarde le centre du lieu, puis les passages qui mènent dehors. Au loin, un appel de griffon traverse l'air : son groupe n'est pas encore parti. Tu peux ouvrir une sortie directe pour lui permettre de rejoindre rapidement cet appel, ou accompagner son départ par les étapes préparées jusqu'à une terrasse sûre. La sortie directe serait plus rapide, mais transmettrait les dernières réactions du refuge. Le départ accompagné prendrait davantage de temps et laisserait chacun vérifier le chemin. {revelation_actor} accepte de surveiller le mécanisme plutôt que de décider à la place de Lume. Tu donnes le signal convenu, puis attends sa réponse. La griffonne lève une patte et avance. Son premier vrai vol commence par un pas qu'elle peut faire elle-même.",
+      "choices": [
+        {
+          "text": "Ouvrir une sortie directe vers l'appel du groupe",
+          "heroes": [
+            "mage",
+            "rogue",
+            "knight"
+          ],
+          "results": [
+            "Lume rejoint l'air libre. Son groupe répond lorsqu'elle ouvre enfin les ailes.",
+            "Elle sort, mais doit attendre sur une terrasse que la protection cesse de vibrer.",
+            "La sortie directe reste instable. Vous conduisez Lume jusqu'à un abri ouvert pour la suite."
+          ]
+        },
+        {
+          "text": "Accompagner Lume par les étapes préparées",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Lume franchit les étapes à son rythme. Son départ ne referme aucun refuge.",
+            "Le trajet fonctionne, mais le groupe devra attendre encore un peu pour le dernier envol.",
+            "Une étape résiste. Vous atteignez une terrasse sûre où préparer un vol plus tardif."
+          ]
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "Le passage des gamelles",
+    "text": "Le chemin débouche sur une réserve où les repas de Lume sont préparés avec soin. Une note précise ce qu'elle préfère, ce qu'elle refuse et les sons qui la rassurent. {encounter_name} te rejoint par un petit escalier de service. Vous pouvez utiliser ces observations pour approcher la griffonne avec confiance. {encounter_name} pourrait venir au refuge et surveiller sa réaction pendant que tu agis. Il pourrait aussi rester pour préparer de l'eau et une halte sur la route du départ. Tu ne veux pas que le sauvetage lui demande d'aller d'une cage à une course épuisante. Les deux aides rendront l'aventure moins brusque. Tu choisis où placer cette attention, en gardant les notes qui montrent que quelqu'un avait essayé de bien faire.",
+    "choices": [
+      {
+        "text": "Approcher Lume ensemble avec les notes de soins",
+        "heroes": [
+          "keeper",
+          "mage"
+        ],
+        "results": [
+          "Les notes vous guident. {encounter_name} vient observer Lume pendant ton intervention.",
+          "Vous préparez l'approche, mais une consigne de repas réveille la surveillance.",
+          "Les notes restent insuffisantes. {encounter_name} demeure ici pour chercher d'autres repères."
+        ]
+      },
+      {
+        "text": "Confier la halte de départ à {encounter_name}",
+        "heroes": [
+          "knight",
+          "explorer",
+          "rogue"
+        ],
+        "results": [
+          "La halte est prête. Lume pourra se reposer avant de rejoindre son groupe.",
+          "La halte fonctionne, mais un ancien accès doit rester fermé pour la sécuriser.",
+          "L'accès prévu ne convient pas. Vous préparez un repos dans un espace voisin."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "Le refuge qui sait laisser partir",
+      "text": "La règle oubliée change le sens du sauvetage : Lume peut participer à son départ, et le refuge apprend à terminer sa protection. Tu rapportes cette découverte aux personnes qui accueillent d'autres créatures. Elles préparent désormais des sorties avec celles qu'elles soignent. Le premier vol de Lume peut demander encore une étape, mais personne ne le décidera sans elle. Une plume de cuivre reste près du chemin. Tu la laisses sur place, comme un signe pour son groupe et pour les voyageurs qui viendront après toi."
+    },
+    "alliance": {
+      "title": "Deux regards pour un départ",
+      "text": "Grâce à {encounter_name}, tu peux agir tout en sachant que les réactions de Lume et son trajet sont observés. Vous lui rendez une sortie sûre, puis racontez le problème au village. Les habitants comprennent qu'un sauvetage demande parfois autant de patience que de courage. {encounter_name} prépare un dessin du passage pour les prochaines créatures accueillies. Au-dessus du chemin, un appel de griffon reçoit une réponse plus jeune. Tu reconnais la voix de Lume et gardes le silence pour lui laisser toute sa place."
+    },
+    "radiant": {
+      "title": "Une plume dans le ciel",
+      "text": "Lume retrouve l'air libre et rejoint son groupe après un départ que le refuge ne cherche plus à empêcher. Tu regardes ses ailes prendre le vent, puis une silhouette plus grande se placer près d'elle. Au village, tu expliques comment une protection attentive était devenue trop stricte. Les soins de Lume ne sont pas oubliés ; ils servent à préparer de meilleurs refuges. Tu ne reçois ni laisse ni trophée. Une plume de cuivre tombe près du chemin, et tu la regardes briller un instant avant de repartir."
+    },
+    "cost": {
+      "title": "Un envol à préparer encore",
+      "text": "Lume quitte le refuge fermé, mais son départ vers le groupe demandera une halte et quelques réparations. Tu préviens les habitants avec les repères découverts. Ils organisent un endroit ouvert, où la griffonne peut choisir ses mouvements et retrouver ses forces. Son groupe répond aux appels depuis les hauteurs et accepte d'attendre. Le sauvetage a réussi à changer la situation, même si tout ne se termine pas par un envol immédiat. Tu vois Lume étendre une aile sans qu'une lumière se referme. Ce geste suffit à montrer le chemin parcouru."
+    },
+    "resilient": {
+      "title": "La porte n'est plus une promesse vide",
+      "text": "Tu n'as pas ouvert toutes les protections, mais Lume dispose enfin d'un espace sûr et d'une sortie que l'on peut préparer avec elle. La personne responsable reste pour aider, au lieu d'ajouter de nouvelles consignes. Tu rapportes au village la cause du blocage et le trajet vers le refuge. Une équipe peut maintenant poursuivre le sauvetage avec des informations précises. Lume te répond avant ton départ, d'un appel plus calme. L'aventure n'a pas donné le vol espéré ce soir ; elle lui a rendu la possibilité d'un départ réel."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "segments": 3049,
+  "scenes": 30,
+  "distinct_chunks": 950,
+  "checked_sessions": 1125,
+  "checked_spoken_texts": 15750,
+  "max_chars": 300,
+  "pause_ms": 150,
+  "chatterbox_generation_started": false
+}

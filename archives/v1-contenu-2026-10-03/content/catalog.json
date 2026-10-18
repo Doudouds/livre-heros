@@ -1,0 +1,21 @@
+{
+  "text_values": {},
+  "encounters": [
+    {"id":"lia","name":"Lia","intro":"À l'entrée du chemin, tu rencontres Lia, une apprentie cartographe. Sa cape porte des petites poches pleines de morceaux de carte. Elle te montre un passage qu'elle vient de relever, puis explique qu'elle cherche à comprendre pourquoi les repères du lieu changent depuis quelques jours.","story":"Lia déroule une carte dont les bords sont couverts de corrections. Elle a comparé les chemins de plusieurs époques et découvert qu'ils menaient tous à un point aujourd'hui inaccessible. Son savoir peut t'aider, mais elle ne veut pas décider à ta place. Elle préfère que tu choisisses la piste, puis vérifier avec toi ce qu'elle révèle."},
+    {"id":"soren","name":"Soren","intro":"Près du premier passage, tu rencontres Soren, un jeune réparateur de lanternes. Une petite lampe ronde pend à son sac. Il t'explique qu'elle s'éteint chaque fois qu'il approche du centre du lieu, même après avoir changé sa mèche. Il espère découvrir la cause de cette étrange panne.","story":"Soren pose sa lanterne sur une pierre et observe sa flamme. Il a appris à réparer des mécanismes modestes, et remarque les changements que d'autres ignorent. La flamme s'incline avant chaque vibration du lieu. Son observation pourrait t'aider à agir au bon moment, mais il te laisse choisir comment employer cette avance."},
+    {"id":"mira","name":"Mira","intro":"Sur le chemin, tu rencontres Mira, une messagère qui connaît les villages voisins. Elle porte une besace de lettres, dont une ne mentionne aucun destinataire. L'enveloppe se réchauffe lorsqu'elle s'approche du lieu. Mira voudrait comprendre son message avant de le remettre à la mauvaise personne.","story":"Mira sort la lettre sans destinataire. Les premières lignes sont enfin visibles : elles parlent d'un rendez-vous interrompu et d'un signal qui n'a pas reçu de réponse. Son expérience des messages lui permet de repérer ce qui manque entre deux phrases. Elle peut t'aider à chercher le destinataire, si tu choisis de suivre cette piste."},
+    {"id":"elias","name":"Élias","intro":"Au bord du chemin, tu rencontres Élias, un apprenti musicien qui collectionne les sons étranges. Il porte une flûte courte dans un étui de toile. Depuis le matin, une même note lui revient lorsqu'il approche du lieu. Il cherche son origine, car elle ne ressemble au chant d'aucun oiseau.","story":"Élias joue doucement la note entendue depuis le matin. Le lieu lui répond avec un léger retard, puis la réponse s'interrompt. Son oreille reconnaît deux rythmes qui devraient s'accorder. Il pourrait t'aider à retrouver leur mesure commune, mais il attend de savoir quelle piste tu veux essayer avant de faire sonner la flûte à nouveau."}
+  ],
+  "insertions": {
+    "1":"{location_approach}", "2":"{hero_observation}", "3":"{item_first}",
+    "4":"{location_hazard}", "5":"{encounter_story}", "6":"{location_secret}",
+    "7":"{item_second}", "8":"{hero_plan}", "9":"{revelation_text}",
+    "10":"{location_core}", "11":"{item_climax}", "12":"{location_decision}"
+  },
+  "state_variants": [
+    {"id":"memory_ally","ranks":[6,10],"when":{"ally":"companion"},"append":"{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."},
+    {"id":"memory_solo","ranks":[6,10],"when":{"not":{"ally":"companion"}},"append":"{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."},
+    {"id":"unstable_echo","ranks":[8,12],"when":{"flag":"unstable"},"append":"Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."},
+    {"id":"prepared_echo","ranks":[8,12],"when":{"all":[{"flag":"prepared"},{"not":{"flag":"unstable"}}]},"append":"Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."}
+  ]
+}

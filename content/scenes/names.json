@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "names_intro",
+      "arc": "names",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "Les Dormeurs de Roncelune",
+      "text": "Le domaine de Roncelune, installé au cœur de {location_name}, n'envoie plus de nouvelles depuis trois jours. Une marchande a trouvé ses habitants endormis à table, dans les jardins et jusque devant leurs portes. Ils respirent paisiblement, mais personne ne parvient à les réveiller. Des ronces poussent autour du domaine et empêchent les visiteurs d'entrer. La doyenne se souvient d'un conte : une fée avait autrefois protégé Roncelune avec une cloche capable de rompre les enchantements de sommeil. Cette cloche aurait été enfermée dans la salle principale. Tu pars pour la retrouver et comprendre le sort. Tu veux réveiller tous les habitants, du portier à la cuisinière, puis permettre à chacun de reprendre sa vie. Tu emportes aussi de quoi guider une équipe si une aide supplémentaire devient nécessaire.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "names_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_1",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Au bord des ronces",
+      "text": "Près de Roncelune, les ronces cachent la grille du domaine. Elles ont poussé rapidement, mais la route et les murs restent en place. Tu aperçois un portier endormi sous son abri. Sa lanterne est éteinte et son trousseau pend à un crochet. Tu pourrais examiner la grille pour trouver le passage utilisé récemment, ou longer le mur jusqu'à l'entrée du jardin. Tu ne veux pas secouer le portier ni l'emporter sans raison. Son souffle calme confirme que le sort ressemble à un sommeil. Tu poses une couverture sur ses épaules, puis cherches une voie d'entrée. À travers les branches, tu distingues une fenêtre ouverte et une cloche qui ne sonne plus.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_1_0",
+          "text": "Examiner la grille et les traces de passage",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Une partie des ronces a été coupée récemment. Tu trouves la route employée pour entrer.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves la piste, mais les épines accrochent ta veste. Tu dégages le tissu avant d’avancer.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La grille reste inaccessible. Des traces de pas t’indiquent toutefois un accès près du mur.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_1_1",
+          "text": "Longer le mur jusqu’à l’entrée du jardin",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le mur conduit à une petite porte moins couverte de ronces. Tu repères un accès possible.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu atteins la petite porte, mais dois contourner un fossé. Tu arrives avec un peu de retard.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le jardin est fermé. Tu découvres une fenêtre basse qui permettra de poursuivre la recherche.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_2",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Le sommeil du domaine",
+      "text": "Dans le jardin, un chien dort près de sa gamelle. Une jardinière s'est endormie sur un banc, les mains encore couvertes de terre. Tu déplaces un arrosoir qui pourrait lui tomber sur le pied, puis observes les alentours. Une poussière violette apparaît sur certaines feuilles ; des pas récents évitent les endroits où les habitants reposent. Tu peux examiner la poussière sans la toucher ou suivre les pas vers la porte d'une salle d'étude. Tu gardes un tissu devant ton nez, par précaution. Le sort a touché tout le domaine, mais quelqu'un a continué à se déplacer après son arrivée. Cette personne a peut-être laissé les renseignements nécessaires pour réveiller les autres.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_2_0",
+          "text": "Observer la poussière et les marques du sort",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu reconnais les marques d’un sommeil enchanté et repères la direction de la salle d’étude.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les marques deviennent plus faibles. Tu retiens leur forme et suis une trace encore visible.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Tu ne peux pas identifier la poussière. Une empreinte fraîche te guide vers la salle d’étude.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_2_1",
+          "text": "Suivre les pas qui évitent les dormeurs",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les pas conduisent directement à la salle d’étude. Tu vérifies son entrée sans déranger les habitants.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La piste traverse un massif épineux. Tu rejoins la porte par un détour pour éviter les ronces.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les pas s’effacent sur le pavé. Une fenêtre entrouverte révèle tout de même la bonne salle.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_3",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La salle d’étude",
+      "text": "La porte de la salle d'étude porte une serrure ancienne. Un volet voisin est retenu par une corde et des branches épineuses. Derrière, un crochet peut libérer le cadre. Tu aperçois des livres sur une table et un dessin représentant la cloche protectrice. Ton objet pourrait ouvrir un accès, à condition de préparer ta main et tes appuis. Une fenêtre haute reste accessible depuis un petit escalier extérieur. Tu regardes sa rambarde avant d'y monter. À l'intérieur, une chandelle s'est éteinte près d'un bol de poudre. Tu ne touches pas à cette poudre et ne lis pas de formule à voix haute sans savoir ce qu'elle fait. La première tâche est d'entrer pour comprendre, pas d'ajouter un enchantement au domaine.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’accès se libère. Tu entres dans la salle et retrouves les premières notes sur la cloche.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’accès s’ouvre, mais les ronces se rabattent. Tu les écartes avant de rejoindre la table.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La porte résiste. Tu découvres une ouverture voisine et entres en protégeant tes mains.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_3_1",
+          "text": "Prendre l’escalier vers la fenêtre haute",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’escalier tient et la fenêtre est ouverte. Tu rejoins la table sans toucher à la poudre.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu entres par la fenêtre, mais une branche accroche ton sac. Tu le dégages avant de descendre.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’escalier est trop usé. Une lucarne plus basse offre un autre accès vers la salle.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_4",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Rejoindre la cloche",
+      "text": "Un dessin place la cloche dans la salle centrale, derrière une estrade. Les notes décrivent aussi une ancienne porte de secours. Pour continuer, tu peux passer par la galerie haute et observer les habitants endormis, ou prendre le passage bas qui rejoint une réserve. Les ronces ont pénétré jusqu'aux fenêtres, mais les murs ne bougent pas. Tu vérifies les marches et les zones où tu pourrais rester coincé. Il faut conserver un retour pour les personnes qui t'aideront, puis pour les habitants réveillés. Tu prends le dessin de la cloche et la page qui parle de son rôle. Tu laisses le bol de poudre où il est, en marquant la table pour que personne ne le touche par erreur.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_4_0",
+          "text": "Traverser la galerie haute jusqu’au poste du portier",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu franchis la galerie et atteins un abri près du passage vers la salle centrale.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais des ronces gênent les marches. Tu les contournes pour rejoindre l’abri.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La galerie est trop fragile. Un petit escalier te mène néanmoins vers le poste du portier.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_4_1",
+          "text": "Emprunter le passage bas jusqu’à la réserve",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le passage reste libre sous les ronces. Tu rejoins une réserve proche de la salle centrale.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu atteins la réserve, mais une branche ferme le retour. Tu la déplaces avant de continuer.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une porte ferme le passage bas. Tu trouves un accès de service qui mène aussi à la réserve.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_5",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Une aide parmi les dormeurs",
+      "text": "Dans l'abri, {encounter_name} te rejoint avec les renseignements recueillis par une autre entrée. Le domaine possède encore de l'eau et des couvertures. Personne n'a besoin d'être déplacé dans la précipitation. Vous pouvez poursuivre ensemble vers la cloche, ou organiser ici un endroit sûr pour accueillir les habitants au réveil. Tu regardes les portes et les bancs. À deux, il serait plus facile d'écarter les ronces et de transporter les outils ; quelqu'un resté ici pourrait surveiller le retour et protéger les personnes endormies près du passage. Vous convenez d'un signal, même si le domaine semble silencieux. Tu gardes la décision, car tu sais ce que tu as déjà trouvé et ce qui manque encore à ton plan.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_5_0",
+          "text": "Poursuivre ensemble vers la cloche",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous partagez le matériel. {encounter_name} t’accompagne pour dégager les accès de la salle.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous continuez ensemble, mais les ronces vous ralentissent. Vous gardez le signal convenu.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le passage est trop étroit à deux. {encounter_name} reste pour protéger le retour et les dormeurs.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_5_1",
+          "text": "Préparer ici l’accueil des habitants réveillés",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’abri est dégagé et les couvertures sont prêtes. Tu poursuis avec un retour surveillé.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’abri est prêt, mais une porte doit encore être calée. Tu continues pendant cette réparation.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les ronces ferment le premier abri. {encounter_name} cherche une place voisine tandis que tu avances.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_6",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Le jardin de la fée",
+      "text": "Près du poste, une plaque montre le domaine avant la pousse des ronces. Le jardin d'une fée occupait un coin protégé, avec une petite fontaine. Une inscription explique comment la cloche recevait sa protection. Tu peux examiner ce souvenir pour découvrir une seconde manière de réveiller le domaine, ou suivre le plan vers le coffre qui enferme la cloche. Tu ne sais pas encore qui a lancé le sort, mais l'inscription donne un renseignement utile : la cloche doit être libérée avant de sonner. La frapper à travers son coffre ne suffirait pas. Tu regardes le dessin et les accès réels. Un secret de la fée pourrait aider, à condition de ne pas retarder trop longtemps l'intervention principale.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_6_0",
+          "text": "Lire l’inscription du jardin jusqu’au bout",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu découvres un contre-sort complémentaire, lié à l’eau de la petite fontaine. Tu notes les mots.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’inscription est en partie effacée. Tu conserves quelques indications sans certitude sur leur usage.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les dernières lignes sont illisibles. Tu poursuis vers la cloche avec le plan du domaine.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_6_1",
+          "text": "Rejoindre le coffre de la cloche sans attendre",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu retiens les accès du plan et rejoins rapidement le passage de la salle centrale.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais dois contourner un dormeur. Tu le couvres avant de reprendre le chemin.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une porte est envahie de ronces. Tu rejoins un accès voisin en suivant le mur.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_7",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "La grille des ronces",
+      "text": "Une grille sépare le poste de la salle centrale. Elle porte un cadenas ; une corde retient son battant sous le poids des branches. Tu repères le crochet de sécurité derrière les barreaux. Ton objet pourrait libérer l'attache et permettre d'écarter les ronces. Tu peux aussi employer la manivelle du palier pour lever lentement la grille, puis la soutenir avec une cale. Dans les deux cas, il faut regarder ce qui tombera lorsque les branches bougeront. Un jeune cuisinier dort près du mur voisin. Tu déplaces d'abord les objets qui pourraient rouler vers lui. La cloche attend de l'autre côté, mais ta mission consiste aussi à protéger les habitants pendant la tentative de réveil.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu libères la grille et écartes les branches. L’accès à la salle centrale devient praticable.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille s’ouvre, mais une branche tombe. Tu la retires du passage avant de continuer.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’attache résiste. Un espace latéral permet d’entrer sans déplacer la grille au-dessus du dormeur.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_7_1",
+          "text": "Lever la grille et soutenir les branches",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La grille est calée et les ronces restent en hauteur. Tu passes sans déranger le cuisinier.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille monte lentement. Tu dégages un espace suffisant et marques l’endroit fragile.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La manivelle se bloque. Tu trouves une porte de service qui évite le poids des ronces.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_8",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Préparer le réveil",
+      "text": "La salle centrale contient plusieurs habitants endormis sur des bancs. Le coffre de la cloche se trouve derrière l'estrade. Avant de l'ouvrir, tu peux dégager les ronces autour des personnes qui se réveilleront, ou préparer le contre-sort en rassemblant les pages utiles. Tu ne veux pas que quelqu'un se lève brusquement près d'une marche encombrée. Tu vérifies aussi les chandelles, car une flamme ne doit pas reprendre près d'un rideau tombé. Le sort peut être rompu, mais le réveil demandera ensuite de l'eau, des explications et un chemin libre. Tu réfléchis à ce que tu pourras faire avec les moyens présents. La tâche la plus urgente est celle qui rendra la prochaine intervention plus sûre pour tout le monde.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_8_0",
+          "text": "Dégager les ronces autour des dormeurs",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu libères les bancs et les marches. Les habitants pourront se lever sans rester pris dans les branches.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu dégages les bancs, mais un rideau se déchire. Tu le mets à l’écart avant de poursuivre.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les grandes branches résistent. Tu libères au moins les pieds des bancs et marques les obstacles.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_8_1",
+          "text": "Préparer les pages et l’eau nécessaires au contre-sort",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les pages sont dans le bon ordre et l’eau est prête. Tu peux poursuivre sans chercher tes affaires.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les pages sont prêtes, mais une cruche est fendue. Tu en trouves une autre près de l’entrée.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une page manque. Tu conserves la formule principale et prépares une méthode simple avec la cloche.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_9",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La cause du sommeil",
+      "text": "Sur un pupitre voisin, un journal explique comment le sommeil a atteint le domaine. Tu retrouves le dessin du coffret et les mots de l'enchantement. Le responsable a voulu garder le secret, mais ses notes sont restées sur place. Tu peux conserver une preuve pour les habitants ou comparer les deux formules afin de vérifier l'ordre des gestes. Tu ne prononces rien avant d'avoir terminé la lecture. Les dormeurs n'ont pas choisi ce qui leur arrive. Le réveil doit les délivrer sans demander une nouvelle promesse à leur place. Tu ranges les documents dangereux séparément des pages utiles. Le domaine n'a pas besoin d'un autre sort : il a besoin que celui-ci cesse et que son histoire soit comprise.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_9_0",
+          "text": "Garder une preuve pour les habitants",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu conserves une page signée. Au réveil, les habitants sauront qui a causé leur sommeil.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu emportes la preuve, mais une marge manque. Le nom et la description du sort restent lisibles.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le journal est fixé au pupitre. Tu recopies la signature et les renseignements essentiels.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_9_1",
+          "text": "Vérifier l’ordre du contre-sort avant d’agir",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu confirmes les gestes : ouvrir le coffret, libérer la cloche, puis la faire sonner dans la salle.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La comparaison révèle un mot douteux. Tu choisis la procédure simple indiquée par la fée protectrice.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les formules ne concordent pas. Le dessin confirme néanmoins que la cloche doit d’abord être sortie.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_10",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Le coffret derrière l’estrade",
+      "text": "Tu peux maintenant approcher le coffre de la cloche. Les ronces autour de l'estrade forment un obstacle plus épais que les autres. Tu peux les écarter en plaçant des planches contre les branches, ou emprunter une porte latérale pour arriver derrière le coffre. Le coffret porte la marque de {revelation_actor}. Il ne suffit donc pas de le renverser : il faut défaire son attache sans abîmer la cloche. Tu observes la poignée, la corde et les petites ouvertures du cadre. Le domaine reste silencieux, mais tu as désormais une méthode. Tu vérifies encore l'accès des dormeurs les plus proches, afin que le réveil ne les laisse pas enfermés derrière les mêmes ronces qui t'ont ralenti.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_10_0",
+          "text": "Écarter les branches avec des planches",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les planches maintiennent les ronces. Tu rejoins le coffre avec un accès dégagé vers les bancs.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu dégages l’estrade, mais une planche craque. Tu ajoutes un appui avant d’approcher le coffret.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les branches sont trop fortes. Tu passes par le côté et prépares une ouverture plus petite.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_10_1",
+          "text": "Contourner l’estrade par la porte latérale",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La porte latérale est accessible. Tu atteins le dos du coffre sans traverser les ronces épaisses.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes, mais des racines gênent la porte. Tu la cales pour garder une sortie.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La porte est fermée. Une ouverture près du mur permet tout de même de rejoindre le coffret.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_11",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Libérer la cloche",
+      "text": "La cloche repose dans un coffre muni d'une serrure et d'une corde nouée. Un crochet intérieur maintient le couvercle. Les pointes du cadre rendent difficile une intervention à main nue. Ton objet pourrait t'aider à ouvrir l'accès, puis tu devras vérifier que la cloche est intacte. Une autre possibilité consiste à employer le petit outil de réglage posé près du pupitre, en protégeant ta main avec du tissu. Tu n'as pas besoin de casser le coffre pour te prouver courageux. Tu cherches à libérer une cloche qui pourra servir aujourd'hui et rester utile ensuite. Si l'attache résiste, tu connais sa forme et pourras faire venir une personne plus expérimentée. Tu prépares ton geste en gardant le contre-sort à portée de main.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le coffre s’ouvre. Tu libères la cloche et vérifies que son battant peut bouger.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu ouvres le couvercle, mais une attache reste serrée. Tu la marques pour terminer avec prudence.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le coffre résiste. Tu dégages son cadre et prépares l’accès pour l’équipe qui viendra aider.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_11_1",
+          "text": "Employer l’outil de réglage avec une protection de tissu",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’outil dégage le crochet. Tu sors la cloche sans endommager son battant.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le crochet se desserre lentement. La cloche est accessible, mais il faudra encore défaire une courroie.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’outil est trop court. Tu prépares un accès précis pour que l’équipe termine l’ouverture.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_12",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Sonner dans la salle",
+      "text": "Tu connais les gestes du réveil. Si une attache résiste encore, l'équipe appelée pourra la terminer sans chercher au hasard. Tu peux préparer une sonnerie depuis le centre de la salle, ou commencer près des portes pour guider les habitants au fur et à mesure. Dans les deux cas, la cloche doit être libre et les mots du contre-sort doivent rester fidèles aux instructions. Tu observes les bancs, les marches et l'eau préparée. {revelation_actor} n'a pas le droit de décider combien de temps les habitants dormiront. Tu veux les réveiller, puis leur expliquer ce qui s'est passé. Tu choisis l'organisation de cette dernière étape en gardant une place pour les personnes qui aideront à finir le travail si nécessaire.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_12_0",
+          "text": "Préparer la sonnerie depuis le centre de la salle",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La cloche sonne avec le contre-sort. Les premiers habitants ouvrent les yeux et se redressent calmement.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La sonnerie réveille une partie de la salle. Tu fais répéter le signal vers les pièces voisines.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La première sonnerie ne suffit pas. Tu montres aux aides l’ordre des gestes pour reprendre le contre-sort.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_12_1",
+          "text": "Organiser le réveil depuis les portes et les abris",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le réveil commence près des accès dégagés. Les habitants éveillés aident ensuite ceux des pièces voisines.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les premiers dormeurs se réveillent lentement. Tu prépares de l’eau pendant que le signal continue.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le réveil reste incomplet. L’équipe reprend les attaches et la formule avec les renseignements que tu as conservés.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_5b",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "La réserve des couvertures",
+      "text": "Le passage bas rejoint une réserve où sont rangés des draps, des couvertures et des cruches. {encounter_name} t'y retrouve après avoir suivi un accès voisin. Vous pouvez préparer de quoi aider les dormeurs lorsqu'ils se réveilleront. Tu peux aussi demander à {encounter_name} de t'accompagner jusqu'à la cloche, avec quelques objets utiles. Une porte de service conduit à la salle centrale. Vous vérifiez qu'elle reste libre et choisissez un signal pour le retour. Tu ne veux pas emporter tout le contenu de la réserve : les habitants en auront besoin. Vous prenez seulement ce qui sert à la prochaine étape et laissez le reste bien rangé, pour qu'une équipe puisse s'y retrouver après vous.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_5b_0",
+          "text": "Poursuivre ensemble avec le matériel utile",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous choisissez une couverture et une corde. {encounter_name} t’accompagne vers la salle centrale.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous partez ensemble, mais un paquet gêne le couloir. Vous le rangez avant d’avancer.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le couloir impose de passer seul. {encounter_name} prépare la réserve pendant que tu continues.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_5b_1",
+          "text": "Confier l’accueil des dormeurs à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La réserve devient un abri prêt pour le réveil. Tu poursuis avec un retour surveillé.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’accueil se prépare, mais une cruche manque. Tu continues pendant que l’eau est rassemblée.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La réserve est trop encombrée. {encounter_name} dégage un abri voisin pendant que tu avances.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_secret",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "L’eau de la petite fontaine",
+      "ending": "secret",
+      "text": "Le contre-sort découvert près du jardin complète la sonnerie de la cloche. Avec les aides, tu portes un peu d'eau de la fontaine dans les pièces où le sommeil résiste encore. Les derniers habitants se réveillent et demandent quel jour on est. Tu leur expliques le sort, puis montres les documents conservés. Le jardin de la fée sera protégé et la cloche ne restera plus enfermée dans un coffre dont personne ne connaît l'ouverture. Une cuisinière te sert une soupe en écoutant ton récit. Le domaine reprend ses bruits ordinaires : les portes, les conversations et les pas. Tu préfères ces sons au silence qui semblait si mystérieux à ton arrivée.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_alliance",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le réveil partagé",
+      "ending": "alliance",
+      "text": "Avec {encounter_name}, tu aides les habitants à se relever et à retrouver leurs affaires. Les premiers réveillés apportent de l'eau aux autres. Les aides terminent les attaches encore serrées et répètent le contre-sort dans les pièces éloignées. Les habitants remercient les personnes qui ont préparé leurs abris pendant le sommeil. Tu racontes comment vous avez choisi vos tâches, convenu d'un signal et conservé les pages utiles. {encounter_name} retrouve ensuite son sac dans la réserve. Avant de repartir, vous entendez le portier rire de s'être réveillé avec une couverture inconnue sur les épaules.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_radiant",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Roncelune ouvre ses portes",
+      "ending": "radiant",
+      "text": "La cloche de Roncelune sonne au-dessus des conversations retrouvées. Les jardiniers coupent les ronces, le portier ouvre la grille et les cuisiniers vérifient les provisions. Les habitants découvrent le responsable du sort grâce aux documents que tu as rapportés. Ils décident de conserver la cloche dans un endroit accessible, avec une copie du contre-sort. Tu te reposes près de la petite fontaine. Tout le domaine n'est pas devenu parfait en un instant : il reste du rangement et des branches à enlever. Mais chacun peut désormais choisir son travail, son repas et son prochain voyage. Tu quittes Roncelune au milieu des salutations, heureux d'avoir rendu aux habitants le temps qui leur avait été pris.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_cost",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Les dernières chambres",
+      "ending": "cost",
+      "text": "Le réveil commence dans la salle centrale, puis les aides se rendent dans les chambres où le sort reste plus fort. Tu leur donnes les pages, le dessin du coffret et les indications sur les accès. Quelques attaches demandent des outils supplémentaires, et les ronces ne disparaissent pas toutes seules. Le travail se poursuit jusqu'au lendemain. Les premiers habitants éveillés préparent les repas et surveillent leurs voisins. Tu expliques les difficultés sans cacher les essais manqués. Quand la dernière chambre retrouve des conversations, le domaine fait sonner la cloche trois fois. Ton aventure n'a pas tout résolu immédiatement. Elle a trouvé la procédure qui permettait de continuer avec de bonnes raisons d'espérer.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_resilient",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le contre-sort retrouvé",
+      "ending": "resilient",
+      "text": "Tu guides une équipe jusqu'au coffret et lui montres les documents. Les adultes apportent les outils qui manquaient pour libérer la cloche. Tu reconnais les passages sûrs et les endroits où le domaine doit encore être dégagé. Le contre-sort est repris dans le bon ordre, et les habitants se réveillent peu à peu. Tu restes pour expliquer les preuves plutôt que pour prétendre avoir tout fait seul. Le portier te remercie d'avoir couvert ses épaules au début du voyage. Ce petit geste lui importe autant que la grande sonnerie. Au départ, tu entends les habitants décider comment protéger leur cloche : désormais, le moyen de rompre le sort ne sera plus oublié.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

@@ -1,0 +1,855 @@
+{
+  "id": "roi_grenouille",
+  "title": "Le roi-grenouille ou Henri-le-Ferré",
+  "author": "Jacob et Wilhelm Grimm",
+  "illustrated": false,
+  "narrative_person": 3,
+  "decision_count": 10,
+  "start": "roi_grenouille_01",
+  "choice_question": "Que doit faire la princesse ?",
+  "library_label": "Le conte des Grimm",
+  "open_label": "Ouvrir le Roi-grenouille",
+  "library_description": "Le conte original, à la troisième personne, avec deux choix à chaque étape.",
+  "ending_notice": "Fin du conte · Le roi-grenouille ou Henri-le-Ferré.",
+  "restart_label": "Rejouer ce conte",
+  "audio_lead_in_ms": 0,
+  "embedded_lead_in_ms": 1000,
+  "source": {
+    "file": "contesdesfreresGrimm.pdf",
+    "pages": [
+      14,
+      15
+    ],
+    "canonical_text": "content/authored/books/roi_grenouille_source.txt",
+    "adaptation": "Texte conservé, corrections de césures PDF et de typographie ; ajouts limités aux choix et raccords.",
+    "canonical_sha256": "e4546bea9172c16ef4167df251202f142f52327dde3b35b9d3eae64e82e54a09",
+    "sha256": "fcd52250dc3b6143e780fdcf63c805b486ff47ce3816d0f1d5600f197e42850b"
+  },
+  "customization_note": "La princesse, la forêt, la fontaine et la balle d’or sont conservées pour respecter le conte.",
+  "scenes": [
+    {
+      "id": "roi_grenouille_01",
+      "title": "La balle dans la fontaine",
+      "rank": 1,
+      "kind": "decision",
+      "text": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, vivait un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant tant vu, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'était son jeu favori.\n\nIl arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort ; elle était inconsolable. Comme elle gémissait ainsi, quelqu'un lui cria : « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Montrer l’endroit où la balle a disparu",
+          "consequence": "La princesse désigna du regard l’endroit où la balle avait disparu ; ses larmes n’avaient pas encore séché.",
+          "next": "roi_grenouille_02",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"tristesse\" speaker=\"narrateur\">La princesse désigna du regard l’endroit où la balle avait disparu ; ses larmes n’avaient pas encore séché.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse désigna du regard l’endroit où la balle avait disparu ; ses larmes n’avaient pas encore séché.",
+              "speaker": "narrateur",
+              "emotion": "tristesse"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Raconter comment la balle est tombée dans la fontaine",
+          "consequence": "La princesse essuya ses joues et chercha ses mots pour raconter la perte de son jouet.",
+          "next": "roi_grenouille_02",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"tristesse\" speaker=\"narrateur\">La princesse essuya ses joues et chercha ses mots pour raconter la perte de son jouet.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse essuya ses joues et chercha ses mots pour raconter la perte de son jouet.",
+              "speaker": "narrateur",
+              "emotion": "tristesse"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        14
+      ],
+      "values": {},
+      "variants": [],
+      "audio_spans": [
+        {
+          "text": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, vivait un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant tant vu, s'étonnait chaque fois qu'il illuminait son visage.",
+          "speaker": "narrateur",
+          "emotion": "emerveillement"
+        },
+        {
+          "text": "Non loin du château du roi, il y avait une grande et sombre forêt et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'était son jeu favori.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort ; elle était inconsolable.",
+          "speaker": "narrateur",
+          "emotion": "tristesse"
+        },
+        {
+          "text": "Comme elle gémissait ainsi, quelqu'un lui cria : « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? »",
+          "speaker": "narrateur puis grenouille",
+          "emotion": "tendresse"
+        },
+        {
+          "text": "Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        }
+      ],
+      "audio_markup": "<voix emotion=\"emerveillement\" speaker=\"narrateur\">Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, vivait un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant tant vu, s'étonnait chaque fois qu'il illuminait son visage.</voix> <voix emotion=\"neutral\" speaker=\"narrateur\">Non loin du château du roi, il y avait une grande et sombre forêt et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'était son jeu favori.</voix>\n\n<voix emotion=\"tristesse\" speaker=\"narrateur\">Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort ; elle était inconsolable.</voix> <voix emotion=\"tendresse\" speaker=\"narrateur puis grenouille\">Comme elle gémissait ainsi, quelqu'un lui cria : « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? »</voix> <voix emotion=\"surprise\" speaker=\"narrateur\">Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Montrer l’endroit où la balle a disparu. Ou choix 2 : Raconter comment la balle est tombée dans la fontaine.</voix>",
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Montrer l’endroit où la balle a disparu. Ou choix 2 : Raconter comment la balle est tombée dans la fontaine.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_02",
+      "title": "Le marché de la grenouille",
+      "rank": 2,
+      "kind": "decision",
+      "text": "« Ah ! c'est toi, vieille barboteuse ! » dit-elle, « je pleure ma balle d'or qui est tombée dans la fontaine. » - « Tais-toi et ne pleure plus, » dit la grenouille, « je vais t'aider. Mais que me donneras-tu si je te rapporte ton jouet ? » - « Ce que tu voudras, chère grenouille, » répondit-elle, « mes habits, mes perles et mes diamants et même la couronne d'or que je porte sur la tête. » - « Je ne veux ni de tes perles, ni de tes diamants, ni de ta couronne. Mais, si tu acceptes de m'aimer, si tu me prends comme compagne et camarade de jeux, si je peux m'asseoir à ta table à côté de toi, manger dans ton assiette, boire dans ton gobelet et dormir dans ton lit, si tu me promets tout cela, je plongerai au fond de la source et te rendrai ta balle. »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Répondre aussitôt, en ne pensant qu’à sa balle",
+          "consequence": "La seule idée de retrouver sa balle lui faisait oublier les exigences de la grenouille.",
+          "next": "roi_grenouille_03",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"joie\" speaker=\"narrateur\">La seule idée de retrouver sa balle lui faisait oublier les exigences de la grenouille.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La seule idée de retrouver sa balle lui faisait oublier les exigences de la grenouille.",
+              "speaker": "narrateur",
+              "emotion": "joie"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Observer la grenouille un instant avant de répondre",
+          "consequence": "La princesse regarda la grenouille au bord de l’eau et pesa un instant sa demande.",
+          "next": "roi_grenouille_03",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">La princesse regarda la grenouille au bord de l’eau et pesa un instant sa demande.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse regarda la grenouille au bord de l’eau et pesa un instant sa demande.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        14
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"tristesse\" speaker=\"princesse\">« Ah ! c'est toi, vieille barboteuse ! » dit-elle, « je pleure ma balle d'or qui est tombée dans la fontaine. »</voix> <voix emotion=\"tendresse\" speaker=\"grenouille\">- « Tais-toi et ne pleure plus, » dit la grenouille, « je vais t'aider. Mais que me donneras-tu si je te rapporte ton jouet ? »</voix> <voix emotion=\"joie\" speaker=\"princesse\">- « Ce que tu voudras, chère grenouille, » répondit-elle, « mes habits, mes perles et mes diamants et même la couronne d'or que je porte sur la tête. »</voix> <voix emotion=\"determination\" speaker=\"grenouille\">- « Je ne veux ni de tes perles, ni de tes diamants, ni de ta couronne. Mais, si tu acceptes de m'aimer, si tu me prends comme compagne et camarade de jeux, si je peux m'asseoir à ta table à côté de toi, manger dans ton assiette, boire dans ton gobelet et dormir dans ton lit, si tu me promets tout cela, je plongerai au fond de la source et te rendrai ta balle. »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Répondre aussitôt, en ne pensant qu’à sa balle. Ou choix 2 : Observer la grenouille un instant avant de répondre.</voix>",
+      "audio_spans": [
+        {
+          "text": "« Ah ! c'est toi, vieille barboteuse ! » dit-elle, « je pleure ma balle d'or qui est tombée dans la fontaine. »",
+          "speaker": "princesse",
+          "emotion": "tristesse"
+        },
+        {
+          "text": "- « Tais-toi et ne pleure plus, » dit la grenouille, « je vais t'aider. Mais que me donneras-tu si je te rapporte ton jouet ? »",
+          "speaker": "grenouille",
+          "emotion": "tendresse"
+        },
+        {
+          "text": "- « Ce que tu voudras, chère grenouille, » répondit-elle, « mes habits, mes perles et mes diamants et même la couronne d'or que je porte sur la tête. »",
+          "speaker": "princesse",
+          "emotion": "joie"
+        },
+        {
+          "text": "- « Je ne veux ni de tes perles, ni de tes diamants, ni de ta couronne. Mais, si tu acceptes de m'aimer, si tu me prends comme compagne et camarade de jeux, si je peux m'asseoir à ta table à côté de toi, manger dans ton assiette, boire dans ton gobelet et dormir dans ton lit, si tu me promets tout cela, je plongerai au fond de la source et te rendrai ta balle. »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Répondre aussitôt, en ne pensant qu’à sa balle. Ou choix 2 : Observer la grenouille un instant avant de répondre.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_03",
+      "title": "Une promesse aussitôt oubliée",
+      "rank": 3,
+      "kind": "decision",
+      "text": "- « Mais oui, » dit-elle, « je te promets tout ce que tu veux à condition que tu me retrouves ma balle. » Elle se disait : Elle vit là, dans l'eau avec les siens et coasse. Comment serait-elle la compagne d'un être humain ?\n\nQuand la grenouille eut obtenu sa promesse, elle mit la tête sous l'eau, plongea et, peu après, réapparut en tenant la balle entre ses lèvres. Elle la jeta sur l'herbe. En retrouvant son beau jouet, la fille du roi fut folle de joie. Elle le ramassa et partit en courant. « Attends ! Attends ! » cria la grenouille. « Emmène-moi ! Je ne peux pas courir aussi vite que toi ! »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Continuer à courir vers le château",
+          "consequence": "La balle enfin retrouvée, la princesse ne ralentit pas.",
+          "next": "roi_grenouille_04",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"joie\" speaker=\"narrateur\">La balle enfin retrouvée, la princesse ne ralentit pas.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La balle enfin retrouvée, la princesse ne ralentit pas.",
+              "speaker": "narrateur",
+              "emotion": "joie"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Jeter un regard en arrière sans s’arrêter",
+          "consequence": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+          "next": "roi_grenouille_04",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        14
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"joie\" speaker=\"princesse\">- « Mais oui, » dit-elle, « je te promets tout ce que tu veux à condition que tu me retrouves ma balle. »</voix> <voix emotion=\"malice\" speaker=\"pensée de la princesse\">Elle se disait : Elle vit là, dans l'eau avec les siens et coasse. Comment serait-elle la compagne d'un être humain ?</voix>\n\n<voix emotion=\"neutral\" speaker=\"narrateur\">Quand la grenouille eut obtenu sa promesse, elle mit la tête sous l'eau, plongea et, peu après, réapparut en tenant la balle entre ses lèvres. Elle la jeta sur l'herbe.</voix> <voix emotion=\"joie\" speaker=\"narrateur\">En retrouvant son beau jouet, la fille du roi fut folle de joie. Elle le ramassa et partit en courant.</voix> <voix emotion=\"determination\" speaker=\"grenouille\">« Attends ! Attends ! » cria la grenouille. « Emmène-moi ! Je ne peux pas courir aussi vite que toi ! »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Continuer à courir vers le château. Ou choix 2 : Jeter un regard en arrière sans s’arrêter.</voix>",
+      "audio_spans": [
+        {
+          "text": "- « Mais oui, » dit-elle, « je te promets tout ce que tu veux à condition que tu me retrouves ma balle. »",
+          "speaker": "princesse",
+          "emotion": "joie"
+        },
+        {
+          "text": "Elle se disait : Elle vit là, dans l'eau avec les siens et coasse. Comment serait-elle la compagne d'un être humain ?",
+          "speaker": "pensée de la princesse",
+          "emotion": "malice"
+        },
+        {
+          "text": "Quand la grenouille eut obtenu sa promesse, elle mit la tête sous l'eau, plongea et, peu après, réapparut en tenant la balle entre ses lèvres. Elle la jeta sur l'herbe.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "En retrouvant son beau jouet, la fille du roi fut folle de joie. Elle le ramassa et partit en courant.",
+          "speaker": "narrateur",
+          "emotion": "joie"
+        },
+        {
+          "text": "« Attends ! Attends ! » cria la grenouille. « Emmène-moi ! Je ne peux pas courir aussi vite que toi ! »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Continuer à courir vers le château. Ou choix 2 : Jeter un regard en arrière sans s’arrêter.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_04",
+      "title": "La visite au château",
+      "rank": 4,
+      "kind": "decision",
+      "text": "Mais il ne lui servit à rien de pousser ses 'coâ ! coâ ! coâ !' aussi fort qu'elle pouvait. La jeune fille ne l'écoutait pas. Elle se hâtait de rentrer à la maison et bientôt la pauvre grenouille fut oubliée. Il ne lui restait plus qu'à replonger dans la fontaine.\n\nLe lendemain, comme la petite princesse était à table, mangeant dans sa jolie assiette d'or, avec le roi et tous les gens de la Cour, on entendit - plouf ! plouf ! plouf ! plouf ! - quelque chose qui montait l'escalier de marbre. Puis on frappa à la porte et une voix dit : « Fille du roi, la plus jeune, ouvre-moi ! » Elle se leva de table pour voir qui était là. Quand elle ouvrit, elle aperçut la grenouille. Elle repoussa bien vite la porte et alla reprendre sa place. Elle avait très peur. Le roi vit que son cœur battait fort et dit : « Que crains-tu, mon enfant ? Y aurait-il un géant derrière la porte, qui viendrait te chercher ? » - « Oh ! non, » répondit-elle, « ce n'est pas un géant, mais une vilaine grenouille. » - « Que te veut cette grenouille ? »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Répondre tout de suite à son père",
+          "consequence": "La princesse se tourna vers son père et répondit sans chercher d’autre excuse.",
+          "next": "roi_grenouille_05",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">La princesse se tourna vers son père et répondit sans chercher d’autre excuse.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse se tourna vers son père et répondit sans chercher d’autre excuse.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Regarder la porte avant de répondre au roi",
+          "consequence": "Elle regarda la porte fermée, puis revint au visage du roi avant de lui répondre.",
+          "next": "roi_grenouille_05",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Elle regarda la porte fermée, puis revint au visage du roi avant de lui répondre.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle regarda la porte fermée, puis revint au visage du roi avant de lui répondre.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        14
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"tristesse\" speaker=\"narrateur\">Mais il ne lui servit à rien de pousser ses 'coâ ! coâ ! coâ !' aussi fort qu'elle pouvait. La jeune fille ne l'écoutait pas. Elle se hâtait de rentrer à la maison et bientôt la pauvre grenouille fut oubliée. Il ne lui restait plus qu'à replonger dans la fontaine.</voix>\n\n<voix emotion=\"neutral\" speaker=\"narrateur\">Le lendemain, comme la petite princesse était à table, mangeant dans sa jolie assiette d'or, avec le roi et tous les gens de la Cour, on entendit - plouf ! plouf ! plouf ! plouf ! - quelque chose qui montait l'escalier de marbre.</voix> <voix emotion=\"determination\" speaker=\"grenouille\">Puis on frappa à la porte et une voix dit : « Fille du roi, la plus jeune, ouvre-moi ! »</voix> <voix emotion=\"peur\" speaker=\"narrateur\">Elle se leva de table pour voir qui était là. Quand elle ouvrit, elle aperçut la grenouille. Elle repoussa bien vite la porte et alla reprendre sa place. Elle avait très peur.</voix> <voix emotion=\"tendresse\" speaker=\"roi\">Le roi vit que son cœur battait fort et dit : « Que crains-tu, mon enfant ? Y aurait-il un géant derrière la porte, qui viendrait te chercher ? »</voix> <voix emotion=\"peur\" speaker=\"princesse\">- « Oh ! non, » répondit-elle, « ce n'est pas un géant, mais une vilaine grenouille. »</voix> <voix emotion=\"neutral\" speaker=\"roi\">- « Que te veut cette grenouille ? »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Répondre tout de suite à son père. Ou choix 2 : Regarder la porte avant de répondre au roi.</voix>",
+      "audio_spans": [
+        {
+          "text": "Mais il ne lui servit à rien de pousser ses 'coâ ! coâ ! coâ !' aussi fort qu'elle pouvait. La jeune fille ne l'écoutait pas. Elle se hâtait de rentrer à la maison et bientôt la pauvre grenouille fut oubliée. Il ne lui restait plus qu'à replonger dans la fontaine.",
+          "speaker": "narrateur",
+          "emotion": "tristesse"
+        },
+        {
+          "text": "Le lendemain, comme la petite princesse était à table, mangeant dans sa jolie assiette d'or, avec le roi et tous les gens de la Cour, on entendit - plouf ! plouf ! plouf ! plouf ! - quelque chose qui montait l'escalier de marbre.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Puis on frappa à la porte et une voix dit : « Fille du roi, la plus jeune, ouvre-moi ! »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        },
+        {
+          "text": "Elle se leva de table pour voir qui était là. Quand elle ouvrit, elle aperçut la grenouille. Elle repoussa bien vite la porte et alla reprendre sa place. Elle avait très peur.",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        },
+        {
+          "text": "Le roi vit que son cœur battait fort et dit : « Que crains-tu, mon enfant ? Y aurait-il un géant derrière la porte, qui viendrait te chercher ? »",
+          "speaker": "roi",
+          "emotion": "tendresse"
+        },
+        {
+          "text": "- « Oh ! non, » répondit-elle, « ce n'est pas un géant, mais une vilaine grenouille. »",
+          "speaker": "princesse",
+          "emotion": "peur"
+        },
+        {
+          "text": "- « Que te veut cette grenouille ? »",
+          "speaker": "roi",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Répondre tout de suite à son père. Ou choix 2 : Regarder la porte avant de répondre au roi.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_05",
+      "title": "La promesse rappelée",
+      "rank": 5,
+      "kind": "decision",
+      "text": "- « Ah ! cher père, hier, comme j'étais au bord de la fontaine et que je jouais avec ma balle d'or, celle-ci tomba dans l'eau. Parce que je pleurais bien fort, la grenouille me l'a rapportée. Et comme elle me le demandait avec insistance, je lui ai promis qu'elle deviendrait ma compagne. Mais je ne pensais pas qu'elle sortirait de son eau. Et voilà qu'elle est là dehors et veut venir auprès de moi. » Sur ces entrefaites, on frappa une seconde fois à la porte et une voix dit : « Fille du roi, la plus jeune,\nOuvre-moi !\nNe sais-tu plus ce qu'hier\nAu bord de la fontaine fraîche\nTu me promis ?\nFille du roi, la plus jeune,\nOuvre-moi ! »\n\nLe roi dit alors : « Ce que tu as promis, il faut le faire. Va et ouvre ! »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Accepter l’ordre sans discuter davantage",
+          "consequence": "Elle ne répondit plus à l’ordre de son père.",
+          "next": "roi_grenouille_06",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Elle ne répondit plus à l’ordre de son père.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle ne répondit plus à l’ordre de son père.",
+              "speaker": "narrateur",
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Chercher une dernière fois un appui dans son regard",
+          "consequence": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+          "next": "roi_grenouille_06",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        14,
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"princesse\">- « Ah ! cher père, hier, comme j'étais au bord de la fontaine et que je jouais avec ma balle d'or, celle-ci tomba dans l'eau. Parce que je pleurais bien fort, la grenouille me l'a rapportée. Et comme elle me le demandait avec insistance, je lui ai promis qu'elle deviendrait ma compagne. Mais je ne pensais pas qu'elle sortirait de son eau. Et voilà qu'elle est là dehors et veut venir auprès de moi. »</voix> <voix emotion=\"neutral\" speaker=\"narrateur\">Sur ces entrefaites, on frappa une seconde fois à la porte et une voix dit :</voix> <voix emotion=\"determination\" speaker=\"grenouille\">« Fille du roi, la plus jeune,\nOuvre-moi !\nNe sais-tu plus ce qu'hier\nAu bord de la fontaine fraîche\nTu me promis ?\nFille du roi, la plus jeune,\nOuvre-moi ! »</voix>\n\n<voix emotion=\"determination\" speaker=\"roi\">Le roi dit alors : « Ce que tu as promis, il faut le faire. Va et ouvre ! »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Accepter l’ordre sans discuter davantage. Ou choix 2 : Chercher une dernière fois un appui dans son regard.</voix>",
+      "audio_spans": [
+        {
+          "text": "- « Ah ! cher père, hier, comme j'étais au bord de la fontaine et que je jouais avec ma balle d'or, celle-ci tomba dans l'eau. Parce que je pleurais bien fort, la grenouille me l'a rapportée. Et comme elle me le demandait avec insistance, je lui ai promis qu'elle deviendrait ma compagne. Mais je ne pensais pas qu'elle sortirait de son eau. Et voilà qu'elle est là dehors et veut venir auprès de moi. »",
+          "speaker": "princesse",
+          "emotion": "peur"
+        },
+        {
+          "text": "Sur ces entrefaites, on frappa une seconde fois à la porte et une voix dit :",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "« Fille du roi, la plus jeune,\nOuvre-moi !\nNe sais-tu plus ce qu'hier\nAu bord de la fontaine fraîche\nTu me promis ?\nFille du roi, la plus jeune,\nOuvre-moi ! »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        },
+        {
+          "text": "Le roi dit alors : « Ce que tu as promis, il faut le faire. Va et ouvre ! »",
+          "speaker": "roi",
+          "emotion": "determination"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Accepter l’ordre sans discuter davantage. Ou choix 2 : Chercher une dernière fois un appui dans son regard.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_06",
+      "title": "À la table du roi",
+      "rank": 6,
+      "kind": "decision",
+      "text": "Elle se leva et ouvrit la porte. La grenouille sautilla dans la salle, toujours sur ses talons, jusqu'à sa chaise. Là, elle s'arrêta et dit : « Prends-moi auprès de toi ! » La princesse hésita. Mais le roi lui donna l'ordre d'obéir. Quand la grenouille fut installée sur la chaise, elle demanda à monter sur la table. Et quand elle y fut, elle dit : « Approche ta petite assiette d'or, nous allons y manger ensemble. »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Baisser les yeux vers l’assiette",
+          "consequence": "La princesse baissa les yeux vers la table, en évitant de regarder sa compagne.",
+          "next": "roi_grenouille_07",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">La princesse baissa les yeux vers la table, en évitant de regarder sa compagne.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse baissa les yeux vers la table, en évitant de regarder sa compagne.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Rester droite sur sa chaise pour approcher l’assiette",
+          "consequence": "Elle resta raide sur sa chaise et posa les doigts au bord de l’assiette.",
+          "next": "roi_grenouille_07",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Elle resta raide sur sa chaise et posa les doigts au bord de l’assiette.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle resta raide sur sa chaise et posa les doigts au bord de l’assiette.",
+              "speaker": "narrateur",
+              "emotion": "determination"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Elle se leva et ouvrit la porte. La grenouille sautilla dans la salle, toujours sur ses talons, jusqu'à sa chaise.</voix> <voix emotion=\"determination\" speaker=\"grenouille\">Là, elle s'arrêta et dit : « Prends-moi auprès de toi ! »</voix> <voix emotion=\"determination\" speaker=\"narrateur\">La princesse hésita. Mais le roi lui donna l'ordre d'obéir.</voix> <voix emotion=\"neutral\" speaker=\"narrateur\">Quand la grenouille fut installée sur la chaise, elle demanda à monter sur la table.</voix> <voix emotion=\"determination\" speaker=\"grenouille\">Et quand elle y fut, elle dit : « Approche ta petite assiette d'or, nous allons y manger ensemble. »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Baisser les yeux vers l’assiette. Ou choix 2 : Rester droite sur sa chaise pour approcher l’assiette.</voix>",
+      "audio_spans": [
+        {
+          "text": "Elle se leva et ouvrit la porte. La grenouille sautilla dans la salle, toujours sur ses talons, jusqu'à sa chaise.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Là, elle s'arrêta et dit : « Prends-moi auprès de toi ! »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        },
+        {
+          "text": "La princesse hésita. Mais le roi lui donna l'ordre d'obéir.",
+          "speaker": "narrateur",
+          "emotion": "determination"
+        },
+        {
+          "text": "Quand la grenouille fut installée sur la chaise, elle demanda à monter sur la table.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Et quand elle y fut, elle dit : « Approche ta petite assiette d'or, nous allons y manger ensemble. »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Baisser les yeux vers l’assiette. Ou choix 2 : Rester droite sur sa chaise pour approcher l’assiette.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_07",
+      "title": "La demande de la grenouille",
+      "rank": 7,
+      "kind": "decision",
+      "text": "La princesse fit ce qu'on voulait, mais c'était malgré tout de mauvais cœur. La grenouille mangea de bon appétit ; quant à la princesse, chaque bouchée lui restait au travers de la gorge. À la fin, la grenouille dit : « J'ai mangé à satiété ; maintenant, je suis fatiguée. Conduis-moi dans ta chambrette et prépare ton lit de soie ; nous allons dormir. » La fille du roi se mit à pleurer ; elle avait peur du contact glacé de la grenouille et n'osait pas la toucher. Et maintenant, elle allait dormir dans son joli lit bien propre ! Mais le roi se fâcha et dit : « Tu n'as pas le droit de mépriser celle qui t'a aidée quand tu étais dans le chagrin. »",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Se résoudre à la porter sans attendre",
+          "consequence": "Elle ne chercha plus de moyen de retarder le départ.",
+          "next": "roi_grenouille_08",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Elle ne chercha plus de moyen de retarder le départ.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle ne chercha plus de moyen de retarder le départ.",
+              "speaker": "narrateur",
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Reprendre son souffle avant de la porter",
+          "consequence": "Elle reprit son souffle pour retenir ses larmes, sans oser contester l’ordre du roi.",
+          "next": "roi_grenouille_08",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Elle reprit son souffle pour retenir ses larmes, sans oser contester l’ordre du roi.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle reprit son souffle pour retenir ses larmes, sans oser contester l’ordre du roi.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">La princesse fit ce qu'on voulait, mais c'était malgré tout de mauvais cœur. La grenouille mangea de bon appétit ; quant à la princesse, chaque bouchée lui restait au travers de la gorge.</voix> <voix emotion=\"neutral\" speaker=\"grenouille\">À la fin, la grenouille dit : « J'ai mangé à satiété ; maintenant, je suis fatiguée. Conduis-moi dans ta chambrette et prépare ton lit de soie ; nous allons dormir. »</voix> <voix emotion=\"peur\" speaker=\"narrateur\">La fille du roi se mit à pleurer ; elle avait peur du contact glacé de la grenouille et n'osait pas la toucher. Et maintenant, elle allait dormir dans son joli lit bien propre !</voix> <voix emotion=\"colere\" speaker=\"roi\">Mais le roi se fâcha et dit : « Tu n'as pas le droit de mépriser celle qui t'a aidée quand tu étais dans le chagrin. »</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Se résoudre à la porter sans attendre. Ou choix 2 : Reprendre son souffle avant de la porter.</voix>",
+      "audio_spans": [
+        {
+          "text": "La princesse fit ce qu'on voulait, mais c'était malgré tout de mauvais cœur. La grenouille mangea de bon appétit ; quant à la princesse, chaque bouchée lui restait au travers de la gorge.",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        },
+        {
+          "text": "À la fin, la grenouille dit : « J'ai mangé à satiété ; maintenant, je suis fatiguée. Conduis-moi dans ta chambrette et prépare ton lit de soie ; nous allons dormir. »",
+          "speaker": "grenouille",
+          "emotion": "neutral"
+        },
+        {
+          "text": "La fille du roi se mit à pleurer ; elle avait peur du contact glacé de la grenouille et n'osait pas la toucher. Et maintenant, elle allait dormir dans son joli lit bien propre !",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        },
+        {
+          "text": "Mais le roi se fâcha et dit : « Tu n'as pas le droit de mépriser celle qui t'a aidée quand tu étais dans le chagrin. »",
+          "speaker": "roi",
+          "emotion": "colere"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Se résoudre à la porter sans attendre. Ou choix 2 : Reprendre son souffle avant de la porter.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_08",
+      "title": "La métamorphose",
+      "rank": 8,
+      "kind": "decision",
+      "text": "La princesse saisit la grenouille entre deux doigts, la monta dans sa chambre et la déposa dans un coin. Quand elle fut couchée, la grenouille sauta près du lit et dit : « Prends-moi, sinon je le dirai à ton père. » La princesse se mit en colère, saisit la grenouille et la projeta de toutes ses forces contre le mur : « Comme ça tu dormiras, affreuse grenouille ! »\n\nMais quand l'animal retomba sur le sol, ce n'était plus une grenouille. Un prince aux beaux yeux pleins d'amitié la regardait.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Regarder le jeune homme qui se tient devant elle",
+          "consequence": "La princesse leva les yeux vers le jeune homme qui se tenait devant elle.",
+          "next": "roi_grenouille_09",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">La princesse leva les yeux vers le jeune homme qui se tenait devant elle.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse leva les yeux vers le jeune homme qui se tenait devant elle.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Regarder d’abord l’endroit où la grenouille est retombée",
+          "consequence": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+          "next": "roi_grenouille_09",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">La princesse saisit la grenouille entre deux doigts, la monta dans sa chambre et la déposa dans un coin.</voix> <voix emotion=\"determination\" speaker=\"grenouille\">Quand elle fut couchée, la grenouille sauta près du lit et dit : « Prends-moi, sinon je le dirai à ton père. »</voix> <voix emotion=\"colere\" speaker=\"princesse\">La princesse se mit en colère, saisit la grenouille et la projeta de toutes ses forces contre le mur : « Comme ça tu dormiras, affreuse grenouille ! »</voix>\n\n<voix emotion=\"surprise\" speaker=\"narrateur\">Mais quand l'animal retomba sur le sol, ce n'était plus une grenouille.</voix> <voix emotion=\"tendresse\" speaker=\"narrateur\">Un prince aux beaux yeux pleins d'amitié la regardait.</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : Regarder le jeune homme qui se tient devant elle. Ou choix 2 : Regarder d’abord l’endroit où la grenouille est retombée.</voix>",
+      "audio_spans": [
+        {
+          "text": "La princesse saisit la grenouille entre deux doigts, la monta dans sa chambre et la déposa dans un coin.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Quand elle fut couchée, la grenouille sauta près du lit et dit : « Prends-moi, sinon je le dirai à ton père. »",
+          "speaker": "grenouille",
+          "emotion": "determination"
+        },
+        {
+          "text": "La princesse se mit en colère, saisit la grenouille et la projeta de toutes ses forces contre le mur : « Comme ça tu dormiras, affreuse grenouille ! »",
+          "speaker": "princesse",
+          "emotion": "colere"
+        },
+        {
+          "text": "Mais quand l'animal retomba sur le sol, ce n'était plus une grenouille.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        },
+        {
+          "text": "Un prince aux beaux yeux pleins d'amitié la regardait.",
+          "speaker": "narrateur",
+          "emotion": "tendresse"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Regarder le jeune homme qui se tient devant elle. Ou choix 2 : Regarder d’abord l’endroit où la grenouille est retombée.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_09",
+      "title": "Les huit chevaux blancs",
+      "rank": 9,
+      "kind": "decision",
+      "text": "Il en fut fait selon la volonté du père de la princesse. Il devint son compagnon aimé et son époux. Il lui raconta qu'une méchante sorcière lui avait jeté un sort et la princesse seule pouvait l'en libérer. Le lendemain, ils partiraient tous deux pour son royaume. Ils s'endormirent et, au matin, quand le soleil se leva, on vit arriver une voiture attelée de huit chevaux blancs. Ils avaient de blancs plumets sur la tête et leurs harnais étaient d'or. À l'arrière se tenait le valet du jeune roi. C'était le fidèle Henri. Il avait eu tant de chagrin quand il avait vu son seigneur transformé en grenouille qu'il s'était fait bander la poitrine de trois cercles de fer pour que son cœur n'éclatât pas de douleur. La voiture devait emmener le prince dans son royaume.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "S’approcher de la voiture auprès du prince",
+          "consequence": "La princesse s’approcha de la voiture auprès du jeune roi.",
+          "next": "roi_grenouille_10",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"joie\" speaker=\"narrateur\">La princesse s’approcha de la voiture auprès du jeune roi.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse s’approcha de la voiture auprès du jeune roi.",
+              "speaker": "narrateur",
+              "emotion": "joie"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Remercier Henri avant de s’approcher de la voiture",
+          "consequence": "La princesse adressa au fidèle Henri un signe de remerciement avant de s’approcher de la voiture.",
+          "next": "roi_grenouille_10",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"tendresse\" speaker=\"narrateur\">La princesse adressa au fidèle Henri un signe de remerciement avant de s’approcher de la voiture.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "La princesse adressa au fidèle Henri un signe de remerciement avant de s’approcher de la voiture.",
+              "speaker": "narrateur",
+              "emotion": "tendresse"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">Il en fut fait selon la volonté du père de la princesse. Il devint son compagnon aimé et son époux.</voix> <voix emotion=\"neutral\" speaker=\"narrateur\">Il lui raconta qu'une méchante sorcière lui avait jeté un sort et la princesse seule pouvait l'en libérer. Le lendemain, ils partiraient tous deux pour son royaume.</voix> <voix emotion=\"emerveillement\" speaker=\"narrateur\">Ils s'endormirent et, au matin, quand le soleil se leva, on vit arriver une voiture attelée de huit chevaux blancs. Ils avaient de blancs plumets sur la tête et leurs harnais étaient d'or.</voix> <voix emotion=\"tendresse\" speaker=\"narrateur\">À l'arrière se tenait le valet du jeune roi. C'était le fidèle Henri.</voix> <voix emotion=\"tristesse\" speaker=\"narrateur\">Il avait eu tant de chagrin quand il avait vu son seigneur transformé en grenouille qu'il s'était fait bander la poitrine de trois cercles de fer pour que son cœur n'éclatât pas de douleur.</voix> <voix emotion=\"neutral\" speaker=\"narrateur\">La voiture devait emmener le prince dans son royaume.</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire la princesse ? Choix 1 : S’approcher de la voiture auprès du prince. Ou choix 2 : Remercier Henri avant de s’approcher de la voiture.</voix>",
+      "audio_spans": [
+        {
+          "text": "Il en fut fait selon la volonté du père de la princesse. Il devint son compagnon aimé et son époux.",
+          "speaker": "narrateur",
+          "emotion": "soulagement"
+        },
+        {
+          "text": "Il lui raconta qu'une méchante sorcière lui avait jeté un sort et la princesse seule pouvait l'en libérer. Le lendemain, ils partiraient tous deux pour son royaume.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        },
+        {
+          "text": "Ils s'endormirent et, au matin, quand le soleil se leva, on vit arriver une voiture attelée de huit chevaux blancs. Ils avaient de blancs plumets sur la tête et leurs harnais étaient d'or.",
+          "speaker": "narrateur",
+          "emotion": "emerveillement"
+        },
+        {
+          "text": "À l'arrière se tenait le valet du jeune roi. C'était le fidèle Henri.",
+          "speaker": "narrateur",
+          "emotion": "tendresse"
+        },
+        {
+          "text": "Il avait eu tant de chagrin quand il avait vu son seigneur transformé en grenouille qu'il s'était fait bander la poitrine de trois cercles de fer pour que son cœur n'éclatât pas de douleur.",
+          "speaker": "narrateur",
+          "emotion": "tristesse"
+        },
+        {
+          "text": "La voiture devait emmener le prince dans son royaume.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : S’approcher de la voiture auprès du prince. Ou choix 2 : Remercier Henri avant de s’approcher de la voiture.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_10",
+      "title": "Le craquement derrière la voiture",
+      "rank": 10,
+      "kind": "decision",
+      "text": "Le fidèle Henri l'y fit monter avec la princesse, et s'installa de nouveau à l'arrière, tout heureux de voir son maître libéré du mauvais sort.\n\nQuand ils eurent roulé pendant quelque temps, le prince entendit des craquements derrière lui, comme si quelque chose se brisait.",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Interroger Henri tout de suite",
+          "consequence": "Le prince voulut connaître l’origine de ce bruit.",
+          "next": "roi_grenouille_11",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Le prince voulut connaître l’origine de ce bruit.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Le prince voulut connaître l’origine de ce bruit.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Regarder d’abord si les chevaux continuent d’avancer",
+          "consequence": "Les chevaux continuaient d’avancer d’un même pas. Le bruit venait de derrière lui.",
+          "next": "roi_grenouille_11",
+          "flags": [],
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Les chevaux continuaient d’avancer d’un même pas. Le bruit venait de derrière lui.</voix>",
+          "consequence_audio_spans": [
+            {
+              "text": "Les chevaux continuaient d’avancer d’un même pas. Le bruit venait de derrière lui.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        }
+      ],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "choice_question": "Que doit faire le prince ?",
+      "audio_markup": "<voix emotion=\"joie\" speaker=\"narrateur\">Le fidèle Henri l'y fit monter avec la princesse, et s'installa de nouveau à l'arrière, tout heureux de voir son maître libéré du mauvais sort.</voix>\n\n<voix emotion=\"surprise\" speaker=\"narrateur\">Quand ils eurent roulé pendant quelque temps, le prince entendit des craquements derrière lui, comme si quelque chose se brisait.</voix>",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que doit faire le prince ? Choix 1 : Interroger Henri tout de suite. Ou choix 2 : Regarder d’abord si les chevaux continuent d’avancer.</voix>",
+      "audio_spans": [
+        {
+          "text": "Le fidèle Henri l'y fit monter avec la princesse, et s'installa de nouveau à l'arrière, tout heureux de voir son maître libéré du mauvais sort.",
+          "speaker": "narrateur",
+          "emotion": "joie"
+        },
+        {
+          "text": "Quand ils eurent roulé pendant quelque temps, le prince entendit des craquements derrière lui, comme si quelque chose se brisait.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que doit faire le prince ? Choix 1 : Interroger Henri tout de suite. Ou choix 2 : Regarder d’abord si les chevaux continuent d’avancer.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "roi_grenouille_11",
+      "title": "Les trois cercles du fidèle Henri",
+      "rank": 11,
+      "kind": "ending",
+      "text": "Il tourna la tête et dit : « Henri, est-ce l'attelage qui brise ses chaînes ? » « Eh ! non, Seigneur, ce n'est pas la voiture,\nMais de mon cœur l'une des ceintures.\nCar j'ai eu tant de peine\nQuand vous étiez dans la fontaine,\nTransformé en grenouille vilaine ! » Par deux fois encore, en cours de route, on entendit des craquements et le prince crut encore que la voiture se brisait. Mais ce n'était que les cercles de fer du fidèle Henri, heureux de voir son seigneur délivré.",
+      "choices": [],
+      "source_pages": [
+        15
+      ],
+      "values": {},
+      "variants": [],
+      "audio_markup": "<voix emotion=\"surprise\" speaker=\"prince\">Il tourna la tête et dit : « Henri, est-ce l'attelage qui brise ses chaînes ? »</voix> <voix emotion=\"soulagement\" speaker=\"Henri\">« Eh ! non, Seigneur, ce n'est pas la voiture,\nMais de mon cœur l'une des ceintures.\nCar j'ai eu tant de peine\nQuand vous étiez dans la fontaine,\nTransformé en grenouille vilaine ! »</voix> <voix emotion=\"surprise\" speaker=\"narrateur\">Par deux fois encore, en cours de route, on entendit des craquements et le prince crut encore que la voiture se brisait.</voix> <voix emotion=\"soulagement_apaisement\" speaker=\"narrateur\">Mais ce n'était que les cercles de fer du fidèle Henri, heureux de voir son seigneur délivré.</voix>",
+      "audio_spans": [
+        {
+          "text": "Il tourna la tête et dit : « Henri, est-ce l'attelage qui brise ses chaînes ? »",
+          "speaker": "prince",
+          "emotion": "surprise"
+        },
+        {
+          "text": "« Eh ! non, Seigneur, ce n'est pas la voiture,\nMais de mon cœur l'une des ceintures.\nCar j'ai eu tant de peine\nQuand vous étiez dans la fontaine,\nTransformé en grenouille vilaine ! »",
+          "speaker": "Henri",
+          "emotion": "soulagement"
+        },
+        {
+          "text": "Par deux fois encore, en cours de route, on entendit des craquements et le prince crut encore que la voiture se brisait.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        },
+        {
+          "text": "Mais ce n'était que les cercles de fer du fidèle Henri, heureux de voir son seigneur délivré.",
+          "speaker": "narrateur",
+          "emotion": "soulagement_apaisement"
+        }
+      ]
+    }
+  ],
+  "audio_tagged_version": 1
+}

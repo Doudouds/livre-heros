@@ -1,0 +1,46 @@
+{
+  "max_chars": 300,
+  "pause_ms": 150,
+  "whisper": false,
+  "compare_single_take": true,
+  "segments": [
+    {
+      "segment_id": "passeuse_1_01_narration_bb0d8a4ea32f2ffc5add",
+      "output_file": "D:\\livre_heros\\audio\\experiments\\passeuse_ch1\\files\\passeuse_1_01_narration_bb0d8a4ea32f2ffc5add.wav",
+      "text": "Ayant pour habitude de s'éveiller quelques minutes avant l'heure, Alex contempla le monde encore endormi. Sa vie se résumait à cette chambre, une dizaine de mètres carrés couronnée d'une ampoule poussiéreuse pendue au plafond. Tout cela était à elle : ce matelas grisâtre sur lequel elle était étendue, ces habits enfouis à la hâte dans les tiroirs du placard cartonné et ce tableau simpliste qui dessinait les traits d'une femme au travail dont elle ne savait rien. Les murs, jaunis par les années, ne la dérangeaient pas réellement ; ses voisins n'entretenaient guère mieux leur sphère personnelle.\n\nLa grosse sonnette du couloir résonna dans le dortoir et les cloisons en tremblèrent. Cette fois, c'était l'heure. Elle prit une ultime inspiration et posa ses pieds nus sur le sol froid. En pyjama, Alex passa l'unique porte de la chambre et retrouva les autres pensionnaires. Tous se pressaient vers les douches, tâchant d'éviter l'interminable attente dont les retardataires avaient l'habitude.\n\nLe perpétuel rituel matinal pouvait commencer : se laver, s'habiller et profiter des cinq dernières minutes avant le départ. Ses vêtements étaient encore dans le placard ; dans le couloir, les premiers pensionnaires atteignaient déjà les douches.\n\nQue doit choisir Alex ? Choix 1 : Rejoindre les douches sans attendre. Ou choix 2 : Préparer ses vêtements avant de rejoindre les douches.",
+      "characters": 1386,
+      "chunks": [
+        {
+          "number": 1,
+          "characters": 226,
+          "text": "Ayant pour habitude de s'éveiller quelques minutes avant l'heure, Alex contempla le monde encore endormi. Sa vie se résumait à cette chambre, une dizaine de mètres carrés couronnée d'une ampoule poussiéreuse pendue au plafond."
+        },
+        {
+          "number": 2,
+          "characters": 239,
+          "text": "Tout cela était à elle : ce matelas grisâtre sur lequel elle était étendue, ces habits enfouis à la hâte dans les tiroirs du placard cartonné et ce tableau simpliste qui dessinait les traits d'une femme au travail dont elle ne savait rien."
+        },
+        {
+          "number": 3,
+          "characters": 248,
+          "text": "Les murs, jaunis par les années, ne la dérangeaient pas réellement ; ses voisins n'entretenaient guère mieux leur sphère personnelle. La grosse sonnette du couloir résonna dans le dortoir et les cloisons en tremblèrent. Cette fois, c'était l'heure."
+        },
+        {
+          "number": 4,
+          "characters": 281,
+          "text": "Elle prit une ultime inspiration et posa ses pieds nus sur le sol froid. En pyjama, Alex passa l'unique porte de la chambre et retrouva les autres pensionnaires. Tous se pressaient vers les douches, tâchant d'éviter l'interminable attente dont les retardataires avaient l'habitude."
+        },
+        {
+          "number": 5,
+          "characters": 270,
+          "text": "Le perpétuel rituel matinal pouvait commencer : se laver, s'habiller et profiter des cinq dernières minutes avant le départ. Ses vêtements étaient encore dans le placard ; dans le couloir, les premiers pensionnaires atteignaient déjà les douches. Que doit choisir Alex ?"
+        },
+        {
+          "number": 6,
+          "characters": 114,
+          "text": "Choix 1 : Rejoindre les douches sans attendre. Ou choix 2 : Préparer ses vêtements avant de rejoindre les douches."
+        }
+      ]
+    }
+  ]
+}

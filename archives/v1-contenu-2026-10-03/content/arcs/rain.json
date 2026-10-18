@@ -1,0 +1,71 @@
+{
+  "id": "rain",
+  "title": "La Nuit des pluies suspendues",
+  "description": "Empêcher une catastrophe magique en donnant une issue à la pluie retenue au-dessus du royaume.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "rain_intro",
+  "revelations": [
+    {
+      "id": "captain",
+      "actor": "la capitaine des nuages Ysilde",
+      "text": "Un relevé montre Ysilde, une capitaine qui a détourné une violente averse pour protéger des voyageurs dans les hauteurs. Elle a demandé au système de retenir l'eau pendant leur passage. Le signal de libération n'a pas rejoint les anciens conduits, et la retenue attire maintenant toutes les pluies voisines. Ysilde cherche une issue sûre. Tu peux l'aider à répartir l'eau plutôt qu'à la relâcher d'un seul coup."
+    },
+    {
+      "id": "gardener",
+      "actor": "le jardinier des pluies Daran",
+      "text": "Le relevé révèle Daran, un jardinier qui a semé des graines magiques pour arroser une vallée sèche. Les graines ont rejoint un ancien réseau et retiennent désormais la pluie de toute la région. Daran ne peut plus les arracher sans provoquer une chute brutale de l'eau. Il faut leur offrir plusieurs destinations et un rythme, comme à des racines qui auraient grandi trop vite."
+    },
+    {
+      "id": "spirit",
+      "actor": "l'esprit de l'averse",
+      "text": "Le relevé présente l'esprit de l'averse, qui suit un cycle très ancien. Il attend un signe d'accueil avant de donner l'eau aux vallées. Les habitants ont changé leurs calendriers, et le signe a été envoyé au mauvais jour. La pluie attend donc sans savoir où aller. Le problème peut se résoudre par un nouvel accueil, à condition que les conduits soient prêts à recevoir toute cette eau."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "rain_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "rain_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "rain_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "rain_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "rain_end_resilient",
+      "when": {}
+    }
+  ]
+}

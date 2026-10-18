@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_5c7086954d606deab565.wav",
+  "sha256": "42f8b36106dc3dccb5f4dcef0df0b9e727e6335ea121036be28e0c382ccfcb6a",
+  "segment_id": "roi_grenouille_01_narration_5c7086954d606deab565",
+  "seconds": 81.69,
+  "sample_rate": 24000,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+  "leading_zero_frames": 24000,
+  "playback_extra_lead_in_ms": 0,
+  "final_wav_count": 1,
+  "audited_final_wav_count": 1,
+  "exact_reassembly": true,
+  "runtime_text_matched": true,
+  "player_audio_root_matched": true,
+  "choices_matched": true,
+  "final_word_error_rate": 0.0654,
+  "verified_chunks": [
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\389b3935044b43a95159c462bd20985b9991b80a38c563a4dbdb5b4ced5ec706\\chunks\\7d2bcc62639faab0553e3fcc5b528fda7cfecc03fb5c7a724c3c7ecea48f4841.wav",
+      "sha256": "6da3d7e332d3041d260768b49abd2b0233c368adad52970f283094195f221b16",
+      "word_error_rate": 0.0816
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\3ed253dd71b9b6caa222ff85d78efc71242090d2458b7a5af11d1430716c4c9a\\chunks\\0afe310f9de8221f8c00a96a2e4454a0f99c78e225c4a04623b6bde79492c648.wav",
+      "sha256": "8855883794fcf51b1915577b33e210ec31194371d88769a08d10e6ee42f07a52",
+      "word_error_rate": 0.0
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\3ed253dd71b9b6caa222ff85d78efc71242090d2458b7a5af11d1430716c4c9a\\chunks\\7caa4bb9f7344faa045626b60db0879a77b3fbbe67d1026cc0198cd95b8b0e92.wav",
+      "sha256": "43beadec64375ec99eeda3140d36669743a51cd202a72b22602cf26112ea4a55",
+      "word_error_rate": 0.0833
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\20e16cff55441aae8d9fc0ec6fcea03f9d9eab4aee25c6f6629835e85421e08c\\chunks\\5e74fb75373da66bbcebd42fb0245459a6097efcac3b03fce12942b88fcd0d73.wav",
+      "sha256": "db165af838dd2fe4bc3552348cf3c62ada1eee9c0c96e838ed1f355c432f68aa",
+      "word_error_rate": 0.0833
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\20e16cff55441aae8d9fc0ec6fcea03f9d9eab4aee25c6f6629835e85421e08c\\chunks\\7fdc961ee62066b0c98a612b2711e315d39dbe25de978baad155372cba11bdce.wav",
+      "sha256": "b692a0949653656e8f6f242db4204d6bbe2305bad600d67e21f8f8617bef68c3",
+      "word_error_rate": 0.0
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\c79d63a71657a9d1e0fc091529d5f0cac5c5df55fa4e88fa963c30cc43ed7c17\\chunks\\fc3a90a04a4f97a487bc4cfa944b6c7c6eba73a616baec015afa805fae1f143c.wav",
+      "sha256": "aec8eb26c30c82a506b56eff82b8c484dc9043c7fce70d1dbe07cb4f5b507787",
+      "word_error_rate": 0.0476
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\fff90032cb1d0da778c9e3be02a9c1de7ab3a12dc9edc70403b9e3fbd5f809c3\\chunks\\2e894ac0aa86a951111401a971288685f801b8bf4e6f795da8a89f9e8d26ebf5.wav",
+      "sha256": "2bd960f8095d48ab831df2f0bd9cd702428c124468ea5e27a6d5581ca87ec554",
+      "word_error_rate": 0.0
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\cache\\3ed253dd71b9b6caa222ff85d78efc71242090d2458b7a5af11d1430716c4c9a\\chunks\\db2f7d3f6c0c43d29ad6fc8b0921f761ca6b334e1a5d03d9f2af4eccb19bca5f.wav",
+      "sha256": "2af9eff53b0e0d82901ce1ca653b1528e5fdd1ee10789e82e1e4f3833be37af6",
+      "word_error_rate": 0.0741
+    }
+  ]
+}

@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "atlas_intro",
+      "arc": "atlas",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "L'Atlas des terres impossibles",
+      "text": "Dans la bibliothèque du village, tu trouves un atlas dont une page continue au-delà du bord du papier. Lorsque tu la tournes, une odeur de pluie et de pierre chaude traverse la salle. Un bibliothécaire te raconte qu'un atelier caché dans {location_name} permettait autrefois d'étudier des terres encore inaccessibles. Ses explorateurs ont fermé la porte après avoir rapporté des objets qui changeaient les lieux où on les posait. L'atelier n'est pas interdit par peur d'un monstre, mais parce que personne ne sait plus y entrer sans confondre découverte et possession. Tu proposes une expédition prudente. On te demande de rapporter une carte et une règle de voyage, plutôt qu'un trésor. L'atlas s'ouvre sur un passage que tu n'avais jamais vu.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "atlas_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_1",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Le chemin dessiné à moitié",
+      "text": "L'atlas ne représente que la moitié du sentier. L'autre moitié apparaît à mesure que tu marches, puis reste sur la page après ton passage. Tu comprends que le livre recueille tes observations plutôt qu'il ne commande tes pas. À un croisement, deux détails demandent ton attention : une marque laissée par les anciens explorateurs, et une lumière qui n'existe sur aucune page. Tu peux suivre la marque pour retrouver leurs précautions, ou observer la lumière afin de découvrir ce qui a changé depuis leur départ. L'ancienne route rendrait l'approche plus lisible. La lumière donnerait à ton expédition une première question nouvelle. Tu vérifies que ton chemin de retour reste inscrit, puis décides comment compléter cette carte qui ne veut pas parler avant toi.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_1_0",
+          "text": "Retrouver les précautions des anciens explorateurs",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les marques révèlent une route sûre. Ton atlas conserve ses étapes de retour.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La route est claire, mais une marque déplacée brouille une page voisine.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les marques s'arrêtent. Le livre garde assez de repères pour un détour.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_1_1",
+          "text": "Observer la lumière absente de l'atlas",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La lumière révèle une entrée nouvelle. Tu la notes sans effacer l'ancienne route.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'entrée apparaît, mais son reflet se répète et trouble les distances.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La lumière se retire. Une ombre différente indique néanmoins une autre entrée.",
+              "next": "atlas_2",
+              "effects": {
+                "events": [
+                  "atlas_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_2",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "L'étiquette du premier voyage",
+      "text": "Une boîte ouverte contient trois étiquettes anciennes : vu, compris, emporté. Les explorateurs les plaçaient sur leurs découvertes, mais les mots ont été mélangés par le temps. Un galet posé à côté produit le bruit d'une mer lointaine. Rien ne prouve qu'il puisse être déplacé sans changer cette mer. Tu peux examiner les étiquettes pour retrouver la distinction prévue par les voyageurs, ou écouter le galet en observant ce qui réagit autour de lui. Les mots t'aideraient à formuler une règle. L'écoute te montrerait la relation entre un objet et son lieu. Tu ne mets rien dans ton sac. Ton expédition peut déjà produire une découverte en laissant chaque chose à sa place, pour peu que tu prennes le temps de comprendre ce qu'elle soutient.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_2_0",
+          "text": "Retrouver le sens des étiquettes de voyage",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les étiquettes distinguent observation et prélèvement. Tu conserves une règle utile.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La règle se précise, mais une étiquette attire le reflet d'un objet voisin.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les mots restent mélangés. Un dessin au dos te donne un premier repère.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_2_1",
+          "text": "Écouter le galet sans le déplacer",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le bruit répond aux reflets. Tu comprends que le galet appartient à un rivage.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu perçois le lien, mais une vague de reflet traverse le passage.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le bruit se tait. Une trace de sel indique pourtant le chemin vers l'atelier.",
+              "next": "atlas_3",
+              "effects": {
+                "events": [
+                  "atlas_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_3",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La porte entre les pages",
+      "text": "La porte de l'atelier se trouve entre deux murs ordinaires, mais sa surface ressemble à une page vue de très près. Les fibres dessinent des chemins minuscules qui s'écartent devant ton souffle. Des signes y forment une question sans mots : que viens-tu faire ici ? Ton objet répond à leur mouvement et pourrait transmettre une intention précise. À côté, un passage d'entretien conserve les traces des personnes qui réparaient les cartes. Tu pourrais entrer par ce chemin pour observer l'atelier avant de répondre. Employer l'objet engagerait immédiatement ton expédition dans la règle du lieu. Le passage discret laisserait plus de temps pour comprendre, sans te dispenser de répondre ensuite. Tu regardes ton atlas : son dessin de retour est toujours présent, et cela te donne assez de confiance pour choisir.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les signes reconnaissent ton intention. La porte ouvre un passage entre ses fibres.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le passage s'ouvre, mais la page garde une copie incomplète de ta réponse.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les signes hésitent. Une marge de la porte se replie pour te laisser entrer.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_3_1",
+          "text": "Emprunter l'accès des réparateurs de cartes",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu trouves l'accès discret. Il garde une route de retour dans l'atlas.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes, mais un rouleau déroulé modifie les repères de la galerie.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accès résiste. Un escalier de service permet de rejoindre son autre côté.",
+              "next": "atlas_4",
+              "effects": {
+                "events": [
+                  "atlas_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_4",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Deux paysages à regarder",
+      "text": "L'atelier contient des ouvertures qui donnent sur des paysages impossibles. L'une montre un rivage où les pierres flottent juste au-dessus de l'eau. Une autre montre un jardin dont les fleurs gardent des morceaux de ciel. Tu peux approcher le rivage pour comprendre comment un lieu tient ensemble, ou le jardin pour observer comment il change quand on le décrit. Les deux chemins passent par des espaces de travail laissés par les anciens explorateurs. Tu ne dois pas traverser les ouvertures sans repère : une ligne au sol marque la limite depuis laquelle l'observation reste liée à ton retour. Tu poses l'atlas sur cette ligne et vois les deux paysages se dessiner légèrement. Ton choix donnera au livre une première terre à comprendre, avec ses règles et ses surprises.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_4_0",
+          "text": "Observer le rivage et ses pierres suspendues",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu vois les liens entre les pierres. Le rivage devient lisible sans prélèvement.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les liens apparaissent, mais une pierre change d'altitude et brouille la perspective.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le rivage se voile. Un atelier voisin conserve des dessins qui permettent d'avancer.",
+              "next": "atlas_5",
+              "effects": {
+                "events": [
+                  "atlas_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_4_1",
+          "text": "Étudier le jardin qui conserve le ciel",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les fleurs répondent à ton observation. Tu repères les détails qui les distinguent.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le jardin se révèle, mais une description trop brève rétrécit son reflet.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les fleurs se ferment. Une note d'exploration te conduit vers la salle suivante.",
+              "next": "atlas_5b",
+              "effects": {
+                "events": [
+                  "atlas_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_5",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Ce qu'une carte peut oublier",
+      "text": "Dans l'espace du rivage, des dessins montrent les pierres suspendues, mais aucun ne représente les petits courants qui les relient. {encounter_name} te rejoint et remarque que ces courants changent avant les pierres elles-mêmes. Vous pouvez observer ensemble pour préparer une carte moins trompeuse, ou répartir les tâches : une personne garde le repère de retour, l'autre poursuit vers le centre. Une découverte devient plus solide lorsque plusieurs regards la corrigent. Elle devient aussi plus sûre quand quelqu'un se souvient du chemin par lequel on est arrivé. Tu ne peux pas confier toutes ces tâches à l'atlas. Il ne conserve que ce qu'on lui montre. Tu choisis donc comment utiliser l'aide proposée, en laissant au dessin une place pour les détails qui te manquent encore.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_5_0",
+          "text": "Construire une carte avec deux regards et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vos observations se complètent. {encounter_name} vient avec toi pour corriger la carte.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La carte gagne des détails, mais un courant change pendant votre observation.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les regards ne s'accordent pas encore. {encounter_name} reste pour vérifier le rivage.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_5_1",
+          "text": "Confier le repère de retour à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le retour reste lisible. Tu peux avancer sans perdre le lien avec l'entrée.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le repère tient, mais une page doit rester ouverte pour le conserver.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le repère s'efface partiellement. Vous gardez une ligne de retour plus simple.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_6",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "La découverte qui ne tient pas dans un sac",
+      "text": "Une table conserve les objets rapportés par les premiers voyageurs. Chacun est entouré d'un dessin du lieu qui lui manque : une pierre près d'un rivage brisé, une graine près d'un jardin sans ombre. Un carnet explique que les objets avaient d'abord paru magnifiques, puis impossibles à garder sans conséquence. Tu peux lire la règle qui permet d'en emporter une représentation plutôt qu'une partie réelle, ou étudier les observations prises avant chaque prélèvement. La règle offrirait un secret pour rouvrir les voyages. Les observations montreraient concrètement ce qui avait été ignoré. Tu regardes ton atlas, qui a déjà conservé des paysages sans déplacer leurs pierres. La découverte n'a peut-être pas besoin d'être un objet possédé pour accompagner ton retour au village.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_6_0",
+          "text": "Apprendre à rapporter une représentation sans prélever",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le carnet révèle une copie sans arrachement. Ton atlas peut porter ce savoir.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends la méthode, mais un exemple garde une ombre qui demande vérification.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La règle reste partielle. Son symbole distingue néanmoins copie et possession.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_6_1",
+          "text": "Comprendre ce que les premiers prélèvements avaient changé",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les observations montrent les liens oubliés. Tu peux expliquer pourquoi ils comptent.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les liens deviennent clairs, mais une image ancienne se superpose à la tienne.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Des pages manquent. Un dessin conserve pourtant une conséquence suffisamment précise.",
+              "next": "atlas_7",
+              "effects": {
+                "events": [
+                  "atlas_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_7",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Le lien avec l'autre rive",
+      "text": "Une ouverture du centre a perdu sa profondeur. Elle montre un paysage aplati, comme si l'on avait retiré tout ce que la carte ne savait pas nommer. Deux marques restent reliées par une lueur très fine. Ton objet peut retrouver la liaison qui permettait d'observer sans réduire. Tu peux aussi remettre en place les cadres de mesure autour de l'ouverture, pour distinguer ce qui est certain de ce qui reste inconnu. La liaison te donnerait un accès plus direct au centre. Les cadres corrigeraient les perturbations présentes dans les reflets et rendraient ton atlas plus honnête. Tu n'as pas besoin de remplir chaque espace blanc. Certains blancs avertissent simplement qu'une autre visite sera nécessaire. Tu choisis comment conserver cette différence avant que le paysage ne devienne une image trop simple.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison retrouve sa profondeur. Tu peux suivre le reflet jusqu'au centre.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La profondeur revient, mais une image voisine change de taille dans l'atlas.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La liaison se dérobe. Une marge ouverte conserve néanmoins le passage suivant.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_7_1",
+          "text": "Rétablir les cadres qui indiquent les mesures incertaines",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les cadres distinguent le connu du doute. Les reflets cessent de se déformer.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les mesures s'apaisent, mais un cadre devra être repris lors d'une visite future.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un cadre manque. Les autres préservent assez de profondeur pour continuer.",
+              "next": "atlas_8",
+              "effects": {
+                "events": [
+                  "atlas_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_8",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Une carte avec des questions",
+      "text": "Avant d'atteindre le centre, tu trouves un pupitre destiné aux récits de voyage. Tu peux y déposer ta carte et marquer les endroits encore incertains, ou préparer une description orale qui relie les découvertes entre elles. La carte montrerait clairement tes limites. Le récit expliquerait les liens que le dessin seul rend mal visibles. Les deux approches pourraient convaincre la personne qui garde l'atelier de rouvrir un accès prudent. Tu sais maintenant que l'expédition ne sera pas jugée au nombre de trésors rapportés. Elle sera jugée à la qualité du retour : ce que les prochains voyageurs pourront comprendre sans croire que tout est déjà connu. Ta formation t'aide à organiser les observations, puis à choisir celles qui méritent d'être mises en avant sans effacer les autres.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_8_0",
+          "text": "Marquer sur la carte ce qui reste incertain",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La carte devient honnête et lisible. Ses marges montrent où poursuivre l'enquête.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les limites sont claires, mais une mesure ancienne contredit un de tes repères.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les marques se confondent. Tu conserves deux questions précises à présenter.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_8_1",
+          "text": "Préparer un récit qui explique les liens observés",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Ton récit relie les découvertes. Les reflets retrouvent les relations qui leur manquaient.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le récit apaise l'atelier, mais une relation devra être confirmée par une autre visite.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le récit reste incomplet. Il ouvre néanmoins une conversation sur les liens essentiels.",
+              "next": "atlas_9",
+              "effects": {
+                "events": [
+                  "atlas_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_9",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "Le gardien des découvertes",
+      "text": "Une page de l'atlas se tourne sans montrer de paysage. Elle raconte la fermeture de l'atelier et présente la personne qui en garde les passages. Tu peux lui montrer les conséquences des anciens prélèvements, ou les précautions que tu as prises pendant ta propre visite. La première approche reconnaîtrait pourquoi l'interdiction était devenue nécessaire. La seconde montrerait qu'une autre manière d'explorer est possible. Tu n'as pas à prétendre que les anciens voyageurs étaient tous imprudents. Ils ignoraient une partie des liens, comme tu ignores encore certaines choses. Le centre attend une réponse capable de tenir compte de cet inconnu. Tu gardes les objets de la table là où ils sont, puis choisis le commencement d'une rencontre qui décidera ce que ton voyage peut ouvrir.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_9_0",
+          "text": "Reconnaître les conséquences des anciens prélèvements",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Ta réponse montre une compréhension réelle. Le centre accepte d'examiner ta carte.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réponse porte, mais un ancien reflet demande une réparation avant tout nouveau voyage.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'explication reste fragile. Une conséquence précise suffit néanmoins à ouvrir l'échange.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_9_1",
+          "text": "Présenter les précautions de ta propre visite",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tes précautions sont reconnues. L'atelier distingue ton expédition d'une collecte.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La visite convainc, mais un repère devra être renforcé avant la prochaine entrée.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Des précautions manquent. Tu acceptes une visite plus limitée pour poursuivre la discussion.",
+              "next": "atlas_10",
+              "effects": {
+                "events": [
+                  "atlas_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_10",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Une règle pour les prochains voyageurs",
+      "text": "Tu rencontres {revelation_actor} au centre de l'atelier. La personne regarde ta carte et les marges que tu as laissées. Tu peux proposer une règle de voyage fondée sur l'observation sans prélèvement, ou une expédition accompagnée où chaque visite serait vérifiée avant le retour. La première donnerait une autonomie prudente aux explorateurs. La seconde serait plus lente, mais permettrait de transmettre le savoir du lieu avec chaque passage. Tu ne demandes pas une porte ouverte sans condition. Tu demandes une règle que les voyageurs puissent comprendre et respecter. Le centre répond par des images de personnes revenant avec des cartes différentes. Ces différences ne sont plus un défaut : elles peuvent aider à voir ce qu'une seule expédition aurait laissé de côté.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_10_0",
+          "text": "Proposer une règle d'observation sans prélèvement",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La règle est acceptée. Les prochaines visites pourront observer sans emporter les terres.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La règle tient, mais certains passages demanderont une autorisation supplémentaire.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La règle reste trop générale. Vous retenez un premier trajet où l'essayer.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_10_1",
+          "text": "Préparer des explorations accompagnées",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L'accompagnement est accepté. Chaque voyage gardera un lien avec ceux qui connaissent le lieu.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La méthode fonctionne, mais peu de trajets pourront ouvrir en même temps.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accompagnement manque de repères. Une première visite guidée reste néanmoins possible.",
+              "next": "atlas_11",
+              "effects": {
+                "events": [
+                  "atlas_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_11",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Le retour sans arrachement",
+      "text": "Ton atlas doit maintenant retrouver sa liaison avec le monde ordinaire. Deux marques représentent l'observation et le retour. Si elles ne se répondent pas, le livre risque de rapporter un morceau réel du paysage au lieu de son récit. Ton objet peut établir une liaison précise, comme aux autres seuils. Tu peux aussi guider le retour par les cadres qui entourent le centre, afin de conserver une séparation claire entre la terre visitée et sa représentation. Le geste direct serait rapide et demanderait une attention fine. Les cadres offriraient une méthode visible pour les prochaines expéditions. Tu regardes les paysages ouverts autour de toi et résistes à l'envie de tout garder. Une carte utile peut accompagner ton voyage sans contenir les choses auxquelles elle doit son existence.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison distingue récit et paysage. L'atlas peut repartir sans arracher de terre.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le lien tient, mais un reflet restera à vérifier avant la prochaine ouverture.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le lien direct reste fragile. Les cadres gardent une voie de retour plus lente.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_11_1",
+          "text": "Guider le retour par les cadres de l'atelier",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les cadres gardent les paysages en place. Seules tes observations suivent l'atlas.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le retour fonctionne, mais un cadre conserve une image qu'il faudra restituer.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un cadre résiste. Les autres permettent de rapporter une carte partielle sans prélèvement.",
+              "next": "atlas_12",
+              "effects": {
+                "events": [
+                  "atlas_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_12",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Ce que tu rapporteras",
+      "text": "Le chemin du retour est prêt, mais le centre te laisse choisir sa forme. Tu peux concentrer tes observations dans l'atlas pour revenir avec une carte immédiatement utilisable, ou répartir les repères entre le livre et les relais du lieu afin de préparer de nouvelles visites. La première option donnera vite une réponse à la bibliothèque. La seconde laissera davantage de questions ouvertes, avec un trajet pour les explorer. {revelation_actor} accepte de conserver les paysages pendant ton départ. Tu n'as rien à cacher dans ton sac, ni rien à arracher pour prouver que tu as voyagé. Le voyage a laissé des traces dans ta manière de regarder. Tu refermes doucement les pages déjà parcourues et choisis comment transmettre cette découverte à ceux qui n'ont pas encore franchi la porte.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "atlas_12_0",
+          "text": "Rapporter une carte concentrée dans l'atlas",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La carte rejoint ton monde. Elle conserve les repères essentiels sans déplacer les paysages.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La carte revient, mais certaines images devront rester fermées jusqu'à vérification.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La carte reste partielle. Tu rapportes un premier trajet et ses précautions.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_12_1",
+          "text": "Préparer des repères pour de futures visites",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les relais gardent le lien. D'autres voyageurs pourront poursuivre sans tout recommencer.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les visites deviennent possibles, mais elles devront être espacées pendant les derniers réglages.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Tous les relais ne répondent pas. Un premier accès prudent reste disponible.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "atlas_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_5b",
+      "arc": "atlas",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Le jardin qui écoute les descriptions",
+      "text": "Dans le jardin, une fleur porte un reflet de nuage différent de celui de sa voisine. Les anciens dessins n'indiquent pourtant qu'une couleur générale. {encounter_name} te rejoint et remarque que les fleurs perdent un peu de leur forme lorsqu'on les décrit trop vite. Vous pouvez avancer ensemble pour comparer vos mots et vos observations. {encounter_name} peut aussi rester près du jardin afin de conserver les différences pendant que tu continues. Le livre ne gardera pas ce que personne ne regarde. Tu comprends alors pourquoi une carte doit parfois réserver un espace à des questions. Vous préparez un signe pour distinguer les certitudes des impressions, puis tu choisis où l'aide de {encounter_name} rendra le voyage le plus fidèle à ce lieu encore inconnu.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "atlas_5b_0",
+          "text": "Comparer vos descriptions et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les descriptions deviennent précises. {encounter_name} vient avec toi pour garder leurs différences.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vos mots se complètent, mais un reflet change avant d'être noté.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les descriptions restent hésitantes. {encounter_name} demeure ici pour observer plus longtemps.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "atlas_5b_1",
+          "text": "Confier les différences du jardin à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les détails restent visibles. Tu peux poursuivre sans réduire le jardin à une couleur.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le jardin garde ses formes, mais une page devra rester ouverte jusqu'au retour.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Quelques reflets s'effacent. Vous conservez ceux dont les différences sont les plus nettes.",
+              "next": "atlas_6",
+              "effects": {
+                "events": [
+                  "atlas_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_secret",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le savoir que l'on peut partager",
+      "ending": "secret",
+      "text": "Tu rapportes la méthode oubliée qui permet de garder une représentation sans emporter ce qu'elle montre. La bibliothèque prépare une salle où les voyageurs compareront leurs observations au lieu d'exposer des trophées. L'atelier conserve ses paysages, et tes cartes ouvrent une manière nouvelle de les approcher. Certaines pages resteront prudentes ou incomplètes. Tu les présentes ainsi, avec leurs questions. Le bibliothécaire te demande quel trésor tu as trouvé. Tu lui montres un blanc sur la carte : une place assez claire pour accueillir la prochaine découverte.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_alliance",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une carte à deux regards",
+      "ending": "alliance",
+      "text": "Avec {encounter_name}, tu rapportes une carte qui conserve les différences observées par deux personnes. Elle ne prétend pas tout montrer, mais elle indique comment poursuivre avec prudence. La bibliothèque prépare des voyages accompagnés où chacun pourra corriger une mesure et expliquer ce qu'il n'a pas compris. {encounter_name} choisit la première question à reprendre. Tu reconnais dans ce choix un détail que tu aurais oublié. L'expédition a produit davantage qu'une image : elle a donné une méthode pour que d'autres regards rendent la carte meilleure.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_radiant",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "L'atelier retrouve des visiteurs",
+      "ending": "radiant",
+      "text": "Ton retour laisse les paysages en place et ouvre une règle de voyage assez claire pour être transmise. La bibliothèque reçoit l'atlas sans morceau de terre caché entre ses pages. On organise les premières visites, avec des repères de retour et des marges pour l'incertitude. L'interdiction devient une précaution comprise plutôt qu'une porte sans explication. Tu regardes la page qui débordait du livre au début de l'aventure. Elle garde son odeur de pluie, mais ne cherche plus à sortir. Le prochain voyage peut commencer sans prendre la place du précédent.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_cost",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Des pages à laisser ouvertes",
+      "ending": "cost",
+      "text": "Tu reviens avec une carte utile, mais plusieurs reflets demandent encore une vérification. La bibliothèque accepte de garder certaines pages fermées pendant que l'atelier retrouve son équilibre. Tu expliques les perturbations rencontrées et les repères qui permettent de les corriger. Les premières visites seront limitées. Elles auront pourtant une vraie route, une règle et des questions précises. Tu apprends à regarder les blancs de l'atlas sans les prendre pour un échec. Ils empêchent simplement le livre de prétendre connaître ce que personne n'a encore observé assez longtemps.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "atlas_end_resilient",
+      "arc": "atlas",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le premier trajet d'une autre carte",
+      "ending": "resilient",
+      "text": "L'atlas ne rapporte pas toutes les terres espérées, mais ton expédition établit un premier trajet prudent et explique pourquoi l'atelier avait été fermé. La bibliothèque dispose enfin d'une méthode pour poursuivre. Tu n'as pas transformé une découverte fragile en certitude forcée. Les pages incomplètes resteront disponibles pour d'autres voyageurs. En rangeant le livre, tu remarques une petite ligne qui n'était pas là avant ton départ : elle relie l'entrée au premier paysage. Ce n'est pas un monde possédé. C'est un chemin que l'on peut partager.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

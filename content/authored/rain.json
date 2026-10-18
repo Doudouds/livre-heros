@@ -1,0 +1,496 @@
+{
+  "id": "rain",
+  "title": "Les Digues de Clairval",
+  "description": "Découvrir qui retient le canal de crue, préparer les réparations et protéger le village.",
+  "intro": "La pluie tombe sur Clairval depuis trois jours. Le ruisseau est devenu une rivière brune qui emporte des branches. Les habitants ont déplacé les animaux et les provisions vers les maisons hautes. Une ancienne digue protège encore la place, mais l'eau monte derrière elle. Le garde du canal affirme que la vanne de décharge, près de {location_name}, a été fermée volontairement. Ce canal devrait conduire l'excès d'eau vers une vallée sans maisons. Les ouvriers préparent les cordes et les outils pour intervenir. Tu connais les vieux passages et peux partir reconnaître l'accès avant eux. Ta mission est de retrouver la vanne, de comprendre ce qui la bloque et de leur indiquer un trajet sûr. Si tu peux rétablir un petit écoulement, le village gagnera du temps. Tu pars pendant que la cloche appelle les habitants des maisons basses à se mettre à l'abri.",
+  "revelations": [
+    {
+      "id": "baron",
+      "actor": "le baron Orval",
+      "text": "Un ordre du baron Orval exige de fermer le canal de décharge. Il veut forcer les habitants à lui vendre les terres situées près de la rivière à bas prix. Il pensait seulement les inquiéter, mais la pluie a rendu son sabotage beaucoup plus dangereux. Le document indique le verrou ajouté à la vanne. Tu peux maintenant montrer aux ouvriers ce qu'il faut retirer."
+    },
+    {
+      "id": "witch",
+      "actor": "la sorcière Caldrine",
+      "text": "Le carnet de Caldrine décrit un sort de pluie destiné à remplir sa réserve. Elle a fait fermer le canal pour retenir l'eau près de son domaine. La formule continue de fonctionner malgré la montée de la rivière. Une page indique comment arrêter le sort et retirer le verrou de la vanne. Il faut accomplir ces deux tâches pour protéger Clairval."
+    },
+    {
+      "id": "builder",
+      "actor": "le contremaître Doran",
+      "text": "Les comptes de Doran révèlent une réparation cachée aux habitants. Il a fermé la vanne pour masquer les pièces qu'il n'avait pas remplacées, puis abandonné le poste quand la pluie a augmenté. Le plan montre le verrou ajouté et les éléments fragiles. Les ouvriers pourront s'en servir pour intervenir sans croire que le canal entier est solide."
+    }
+  ],
+  "stages": [
+    {
+      "title": "La route sous la pluie",
+      "text": "À l'entrée du lieu, l'eau traverse le chemin et emporte de petites branches. Un repère planté par le garde du canal indique la hauteur atteinte la veille. Le niveau est maintenant plus élevé. Tu peux suivre la route principale pour rejoindre le poste rapidement ou reconnaître un détour situé au-dessus des zones inondées. Tu regardes la pente et les endroits où le sol commence à glisser. Les ouvriers viendront avec du matériel lourd ; un trajet praticable pour toi ne le sera pas forcément pour eux. Tu marques d'abord la limite de l'eau avec une pierre bien visible. Le village a besoin de nouvelles précises, pas d'une estimation faite dans la précipitation. Tu choisis la route qui donnera les renseignements les plus utiles.",
+      "choices": [
+        {
+          "text": "Suivre la route principale jusqu’au poste",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu atteins un premier abri et repères les parties de la route encore praticables pour les ouvriers.",
+            "La route reste ouverte, mais un passage est inondé. Tu marques un détour avant de continuer.",
+            "L’eau ferme la route principale. Un chemin près du mur permet de rejoindre le premier abri."
+          ]
+        },
+        {
+          "text": "Reconnaître le détour au-dessus de l’eau",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Le détour est solide et rejoint le poste. Tu laisses des repères pour les ouvriers.",
+            "Le détour reste sûr, mais te coûte du temps. Tu notes les marches où le matériel devra être porté.",
+            "Le premier détour est éboulé. Tu trouves une autre voie et marques son accès."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le verrou ajouté",
+      "text": "Depuis l'abri, tu aperçois la vanne du canal. L'eau s'accumule contre son panneau de bois. Une chaîne neuve bloque la poignée alors que les autres pièces sont anciennes. Ce détail confirme qu'on l'a fermée récemment. Tu peux observer le mécanisme depuis le haut ou examiner les marques près du poste pour comprendre qui est intervenu. Tu n'approches pas du courant sans appui. Une branche lourde heurte le panneau puis repart vers la rivière. Il faudra prévenir les ouvriers de ces chocs. Tu vérifies aussi où l'eau ira lorsque la vanne s'ouvrira. La vallée de décharge est vide de maisons, mais son entrée doit être dégagée pour que le canal serve réellement à soulager la digue.",
+      "choices": [
+        {
+          "text": "Observer la vanne et la direction du canal",
+          "heroes": [
+            "explorer",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Tu repères le verrou ajouté et le trajet de décharge. Les ouvriers sauront où placer leurs appuis.",
+            "Tu vois le mécanisme, mais une branche cache un côté. Tu notes l’incertitude plutôt que d’inventer.",
+            "La pluie cache la vanne. Tu te déplaces vers un autre abri et repères au moins la chaîne neuve."
+          ]
+        },
+        {
+          "text": "Examiner les traces près du poste",
+          "heroes": [
+            "rogue",
+            "keeper"
+          ],
+          "results": [
+            "Des outils et des empreintes fraîches montrent le passage récent d’une personne chargée du verrou.",
+            "Tu trouves les traces, mais l’eau les efface peu à peu. Tu conserves un outil marqué.",
+            "Les empreintes ont disparu. Une caisse portant un nom donne encore une piste sur l’intervention."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le poste verrouillé",
+      "text": "La porte du poste est fermée par une serrure. Une corde retient son volet, dont le crochet est accessible à travers une petite ouverture bordée de clous. Ton objet pourrait libérer un accès et permettre de lire le plan du canal. Une fenêtre haute donne aussi sur un escalier extérieur. Tu vérifies que les marches ne sont pas couvertes de mousse glissante. Le poste paraît vide, mais une table porte encore des papiers. Tu veux trouver les instructions avant de toucher à la vanne sous la pression de l'eau. Tu retiens l'emplacement du courant et choisis un appui où poser ton sac. Le retour doit rester possible même si le niveau monte pendant ta recherche.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "L’accès s’ouvre. Tu entres dans le poste et retrouves le plan du canal sur la table.",
+            "L’accès se libère, mais la pluie entre aussi. Tu mets les documents au sec avant de lire.",
+            "La porte résiste. Tu trouves une ouverture voisine et rejoins les papiers sans entrer dans le courant."
+          ]
+        },
+        {
+          "text": "Rejoindre la fenêtre haute par l’escalier",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les marches tiennent. Tu entres par la fenêtre et mets le plan à l’abri de la pluie.",
+            "Tu entres, mais une marche glisse. Tu marques l’endroit avant de poursuivre vers la table.",
+            "L’escalier est trop fragile. Un passage de service donne un autre accès au poste."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le trajet des ouvriers",
+      "text": "Le plan montre deux chemins vers la vanne principale. Le passage haut traverse une zone exposée au vent, mais permet de surveiller le canal. Le passage bas rejoint une réserve d'outils à l'abri de la pluie. Tu peux reconnaître la voie haute pour guider les ouvriers avec une vue dégagée ou examiner la voie basse pour protéger leur matériel. Les deux chemins arrivent près d'un ancien poste de contrôle. Tu gardes le plan sous ta veste et vérifies chaque première marche. Un bruit de cloche vient de la vallée : les habitants continuent l'évacuation des maisons basses. Tu ne dois pas leur promettre une réparation immédiate. Tu dois leur rapporter un accès réel et les éléments que tu as pu vérifier.",
+      "choices": [
+        {
+          "text": "Reconnaître le passage haut vers le contrôle",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu traverses et atteins le poste de contrôle avec une vue claire sur le canal.",
+            "Tu avances, mais le vent te ralentit. Tu rejoins le contrôle en restant près des appuis.",
+            "Le passage haut est abîmé. Un escalier latéral te permet de rejoindre le poste de contrôle."
+          ]
+        },
+        {
+          "text": "Examiner le passage bas vers les réserves",
+          "heroes": [
+            "keeper",
+            "rogue",
+            "mage"
+          ],
+          "results": [
+            "La route basse protège de la pluie. Tu arrives dans la réserve proche du mécanisme principal.",
+            "Tu rejoins la réserve, mais une flaque gêne le matériel. Tu marques une voie sèche.",
+            "Une grille ferme la voie basse. Un couloir de service rejoint néanmoins la réserve d’outils."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une aide au poste",
+      "text": "{encounter_name} arrive au poste de contrôle après avoir suivi tes premiers repères. Vous comparez le plan et les traces observées. Tu peux demander à cette personne de t'accompagner pour préparer les appuis autour de la vanne. Tu peux aussi lui confier le poste afin qu'elle guide les ouvriers et apporte tes nouvelles au village. L'eau continue de monter, mais vous avez encore des chemins hors du courant. Vous convenez d'un signal clair pour prévenir d'une ouverture ou d'un retrait. Tu regardes les outils disponibles et les tâches que tu peux accomplir sans aide. Il faut choisir une organisation réaliste : deux personnes près de la vanne, ou une présence ici capable de faire arriver le reste de l'équipe au bon endroit.",
+      "choices": [
+        {
+          "text": "Préparer ensemble l’accès de la vanne",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Vous répartissez les outils. {encounter_name} t’accompagne pour surveiller les appuis du passage.",
+            "Vous continuez ensemble, mais une corde manque. Vous préparez une méthode avec les appuis présents.",
+            "Le passage à deux est trop encombré. {encounter_name} reste pour guider les ouvriers tandis que tu avances."
+          ]
+        },
+        {
+          "text": "Faire guider les ouvriers et transmettre les nouvelles",
+          "heroes": [
+            "mage",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Le poste est surveillé et le message peut partir. Tu poursuis avec un signal prévu pour l’équipe.",
+            "Le message part par un détour. Tu prépares l’accès en attendant l’arrivée des ouvriers.",
+            "La route du message est bloquée. {encounter_name} cherche un autre accès et garde le poste."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "L’ancien déversoir",
+      "text": "Une plaque décrit l'installation avant l'ajout de la grande vanne. Un déversoir secondaire permettait de limiter les crues pendant les réparations. Tu peux chercher son accès sur le plan ou rejoindre immédiatement la fermeture principale. Tu observes les repères du lieu pour distinguer un ancien canal d'une simple rigole. Un déversoir utilisable donnerait du temps aux ouvriers et au village. S'il est bouché, il ne faudra pas compter dessus. Tu regardes la profondeur, les sorties et les traces de passage sans entrer dans l'eau. La recherche d'un secret compte seulement si elle apporte un moyen concret de réduire la crue. Tu gardes le plan au sec et choisis le renseignement qui manque encore le plus à la préparation.",
+      "choices": [
+        {
+          "text": "Chercher le déversoir secondaire sur le plan",
+          "heroes": [
+            "explorer",
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Tu localises un accès oublié vers la vallée vide. Les ouvriers pourront l’ouvrir pendant les réparations.",
+            "Tu trouves l’ancien canal, mais son état reste incertain. Tu marques l’accès pour l’équipe.",
+            "Le déversoir est bouché. Tu retiens l’information et poursuis vers la vanne principale."
+          ],
+          "flag": "secret"
+        },
+        {
+          "text": "Rejoindre la fermeture principale sans détour",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Tu mémorises le plan et atteins rapidement le passage qui mène à la vanne.",
+            "Tu avances, mais dois contourner des débris. Tu gardes le retour hors du courant.",
+            "Le trajet indiqué est inondé. Un accès latéral permet de rejoindre la fermeture principale."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La grille de contrôle",
+      "text": "Une grille protège l'accès au mécanisme. Elle est fermée par un cadenas et une corde, avec un crochet derrière un cadre couvert de pointes. Ton objet pourrait libérer ce passage. Tu peux aussi utiliser la manivelle du palier pour lever la grille et la retenir avec une cale. L'eau n'atteint pas encore cet endroit, mais des éclaboussures rendent les pierres glissantes. Tu vérifies que le battant ne tombera pas vers le canal lorsqu'il sera libéré. Les ouvriers devront transporter leurs outils ici. Une petite ouverture suffisante pour toi ne leur servirait pas autant qu'une voie réellement dégagée. Tu prépares les appuis, puis décides du geste en gardant les deux pieds sur la partie la plus solide du palier.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La grille s’ouvre. Tu bloques son battant pour laisser entrer les ouvriers avec leur matériel.",
+            "L’accès se libère, mais l’appui glisse. Tu le remplaces avant de continuer vers la vanne.",
+            "Le mécanisme résiste. Un passage latéral mène quand même au contrôle de la vanne."
+          ]
+        },
+        {
+          "text": "Lever la grille et caler son poids",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "La manivelle ouvre un passage large. Tu bloques la grille avant de rejoindre le mécanisme.",
+            "La grille monte difficilement. Tu dégages assez d’espace et marques le point fragile.",
+            "La manivelle est bloquée. Une porte de service permet de rejoindre le contrôle malgré la grille."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Des appuis contre la crue",
+      "text": "Tu vois maintenant la poignée de la vanne et le verrou ajouté. Avant de l'ouvrir, tu peux préparer une corde qui limitera son mouvement ou retirer les branches accumulées devant le canal de décharge. Tu ne dois pas descendre dans le courant. Une perche et des appuis permettent de déplacer les petits débris depuis le palier. Les grandes branches demanderont l'équipe. Tu regardes où poser les outils et où te mettre à l'abri si l'eau augmente. La vanne a besoin d'un passage libre pour soulager la digue, mais un mouvement trop brutal pourrait casser une pièce fragile. Tu choisis la préparation la plus utile et gardes le signal convenu à portée de voix pour prévenir les personnes qui te rejoindront.",
+      "choices": [
+        {
+          "text": "Préparer une corde pour limiter le mouvement de la vanne",
+          "heroes": [
+            "knight",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "La corde est fixée sur des appuis solides. La vanne pourra être ouverte progressivement.",
+            "La corde tient, mais un nœud glisse. Tu le refais avant de toucher au verrou.",
+            "L’appui est trop fragile. Tu marques ce danger et prépares une fixation voisine pour l’équipe."
+          ]
+        },
+        {
+          "text": "Dégager les petits débris depuis le palier",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu dégages le canal avec la perche. L’eau disposera d’une sortie sans obstacle immédiat.",
+            "Le petit passage est dégagé, mais une branche lourde reste coincée. Tu la signales aux ouvriers.",
+            "La perche ne suffit pas. Tu repères les débris à retirer et prépares un abri pour l’équipe."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Le sabotage découvert",
+      "text": "Dans un coffret de documents, tu trouves les ordres qui expliquent la fermeture. Ils montrent le verrou ajouté et les réparations laissées inachevées. Tu peux garder les preuves pour les habitants ou étudier d'abord les pièces fragiles afin de prévenir les ouvriers. La pluie n'est plus le seul problème : quelqu'un a empêché le canal de jouer son rôle. Tu places les pages dans une toile sèche et regardes la poignée. Il faudra enlever l'obstacle, puis vérifier que les mécanismes résistent à la pression. Si un sort entretient la pluie, ses instructions devront aussi être transmises à la magicienne du village. Tu ne veux pas confondre la découverte du responsable avec la fin de la crue. Les preuves expliquent ce qu'il faut faire ensuite.",
+      "choices": [
+        {
+          "text": "Conserver les preuves du sabotage",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu ranges les documents au sec. Les habitants pourront demander des comptes au responsable.",
+            "Tu gardes les preuves, mais une page est mouillée. La signature et le plan restent lisibles.",
+            "Le document est déchiré. Tu conserves un ordre signé et le dessin du verrou ajouté."
+          ]
+        },
+        {
+          "text": "Étudier les pièces fragiles pour guider les ouvriers",
+          "heroes": [
+            "mage",
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Tu repères les appuis à remplacer et les gestes à éviter. L’équipe pourra intervenir plus sûrement.",
+            "Tu reconnais les pièces principales, mais un détail manque. Tu gardes la question pour les artisans.",
+            "Le plan est incomplet. Tu marques au moins le verrou ajouté et l’appui manifestement fissuré."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Devant la grande vanne",
+      "text": "Tu atteins le palier où la poignée commande le canal. La digue du village retient encore l'eau, mais les nouvelles annoncent que les maisons basses ont été évacuées. {revelation_actor} a laissé un verrou dans un coffret métallique. Tu peux dégager le palier pour faire entrer les outils ou préparer un signal qui indiquera aux ouvriers où placer la première corde. Tu gardes un abri hors des éclaboussures. La réparation ne dépend pas d'un seul geste héroïque : il faut des appuis, un canal dégagé et une ouverture contrôlée. Tu regardes les pièces identifiées dans le plan et celles que tu n'as pas pu vérifier. Tu choisis une préparation utile, en laissant la place aux personnes qui sauront démonter les éléments trop lourds pour toi.",
+      "choices": [
+        {
+          "text": "Dégager le palier pour les outils de réparation",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Le palier offre assez d’espace pour l’équipe. Les outils pourront être posés hors du passage.",
+            "Tu dégages une place, mais un débris reste lourd. Tu le marques pour les ouvriers.",
+            "Le palier est trop encombré. Tu prépares une petite zone voisine pour recevoir les outils."
+          ]
+        },
+        {
+          "text": "Préparer le signal et les premières fixations de corde",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Le signal est clair et les points de fixation sont repérés. L’équipe pourra commencer sans chercher.",
+            "Les fixations sont repérées, mais une corde manque. Tu préviens les ouvriers avant leur arrivée.",
+            "Le premier point est fragile. Tu signales l’incertitude et marques un appui plus éloigné."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le coffret du verrou",
+      "text": "Le coffret métallique commande l'attache ajoutée à la vanne. Il porte une serrure, une corde de sécurité et un crochet derrière son volet. Les bords rouillés demandent de protéger ta main. Ton objet pourrait libérer l'accès, puis tu devras neutraliser le verrou sans ouvrir brutalement le panneau sous la pression de l'eau. Une autre méthode consiste à employer l'outil de réglage conservé dans le poste. Tu le compares aux pièces du dessin avant d'essayer. Si l'ouverture reste impossible, les ouvriers sauront maintenant quel outil apporter et où le placer. Tu regardes la corde préparée pour limiter le mouvement. La dernière attache n'est qu'une partie de la réparation : il faut garder le reste du mécanisme sous contrôle.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Le coffret s’ouvre. Tu neutralises le verrou ajouté sans libérer d’un coup le poids de l’eau.",
+            "Tu ouvres le coffret, mais une pièce reste serrée. L’équipe pourra finir son démontage par cet accès.",
+            "Le coffret résiste. Tu marques la fermeture et prépares l’outil nécessaire pour les ouvriers."
+          ]
+        },
+        {
+          "text": "Essayer l’outil de réglage selon le plan",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "L’outil libère l’attache. Le verrou ajouté cesse de bloquer la commande de la vanne.",
+            "L’attache se desserre lentement. Tu maintiens les appuis pendant que la dernière pièce est préparée.",
+            "L’outil ne convient pas. Tu notes la forme de la pièce et gardes la commande accessible."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ouvrir le canal de décharge",
+      "text": "L'équipe peut terminer les attaches encore bloquées et reprendre les appuis fragiles. Tu dois choisir comment organiser l'ouverture : commencer progressivement par la grande vanne, ou établir un petit débit pendant que les ouvriers vérifient le reste. Les habitants sont à l'abri, et les preuves de {revelation_actor} sont conservées au sec. Tu regardes la vallée de décharge, la corde de retenue et les débris signalés. Si un enchantement entretient la pluie, la magicienne recevra ses instructions pendant que les artisans travaillent sur le canal. La digue n'a pas besoin que tu caches les difficultés ; elle a besoin que chacun sache où agir. Tu annonces ton choix avec le signal convenu, puis prépares le retour des nouvelles vers Clairval.",
+      "choices": [
+        {
+          "text": "Commencer une ouverture progressive de la grande vanne",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La vanne s’ouvre sous contrôle. L’eau rejoint la vallée vide et la pression diminue derrière la digue.",
+            "L’écoulement commence, mais une fuite demande encore l’équipe. Tu signales le point sans quitter l’abri.",
+            "La grande vanne reste coincée. Les ouvriers établissent un débit provisoire grâce aux accès préparés."
+          ]
+        },
+        {
+          "text": "Établir un petit débit pendant la vérification des appuis",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Le petit débit soulage la digue. Les ouvriers peuvent terminer la réparation avant l’ouverture complète.",
+            "Le canal laisse passer un peu d’eau. L’équipe poursuit le démontage pendant que le village reste protégé.",
+            "Le premier passage est bouché. Tu guides les ouvriers vers l’accès préparé pour établir un écoulement de secours."
+          ],
+          "repair": true
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "La réserve des ouvriers",
+    "text": "La route basse rejoint une réserve où des cordes et des coins de bois ont été rangés au sec. {encounter_name} t'y retrouve avec des nouvelles du village. Les habitants des maisons basses sont maintenant à l'abri. Vous pouvez emporter des outils et poursuivre ensemble vers la vanne. Tu peux aussi demander à cette personne de garder la réserve pour guider les ouvriers et protéger leur matériel. Une porte de service rejoint le poste de contrôle. Vous vérifiez que son seuil reste au-dessus de l'eau et choisissez un signal. Tu regardes les objets vraiment utiles à la prochaine étape. Il vaut mieux porter une corde adaptée que déplacer toute la réserve et encombrer le chemin de l'équipe.",
+    "choices": [
+      {
+        "text": "Poursuivre ensemble avec les outils utiles",
+        "heroes": [
+          "knight",
+          "keeper"
+        ],
+        "results": [
+          "Vous choisissez une corde et des cales. {encounter_name} t’accompagne vers le poste de contrôle.",
+          "Vous partez ensemble, mais un outil est trop lourd. Vous le laissez dans une place repérée.",
+          "Les outils doivent rester ici pour l’équipe. {encounter_name} garde la réserve et tu continues seul."
+        ]
+      },
+      {
+        "text": "Faire guider les ouvriers depuis la réserve",
+        "heroes": [
+          "mage",
+          "rogue",
+          "explorer"
+        ],
+        "results": [
+          "Le matériel est prêt et la route surveillée. Tu avances avec un signal convenu pour l’équipe.",
+          "La réserve est prête, mais le message prendra un détour. Tu continues vers la vanne.",
+          "Le premier chemin des ouvriers est bloqué. {encounter_name} cherche un accès voisin tandis que tu avances."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "Le déversoir retrouvé",
+      "text": "Le déversoir oublié permet de réduire la pression pendant que l'équipe répare la grande vanne. Les ouvriers suivent les indications de ton plan et dégagent le canal vers la vallée vide. La pluie finit par diminuer ; si un sort l'entretenait, la magicienne l'a interrompu avec les instructions retrouvées. Clairval conserve quelques jardins abîmés, mais la digue tient. Les habitants reviennent ensuite inspecter leurs maisons. Tu montres l'accès secondaire au garde du canal pour qu'il ne soit plus oublié. On y place un repère et une copie du plan. Le village n'a pas reçu une protection parfaite pour toujours : il a retrouvé un moyen de préparer la prochaine crue."
+    },
+    "alliance": {
+      "title": "Le travail de toute une équipe",
+      "text": "Avec {encounter_name}, tu guides les ouvriers jusqu'aux appuis et aux pièces identifiées. Pendant que l'un transmet les nouvelles, l'autre montre le trajet du matériel. Le canal est ouvert progressivement et la pression baisse derrière la digue. Les habitants restent à l'abri jusqu'à la vérification des maisons. Les documents du sabotage sont remis au conseil, qui demandera les réparations nécessaires. Tu retrouves {encounter_name} près de la réserve au sec. Vous rangez les cordes et comptez les outils avant de repartir. La réussite appartient à plusieurs tâches préparées au bon moment : reconnaître la route, garder les preuves, prévenir l'équipe et laisser travailler les personnes qui savaient démonter la vanne."
+    },
+    "radiant": {
+      "title": "La rivière retrouve son lit",
+      "text": "L'eau suit de nouveau le canal de décharge et la digue cesse de trembler sous les branches. Les ouvriers terminent les appuis avant de laisser les habitants rentrer. La pluie diminue et la rivière retrouve peu à peu son niveau habituel. Tu rapportes les preuves qui expliquent le sabotage. Le conseil décide de faire vérifier les vannes à chaque début de saison. Sur la place, les habitants nettoient la boue et remettent les provisions dans les maisons. Tu aides à porter quelques paniers, heureux de cette tâche simple après le courant et les mécanismes. Le garde du canal t'offre une copie du plan. Les prochaines pluies trouveront un village mieux préparé."
+    },
+    "cost": {
+      "title": "Les jardins à remettre en état",
+      "text": "Le canal laisse passer assez d'eau pour soulager la digue, mais la réparation complète demande encore une journée. Les habitants restent dans les maisons hautes et partagent les provisions préparées avant ton départ. Tu donnes aux ouvriers les dessins et les détails des pièces fragiles. Lorsque la vanne fonctionne enfin, la rivière baisse. Quelques jardins et clôtures devront être réparés ; les maisons ont été protégées grâce à l'évacuation et au travail sur le canal. Tu racontes les difficultés sans les transformer en victoire parfaite. Les documents conservés serviront à réclamer des comptes. Au village, on prépare un calendrier de travaux et des repères pour la prochaine crue."
+    },
+    "resilient": {
+      "title": "Des informations qui sauvent du temps",
+      "text": "Tu n'as pas pu ouvrir seul les mécanismes, mais l'équipe connaît désormais les passages, les pièces bloquées et les appuis dangereux. Les ouvriers apportent les bons outils au lieu de chercher sous la pluie. Les habitants restent à l'abri pendant le démontage. Un débit provisoire, puis le canal réparé, réduisent la pression sur la digue. Clairval évite le pire, même si plusieurs jardins sont inondés. Tu remets les preuves du sabotage au conseil et les notes du trajet au garde. Tes tentatives ont eu une utilité concrète : elles ont donné à l'équipe les renseignements qui manquaient. Lorsque la rivière baisse, tu retrouves la route du village sous une pluie beaucoup plus légère."
+    }
+  },
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du poste. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de contrôle. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de sécurité près de le coffret du verrou. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la protection de Clairval.",
+      "climax_action": "Couper la corde de sécurité avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du poste, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de contrôle, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffret du verrou, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la protection de Clairval reste ton objectif.",
+      "climax_action": "Desserrer le crochet du volet avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du poste. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de contrôle. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du volet près de le coffret du verrou. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la protection de Clairval.",
+      "climax_action": "Protéger ta main pour dégager le crochet du volet"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du poste. Elle désigne un côté de la porte du poste. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de contrôle. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffret de commande. Elle désigne un côté de le coffret du verrou. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la protection de Clairval.",
+      "climax_action": "Trouver le crochet du volet avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du poste près de la porte du poste. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "first_action": "Ouvrir la serrure du poste avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de contrôle. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffret près de le coffret du verrou. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la protection de Clairval.",
+      "climax_action": "Ouvrir la serrure du coffret avec ta clé"
+    }
+  }
+}

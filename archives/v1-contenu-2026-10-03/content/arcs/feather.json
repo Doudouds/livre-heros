@@ -1,0 +1,71 @@
+{
+  "id": "feather",
+  "title": "Le Premier Vol de Lume",
+  "description": "Retrouver une jeune griffonne et lui rendre un départ qu'une protection trop stricte empêche.",
+  "conditions": {},
+  "decision_count": 12,
+  "start": "feather_intro",
+  "revelations": [
+    {
+      "id": "healer",
+      "actor": "le soigneur Tovan",
+      "text": "Un carnet montre que Tovan, le soigneur de Lume, l'a conduite ici après avoir aperçu une tempête sur la route du groupe. Il voulait attendre un ciel plus calme. Mais le refuge qu'il a activé considère chaque mouvement d'aile comme un danger et resserre sa protection. Tovan ne parvient plus à l'ouvrir. Il faut sauver Lume du dispositif sans oublier la vraie question du départ."
+    },
+    {
+      "id": "inventor",
+      "actor": "l'ingénieure Ilvane",
+      "text": "Le carnet révèle Ilvane, qui a construit un parcours pour aider les jeunes griffons à voler. Elle a conduit Lume ici afin de lui faire essayer une dernière étape. Le parcours s'est relié aux anciennes protections du lieu et refuse maintenant tout départ non prévu. Ilvane cherche à le réparer, mais chaque essai ajoute une nouvelle épreuve. Lume a surtout besoin qu'on lui rende une sortie réelle."
+    },
+    {
+      "id": "golem",
+      "actor": "le golem des nids",
+      "text": "Le carnet raconte que le golem des nids a accueilli Lume lorsqu'elle cherchait un abri. Son ancienne consigne est de ne laisser sortir aucune créature avant le retour de son gardien. Ce gardien a quitté le lieu depuis longtemps. Le golem protège Lume avec soin, mais ne comprend pas que son groupe peut l'accueillir. Il faut lui montrer un retour possible plutôt que lui ordonner d'abandonner sa mission."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "feather_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "feather_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "feather_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "feather_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "feather_end_resilient",
+      "when": {}
+    }
+  ]
+}

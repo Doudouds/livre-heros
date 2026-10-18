@@ -1,0 +1,141 @@
+[
+  {
+    "page": "accueil",
+    "height": 620,
+    "buttons": [
+      {
+        "text": "Ouvrir le conte",
+        "bottom": 330,
+        "inside": true
+      },
+      {
+        "text": "Ouvrir le livre",
+        "bottom": 559,
+        "inside": true
+      }
+    ]
+  },
+  {
+    "page": "ouverture directe du premier passage",
+    "height": 620,
+    "buttons": [
+      {
+        "text": "Choix 1 · Rejoindre les douches sans attendre",
+        "bottom": 533,
+        "inside": true
+      },
+      {
+        "text": "Choix 2 · Préparer ses vêtements avant de rejoindre les douches",
+        "bottom": 590,
+        "inside": true
+      },
+      {
+        "text": "▶ Lecture",
+        "bottom": 201,
+        "inside": true
+      },
+      {
+        "text": "⏸ Pause",
+        "bottom": 251,
+        "inside": true
+      },
+      {
+        "text": "↺ Rejouer",
+        "bottom": 301,
+        "inside": true
+      }
+    ],
+    "image_width": 384,
+    "reading_width": 722,
+    "first_element": [
+      [
+        "window",
+        ".!frame.!frame4.!text.chapter-illustration",
+        "1.0"
+      ]
+    ],
+    "scroll_fraction": 0.5934579439252337
+  },
+  {
+    "page": "premier passage, grande fenêtre",
+    "height": 800,
+    "buttons": [
+      {
+        "text": "Choix 1 · Rejoindre les douches sans attendre",
+        "bottom": 713,
+        "inside": true
+      },
+      {
+        "text": "Choix 2 · Préparer ses vêtements avant de rejoindre les douches",
+        "bottom": 770,
+        "inside": true
+      },
+      {
+        "text": "▶ Lecture",
+        "bottom": 201,
+        "inside": true
+      },
+      {
+        "text": "⏸ Pause",
+        "bottom": 251,
+        "inside": true
+      },
+      {
+        "text": "↺ Rejouer",
+        "bottom": 301,
+        "inside": true
+      }
+    ],
+    "image_width": 512,
+    "reading_width": 1022,
+    "first_element": [
+      [
+        "window",
+        ".!frame.!frame4.!text.chapter-illustration",
+        "1.0"
+      ]
+    ],
+    "scroll_fraction": 0.4276094276094276
+  },
+  {
+    "page": "clôture",
+    "height": 620,
+    "buttons": [
+      {
+        "text": "Rejouer le chapitre",
+        "bottom": 539,
+        "inside": true
+      },
+      {
+        "text": "Choisir une autre histoire",
+        "bottom": 596,
+        "inside": true
+      },
+      {
+        "text": "▶ Lecture",
+        "bottom": 201,
+        "inside": true
+      },
+      {
+        "text": "⏸ Pause",
+        "bottom": 251,
+        "inside": true
+      },
+      {
+        "text": "↺ Rejouer",
+        "bottom": 301,
+        "inside": true
+      }
+    ],
+    "image_width": 384,
+    "reading_width": 722,
+    "first_element": [
+      [
+        "window",
+        ".!frame.!frame58.!text.chapter-illustration",
+        "1.0"
+      ]
+    ],
+    "scroll_fraction": 0.628808864265928
+  }
+]

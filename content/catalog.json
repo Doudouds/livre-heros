@@ -1,0 +1,100 @@
+{
+  "text_values": {},
+  "encounters": [
+    {
+      "id": "lia",
+      "name": "Lia",
+      "intro": "À l'entrée du chemin, tu rencontres Lia, une jeune cartographe. Elle porte des feuilles roulées, une corde et un couteau de voyage. Elle a entendu parler du problème au village et vient relever les passages.",
+      "story": "Lia déroule son plan sur une pierre plate. Elle a mesuré les distances et repéré un passage qui évite le chemin principal. Elle sait aussi faire des nœuds solides. Elle pourrait te suivre pour comparer vos observations ou rester ici pour préparer le retour."
+    },
+    {
+      "id": "soren",
+      "name": "Soren",
+      "intro": "Près du chemin, tu rencontres Soren, un apprenti maçon. Son sac contient une corde, un marteau et de petits coins de bois. Il vient examiner les dégâts signalés par les voyageurs.",
+      "story": "Soren examine un appui avant de poser son sac. Il sait reconnaître une pierre solide, soutenir une planche et réparer une attache. Ses outils sont simples, mais il les connaît bien. Il peut venir avec toi ou préparer ici un passage fiable pour le retour."
+    },
+    {
+      "id": "mira",
+      "name": "Mira",
+      "intro": "Sur la route, tu rencontres Mira, une écuyère chargée d'apporter des nouvelles aux villages. Elle connaît les signaux des gardes et porte une corde sur son sac. Elle s'arrête en apprenant ta mission.",
+      "story": "Mira te montre les signaux qu'elle emploie avec les gardes : une main levée pour attendre, deux coups brefs pour appeler. Elle sait surveiller un passage et porter un message sans se tromper de route. Elle pourrait t'accompagner ou garder votre accès."
+    },
+    {
+      "id": "elias",
+      "name": "Élias",
+      "intro": "Au bord du chemin, tu rencontres Élias, un apprenti herboriste. Il porte une gourde, des bandes de tissu et un carnet de plantes. Il vient aider les personnes qui en auraient besoin.",
+      "story": "Élias ouvre son sac et vérifie sa réserve d'eau. Il connaît les plantes communes et sait préparer un pansement simple. Il observe aussi les traces laissées par les voyageurs. Il peut te suivre pour aider pendant la mission ou préparer ici un refuge."
+    }
+  ],
+  "insertions": {
+    "1": "{location_approach}",
+    "2": "{hero_observation}",
+    "3": "{item_first}",
+    "4": "{location_hazard}",
+    "5": "{encounter_story}",
+    "6": "{location_secret}",
+    "7": "{item_second}",
+    "8": "{hero_plan}",
+    "9": "{revelation_text}",
+    "10": "{location_core}",
+    "11": "{item_climax}",
+    "12": "{location_decision}"
+  },
+  "state_variants": [
+    {
+      "id": "memory_ally",
+      "ranks": [
+        6,
+        10
+      ],
+      "when": {
+        "ally": "companion"
+      },
+      "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+    },
+    {
+      "id": "memory_solo",
+      "ranks": [
+        6,
+        10
+      ],
+      "when": {
+        "not": {
+          "ally": "companion"
+        }
+      },
+      "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+    },
+    {
+      "id": "unstable_echo",
+      "ranks": [
+        8,
+        12
+      ],
+      "when": {
+        "flag": "unstable"
+      },
+      "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+    },
+    {
+      "id": "prepared_echo",
+      "ranks": [
+        8,
+        12
+      ],
+      "when": {
+        "all": [
+          {
+            "flag": "prepared"
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      },
+      "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+    }
+  ]
+}
