@@ -1,0 +1,57 @@
+[
+  {
+    "id": "castle",
+    "label": "Un château abandonné",
+    "name": "le château abandonné de Valombre",
+    "approach": "Les tours du château de Valombre apparaissent au-dessus des collines. Du lierre traverse les fenêtres, mais les pierres de la grande porte sont propres, comme si quelqu'un venait de les laver. Sous la herse immobile, des empreintes récentes contredisent le silence des remparts. Ce lieu abandonné a recommencé à accueillir des visiteurs.",
+    "hazard": "Dans le château, une galerie relie deux tours au-dessus de la cour. Les dalles tiennent encore, mais les anciennes défenses se réveillent au passage d'une ombre. Les meurtrières éclairent alternativement la galerie et un escalier intérieur. Ces deux accès conduisent au même étage ; chacun exige de comprendre un mécanisme différent.",
+    "secret": "Une salle d'archives occupe l'épaisseur du rempart. Sur une fresque, le château apparaît avec toutes ses portes ouvertes. Sous la peinture se trouve une carte des refuges, dessinée pour les habitants et non pour les soldats. Tu découvres que les défenses protégeaient jadis un lieu de rencontre, avant d'en devenir les barreaux.",
+    "core": "Le cœur du château est une cour couverte par une coupole de verre ancien. Cinq couloirs y convergent, et leurs portes portent les mêmes marques que celles observées depuis ton arrivée. Les remparts ont été construits autour de cette salle. Ce qui se joue ici explique pourquoi le château a été déserté.",
+    "decision": "Au sommet des remparts, tu peux voir le mécanisme central et les chemins qui redescendent vers les villages. Une action rapide concentrerait toute la force dans la cour ; une intervention par les portes la répartirait entre les anciennes tours. Le château peut devenir un abri ouvert, si tu choisis comment réveiller ses passages.",
+    "departure": "Quand tu quittes Valombre, une fenêtre s'ouvre au-dessus de la grande porte. Le château garde ses pierres anciennes, mais son silence ne ressemble plus à un refus. Sur le chemin du retour, tu imagines déjà les pas qui pourront traverser sa cour sans avoir à se cacher."
+  },
+  {
+    "id": "forest",
+    "label": "Une forêt enchantée",
+    "name": "la forêt enchantée des Murmures",
+    "approach": "Les arbres de la forêt des Murmures portent des feuilles translucides qui retiennent la lumière du matin. Un sentier apparaît lorsque tu le regardes de côté et disparaît si tu le fixes. Au bord des racines, de minuscules fanions indiquent que d'autres voyageurs ont essayé de comprendre les changements du bois.",
+    "hazard": "Au milieu de la forêt, les racines ont soulevé un chemin en passerelle. En dessous, un tunnel de fougères rejoint le même bosquet. Les branches se déplacent au rythme d'un souffle que tu peux entendre. Pour passer, il faut accompagner ce rythme ou emprunter un intervalle où les arbres cessent de bouger.",
+    "secret": "Dans une clairière cachée, des cernes lumineux apparaissent sur un arbre creux. Ils ne comptent pas les années, mais les promesses faites à la forêt. Certains brillent ensemble ; d'autres restent isolés. Tu comprends que les sentiers ont été inventés pour relier ces engagements, et que leur désordre commence quand un lien manque.",
+    "core": "Au cœur de la forêt se trouve un cercle de racines entourant une source parfaitement immobile. Chaque sentier y conduit, même ceux qui semblaient repartir en arrière. Les arbres penchent leurs branches vers l'eau sans la toucher. Le bois entier attend un signal venant de ce cercle, où les anciennes promesses se rejoignent.",
+    "decision": "Depuis une racine haute, tu observes le cercle et les sentiers qui s'en éloignent. Tu pourrais agir directement sur la source, ou transmettre un signal par les arbres qui bordent les chemins. La première méthode sera plus concentrée ; la seconde demandera de faire confiance au bois. Dans les deux cas, la forêt devra pouvoir respirer.",
+    "departure": "En quittant la forêt des Murmures, tu vois un sentier apparaître entre deux arbres. Il ne ressemble plus à un piège ni à une devinette. Une feuille lumineuse tombe près de tes pas, puis le bois laisse le vent la pousser vers le chemin du retour."
+  },
+  {
+    "id": "mountain",
+    "label": "La montagne des dragons",
+    "name": "la montagne des dragons de Brumecime",
+    "approach": "La montagne de Brumecime se dresse au-dessus d'une ceinture de nuages. Des dragons dessinent de larges cercles près des sommets, sans rugir. Le sentier porte des marques de griffes mêlées à de petits pas humains. Ici, les deux espèces utilisent les mêmes passages, et leur silence inhabituel ressemble à une attente.",
+    "hazard": "Sur la montagne, une corniche longe une paroi chauffée par le souffle des dragons. Une galerie naturelle passe derrière la roche et rejoint la même terrasse. Le vent change chaque fois qu'une grande aile traverse les nuages. Tu dois choisir entre lire ces courants dehors ou écouter leurs vibrations à l'intérieur de la pierre.",
+    "secret": "Dans un ancien observatoire, des écailles sont enchâssées autour d'une carte du ciel. Des annotations humaines répondent à des signes tracés par les dragons. L'endroit servait à prévoir les vents ensemble. Tu découvres que la montagne était un rendez-vous d'apprentissage, et que le trouble actuel a interrompu cet échange entre les habitants.",
+    "core": "Le centre de Brumecime est un cratère ouvert où des colonnes de basalte dessinent un cercle. Les dragons peuvent s'y poser sans danger, et un escalier permet aux humains de les rejoindre. Les vibrations que tu suivais convergent sous les colonnes. Toute la montagne paraît retenir un souffle à cet endroit précis.",
+    "decision": "Sur la terrasse du cratère, tu distingues le foyer central et les conduits qui distribuent la chaleur aux autres versants. Tu pourrais intervenir au centre ou demander aux courants de porter ton action plus loin. Le choix décidera comment la montagne relâchera sa force, et quels chemins les dragons retrouveront ensuite.",
+    "departure": "En redescendant de Brumecime, tu entends enfin un dragon appeler un autre au-delà des nuages. Une ombre passe sur le sentier, puis s'écarte pour te laisser le soleil. Les marques de griffes et les petits pas humains peuvent à nouveau raconter une route partagée."
+  },
+  {
+    "id": "city",
+    "label": "Une cité flottante",
+    "name": "la cité flottante d'Auralis",
+    "approach": "La cité d'Auralis flotte au-dessus d'un lac, retenue par des anneaux de lumière. Une nacelle t'y conduit lentement. Les habitants ont attaché des rubans aux balcons pour lire le vent, mais tous les rubans pointent aujourd'hui vers le centre. Sous les terrasses, une pulsation traverse les chaînes sans produire de bruit.",
+    "hazard": "Deux terrasses de la cité sont reliées par un pont suspendu. Un conduit d'entretien passe sous son tablier et arrive au même palier. Les anneaux qui maintiennent Auralis en hauteur changent de couleur à chaque oscillation. Tu peux avancer avec le mouvement du pont ou te servir des prises fixes cachées dessous.",
+    "secret": "Dans une salle de navigation, une maquette d'Auralis montre ses quartiers autrefois reliés par de larges jardins. Les anneaux de lumière répondent encore à ces anciens chemins. La cité ne flotte donc pas grâce à un unique objet précieux : elle tient parce que ses différentes parties échangent une force que quelqu'un a interrompue.",
+    "core": "Au centre d'Auralis, une place circulaire laisse voir le lac à travers un sol de verre. Les anneaux de sustentation se rejoignent sous ce disque. Autour de toi, les bâtiments s'inclinent très légèrement dans la même direction. Le trouble qui parcourait les terrasses vient d'ici, et sa réponse décidera de l'équilibre de toute la cité.",
+    "decision": "Depuis le bord de la place, tu peux atteindre le nœud central ou les cinq anneaux qui répartissent la force entre les quartiers. Une intervention au centre sera immédiate ; une action dans les anneaux donnera aux habitants le temps d'accompagner le mouvement. Dans les deux cas, il faut ménager l'équilibre d'Auralis.",
+    "departure": "Quand la nacelle te ramène vers le lac, tu regardes les rubans d'Auralis. Ils ne pointent plus tous dans la même direction : chaque balcon suit de nouveau son propre vent. La cité garde sa place dans le ciel, et ses lumières semblent répondre aux villages sur les rives."
+  },
+  {
+    "id": "ruins",
+    "label": "Des ruines souterraines oubliées",
+    "name": "les ruines souterraines de Nacreprofonde",
+    "approach": "Un escalier descend vers Nacreprofonde sous une colline ordinaire. À mesure que tu avances, la lumière vient des murs eux-mêmes, couverts de coquillages fossiles. Une ancienne rue s'étend au pied des marches. Dans la poussière, des traces fraîches montrent que les ruines oubliées ont retrouvé des visiteurs avant ton arrivée.",
+    "hazard": "Dans les ruines, une chaussée franchit un canal sans eau. Un ancien passage de service suit le fond du canal et remonte au même carrefour. Des plaques minérales s'éclairent dès qu'elles sentent une vibration. Tu peux lire leurs signaux depuis la chaussée ou avancer dans l'ombre en observant les racines qui traversent le plafond.",
+    "secret": "Une bibliothèque de pierre conserve des tablettes que l'humidité n'a pas effacées. Elles décrivent des voies d'eau conçues pour alimenter les maisons, les jardins et les salles communes. Tu découvres que Nacreprofonde n'était pas un tombeau, mais une ville vivante. Son abandon a commencé quand les habitants ont cessé d'entendre ses avertissements.",
+    "core": "Au centre des ruines, un bassin sec est entouré de marches assez larges pour accueillir une foule. Tous les anciens canaux aboutissent ici. Sous le sol, une vibration répond au rythme observé depuis l'escalier. Ce bassin commandait les échanges de la ville ; il peut encore transmettre un changement à chaque rue enfouie.",
+    "decision": "Depuis les marches du bassin, tu peux atteindre son centre ou les canaux qui rejoignent les quartiers souterrains. Agir au milieu concentrerait la force en un point ; ouvrir les anciennes voies permettrait de la distribuer. Les ruines imposent une précaution : donner à chaque mouvement une sortie avant qu'il ne gagne les salles voisines.",
+    "departure": "En remontant l'escalier de Nacreprofonde, tu remarques une lueur sur une tablette que tu croyais éteinte. Les rues restent anciennes et silencieuses, mais elles ne sont plus sans réponse. Au sommet des marches, l'air du soir a une odeur de pluie et de chemins qui attendent."
+  }
+]

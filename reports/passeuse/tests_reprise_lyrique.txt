@@ -1,0 +1,17 @@
+test_changed_content_and_falsified_journal_are_rejected (tests.test_passeuse.BookTests.test_changed_content_and_falsified_journal_are_rejected) ... ok
+test_every_choice_preserves_order_and_has_its_own_consequence (tests.test_passeuse.BookTests.test_every_choice_preserves_order_and_has_its_own_consequence) ... ok
+test_hasty_work_and_crane_effort_have_visible_later_costs (tests.test_passeuse.BookTests.test_hasty_work_and_crane_effort_have_visible_later_costs) ... ok
+test_home_book_tale_and_image_display_in_the_same_ui (tests.test_passeuse.BookTests.test_home_book_tale_and_image_display_in_the_same_ui) ... ok
+test_journals_replay_before_after_and_between_choices (tests.test_passeuse.BookTests.test_journals_replay_before_after_and_between_choices) ... ok
+test_knee_injury_changes_later_climbing_descent_and_exit (tests.test_passeuse.BookTests.test_knee_injury_changes_later_climbing_descent_and_exit) ... ok
+test_observed_patrol_changes_the_same_later_choice (tests.test_passeuse.BookTests.test_observed_patrol_changes_the_same_later_choice) ... ok
+test_rebuilt_book_records_the_pdf_in_the_project_and_only_chapter_one (tests.test_passeuse.BookTests.test_rebuilt_book_records_the_pdf_in_the_project_and_only_chapter_one) ... ok
+test_rejects_invalid_choices_and_duplicate_submissions (tests.test_passeuse.BookTests.test_rejects_invalid_choices_and_duplicate_submissions) ... ok
+test_varied_paths_terminate_with_third_person_text (tests.test_passeuse.BookTests.test_varied_paths_terminate_with_third_person_text) ... ok
+test_pilot_ui_advances_directly_and_restarts_with_the_same_tale (tests.test_cages.CagesTests.test_pilot_ui_advances_directly_and_restarts_with_the_same_tale) ... ok
+test_pc_ui_full_story_and_debug_visibility (tests.test_pc_audio_tts.AdapterTests.test_pc_ui_full_story_and_debug_visibility) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 6.283s
+
+OK

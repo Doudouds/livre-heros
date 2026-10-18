@@ -1,0 +1,9 @@
+{
+  "asr_dependencies": "audio/runtime/asr_dependencies",
+  "asr_model": "audio/experiments/emotions/asr_cache/models--Systran--faster-whisper-small/snapshots/536b0662742c02347bc0e980a01041f333bce120",
+  "model": {
+    "repo": "ResembleAI/chatterbox",
+    "variant": "v3",
+    "revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"
+  }
+}

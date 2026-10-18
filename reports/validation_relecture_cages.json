@@ -1,0 +1,20 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "configuration_count": 125,
+  "arc_configuration_count": 125,
+  "duration_bounds": {
+    "cages": {
+      "minimum_minutes": 19.0,
+      "maximum_minutes": 21.79
+    }
+  },
+  "content_metrics": {
+    "arcs": 1,
+    "scenes": 30,
+    "distinct_prose_blocks": 379,
+    "prepared_unique_words": 10447,
+    "prepared_narration_minutes": 69.65
+  }
+}

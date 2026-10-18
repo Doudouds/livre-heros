@@ -1,0 +1,113 @@
+{
+  "id": "atlas",
+  "title": "La Fleur de Guérison",
+  "description": "Passer les épreuves d'une fée et rapporter une fleur capable de guérir la souveraine.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde de la grille près de la grille du premier jardin. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la fleur de guérison.",
+      "first_action": "Couper la corde de la grille avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de la serre. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la fleur de guérison.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de sécurité près de le coffre vitré de la fleur. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la fleur de guérison.",
+      "climax_action": "Couper la corde de sécurité avec ton épée"
+    },
+    "book": {
+      "first": "Devant la grille du premier jardin, tu relis le sort des attaches. La page conseille de viser seulement le crochet de la grille. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la fleur de guérison reste ton objectif.",
+      "first_action": "Desserrer le crochet de la grille avec une formule",
+      "second": "Devant la grille de la serre, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la fleur de guérison reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffre vitré de la fleur, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la fleur de guérison reste ton objectif.",
+      "climax_action": "Desserrer le crochet du volet avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet de la grille près de la grille du premier jardin. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la fleur de guérison.",
+      "first_action": "Protéger ta main pour dégager le crochet de la grille",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de la serre. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la fleur de guérison.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du volet près de le coffre vitré de la fleur. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la fleur de guérison.",
+      "climax_action": "Protéger ta main pour dégager le crochet du volet"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du jardin. Elle désigne un côté de la grille du premier jardin. Tu pourrais y actionner le crochet de la grille à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la fleur de guérison.",
+      "first_action": "Trouver le crochet de la grille avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la serre. Elle désigne un côté de la grille de la serre. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la fleur de guérison.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffre vitré. Elle désigne un côté de le coffre vitré de la fleur. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la fleur de guérison.",
+      "climax_action": "Trouver le crochet du volet avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du jardin près de la grille du premier jardin. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la fleur de guérison.",
+      "first_action": "Ouvrir la serrure du jardin avec ta clé",
+      "second": "Tu remarques la serrure de la serre près de la grille de la serre. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la fleur de guérison.",
+      "second_action": "Ouvrir la serrure de la serre avec ta clé",
+      "climax": "Tu remarques la serrure du coffre près de le coffre vitré de la fleur. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la fleur de guérison.",
+      "climax_action": "Ouvrir la serrure du coffre avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "atlas_intro",
+  "revelations": [
+    {
+      "id": "fairy",
+      "actor": "la fée Méliane",
+      "text": "Le carnet de Méliane explique pourquoi le jardin possède des épreuves. Autrefois, des visiteurs ont arraché toutes les fleurs sans garder de racines pour les suivantes. La fée veut s'assurer que les voyageurs observent les plantes et comprennent leurs besoins. Elle accepte de donner une fleur pour un remède, à condition que le jardin puisse continuer à fleurir."
+    },
+    {
+      "id": "gardener",
+      "actor": "la jardinière Oriane",
+      "text": "Les notes d'Oriane décrivent la fleur argentée et ses jeunes pousses. La jardinière protège les dernières racines après un hiver difficile. Les épreuves servent à vérifier que les visiteurs prendront seulement ce dont ils ont besoin. Elle peut confier une fleur pour soigner la souveraine, mais demande de laisser les pousses intactes et de partager les indications du trajet."
+    },
+    {
+      "id": "keeper",
+      "actor": "le gardien Célian",
+      "text": "Un registre de Célian montre les visiteurs qui ont emporté des fleurs et ceux qui ont replanté leurs racines. Le gardien suit la règle fixée par la fée : un remède peut être offert, mais le jardin ne doit pas être pillé. Il attend un voyageur capable de préparer le transport sans abîmer les jeunes pousses. Tu sais maintenant pourquoi les portes et les épreuves existent."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "atlas_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "atlas_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "atlas_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "atlas_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "atlas_end_resilient",
+      "when": {}
+    }
+  ]
+}

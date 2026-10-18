@@ -1,0 +1,14 @@
+test_all_configurations_and_extreme_outcomes_keep_a_complete_story (tests.test_cages.CagesTests.test_all_configurations_and_extreme_outcomes_keep_a_complete_story) ... ok
+test_choices_change_rescues_and_the_following_choices (tests.test_cages.CagesTests.test_choices_change_rescues_and_the_following_choices) ... ok
+test_explicit_plot_replays_without_changing_older_journals (tests.test_cages.CagesTests.test_explicit_plot_replays_without_changing_older_journals) ... ok
+test_failed_unlock_keeps_the_key_and_lison_remains_a_bird (tests.test_cages.CagesTests.test_failed_unlock_keeps_the_key_and_lison_remains_a_bird) ... ok
+test_mouse_promise_requires_actually_collecting_the_family (tests.test_cages.CagesTests.test_mouse_promise_requires_actually_collecting_the_family) ... ok
+test_new_games_have_three_distinct_middle_plots (tests.test_cages.CagesTests.test_new_games_have_three_distinct_middle_plots) ... ok
+test_remembered_key_and_alert_change_later_odds (tests.test_cages.CagesTests.test_remembered_key_and_alert_change_later_odds) ... ok
+test_replay_and_audio_use_the_actual_joined_passages (tests.test_cages.CagesTests.test_replay_and_audio_use_the_actual_joined_passages) ... ok
+test_transformation_is_witnessed_before_the_mouse_explains_the_spell (tests.test_cages.CagesTests.test_transformation_is_witnessed_before_the_mouse_explains_the_spell) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.685s
+
+OK

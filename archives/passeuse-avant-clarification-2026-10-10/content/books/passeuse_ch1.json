@@ -1,0 +1,1699 @@
+{
+  "id": "passeuse_ch1",
+  "title": "La petite passeuse d'étoile",
+  "author": "Edouard Bonguet",
+  "chapter": 1,
+  "chapter_title": "Le premier pas hors des lignes",
+  "decision_count": 27,
+  "choice_question": "Que doit choisir Alex ?",
+  "narrative_person": 3,
+  "start": "passeuse_1_01",
+  "scenes": [
+    {
+      "id": "passeuse_1_01",
+      "title": "Quelques minutes avant la sonnerie",
+      "kind": "decision",
+      "rank": 1,
+      "text": "Ayant pour habitude de s'éveiller quelques minutes avant l'heure, elle contempla le monde encore endormi. Sa vie se résumait à cette chambre, une dizaine de mètres carrés couronnée d'une ampoule poussiéreuse pendue au plafond. Tout cela était à elle : ce matelas grisâtre sur lequel elle était étendue, ces habits enfouis à la hâte dans les tiroirs du placard cartonné et ce tableau simpliste qui dessinait les traits d'une femme au travail dont elle ne savait rien. Les murs, jaunis par les années, ne la dérangeaient pas réellement ; ses voisins n'entretenaient guère mieux leur sphère personnelle.\n\nLa grosse sonnette du couloir résonna dans le dortoir et les cloisons en tremblèrent. Cette fois, c'était l'heure. Elle prit une ultime inspiration et posa ses pieds nus sur le sol froid. En pyjama, Alex passa l'unique porte de la chambre et retrouva les autres pensionnaires. Tous se pressaient vers les douches, tâchant d'éviter l'interminable attente dont les retardataires avaient l'habitude.\n\nLe perpétuel rituel matinal pouvait commencer. Ses vêtements attendaient encore dans le placard ; devant elle, le couloir se remplissait.",
+      "image": "images/passeuse/ch1_01.png",
+      "image_alt": "Quelques minutes avant la sonnerie — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        5
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Rejoindre les douches sans attendre",
+          "consequence": "Alex se glissa parmi les premiers pensionnaires. Une douche se libéra à son arrivée ; elle put se laver, s'habiller et profiter des cinq dernières minutes restantes, ce mince répit que le rituel accordait aux plus prompts.",
+          "flags": [
+            "matin_prepare"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_02"
+        },
+        {
+          "id": "b",
+          "text": "Préparer ses vêtements avant de rejoindre les douches",
+          "consequence": "Alex revint un instant au placard. Lorsqu'elle rejoignit les douches, l'attente s'était déjà installée ; les vêtements préparés ne lui rendirent pas le temps perdu, et la seconde sonnerie la surprit encore occupée à se vêtir.",
+          "flags": [
+            "matin_presse"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_02"
+        }
+      ],
+      "values": {},
+      "variants": []
+    },
+    {
+      "id": "passeuse_1_02",
+      "title": "Neuf étages à descendre",
+      "kind": "decision",
+      "rank": 2,
+      "text": "7 h 20, seconde sonnerie, et synonyme de départ. {preparation}\n\nElle vivait au neuvième étage et avait l'obligation d'emprunter les escaliers pour rejoindre la rue. En début de journée, ce n'était pas difficile ; le soir, un peu plus, mais elle ne s'en plaignait pas. Le bas de l'immeuble était réservé aux personnes âgées ou en mauvaise santé. Habiter en haut, c'était le signe d'une longévité à venir. Il y avait bien des ascenseurs, mais ce n'était pas pour elle. Petite, on lui avait expliqué que l'énergie était vitale et qu'il était préférable d'utiliser ses jambes pour entretenir une solide santé. Sur ce point, elle n'avait aucune raison de s'en faire.\n\nAlex avait une vingtaine d'années — elle ne savait pas précisément quand elle était née — et s'était extirpée de la période d'enseignement dix années auparavant. Elle y avait appris les fondamentaux, comme lire, écrire et calculer, mais également quelques lignes d'histoire qui n'eurent pas le mérite d'attirer son attention. Avant la construction de la ville, les gens étaient malheureux, désorganisés et mouraient tôt sans avoir pu trouver le bonheur. Aujourd'hui, en échange du travail accompli, tous les besoins des Hommes étaient comblés et la joie pouvait être cueillie sans la moindre inquiétude.\n\nLa nature de cette ancienne civilisation n'en demeurait pas moins un mystère, mais il semblait absurde d'en savoir davantage. À quoi bon s'intéresser à ce passé imparfait ? Le présent occupait, de toute manière, suffisamment les esprits. Les pensionnaires descendaient ; sur un palier, un intervalle s'ouvrit entre deux groupes.",
+      "image": "images/passeuse/ch1_02.png",
+      "image_alt": "Neuf étages à descendre — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        5,
+        6
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Conserver sa place parmi les pensionnaires",
+          "consequence": "Alex resta dans le sillage du groupe. Au bas des marches, les mêmes épaules l'entraînèrent vers une file adossée aux façades, où d'autres corps s'interposaient entre elle et les machines.",
+          "flags": [
+            "file_abritee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_03"
+        },
+        {
+          "id": "b",
+          "text": "Se glisser dans l'intervalle pour gagner la rue",
+          "consequence": "Alex descendit dans l'intervalle laissé libre et dépassa le groupe. Elle gagna quelques places, mais la file qui l'accueillit longeait les sentinelles ; rien, désormais, ne séparait ses mains du passage de leurs roues.",
+          "flags": [
+            "file_exposee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_03"
+        }
+      ],
+      "values": {
+        "preparation": "Le rituel achevé, Alex suivit les autres pensionnaires vers l'escalier."
+      },
+      "variants": [
+        {
+          "id": "matin_calme",
+          "when": {
+            "all": [
+              "matin_prepare"
+            ]
+          },
+          "values": {
+            "preparation": "Le bref repos du matin s'acheva avec elle, et Alex quitta sa chambre sans se presser."
+          }
+        },
+        {
+          "id": "matin_hatif",
+          "when": {
+            "all": [
+              "matin_presse"
+            ]
+          },
+          "values": {
+            "preparation": "Alex retint à la hâte ses cheveux et rejoignit les derniers pensionnaires ; cette fois, les cinq minutes de repos lui avaient échappé."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_03",
+      "title": "Les lignes de la ville",
+      "kind": "decision",
+      "rank": 3,
+      "text": "Dans la rue, il était inutile de se hâter. Plusieurs files étaient formées et Alex avança dans les pas du groupe et des tracés au sol. Le périple était lent, mais il était inconcevable d'imaginer se frayer un autre chemin. {position}\n\nPositionnées le long du trajet, les sentinelles domptaient la foule de leur cruelle aura. Constituées de pièces mécaniques tranchantes, elles n'avaient aucun effort à fournir pour dissuader les resquilleurs de commettre un impair. Elles se déplaçaient en roulant bien plus vite qu'un Homme ne pouvait courir, mais leur tête, reproduisant la forme d'un visage, était absolument effroyable. Derrière l'ombre d'un casque métallique se dessinaient les rouages d'une funeste machine : une bouche triste, impassible, et de petits yeux rouges qui fixaient continuellement les habitants, à la recherche de l'erreur.\n\nLe moindre faux pas engendrait une terrible punition. Chacun avait déjà vu l'horreur, et la rigueur triomphait en ville.\n\nÀ hauteur d'Alex, l'un des casques pivota vers une autre file. Les roues suivirent le mouvement ; durant cet instant seulement, le regard abandonna la portion de rue qu'il venait de parcourir.",
+      "image": "images/passeuse/ch1_03.png",
+      "image_alt": "Les lignes de la ville — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        6,
+        7
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ramener les yeux sur les lignes de circulation",
+          "consequence": "Alex baissa les yeux et retrouva le tracé sous ses pas. La machine poursuivit sa ronde sans s'arrêter sur elle ; ce qu'avait laissé entrevoir le mouvement du casque se perdit dans la lenteur de la marche.",
+          "flags": [
+            "regard_baisse"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_04"
+        },
+        {
+          "id": "b",
+          "text": "Observer discrètement le mouvement de la sentinelle",
+          "consequence": "Sans détourner franchement la tête, Alex suivit le mouvement. Lorsque la sentinelle changeait de direction, son regard délaissait un instant la rue derrière elle. Elle retint ce bref abandon, puis reprit sa place dans le rythme des autres.",
+          "flags": [
+            "patrol"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_04"
+        }
+      ],
+      "values": {
+        "position": "La foule l'entraînait dans sa lente progression."
+      },
+      "variants": [
+        {
+          "id": "file_pres_du_mur",
+          "when": {
+            "all": [
+              "file_abritee"
+            ]
+          },
+          "values": {
+            "position": "À l'abri des façades, elle apercevait les casques par-dessus les épaules de ceux qui l'entouraient."
+          }
+        },
+        {
+          "id": "file_pres_des_roues",
+          "when": {
+            "all": [
+              "file_exposee"
+            ]
+          },
+          "values": {
+            "position": "Le roulement tout proche lui fit rentrer les mains contre elle ; chaque passage semblait l'effleurer."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_04",
+      "title": "Le chemin appris par cœur",
+      "kind": "decision",
+      "rank": 4,
+      "text": "Tous les jours, un unique chemin et les mêmes immeubles. Alex regardait les gens descendre et contemplait en silence, pour patienter, les néons qui clignotaient régulièrement. Elle pouvait prédire précisément le nombre d'oscillations qu'ils produiraient avant d'être franchis. Souvent, elle espérait se faire surprendre, affronter enfin un changement dans cette existence plate, sans jamais de succès.\n\nElle dépassa la stèle des règles. Les habitants les connaissaient par cœur : être debout à la sonnerie, ne sortir que pour travailler, ne jamais quitter les lignes de circulation, retourner chez soi le soir. Simples et implacables.\n\nDans l'usine, elle retrouva son poste habituel. Elle façonnait le bois, comme tout le monde autour. Elle se disait bien que d'autres avaient, ailleurs, un rôle différent, mais elle ne savait ni où ni ce qu'ils réalisaient. Sa tâche, c'était de couper les planches brutes qui arrivaient en leur donnant une forme. Tout était choisi à l'avance, le plan à reproduire, le type d'arbre à utiliser ; il ne restait qu'à exécuter l'ordre défini.\n\nLe dessin du matin était posé près des outils. Alex y reconnut la forme rectangulaire et les deux encoches qu'il faudrait donner au bois.",
+      "image": "images/passeuse/ch1_04.png",
+      "image_alt": "Le chemin appris par cœur — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        7,
+        8
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "S'attarder sur le plan avant d'empoigner la scie",
+          "consequence": "Alex parcourut le dessin et en retint les mesures. Ce regard supplémentaire ne changeait rien à l'ordre reçu ; il lui permit seulement de confier aux mains une forme dont elle avait déjà suivi les contours.",
+          "flags": [
+            "plan_etudie"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_05"
+        },
+        {
+          "id": "b",
+          "text": "Commencer l'ouvrage en se fiant à ses gestes habituels",
+          "consequence": "Alex empoigna la scie. Les premières coupes retrouvèrent d'elles-mêmes le mouvement appris, mais, à l'approche des encoches, l'habitude ne suffit plus : elle dut revenir au dessin pour en mesurer la profondeur.",
+          "flags": [
+            "plan_rapide"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_05"
+        }
+      ],
+      "values": {},
+      "variants": []
+    },
+    {
+      "id": "passeuse_1_05",
+      "title": "Le bois sous ses mains",
+      "kind": "decision",
+      "rank": 5,
+      "text": "Elle était douée dans son travail, mais certainement pas la meilleure du groupe. Comment rivaliser avec ceux qui exerçaient ce métier depuis des dizaines d'années ? Il était vrai, malheureusement, que toute sa vie elle s'adonnerait à cette unique besogne sans qu'elle puisse une fois seulement montrer son mécontentement. La tâche était répétitive, nullement passionnante, mais ils lui avaient maintes fois ressassé que c'était la manière d'être heureux dans ce monde.\n\nPartout, même dans l'usine, les sentinelles roulaient méthodiquement autour de leurs protégés, veillant consciencieusement à ce qu'ils soient attelés à l'exercice de leur bonheur.\n\nSes longs cheveux bruns attachés, Alex regroupa les outils de découpe et d'assemblage. Chaque jour, les besoins variaient. Elle guida la planche devant ses mains aguerries, la trancha pour en obtenir une forme rectangulaire, puis tailla au rabot les extrémités qui demandaient plus de détails. {mesures}\n\nAlex observa l'œuvre dans son ensemble, fut satisfaite et la posa à terre. Elle réitéra l'opération autant que nécessaire.\n\nPar moments, ses grands yeux verts parcouraient brièvement la salle, sans jamais se faire attraper. Au-delà des montages semblables au sien, un ouvrier fixait de petites roues sous une maquette. Le mouvement arrêta son regard ; sur sa propre pièce, une encoche attendait encore sa dernière reprise.",
+      "image": "images/passeuse/ch1_05.png",
+      "image_alt": "Le bois sous ses mains — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        7,
+        8
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Achever l'encoche avant de regarder la maquette",
+          "consequence": "Alex ramena les yeux sur son ouvrage et reprit l'encoche. Lorsqu'elle posa la pièce sur le tapis roulant, les roues étaient déjà fixées ; elle n'avait pas vu le montage, mais n'avait rien laissé d'inachevé dans le sien.",
+          "flags": [
+            "piece_soignee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_06"
+        },
+        {
+          "id": "b",
+          "text": "Déposer la pièce pour suivre le montage des roues",
+          "consequence": "Alex confia l'ouvrage au tapis et se tourna vers la maquette. Les quatre roues s'alignèrent sous le petit rectangle ; avec la pièce qu'elle venait d'envoyer s'éloignait aussi l'irrégularité qu'elle n'avait pas corrigée.",
+          "flags": [
+            "piece_hative"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_06"
+        }
+      ],
+      "values": {
+        "mesures": "Les deux encoches prirent forme sous le ciseau à bois."
+      },
+      "variants": [
+        {
+          "id": "decoupe_reguliere",
+          "when": {
+            "all": [
+              "plan_etudie"
+            ]
+          },
+          "values": {
+            "mesures": "Les mesures retenues sur le plan guidèrent le ciseau ; les deux encoches se dessinèrent sans qu'elle ait à interrompre l'ouvrage."
+          }
+        },
+        {
+          "id": "mesure_retrouvee",
+          "when": {
+            "all": [
+              "plan_rapide"
+            ]
+          },
+          "values": {
+            "mesures": "Elle compara l'encoche au dessin, retira encore un peu de bois, puis recommença sur l'autre extrémité ; le retour au plan avait rompu la cadence de ses mains."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_06",
+      "title": "Quatre petites roues",
+      "kind": "decision",
+      "rank": 6,
+      "text": "Il s'agissait le plus souvent de constructions simples, mais, par trois fois, Alex remarqua cette nouvelle maquette, octroyée à ceux dont l'expérience ne faisait plus de doute. Sur de petits rectangles de bois, quatre roues étaient accrochées puis, pour essayer, l'engin était envoyé promener sur un établi sous son regard discret, mais fasciné.\n\nTout au long de la journée, les travailleurs entreposaient les ouvrages sur un tapis roulant avec, à ses bords, plusieurs tiges gesticulantes analysant systématiquement chaque partie de la pièce produite pour en attribuer une note finale. Une bonne appréciation pouvait être récompensée par des confiseries ; une mauvaise était sanctionnée de remontrances. Trop de remontrances valaient une peine de cachot ; trop de séjours en cachot, et plus personne n'en parlait. Nul ne pouvait être certain du sort réservé au fautif, mais celui-ci disparaissait définitivement de la société.\n\n{controle}\n\nDevant Alex, une nouvelle planche attendait. À quelques pas de là, la maquette revenait vers la main de l'ouvrier, et son regard hésita entre les mesures du dessin et cette merveille si modeste qui, pour un instant, avait rompu l'uniformité de la salle.",
+      "image": "images/passeuse/ch1_06.png",
+      "image_alt": "Quatre petites roues — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        8,
+        9
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Reprendre les mesures de l'ouvrage suivant",
+          "consequence": "Alex retint la planche et vérifia le dessin avant de reprendre le ciseau. La voiture roula sans elle ; la nouvelle pièce, cette fois, n'emporta aucune mesure incertaine vers les tiges qui l'attendaient.",
+          "flags": [
+            "controle_fait"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_07"
+        },
+        {
+          "id": "b",
+          "text": "Suivre encore la course des petites roues",
+          "consequence": "Les yeux d'Alex accompagnèrent une fois encore le petit rectangle. Ses mains s'étaient attardées ; pour retrouver la cadence, elle dut reprendre l'ouvrage plus vite, puis corriger une coupe que son regard avait abandonnée.",
+          "flags": [
+            "toy"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_07"
+        }
+      ],
+      "values": {
+        "controle": "Les tiges libérèrent sa pièce et poursuivirent leur examen sur la suivante."
+      },
+      "variants": [
+        {
+          "id": "bonne_appreciation",
+          "when": {
+            "all": [
+              "piece_soignee"
+            ]
+          },
+          "values": {
+            "controle": "Les tiges suivirent les contours de sa pièce et la laissèrent poursuivre son chemin. L'appréciation fut bonne ; Alex desserra les épaules sans s'en apercevoir."
+          }
+        },
+        {
+          "id": "remontrance",
+          "when": {
+            "all": [
+              "piece_hative"
+            ]
+          },
+          "values": {
+            "controle": "Une tige s'attarda sur l'encoche négligée. Une remontrance lui fut adressée ; Alex baissa les yeux, et le roulement des petites roues lui parut soudain beaucoup plus lointain."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_07",
+      "title": "Ce qu'on appelait le bonheur",
+      "kind": "decision",
+      "rank": 7,
+      "text": "Quatre pauses quotidiennes de longueur variable permettaient aux employés de maintenir une vie sociale. Celles du midi et du soir étaient destinées au déjeuner et au dîner. Les repas étaient sommaires, mais suffisants et parfaitement équilibrés pour ne manquer de rien ; les excès et les irrégularités étaient, de toute manière, évidemment proscrits.\n\nAu cours de ces haltes forcées, les conversations étaient autorisées, mais les non-dits omniprésents, car les robots, eux, ne désertaient jamais leur service. {repas}\n\nEn fin de journée, chacun rentrait, et Alex retrouvait la stèle, les néons puis son bâtiment. Les neuf étages demandaient alors davantage à ses jambes. À l'intérieur, quelques ampoules éclairaient encore les couloirs ; leur luminosité faiblissait avec le temps pour finalement s'éteindre, appelant de la sorte à un repos bien mérité.\n\nC'était en cela que se constituait le bonheur.\n\nAlex s'étendit sur le matelas. Elle trouvait difficilement le sommeil ces temps-ci ; derrière la porte, les derniers pas se confondaient avec les bruits familiers du bâtiment, tandis que la lumière perdait peu à peu les contours de la chambre.",
+      "image": "images/passeuse/ch1_07.png",
+      "image_alt": "Ce qu'on appelait le bonheur — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        9
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Fermer les yeux sans attendre le silence du couloir",
+          "consequence": "Alex se laissa prendre par un sommeil intermittent. Lorsqu'elle s'éveilla en pleine nuit, un peu de lassitude avait quitté ses jambes ; la chambre, elle, n'avait rien perdu de son étroitesse, et l'envie du toit la tira bientôt du lit.",
+          "flags": [
+            "premier_repos"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_08"
+        },
+        {
+          "id": "b",
+          "text": "Écouter les derniers pas avant de chercher le sommeil",
+          "consequence": "Alex demeura éveillée jusqu'à ce que le couloir se taise. Le sommeil vint tard et la rendit presque aussitôt à la nuit ; elle se leva encore lourde de la journée, impatiente de retrouver ce que les murs lui cachaient.",
+          "flags": [
+            "premiere_fatigue"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_08"
+        }
+      ],
+      "values": {
+        "repas": "Les paroles circulaient entre les repas ; près d'un casque, elles mouraient avant d'avoir tout dit."
+      },
+      "variants": [
+        {
+          "id": "repas_apres_remontrance",
+          "when": {
+            "all": [
+              "piece_hative"
+            ]
+          },
+          "values": {
+            "repas": "La remontrance revenait au passage de chaque casque. Alex mangea en silence, attentive à ne rien ajouter à cette faute dont elle connaissait les suites possibles."
+          }
+        },
+        {
+          "id": "repas_sans_reproche",
+          "when": {
+            "all": [
+              "piece_soignee"
+            ]
+          },
+          "values": {
+            "repas": "Alex écouta les quelques mots échangés. Sa pièce avait été bien notée, mais cela ne donnait pas aux conversations la liberté de s'aventurer plus loin."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_08",
+      "title": "Le passage secret",
+      "kind": "decision",
+      "rank": 8,
+      "text": "Poussant la porte le plus discrètement possible, elle fit face aux rayons de lune qui traversaient les différentes fenêtres du couloir. Elle s'arrêta un moment, observant succinctement les environs. Ne percevant aucun mouvement, elle continua sans bruit jusqu'au mur opposé pour retirer la plaque de métal qui protégeait la ventilation de l'immeuble.\n\nAlex était petite, peut-être la plus petite de ceux qu'elle côtoyait. Agile également, elle se hissa sans mal dans l'étroite gueule libérée et se faufila dans le dédale sans prendre peur de se perdre. Elle avait découvert ce chemin l'année passée et y retournait chaque soir, peu soucieuse de se faire attraper, estimant que ce qu'elle trouvait là-bas valait certainement les peines encourues.\n\n{fatigue}\n\nÀ mesure qu'elle avançait, l'air du toit se mêlait à celui du conduit. Quelques mètres la séparaient encore de l'ouverture usuelle, mais les tôles transmettaient le moindre mouvement au silence de l'immeuble. Elle connaissait assez bien le passage pour le franchir vite ; elle savait aussi combien le métal pouvait trahir un appui.",
+      "image": "images/passeuse/ch1_08.png",
+      "image_alt": "Le passage secret — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        9
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ménager ses appuis jusqu'à la sortie du conduit",
+          "consequence": "Alex répartit son poids entre les tôles et laissa mourir chaque vibration avant de reprendre son avancée. Elle déboucha enfin sur le toit, avec quelques minutes de nuit en moins, mais sans avoir troublé le silence derrière elle.",
+          "flags": [
+            "conduit_prudent"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_09"
+        },
+        {
+          "id": "b",
+          "text": "Franchir rapidement les derniers mètres",
+          "consequence": "Alex franchit le dernier coude d'un seul mouvement. Une tôle claqua sous son genou ; déjà sortie, elle demeura un instant au ras du toit, attendant qu'un bruit dans l'immeuble vienne répondre au sien. Rien ne vint.",
+          "flags": [
+            "conduit_bruyant"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_09"
+        }
+      ],
+      "values": {
+        "fatigue": "Ses mains et ses genoux retrouvaient les coudes du passage comme ceux d'un chemin appris par le corps."
+      },
+      "variants": [
+        {
+          "id": "premiere_nuit_reposee",
+          "when": {
+            "all": [
+              "premier_repos"
+            ]
+          },
+          "values": {
+            "fatigue": "Le peu de repos obtenu avait délesté ses jambes. Ses mains et ses genoux retrouvèrent sans effort les coudes du passage."
+          }
+        },
+        {
+          "id": "premiere_nuit_fatiguee",
+          "when": {
+            "all": [
+              "premiere_fatigue"
+            ]
+          },
+          "values": {
+            "fatigue": "La journée pesait encore dans ses jambes. À chaque coude, elle dut ramener plus lentement un genou engourdi, comme si les neuf étages s'étaient prolongés jusque-là."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_09",
+      "title": "La frontière des rêves",
+      "kind": "decision",
+      "rank": 9,
+      "text": "Assise à son endroit préféré, au bord du vide, les pieds flottant dans la nuit, elle avait devant elle le plus beau panorama du monde. Tout autour, les bâtiments étaient constellés des mêmes néons qu'elle apercevait le matin, et les couleurs variées qu'ils émettaient se perdaient et résonnaient dans le ciel. Les étoiles et la lune, et le vent dans les cheveux, c'était sa joie et sa liberté.\n\nEn dessous, les rues sombres se teintaient de jour quand les lumières s'allumaient ; elle distinguait quelquefois l'excursion incessante des robots qui patrouillaient. Ses yeux toisaient les dangers éventuels et ses craintes s'effaçaient.\n\nDans cette solitude, ses rêves et ses idées l'accompagnaient toujours, et elle courait sur ces routes inconnues que son imagination seule pouvait deviner. Elle ne savait rien, mais avait déjà tout vu : là où les tempêtes naissaient, là où le soleil disparaissait, là d'où le vent venait.\n\nCe soir encore, une patrouille roulait sous les lumières. Alex pouvait en suivre la ronde ou laisser les rues s'effacer entièrement sous la course de ses pensées.",
+      "image": "images/passeuse/ch1_09.png",
+      "image_alt": "La frontière des rêves — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        9,
+        10
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Laisser les pensées vagabondes gagner les étoiles",
+          "consequence": "Alex abandonna les rues à leurs gardiens et suivit les routes que son imagination ouvrait dans le ciel. Le roulement continua quelque part au-dessous ; lorsqu'elle l'entendit de nouveau, elle ne sut plus où la machine avait disparu.",
+          "flags": [
+            "stars"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_10"
+        },
+        {
+          "id": "b",
+          "text": "Suivre un instant la ronde de la patrouille",
+          "consequence": "Alex suivit la patrouille entre les néons. Le changement de direction du casque précéda celui des roues ; elle retint le détour, sa durée, puis laissa ses pensées reprendre leur course au-delà des immeubles.",
+          "flags": [
+            "ronde_toit"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_10"
+        }
+      ],
+      "values": {},
+      "variants": []
+    },
+    {
+      "id": "passeuse_1_10",
+      "title": "Un caillou dans la nuit",
+      "kind": "decision",
+      "rank": 10,
+      "text": "Alex et ses pensées vagabondes restaient accrochées à cette frontière merveilleuse jusqu'au réveil de l'aurore. Elle se reprochait, après, d'avoir engagé sa vie pour le compte d'un songe éphémère, mais réitérait toutefois son audace le lendemain encore. Une règle pourtant ne pouvait être enfreinte : celle d'être revenue dans son lit avant le tintement de la première sonnerie.\n\nLe monde qui lui faisait face était superbe, mais quel intérêt de le concevoir ainsi ? De sa misérable existence, elle ne verrait jamais que le bout de son commencement. Elle aurait dû être heureuse, mais elle était triste.\n\nCe soir-là, par dépit, elle lança un caillou à la rencontre des rues vides de la ville. L'ombre d'une sentinelle, sous les feux d'un néon, se propagea au sol. La lumière rouge, vive et foudroyante, l'observa fixement.\n\nAlex prit peur. L'avait-elle seulement remarquée ? Son cœur battait à toute vitesse et frappait plus fort ses oreilles que le son de ses pas. Derrière elle, l'ouverture du conduit offrait le retour ; le rebord du toit, à quelques pas, pouvait encore dérober son visage à ce regard.",
+      "image": "images/passeuse/ch1_10.png",
+      "image_alt": "Un caillou dans la nuit — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        10
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Se précipiter vers la ventilation",
+          "consequence": "Alex gagna le conduit d'un élan et s'y engouffra. Une arête de métal lui érafla la paume ; elle ne s'arrêta pas, suivant dans l'obscurité le chemin qui la ramènerait au couloir.",
+          "flags": [
+            "main_eraflee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_11"
+        },
+        {
+          "id": "b",
+          "text": "Reculer à couvert avant de rejoindre le conduit",
+          "consequence": "Alex s'abaissa derrière le rebord, puis regagna l'ouverture sans exposer son visage. Le détour lui avait coûté de précieuses secondes ; pour les reprendre, elle traversa les dernières tôles avec une hâte qui les fit résonner.",
+          "flags": [
+            "retour_resonnant"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_11"
+        }
+      ],
+      "values": {},
+      "variants": []
+    },
+    {
+      "id": "passeuse_1_11",
+      "title": "Les yeux qui restaient",
+      "kind": "decision",
+      "rank": 11,
+      "text": "L'inévitable anxiété rendit glissante la plaque de métal que ses doigts peinaient à replacer. Enfin, le clic du verrouillage fut tout aussi libérateur que bruyant. Elle secoua vivement la tête. Personne dans le couloir et personne derrière la porte.\n\nBlottie sous sa couverture, elle eut beau se tourner et se retourner dans toutes les directions, la flamme rouge ne cessait de la poursuivre et de l'obséder. Mais à cette distance, était-il possible de la voir ? {main}\n\nSon corps se contracta tout entier à la première sonnerie. Assise sur son matelas, désespérée de n'avoir pas su trouver le sommeil, elle fut rassurée de se découvrir seule dans la chambre dénudée. Rien ne semblait avoir changé.\n\nElle se pressa en direction du couloir et tira lentement la poignée de sa porte. Déjà en retard, elle fut bousculée par son voisin impatient, guère plus aimable qu'à l'accoutumée. Attendant qu'une douche se libère, elle s'adossa contre les carreaux blancs et graisseux de la cloison et somnola un instant. Deux points rouges la dévisagèrent avant de s'estomper.\n\nElle sursauta, mais reprit bientôt ses esprits. Quelle idiote ! Il ne s'agissait que de son imagination. Son crâne la torturait ; les autres, pourtant, ne semblaient avoir rien remarqué.",
+      "image": "images/passeuse/ch1_11.png",
+      "image_alt": "Les yeux qui restaient — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        10,
+        11
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "S'en remettre aux gestes du rituel matinal",
+          "consequence": "Alex se lava et s'habilla comme chaque matin. L'ordre des gestes lui rendit une contenance ; elle rejoignit les autres dans la rue, portant son mal de tête sans le laisser paraître.",
+          "flags": [
+            "matin_maitrise"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_12"
+        },
+        {
+          "id": "b",
+          "text": "Attendre un instant que la peur se dissipe",
+          "consequence": "Alex demeura adossée aux carreaux, jusqu'à ce que les deux points rouges cessent de lui revenir. Ce répit la retarda encore ; elle gagna la rue avec les derniers pensionnaires, après avoir laissé s'éloigner la file habituelle.",
+          "flags": [
+            "matin_retarde"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_12"
+        }
+      ],
+      "values": {
+        "main": "La question revenait avec chaque mouvement sous la couverture."
+      },
+      "variants": [
+        {
+          "id": "paume_douloureuse",
+          "when": {
+            "all": [
+              "main_eraflee"
+            ]
+          },
+          "values": {
+            "main": "L'éraflure de sa paume brûlait à chaque mouvement, redonnant au souvenir du toit la netteté d'une chose qui n'avait pas seulement existé dans ses rêves."
+          }
+        },
+        {
+          "id": "echo_du_retour",
+          "when": {
+            "all": [
+              "retour_resonnant"
+            ]
+          },
+          "values": {
+            "main": "À la flamme rouge se mêlait l'écho des tôles. Avait-on entendu son retour ? Le bruit revenait dès qu'elle croyait enfin l'avoir oublié."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_12",
+      "title": "Une journée sans incident",
+      "kind": "decision",
+      "rank": 12,
+      "text": "En file indienne dans la rue, elle risqua un regard vers l'une des sentinelles. Sans qu'elle puisse en déterminer l'origine, un frémissement glacial traversa ses entrailles terrifiées. Néanmoins, l'incessant manège de l'heureuse marionnette perdura sans embarras. Le travail, le déjeuner et le retour dans la chambre : l'éternel train-train quotidien. {travail}\n\nCette journée qui n'avait rien apporté d'autre lui rendit confiance. Peu avant minuit, elle se réveilla, le sourire aux lèvres, abattant définitivement le reste de ses craintes. Quel plaisir de défier impunément les règles fixées ! À quoi bon la prudence et la raison ?\n\nSur le chemin des nuages, elle se contenta d'un surcroît de discrétion. Tout en haut seulement, la présence inhabituelle d'un bruit répété attira son attention. Dans la rue, quelqu'un approchait.\n\nLes machines ne traversaient pourtant que rarement ce coin de la ville à cette heure-là. {ronde} Alex s'arrêta près de l'ultime rebord. Pour découvrir l'origine de ce roulement, elle pouvait attendre qu'il se rapproche ou avancer assez pour apercevoir l'entrée de l'immeuble.",
+      "image": "images/passeuse/ch1_12.png",
+      "image_alt": "Une journée sans incident — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        11
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Rester à couvert pour écouter l'approche",
+          "consequence": "Alex demeura basse derrière le rebord. Les roulements se rapprochèrent jusqu'au pied du bâtiment ; elle attendit qu'ils y parviennent pour risquer enfin un regard.",
+          "flags": [
+            "approche_ecoutee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_13"
+        },
+        {
+          "id": "b",
+          "text": "Regarder aussitôt par-delà le rebord",
+          "consequence": "Oubliant les leçons de la veille, Alex avança le visage par-delà le rebord. Trois silhouettes approchaient de la porte d'entrée, anormalement ouverte ; elle s'abaissa trop tard pour être certaine de n'avoir pas été vue.",
+          "flags": [
+            "approche_vue"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_13"
+        }
+      ],
+      "values": {
+        "ronde": "Le bruit persistait, se rapprochant des façades.",
+        "travail": "Ses mains avaient repris leur besogne et les heures leur marche familière."
+      },
+      "variants": [
+        {
+          "id": "travail_main_eraflee",
+          "when": {
+            "all": [
+              "main_eraflee"
+            ]
+          },
+          "values": {
+            "travail": "La paume éraflée protesta contre le manche du rabot ; Alex en déplaça la prise, et l'ouvrage continua, comme si la nuit n'avait rien laissé d'autre sur elle."
+          }
+        },
+        {
+          "id": "ronde_reconnue",
+          "when": {
+            "all": [
+              "ronde_toit"
+            ]
+          },
+          "values": {
+            "ronde": "Elle reconnaissait le roulement, mais non ce trajet : la ronde observée la veille avait contourné le bâtiment au lieu de s'y arrêter."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_13",
+      "title": "Trois sentinelles",
+      "kind": "decision",
+      "rank": 13,
+      "text": "Trois sentinelles franchissaient la porte d'entrée anormalement ouverte de son immeuble. Ne sachant que faire, Alex voulut déguerpir du toit et revenir, aussi vite que possible, dans sa chambre. Qu'adviendrait-il d'elle si on la trouvait ici ?\n\n{recul}\n\nLe toit, qui l'avait tenue hors du monde, ne lui offrait plus aucun refuge. Entre les néons se perdaient encore les couleurs de ses nuits heureuses ; elle n'y voyait désormais que la distance qui la séparait de son lit. Là seulement, peut-être, pourrait-elle faire croire qu'elle n'avait jamais franchi sa porte.\n\nElle gagna l'ouverture de la ventilation. Le chemin était le même, mais elle redoutait maintenant chaque angle, chaque plaque, tout ce métal dont elle avait appris à se servir sans l'entendre. Au-dessous, les robots avaient disparu dans le bâtiment. Il lui fallait revenir avant eux, et la peur lui demandait de se hâter là où la discrétion exigeait qu'elle ralentisse.",
+      "image": "images/passeuse/ch1_13.png",
+      "image_alt": "Trois sentinelles — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        11,
+        12
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Parcourir le conduit au plus vite",
+          "consequence": "Alex s'engouffra dans le passage et gagna les premiers mètres sans ralentir. Un genou heurta une plaque ; le bruit la figea un instant, puis l'impatience de retrouver sa chambre l'emporta de nouveau.",
+          "flags": [
+            "retour_hatif"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_14"
+        },
+        {
+          "id": "b",
+          "text": "Contenir la hâte pour ne pas faire résonner les tôles",
+          "consequence": "Alex pressa les mains contre le métal et avança en retenant son poids. Elle perdait du temps à chaque coude, mais le silence de ses appuis lui permettait encore de distinguer les bruits qui montaient du bâtiment.",
+          "flags": [
+            "retour_controle"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_14"
+        }
+      ],
+      "values": {
+        "recul": "Elle se retira vers le conduit, incapable de détacher tout à fait son regard de la porte."
+      },
+      "variants": [
+        {
+          "id": "recul_deja_abrite",
+          "when": {
+            "all": [
+              "approche_ecoutee"
+            ]
+          },
+          "values": {
+            "recul": "Déjà abritée derrière le rebord, elle put reculer sans exposer son visage ; les silhouettes avaient disparu avant qu'elle se relève."
+          }
+        },
+        {
+          "id": "recul_a_decouvert",
+          "when": {
+            "all": [
+              "approche_vue"
+            ]
+          },
+          "values": {
+            "recul": "Elle se retira si brusquement que ses mains cherchèrent le sol. Dans la rue, aucun regard ne semblait s'être levé ; elle n'en fut pas rassurée."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_14",
+      "title": "L'ascenseur montait",
+      "kind": "decision",
+      "rank": 14,
+      "text": "Le retour dans le système de ventilation fut un formidable cauchemar. Le moindre faux pas engendrait un écho qui semblait résonner au plus profond du bâtiment.\n\nTendant l'oreille, elle s'arrêta brièvement. De nouvelles sonorités mirent en vibration la plaque métallique que ses doigts raidis pressèrent vivement. Un cliquetis mécanique et peut-être des engrenages : le bruit grimpait à mesure qu'elle avançait. C'était l'ascenseur, ils étaient en train de monter.\n\n{avance}\n\nVite, elle parcourut les derniers mètres. Derrière la grille, le couloir recevait encore un peu de lune ; la chambre était toute proche, et cette proximité rendait plus intolérable chaque seconde passée dans le conduit. Pourtant, elle ne savait pas à quelle hauteur la cabine venait de parvenir.\n\nLes engrenages couvraient les petits frottements du métal. Sortir maintenant lui ferait gagner le couloir sous leur bruit ; attendre leur arrêt lui permettrait de savoir si les machines avaient atteint son étage, au risque de leur laisser le temps d'en sortir.",
+      "image": "images/passeuse/ch1_14.png",
+      "image_alt": "L'ascenseur montait — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        12
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Écouter l'arrêt de la cabine avant de sortir",
+          "consequence": "Alex attendit que le bruit change, puis écarta la grille. La cabine avait atteint l'étage ; elle sortit au plus près de la cloison et en chercha aussitôt l'ombre.",
+          "flags": [
+            "ascenseur_repere"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_15"
+        },
+        {
+          "id": "b",
+          "text": "Dépasser la grille sous le bruit des engrenages",
+          "consequence": "Alex dépassa la grille sans attendre. Les engrenages couvrirent le frottement de la plaque ; elle se retrouva dans le couloir avant de savoir si les portes de l'ascenseur s'étaient déjà ouvertes.",
+          "flags": [
+            "sortie_rapide"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_15"
+        }
+      ],
+      "values": {
+        "avance": "Elle reprit sa progression, suivant malgré elle le mouvement de la mécanique."
+      },
+      "variants": [
+        {
+          "id": "retour_heurte",
+          "when": {
+            "all": [
+              "retour_hatif"
+            ]
+          },
+          "values": {
+            "avance": "Sous son genou, une nouvelle vibration répondit aux engrenages. Elle retint son souffle, incapable de savoir ce qui, de ses appuis ou de l'ascenseur, faisait trembler le passage."
+          }
+        },
+        {
+          "id": "retour_ecoute",
+          "when": {
+            "all": [
+              "retour_controle"
+            ]
+          },
+          "values": {
+            "avance": "Les appuis retenus lui permirent d'entendre la mécanique sans la confondre avec ses propres mouvements ; elle suivit cette montée que rien ne semblait pouvoir ralentir."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_15",
+      "title": "Devant sa chambre",
+      "kind": "decision",
+      "rank": 15,
+      "text": "La lune, cachée par les nuages, ne divulgua qu'une partie de la scène, mais le visage d'Alex se tétanisa. Les yeux rouges des robots se reflétaient dans la pénombre. Ils étaient là, tous les trois, devant la porte de sa chambre, et se préparaient à rentrer.\n\nC'était pour elle qu'ils étaient venus.\n\nElle recula d'un pas et son dos percuta une cloison. Ses muscles pétrifiés étaient sur le point de rompre, mais elle restait, pour le moment, cachée dans l'ombre salvatrice. {position}\n\nLa première machine révéla son bras articulé, au bout duquel se trouvait un fusil, et, sans un bruit, disparut dans la pièce. Alex, toujours collée au mur, la vit ensuite ressortir. Qu'allait-elle devenir ? Ces êtres insensibles ne laissaient rien trahir.\n\nElle respira longuement et reprit son sang-froid. L'escalier n'était pas loin ; c'était l'unique échappatoire possible. Le lourd battant en métal la séparait des marches, et elle en saisit la poignée. Derrière elle, les machines demeuraient à quelques pas du lit vide.",
+      "image": "images/passeuse/ch1_15.png",
+      "image_alt": "Devant sa chambre — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        12
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Franchir le battant en retenant son retour",
+          "consequence": "Alex passa et accompagna le battant. Une charnière grinça malgré elle ; les rouages des robots virèrent de bord, mais elle avait déjà gagné la première volée lorsque leurs roues se mirent en mouvement.",
+          "flags": [
+            "avance_escalier"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_16"
+        },
+        {
+          "id": "b",
+          "text": "Pousser la porte et s'élancer sans la retenir",
+          "consequence": "Alex poussa le lourd battant et s'élança vers les marches. Il grinça en retombant ; les rouages virèrent aussitôt, et elle entendit les roues se rapprocher avant d'avoir quitté le premier palier.",
+          "flags": [
+            "poursuite_proche"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_16"
+        }
+      ],
+      "values": {
+        "position": "Elle n'osa pas même ramener ses mains contre elle."
+      },
+      "variants": [
+        {
+          "id": "sortie_contre_cloison",
+          "when": {
+            "all": [
+              "ascenseur_repere"
+            ]
+          },
+          "values": {
+            "position": "Sortie au plus près du mur, elle avait trouvé l'obscurité sans avoir à traverser le filet de lumière qui tombait dans le couloir."
+          }
+        },
+        {
+          "id": "sortie_recul",
+          "when": {
+            "all": [
+              "sortie_rapide"
+            ]
+          },
+          "values": {
+            "position": "Un filet de lune atteignait encore son épaule ; elle se décala contre la cloison, et le frottement lui parut assez fort pour révéler sa présence."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_16",
+      "title": "Neuf paliers, une sortie",
+      "kind": "decision",
+      "rank": 16,
+      "text": "La cage d'escalier, à la forme d'un large carré, laissait percer les rayons de lune au travers des vitres disséminées à chacun de ses étages et débouchait quelques mètres avant l'entrée. Une semblable obscurité régnait à tous les niveaux, mais, de la porte restée ouverte au rez-de-chaussée, émergeait une légère clarté.\n\nAlex, se penchant contre la rambarde, osa un regard vers ce bras de lumière. La voie semblait dégagée. Elle dévala les marches deux par deux pour surmonter les neuf paliers qui la séparaient de la sortie. Par trois fois, elle fut proche de chuter, mais ne modéra pas, pour autant, sa course effrénée. {poursuite}\n\nLe bruit mécanique de l'ascenseur se fit de nouveau entendre. C'était en bas qu'ils voulaient la coincer ! Son cœur battait si fort que l'adrénaline lui donna les ailes manquantes.\n\nLa lumière se rapprochait entre les volées. Sous la hâte, ses pieds retrouvaient moins sûrement les marches ; à portée de ses doigts, la rampe descendait avec elle, dernier appui possible dans cette course où elle n'osait plus perdre un instant.",
+      "image": "images/passeuse/ch1_16.png",
+      "image_alt": "Neuf paliers, une sortie — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        13
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Saisir la rampe pour contenir les déséquilibres",
+          "consequence": "Alex laissa glisser une main sur la rampe. Lorsque son pied manqua un appui, ses doigts la retinrent ; elle poursuivit la descente et parvint au perron, à bout de souffle.",
+          "flags": [
+            "descente_assuree"
+          ],
+          "consequence_variants": [
+            {
+              "when": {
+                "all": [
+                  "main_eraflee"
+                ]
+              },
+              "consequence": "Alex serra la rampe malgré la brûlure de sa paume. Ses doigts la retinrent lorsque son pied manqua un appui ; elle gagna le perron, mais l'éraflure du conduit la lançait davantage.",
+              "flags": []
+            }
+          ],
+          "next": "passeuse_1_17"
+        },
+        {
+          "id": "b",
+          "text": "Poursuivre la course sans s'aider de la rampe",
+          "consequence": "Alex garda les mains libres et toute sa vitesse. Un déséquilibre projeta son genou contre le bord du palier ; elle ne tomba pas, mais dut emporter cette douleur dans les dernières volées jusqu'au perron.",
+          "flags": [
+            "genou_heurte"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_17"
+        }
+      ],
+      "values": {
+        "poursuite": "Elle n'avait plus d'autre horizon que cette sortie encore lointaine."
+      },
+      "variants": [
+        {
+          "id": "quelques_marches_avance",
+          "when": {
+            "all": [
+              "avance_escalier"
+            ]
+          },
+          "values": {
+            "poursuite": "La première volée gagnée lui avait laissé assez d'avance pour retrouver un appui sans entendre aussitôt les roues derrière elle."
+          }
+        },
+        {
+          "id": "roues_tout_pres",
+          "when": {
+            "all": [
+              "poursuite_proche"
+            ]
+          },
+          "values": {
+            "poursuite": "Le roulement franchit le battant derrière elle ; Alex accéléra encore, et l'obscurité des marches sembla se dérober sous ses pieds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_17",
+      "title": "Au-delà du chemin autorisé",
+      "kind": "decision",
+      "rank": 17,
+      "text": "La lune, dégagée de tout nuage, illuminait parfaitement le perron. Était-elle arrivée trop tard ? Non, le monte-charge poursuivait sa lente descente.\n\nAlex observa l'immeuble d'en face, hésita une seconde puis se précipita sur les routes habituelles. À peine quelques mètres plus loin, elle discerna l'écho d'une porte coulissante. À toute vitesse, elle dépassa les néons puis la stèle, pour parvenir à son lieu de travail. Par chance, elle n'avait rencontré aucune machine, mais, elle le savait, la possibilité de se faire attraper s'élevait à mesure que le temps passait. {douleur}\n\nLa voie principale se prolongeait encore, tandis que d'autres rues, plus petites, pointaient en des directions différentes. Jamais auparavant elle n'avait doublé l'extrémité de la frontière imposée. Elle se sentait désorientée et incapable, elle qui n'avait de sa vie jamais eu de jugement à rendre.\n\nLe chemin qu'elle connaissait la conduisait à l'usine, et à rien d'autre. Près de la façade s'ouvrait une rue parallèle ; un peu plus loin, un second passage quittait la même artère. Derrière elle, la nuit n'avait pas effacé le bruit de la porte coulissante.",
+      "image": "images/passeuse/ch1_17.png",
+      "image_alt": "Au-delà du chemin autorisé — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        13
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Quitter l'artère centrale par la première rue parallèle",
+          "consequence": "Alex s'éclipsa de l'artère et s'engagea sur le chemin parallèle. Elle courut encore entre des façades inconnues, jusqu'à ce que l'absence de tout roulement l'autorise enfin à ralentir.",
+          "flags": [
+            "rue_directe"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_18"
+        },
+        {
+          "id": "b",
+          "text": "Longer l'usine avant de prendre le passage suivant",
+          "consequence": "Alex longea le mur de l'usine et s'accorda quelques instants à son ombre pour reprendre souffle. Puis elle gagna le passage suivant, laissant derrière elle l'endroit où toute sa journée aurait dû recommencer.",
+          "flags": [
+            "detour_usine"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_18"
+        }
+      ],
+      "values": {
+        "douleur": "Le souffle lui manquait encore, sans que la distance parcourue lui rende le moindre sentiment de sûreté."
+      },
+      "variants": [
+        {
+          "id": "genou_pendant_fuite",
+          "when": {
+            "all": [
+              "genou_heurte"
+            ]
+          },
+          "values": {
+            "douleur": "Le genou heurté dans l'escalier la lançait à chaque enjambée ; la douleur la suivait aussi fidèlement que les néons du trajet familier."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_18",
+      "title": "Une réplique imparfaite",
+      "kind": "decision",
+      "rank": 18,
+      "text": "Le dépaysement fut de courte durée, car chaque parcelle traversée était la copie conforme de celle passée. L'horizon libre de tout danger, elle marcha plutôt que de courir, réduisant d'autant le volume sonore de ses brèves enjambées.\n\nElle fut néanmoins arrêtée par la découverte de l'exacte réplique de la stèle connue. Les mêmes mots, les mêmes traces d'usure et la même disposition. Sans doute était-elle revenue sur ses pas. Elle se figura que les robots, profitant de sa terrible distraction, ne tarderaient pas à la rattraper. Elle paniqua, tournant sur elle-même, ne sachant où aller. {souffle}\n\nPourtant, les façades paraissaient plus proches, et les néons, plus loin, éclairaient leur monde d'une nouvelle couleur. Il fallait regarder encore, avant de confier sa route à cette peur qui la ramenait sans cesse au même lieu.\n\nPartout dans la nuit, les formes étaient ancrées au plus profond de son être. Qu'elle était absurde, cette ville qui ne voulait pas évoluer ! Peut-être la familiarité qui l'emprisonnait chaque matin contenait-elle aussi de quoi distinguer cette rue de toutes les autres.",
+      "image": "images/passeuse/ch1_18.png",
+      "image_alt": "Une réplique imparfaite — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        14
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Comparer la largeur de la rue au chemin habituel",
+          "consequence": "Un détail finit par retenir son attention : cette rue était plus petite. Ce n'était pas un chemin déjà rencontré, mais une réplique imparfaite. Plus loin, la nouvelle couleur des néons confirma la découverte.",
+          "flags": [
+            "repere_rue"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_19"
+        },
+        {
+          "id": "b",
+          "text": "Chercher la différence dans la couleur des néons",
+          "consequence": "Alex suivit les néons familiers et découvrit qu'ils éclairaient leur monde d'une autre couleur. La rue, elle aussi, était plus petite. Elle n'était pas revenue sur ses pas ; la nuance des lumières demeura dans sa mémoire lorsqu'elle reprit sa route.",
+          "flags": [
+            "new_neons"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_19"
+        }
+      ],
+      "values": {
+        "souffle": "Elle se força à demeurer immobile, le temps de retrouver autre chose que son propre effroi."
+      },
+      "variants": [
+        {
+          "id": "course_encore_presente",
+          "when": {
+            "all": [
+              "rue_directe"
+            ]
+          },
+          "values": {
+            "souffle": "La course brouillait encore son regard. Elle posa les mains contre ses cuisses, attendant que son souffle cesse de couvrir le silence de la rue."
+          }
+        },
+        {
+          "id": "souffle_repris_usine",
+          "when": {
+            "all": [
+              "detour_usine"
+            ]
+          },
+          "values": {
+            "souffle": "Le répit pris près de l'usine lui permettait de rester immobile ; malgré la panique, elle put regarder la stèle sans que son souffle lui en dérobe les détails."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_19",
+      "title": "Quand le jour revenait",
+      "kind": "decision",
+      "rank": 19,
+      "text": "Ce monde familier, enraciné en elle, apporta un répit à l'angoisse qui l'habitait. Néanmoins, au bout du chemin, un immense mur en béton coupa brutalement la voie empruntée. Pour la première fois, elle prit conscience qu'elle n'était plus chez elle.\n\nAlex longea l'opaque muraille. La pénombre se dissipait et la rougeur du soleil levant dévoila ses traits au sommet des toits endormis. Avec elle, la liberté d'aller et venir disparaissait également. La première sonnerie du matin ne tarderait pas, et la lâcheté de faillir au devoir rituel accabla le cœur de la jeune fille. L'envie de repartir au travail, de retrouver le monde qu'elle connaissait, était si forte qu'elle voulut regagner son lit et rayer le souvenir de la nuit passée.\n\nTout retour en arrière était désormais impossible, mais elle manquait de courage pour poursuivre sa route. Elle se sentait perdue et abandonnée ; alors elle pleura et regretta la vie qu'elle avait longuement détestée. C'était de sa faute : elle n'avait jamais réussi à saisir le bonheur qui s'acharnait à la rendre heureuse.\n\nElle se recroquevilla avant que son instinct ne la pousse à reprendre ses esprits. Pour survivre, il fallait se cacher. Une étroite fenêtre donnait au sous-sol d'un bâtiment adjacent. Elle n'était pas verrouillée ; son cadre demeurait inaccessible à une personne de corpulence normale, mais Alex pouvait s'y faufiler.",
+      "image": "images/passeuse/ch1_19-v2.png",
+      "image_alt": "Quand le jour revenait — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        14,
+        15
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Examiner l'ombre du sous-sol avant de s'y glisser",
+          "consequence": "Alex attendit que ses yeux distinguent l'intérieur, puis passa une épaule dans le cadre. Elle se laissa descendre en retenant son poids ; le frottement de ses vêtements fut le seul bruit de son entrée.",
+          "flags": [
+            "entree_discrete"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_20"
+        },
+        {
+          "id": "b",
+          "text": "Se glisser aussitôt dans la fenêtre",
+          "consequence": "Alex se faufila sans attendre. Son pied heurta un tuyau en cherchant le sol ; le métal résonna dans le sous-sol et elle se calfeutra aussitôt dans le coin le plus sombre, comme si l'ombre pouvait aussi cacher ce bruit.",
+          "flags": [
+            "entree_heurtee"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_20"
+        }
+      ],
+      "values": {},
+      "variants": []
+    },
+    {
+      "id": "passeuse_1_20",
+      "title": "Le refuge brûlant",
+      "kind": "decision",
+      "rank": 20,
+      "text": "C'était un endroit exigu dans lequel jamais personne ne semblait venir. Les canalisations d'eau du bâtiment transitaient par cette même pièce et les longs tuyaux du chauffage rendaient la température difficilement supportable. {entree}\n\nLa première sonnerie retentit et Alex discerna aussitôt les vibrations engendrées par le mouvement des habitants. Une secousse d'ampleur, uniforme et méthodique, prit racine avant de s'estomper. Le second ordre de ralliement redonna du rythme au cœur des troupes. Finalement, le départ de l'armée résonna comme un coup de tonnerre dans l'enceinte de la cave.\n\nProgressivement, les derniers bruits se dissipèrent pour laisser place à un silence écrasant. Un filet d'eau tombait de l'une des canalisations défectueuses. Alex en approcha les mains ; pour se désaltérer, elle n'aurait pas à chercher plus loin. Mais autour d'elle, rien ne semblait pouvoir apaiser sa faim.\n\nDans la pénombre, quelques recoins demeuraient encore hors de sa vue. Les fouiller demanderait de se rapprocher des conduites chaudes ; plus loin d'elles, le sol offrait juste assez de place pour attendre le soir.",
+      "image": "images/passeuse/ch1_20.png",
+      "image_alt": "Le refuge brûlant — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        15
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Se désaltérer puis s'installer loin des conduites",
+          "consequence": "Le filet d'eau désaltéra Alex. Elle ne trouva pas la moindre miette autour d'elle et se replia à distance des tuyaux ; la chaleur demeurait, mais ne pressait plus directement contre son dos.",
+          "flags": [
+            "repos_menage"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_21"
+        },
+        {
+          "id": "b",
+          "text": "Fouiller les derniers recoins avant de se reposer",
+          "consequence": "Alex fouilla jusque sous les conduites, sans pouvoir mettre la main sur la moindre miette. Elle revint se désaltérer au filet d'eau ; la chaleur et l'effort lui avaient laissé un vertige qui la contraignit à s'asseoir avant de chercher le repos.",
+          "flags": [
+            "chaleur_subie"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_21"
+        }
+      ],
+      "values": {
+        "entree": "Elle ramena les jambes contre elle, cherchant la place que les conduites lui laissaient."
+      },
+      "variants": [
+        {
+          "id": "cave_entree_prudente",
+          "when": {
+            "all": [
+              "entree_discrete"
+            ]
+          },
+          "values": {
+            "entree": "Le silence de son entrée lui permit de chercher un coin moins exposé aux conduites, sans devoir d'abord attendre une réponse venue d'au-dessus."
+          }
+        },
+        {
+          "id": "cave_entree_inquiete",
+          "when": {
+            "all": [
+              "entree_heurtee"
+            ]
+          },
+          "values": {
+            "entree": "L'écho du tuyau la retint longtemps immobile. Elle n'osa quitter ce premier abri qu'après avoir entendu la sonnerie couvrir les bruits du bâtiment."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_21",
+      "title": "Une journée sous les tuyaux",
+      "kind": "decision",
+      "rank": 21,
+      "text": "Ce bruit de goutte, imperceptible au début puis irritant à la longue, associé à la chaleur environnante, participa aux cauchemars d'Alex lorsqu'elle trouva le sommeil.\n\nQue pensaient-ils d'elle, maintenant, au travail ? Son établi vide et les gens, autour : feignaient-ils seulement de ne pas y prêter attention ? Raconterait-on des histoires au sujet de sa disparition ? Et les sentinelles, la recherchaient-elles encore ? Autant de questions qui venaient et tournaient, gagnant de l'ampleur dans son esprit et ses rêves.\n\nElle se réveillait sans avoir pu recouvrer une once d'énergie, mais refermait sans cesse les yeux en attente du soir. {chaleur} Lorsque les travailleurs seraient couchés, lorsque la pénombre couvrirait le décor, alors elle marcherait sans but, comme un fantôme égaré et mal-aimé.\n\nElle voulait fuir au plus tôt l'isolement de cette cave, mais dut patienter jusqu'au retour des pas cadencés. La délivrance était toute proche. Elle se cramponna à la fenêtre ; le soleil menaçait de disparaître entièrement, tandis que les derniers mouvements du bâtiment se prolongeaient au-dessus d'elle.",
+      "image": "images/passeuse/ch1_21-v2.png",
+      "image_alt": "Une journée sous les tuyaux — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        15,
+        16
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Attendre que les derniers mouvements se taisent",
+          "consequence": "Alex laissa les derniers pas s'éteindre, puis quitta la cave. Une part de la nuit lui avait échappé dans cette attente ; la rue, du moins, ne lui rendit aucun mouvement d'habitant.",
+          "flags": [
+            "sortie_tardive"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_22"
+        },
+        {
+          "id": "b",
+          "text": "Quitter la cave dès la disparition du soleil",
+          "consequence": "Alex regagna la rue dès que le soleil disparut. Une dernière porte claqua ; elle dut se retirer à l'ombre d'une façade et attendre là que s'achève le retour des habitants, avant de pouvoir reprendre sa marche.",
+          "flags": [
+            "sortie_precoce"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_22"
+        }
+      ],
+      "values": {
+        "chaleur": "À chaque réveil, le filet d'eau et les tuyaux lui rendaient le même refuge."
+      },
+      "variants": [
+        {
+          "id": "repos_loin_des_tuyaux",
+          "when": {
+            "all": [
+              "repos_menage"
+            ]
+          },
+          "values": {
+            "chaleur": "La place choisie lui permettait au moins d'étendre les jambes ; elle restait épuisée, mais pouvait le faire sans toucher les conduites brûlantes."
+          }
+        },
+        {
+          "id": "malaise_apres_recherche",
+          "when": {
+            "all": [
+              "chaleur_subie"
+            ]
+          },
+          "values": {
+            "chaleur": "Le vertige de la recherche revenait dès qu'elle se redressait. Elle attendit qu'il cesse, les mains appuyées sur le sol, avant de reprendre sa place près de la fenêtre."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_22",
+      "title": "Une forme nouvelle",
+      "kind": "decision",
+      "rank": 22,
+      "text": "Lasse de cette journée aux cauchemars animés, Alex reprit sa route vagabonde. Les infatigables robots se faisaient entendre de loin et, au moindre danger, elle se réfugiait sans peine dans les recoins qu'elle croisait pour la centième fois.\n\nAlex n'avait ni but ni espoir, mais poursuivait sans relâche cette insipide promenade. Le monde n'était-il fait que d'un paysage réitéré à l'infini ? La faim, encore, terrassait ses entrailles et elle s'imagina un instant périr de solitude. Quelle fin de vie horrible ! Elle avait refusé les offrandes de la ville qui l'avait à son tour repoussée.\n\nLa lune guida ses pas vers une immense grue qui faisait face aux tours qu'elle longeait. Ce paysage nouveau était la preuve irréfutable de son avancée. Des machines de ce genre, elle en avait déjà aperçu depuis le toit de son immeuble, mais jamais d'aussi près. Elle se remémora alors le sublime panorama qu'elle avait l'habitude de voir.\n\nUn roulement la retint encore à l'ombre d'une façade. {patrouille} Au-delà de la rue, l'échelle adossée aux bandes métalliques montait vers ce qu'elle ne pouvait plus apercevoir depuis le sol.",
+      "image": "images/passeuse/ch1_22.png",
+      "image_alt": "Une forme nouvelle — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        16
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Laisser la patrouille s'éloigner avant de traverser",
+          "consequence": "Alex demeura contre la façade jusqu'à ce que le roulement s'efface. Elle put alors rejoindre l'échelle sans s'arrêter de nouveau ; les minutes laissées à la machine avaient seulement raccourci la nuit qui lui restait.",
+          "flags": [
+            "grue_prudente"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_23"
+        },
+        {
+          "id": "b",
+          "text": "Gagner l'échelle par la traversée directe",
+          "consequence": "Alex quitta l'ombre et traversa. Un roulement revenu la contraignit à se retirer dans un recoin ; elle dut attendre ce qu'elle avait voulu devancer, avant de pouvoir enfin gagner l'échelle.",
+          "flags": [
+            "grue_directe"
+          ],
+          "consequence_variants": [
+            {
+              "when": {
+                "any": [
+                  "patrol",
+                  "ronde_toit"
+                ]
+              },
+              "consequence": "Alex attendit le changement de direction qu'elle avait observé, puis traversa dans l'instant où le regard abandonnait la rue. Elle atteignit l'échelle sans devoir se cacher de nouveau, emportant avec elle ce peu de nuit qu'elle n'avait pas perdu.",
+              "flags": [
+                "traversee_calculee"
+              ]
+            }
+          ],
+          "next": "passeuse_1_23"
+        }
+      ],
+      "values": {
+        "patrouille": "Elle ne savait pas si la machine poursuivrait sa route ou reviendrait vers elle."
+      },
+      "variants": [
+        {
+          "id": "mouvement_connu",
+          "when": {
+            "any": [
+              "patrol",
+              "ronde_toit"
+            ]
+          },
+          "values": {
+            "patrouille": "Elle reconnut le changement de direction des roues, ce mouvement qui laissait derrière le casque une portion de rue privée de regard."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_23",
+      "title": "Les barreaux dans les nuages",
+      "kind": "decision",
+      "rank": 23,
+      "text": "Nostalgique, elle s'accrocha à l'échelle adossée aux bandes métalliques pour monter si haut que les nuages humides chatouillèrent les parcelles dévoilées de sa peau. Les barreaux, glissants, rendaient l'ascension difficile, et chaque mètre était un risque pour sa vie.\n\nElle s'entêtait néanmoins, non pas qu'elle considérait la cause nécessaire, mais elle avait l'espoir de contempler la ville par les mêmes yeux enchantés d'autrefois. {genou}\n\nElle se sentit, l'espace d'un instant, revenue dans son existence passée. Non, ce n'était plus la même, mais dans sa tristesse se cachait l'élan de liberté et d'aventure dont elle avait toujours rêvé, et cette simple pensée lui redonna du courage. Pour la première fois, elle avait la possibilité de rejoindre les lumières qu'elle apercevait au loin.\n\nLa plateforme était maintenant proche. Le froid glissait entre ses doigts et le métal ; chaque arrêt demandait de retenir son poids, chaque nouveau barreau d'abandonner une prise. Elle pouvait prolonger cette prudence jusqu'en haut, ou confier les derniers mètres à l'élan qui venait de la rendre à ses rêves.",
+      "image": "images/passeuse/ch1_23.png",
+      "image_alt": "Les barreaux dans les nuages — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        16,
+        17
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Assurer chaque prise jusqu'à la plateforme",
+          "consequence": "Alex éprouva chaque prise avant d'abandonner la précédente. Elle gagna lentement la plateforme ; ses bras demeuraient capables de la retenir lorsqu'elle s'y hissa enfin.",
+          "flags": [
+            "prises_menagees"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_24"
+        },
+        {
+          "id": "b",
+          "text": "Poursuivre l'ascension sans marquer de pause",
+          "consequence": "Alex poursuivit sur son élan. Une main glissa ; elle se rattrapa de l'autre et acheva l'ascension, mais le poids un instant suspendu à ses bras les laissa tremblants longtemps après qu'elle eut rejoint la plateforme.",
+          "flags": [
+            "bras_epuises"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_24"
+        }
+      ],
+      "values": {
+        "genou": "Ses mains cherchaient le prochain barreau tandis que ses pieds tâtonnaient sur le métal humide."
+      },
+      "variants": [
+        {
+          "id": "genou_pendant_montee",
+          "when": {
+            "all": [
+              "genou_heurte"
+            ]
+          },
+          "values": {
+            "genou": "Son genou heurté dans l'escalier lui refusait certains appuis ; pour soulager la jambe, elle dut confier davantage de son poids à ses bras."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_24",
+      "title": "Derrière le mur",
+      "kind": "decision",
+      "rank": 24,
+      "text": "Un sourire inexplicable inspira son visage malheureux. Tout n'était pas à jeter, seulement, tout était à refaire.\n\nElle s'attarda sur le décor qui l'entourait. À première vue, rien d'exceptionnel. Les sempiternels immeubles sortaient la tête de la terre qui les avait vus pousser. Son regard se promena au sommet du mur déjà rencontré. À perte de vue, la ville s'étendait dans sa monotonie, mais un détail pourtant retint son attention. Derrière cette façade, rien ne dépassait ; il n'y avait aucune trace des vieilles tours familières.\n\nElle en était certaine : de l'autre côté se dressait un nouveau monde, un territoire imprévisible qui l'attirait et qu'elle devait rejoindre.\n\nL'hésitation fut longue, mais les heures avaient défilé et les premières lueurs du jour émergeaient derrière les tours. Se faire attraper maintenant n'en valait pas la peine. La raison l'emporta sur l'envie et elle décida d'attendre la prochaine nuit.\n\nDehors, le froid rongeait son corps mal recouvert. {bras} Avant que la fatigue ne l'emporte, son regard revint aux façades qui menaient au mur ; derrière un montant, le vent trouvait moins sûrement ses vêtements.",
+      "image": "images/passeuse/ch1_24.png",
+      "image_alt": "Derrière le mur — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        17
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Retenir le chemin des façades jusqu'au mur",
+          "consequence": "Alex suivit des yeux les façades et les lumières jusqu'au pied du mur. Elle s'attarda dans le froid pour ne pas en perdre la succession, puis la fatigue l'emporta, avec ce chemin encore présent derrière ses paupières.",
+          "flags": [
+            "wall_route"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_25"
+        },
+        {
+          "id": "b",
+          "text": "Se recroqueviller à l'abri du montant",
+          "consequence": "Alex se replia derrière le montant pour soustraire son corps au vent. La fatigue eut bientôt raison d'elle ; le mur demeurait dans ses pensées, mais elle n'avait pas retenu les rues qu'il faudrait traverser pour le rejoindre.",
+          "flags": [
+            "abri_grue"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_25"
+        }
+      ],
+      "values": {
+        "bras": "Elle ramena les bras contre elle, sans parvenir à arrêter les frissons."
+      },
+      "variants": [
+        {
+          "id": "bras_apres_effort",
+          "when": {
+            "all": [
+              "bras_epuises"
+            ]
+          },
+          "values": {
+            "bras": "Ses bras continuaient de trembler ; elle dut les replier contre son corps pour ne plus sentir dans ses mains le poids de l'ascension."
+          }
+        },
+        {
+          "id": "prises_encore_sures",
+          "when": {
+            "all": [
+              "prises_menagees"
+            ]
+          },
+          "values": {
+            "bras": "Ses mains gardaient assez de force pour la retenir à la rambarde tandis qu'elle cherchait une place moins exposée au vent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_25",
+      "title": "Les colonnes vivantes",
+      "kind": "decision",
+      "rank": 25,
+      "text": "Les sonneries successives tirèrent Alex de son fragile sommeil. De sa position, les yeux rivés vers le vide et le cœur peu confortable, elle regarda les portes s'ouvrir aux différentes artères. Les éternels fantômes, sans visage et sans nom, sortirent comme à leur habitude.\n\nL'image était impressionnante. Les colonnes vivantes emplirent les ruelles désertes et se propagèrent dans la ville, sans la moindre hésitation et dans une parfaite symétrie. Qu'elle le voulût ou non, Alex était l'un de ces êtres-là, une âme perdue au désir enlevé, circulant au milieu des autres, qui n'avait d'espoir que de retrouver son lit une fois la journée écoulée. Les formes disparaissaient à mesure qu'ils marchaient et les traits se confondaient, entre robots et habitants. Alex, dans sa douleur physique et morale, revêtait pour la première fois une apparence humaine.\n\n{froid}\n\nLe soir, à l'heure attendue, la mécanique des allées et venues fut machinalement exécutée avant que le calme ne revienne de manière brutale et surprenante. Elle reprit l'échelle ; la descente serait une épreuve redoutable et chaque pas mal assuré une source d'angoisse. {descente}",
+      "image": "images/passeuse/ch1_25.png",
+      "image_alt": "Les colonnes vivantes — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        17,
+        18
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ménager les prises et les appuis pendant la descente",
+          "consequence": "Alex descendit en éprouvant les prises que l'humidité rendait incertaines. Elle sauta par-delà les trois derniers échelons, atterrit dans la rue et put reprendre sa marche sans s'arrêter.",
+          "flags": [
+            "descente_menagee"
+          ],
+          "consequence_variants": [
+            {
+              "when": {
+                "all": [
+                  "genou_heurte"
+                ]
+              },
+              "consequence": "Alex descendit de côté pour ménager son genou. Elle sauta les trois derniers échelons en reportant le poids sur l'autre jambe ; quelques pas lui furent nécessaires pour retrouver son allure.",
+              "flags": []
+            }
+          ],
+          "next": "passeuse_1_26"
+        },
+        {
+          "id": "b",
+          "text": "Descendre vite pour profiter des rues silencieuses",
+          "consequence": "Alex se pressa sur l'échelle, puis sauta les trois derniers échelons. La réception la secoua assez pour lui voler son souffle ; elle dut reprendre appui contre la grue avant de repartir.",
+          "flags": [
+            "descente_lourde"
+          ],
+          "consequence_variants": [
+            {
+              "when": {
+                "all": [
+                  "genou_heurte"
+                ]
+              },
+              "consequence": "Alex descendit vite et sauta les trois derniers échelons. La réception réveilla brutalement son genou ; elle demeura contre la grue, incapable de repartir avant que la douleur ne lui rende sa jambe.",
+              "flags": [
+                "genou_aggrave"
+              ]
+            }
+          ],
+          "next": "passeuse_1_26"
+        }
+      ],
+      "values": {
+        "froid": "La journée s'étira entre le froid, la faim et l'attente de ce calme qui, seul, lui rendrait les rues.",
+        "descente": "Les montants reçurent ses mains ; tout en bas, la rue attendait le retour de ses pas."
+      },
+      "variants": [
+        {
+          "id": "abri_du_vent",
+          "when": {
+            "all": [
+              "abri_grue"
+            ]
+          },
+          "values": {
+            "froid": "L'abri choisi avait épargné à son corps une part du vent. Il ne pouvait rien contre la faim, ni contre les heures qu'elle dut encore laisser passer."
+          }
+        },
+        {
+          "id": "attente_apres_reperage",
+          "when": {
+            "all": [
+              "wall_route"
+            ]
+          },
+          "values": {
+            "froid": "Le froid la faisait trembler, mais les façades retenues avant le sommeil continuaient de relier sa place au mur ; elle les suivit encore pour ne pas perdre ce chemin."
+          }
+        },
+        {
+          "id": "descente_genou_douloureux",
+          "when": {
+            "all": [
+              "genou_heurte"
+            ]
+          },
+          "values": {
+            "descente": "Le genou douloureux lui rappela le palier heurté ; chaque nouvel appui devait laisser à l'autre jambe le temps de soutenir son poids."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_26",
+      "title": "La rivière sous le béton",
+      "kind": "decision",
+      "rank": 26,
+      "text": "{chemin}\n\nElle marcha, aussi discrètement que possible, à l'endroit où tout allait commencer. C'était un sentiment formidable qui se propageait en elle. Une envie d'explorer, de trouver, de croire. Cette anxiété qui parcourait son corps, ce n'était plus la peur de mourir malheureuse, c'était le vertige d'une nouvelle vie.\n\nAu pied du mur, elle contempla l'imposante structure. Sa hauteur le rendait infranchissable de toute part, mais elle imaginait qu'un tel ouvrage abritait inéluctablement une quelconque faille. Elle prit soin de le longer lentement, à la recherche d'un passage ou même d'une fissure ; son optimisme s'amoindrissait à mesure que son périple progressait.\n\nFinalement, son visage s'illumina à la vue d'une rivière qui, prenant source de son côté, plongeait sous le béton et prolongeait son chemin. Elle scruta silencieusement sa découverte, certaine d'avoir mis les mains sur un véritable trésor.\n\nDehors, les températures étaient basses, mais, dans son enthousiasme merveilleux, elle n'hésita que peu de temps. {jambe} Près de la rive, un appui pouvait encore retenir son entrée ; plus loin, le courant gagnait directement l'ouverture, dont elle ne voyait pas l'intérieur.",
+      "image": "images/passeuse/ch1_26.png",
+      "image_alt": "La rivière sous le béton — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        18
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Entrer près de la berge en conservant un appui",
+          "consequence": "Alex entra le long de la berge, laissant un appui retenir ses premiers pas. À l'approche du mur, elle dut s'immerger totalement ; le courant la surprit et l'arracha à ce dernier soutien.",
+          "flags": [
+            "appui_berge"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_27"
+        },
+        {
+          "id": "b",
+          "text": "Se laisser porter directement vers l'ouverture",
+          "consequence": "Alex s'avança dans le courant pour rejoindre l'ouverture. À l'approche du mur, elle dut s'immerger totalement ; la puissance de l'eau la surprit et l'entraîna sans lui laisser retrouver le moindre appui.",
+          "flags": [
+            "courant_direct"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_27"
+        }
+      ],
+      "values": {
+        "chemin": "Alex retrouva les façades parcourues la veille et, de proche en proche, la direction du mur.",
+        "jambe": "Elle s'approcha de l'eau, suivant des yeux le passage qu'elle creusait sous la façade."
+      },
+      "variants": [
+        {
+          "id": "trajet_prepare",
+          "when": {
+            "all": [
+              "wall_route"
+            ]
+          },
+          "values": {
+            "chemin": "Les façades repérées du haut de la grue dessinaient le chemin qu'il lui restait à parcourir ; elle n'aurait pas à chercher de nouveau la direction du mur."
+          }
+        },
+        {
+          "id": "trajet_neons",
+          "when": {
+            "all": [
+              "new_neons"
+            ],
+            "none": [
+              "wall_route"
+            ]
+          },
+          "values": {
+            "chemin": "Alex chercha les néons dont la nuance lui avait révélé l'autre quartier. Elle dut retrouver plusieurs rues, mais leur couleur finit par lui rendre la direction du mur."
+          }
+        },
+        {
+          "id": "genou_apres_reception",
+          "when": {
+            "all": [
+              "genou_aggrave"
+            ]
+          },
+          "values": {
+            "jambe": "Son genou la retint un instant au bord de l'eau ; elle reporta son poids sur l'autre jambe et chercha une position qui lui permette d'y descendre."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_27",
+      "title": "La grille",
+      "kind": "decision",
+      "rank": 27,
+      "text": "Propulsée par le courant, Alex heurta violemment des barreaux en métal rouillé par les années. Le flot continu la maintenait coincée sous la façade et elle se retrouva prise au piège, sans possibilité de repartir. {choc}\n\nRetenant sa respiration, elle frappa instinctivement la barrière sans le moindre succès. Une substance gluante effleura le bout de ses doigts : du sang coulait de ses mains meurtries, mais elle restait accrochée à cet obstacle qui ne voulait pas se briser.\n\nElle agrippa les quelques barreaux emprisonnés dans la paroi et les agita frénétiquement. Ce mouvement répété et les vibrations générées vinrent peu à peu élargir les fissures naturellement créées. {effort}\n\nSes yeux embrumés s'effaçaient doucement. À travers l'eau, elle sentait le métal céder par endroits, sans parvenir encore à l'arracher ; chaque secousse lui demandait ce qu'elle n'était plus certaine de pouvoir donner. Il fallait reprendre le mouvement sur les barreaux centraux, ou chercher, près d'une fixation fissurée, le point où l'obstacle opposait le moins de résistance.",
+      "image": "images/passeuse/ch1_27.png",
+      "image_alt": "La grille — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        18,
+        19
+      ],
+      "choices": [
+        {
+          "id": "a",
+          "text": "Faire vibrer l'ensemble de la grille",
+          "consequence": "Alex tira de tout son poids sur les barreaux centraux. Une ultime secousse acheva la grille qui céda et fut emportée, accompagnée d'elle, de l'autre côté du mur ; l'effort avait presque entièrement vidé ses bras.",
+          "flags": [
+            "arrachement_epuisant"
+          ],
+          "consequence_variants": [
+            {
+              "when": {
+                "all": [
+                  "bras_epuises"
+                ]
+              },
+              "consequence": "Alex tira malgré ses bras épuisés depuis la grue. La première secousse échoua ; elle recommença, et la grille finit par céder. Le courant les emporta ensemble de l'autre côté du mur, alors que ses doigts ne pouvaient presque plus se refermer.",
+              "flags": []
+            }
+          ],
+          "next": "passeuse_1_28"
+        },
+        {
+          "id": "b",
+          "text": "Concentrer les secousses près de la fixation fissurée",
+          "consequence": "Alex rapprocha ses mains de la fixation et reprit les secousses. La fissure s'élargit ; une dernière vibration acheva la grille, emportée avec elle de l'autre côté du mur. Elle put en conserver la prise un instant avant de la laisser partir.",
+          "flags": [
+            "arrachement_cible"
+          ],
+          "consequence_variants": [],
+          "next": "passeuse_1_28"
+        }
+      ],
+      "values": {
+        "choc": "Elle chercha les barreaux à portée de ses mains.",
+        "effort": "Elle rassembla ce qui lui restait de force pour reprendre les secousses."
+      },
+      "variants": [
+        {
+          "id": "choc_apres_appui",
+          "when": {
+            "all": [
+              "appui_berge"
+            ]
+          },
+          "values": {
+            "choc": "Arrachée à l'appui de la berge, elle avait reçu le choc sur l'épaule ; elle dut tourner le buste pour retrouver les barreaux devant elle."
+          }
+        },
+        {
+          "id": "choc_plein_courant",
+          "when": {
+            "all": [
+              "courant_direct"
+            ]
+          },
+          "values": {
+            "choc": "Entraînée sans appui, elle avait heurté la grille de face ; l'eau lui plaquait les bras contre le métal et lui rendait plus difficile la recherche d'une prise."
+          }
+        },
+        {
+          "id": "bras_grue_sous_eau",
+          "when": {
+            "all": [
+              "bras_epuises"
+            ]
+          },
+          "values": {
+            "effort": "Les bras qui avaient tremblé sur la grue retrouvaient leur épuisement. Ses doigts se resserrèrent sur le métal ; elle chercha à prolonger les vibrations plutôt qu'à recommencer les coups."
+          }
+        },
+        {
+          "id": "paume_sous_eau",
+          "when": {
+            "all": [
+              "main_eraflee"
+            ],
+            "none": [
+              "bras_epuises"
+            ]
+          },
+          "values": {
+            "effort": "L'éraflure du conduit se mêlait aux nouvelles blessures de ses mains. Elle déplaça sa prise sur un autre barreau, de peur que la douleur n'ouvre ses doigts avant que le métal cède."
+          }
+        }
+      ]
+    },
+    {
+      "id": "passeuse_1_28",
+      "title": "De l'autre côté",
+      "kind": "ending",
+      "rank": 28,
+      "text": "Gesticulant désespérément, Alex chercha à se soustraire au flot. {courant}\n\nElle put se cramponner à la racine d'un arbre passant à portée et, usant de ses dernières forces, tenta de se hisser sur les berges de la rive. {rive}\n\nElle demeura un instant sur la berge, les mains meurtries et le corps trempé.\n\nElle était exténuée, mais bien vivante et animée d'une allégresse naissante.",
+      "image": "images/passeuse/ch1_28.png",
+      "image_alt": "De l'autre côté — dessin réaliste en noir et blanc.",
+      "source_pages": [
+        19
+      ],
+      "choices": [],
+      "values": {
+        "courant": "Ses doigts cherchaient ce qui pourrait enfin l'arrêter.",
+        "rive": "Ses mains retinrent le bois tandis qu'elle cherchait la terre d'un pied."
+      },
+      "variants": [
+        {
+          "id": "sortie_bras_vides",
+          "when": {
+            "all": [
+              "arrachement_epuisant"
+            ]
+          },
+          "values": {
+            "courant": "L'arrachement de la grille avait vidé ses bras ; elle ne put diriger sa nage et tendit les mains vers ce que le courant lui laissait approcher."
+          }
+        },
+        {
+          "id": "sortie_prise_conservee",
+          "when": {
+            "all": [
+              "arrachement_cible"
+            ]
+          },
+          "values": {
+            "courant": "La prise conservée sur la grille l'avait retenue un instant dans le flot ; lorsqu'elle la lâcha, elle put encore tendre une main vers la berge."
+          }
+        },
+        {
+          "id": "rive_genou_douloureux",
+          "when": {
+            "all": [
+              "genou_heurte"
+            ]
+          },
+          "values": {
+            "rive": "Le genou heurté dans l'escalier protesta contre la berge. Elle dut se tirer davantage avec les bras, jusqu'à dégager enfin sa jambe de l'eau."
+          }
+        },
+        {
+          "id": "rive_sans_genou_heurte",
+          "when": {
+            "none": [
+              "genou_heurte"
+            ]
+          },
+          "values": {
+            "rive": "Ses jambes trouvèrent la terre et purent soutenir le dernier effort ; elle se hissa enfin hors de l'eau."
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "file": "La petite passeuse d'étoile.pdf",
+    "pages": [
+      5,
+      19
+    ],
+    "sha256": "a619fbd62e733d8e6cd8f782027d0d904ca401cb2336b40fc05cb03999cfcb37"
+  },
+  "revision": "2026-10-10 — reprise lyrique au plus près du PDF ; continuité des paragraphes et des conséquences",
+  "scope": "Premier chapitre uniquement ; arrêt après la racine et la sortie de l'eau.",
+  "editorial_note": "Le texte du roman reste le fil de la narration. Les ajouts concernent les points de décision, leurs conséquences et les raccords ; le chapitre s'arrête à la sortie de l'eau."
+}

@@ -1,0 +1,113 @@
+{
+  "id": "bell",
+  "title": "Le Dragon et la Source",
+  "description": "Délivrer un dragon contraint de garder une source et rendre l'eau au village.",
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de la source. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde de sécurité près de le coffret du collier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la source de Clairval.",
+      "climax_action": "Couper la corde de sécurité avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du dépôt, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de la source, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffret du collier, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la source de Clairval reste ton objectif.",
+      "climax_action": "Desserrer le crochet du volet avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du dépôt. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de la source. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre le crochet du volet près de le coffret du collier. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la source de Clairval.",
+      "climax_action": "Protéger ta main pour dégager le crochet du volet"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du dépôt. Elle désigne un côté de la porte du dépôt. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de la source. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver la poignée du collier. Elle désigne un côté de le coffret du collier. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la source de Clairval.",
+      "climax_action": "Trouver le crochet du volet avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du dépôt près de la porte du dépôt. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "first_action": "Ouvrir la serrure du dépôt avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de la source. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffret près de le coffret du collier. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la source de Clairval.",
+      "climax_action": "Ouvrir la serrure du coffret avec ta clé"
+    }
+  },
+  "conditions": {},
+  "decision_count": 12,
+  "start": "bell_intro",
+  "revelations": [
+    {
+      "id": "baron",
+      "actor": "le baron Grisel",
+      "text": "Une lettre du baron Grisel ordonne de retenir l'eau jusqu'à ce que Clairval accepte de payer un nouvel impôt. Il a fait poser le collier du dragon et fermer la vanne principale. Son serviteur viendra chercher l'argent demain. Tu comprends que le dragon est une victime du même chantage que les habitants ; la source doit être libérée des deux obstacles."
+    },
+    {
+      "id": "sorceress",
+      "actor": "la sorcière Malvenne",
+      "text": "Le carnet de Malvenne révèle son projet : détourner l'eau vers un jardin où elle cultive des plantes rares. Elle a enchaîné le dragon pour éloigner les visiteurs et garder le secret. Le sort du collier est écrit à côté du plan de la vanne. Il faudra défaire l'attache et rouvrir le conduit destiné au village."
+    },
+    {
+      "id": "miller",
+      "actor": "le meunier Vautrin",
+      "text": "Un compte signé par le meunier Vautrin explique son marché. Il veut vendre au village l'eau qu'il conserve derrière la vanne. Il a acheté un collier enchanté pour transformer le dragon en gardien. Tu retrouves le reçu et le plan du conduit. Ces preuves permettront aux habitants de réclamer la source après la libération de la créature."
+    }
+  ],
+  "endings": [
+    {
+      "scene": "bell_end_secret",
+      "when": {
+        "flag": "secret"
+      }
+    },
+    {
+      "scene": "bell_end_alliance",
+      "when": {
+        "all": [
+          {
+            "ally": "companion"
+          },
+          {
+            "min_success": 4
+          }
+        ]
+      }
+    },
+    {
+      "scene": "bell_end_radiant",
+      "when": {
+        "all": [
+          {
+            "min_success": 7
+          },
+          {
+            "not": {
+              "flag": "unstable"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "scene": "bell_end_cost",
+      "when": {
+        "min_complication": 3
+      }
+    },
+    {
+      "scene": "bell_end_resilient",
+      "when": {}
+    }
+  ]
+}

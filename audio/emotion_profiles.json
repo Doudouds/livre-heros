@@ -1,0 +1,108 @@
+{
+  "version": 1,
+  "approved_take": "audio\\experiments\\emotions\\essai_03_e12fed44e64c",
+  "reference_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "profiles": {
+    "joie": {
+      "exaggeration": 1.2,
+      "cfg_weight": 0.25,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "tristesse": {
+      "exaggeration": 0.3,
+      "cfg_weight": 0.25,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "colere": {
+      "exaggeration": 0.95,
+      "cfg_weight": 0.4,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "peur": {
+      "exaggeration": 0.9,
+      "cfg_weight": 0.25,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "emerveillement": {
+      "exaggeration": 1.45,
+      "cfg_weight": 0.2,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "tendresse": {
+      "exaggeration": 0.6,
+      "cfg_weight": 0.12,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "surprise": {
+      "exaggeration": 1.35,
+      "cfg_weight": 0.2,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "determination": {
+      "exaggeration": 1.1,
+      "cfg_weight": 0.7,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "soulagement": {
+      "exaggeration": 0.85,
+      "cfg_weight": 0.2,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "malice": {
+      "exaggeration": 1.15,
+      "cfg_weight": 0.2,
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0
+    },
+    "neutral": {
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0,
+      "exaggeration": 0.4,
+      "cfg_weight": 0.3
+    },
+    "soulagement_apaisement": {
+      "temperature": 0.8,
+      "repetition_penalty": 1.2,
+      "min_p": 0.05,
+      "top_p": 1.0,
+      "exaggeration": 0.65,
+      "cfg_weight": 0.2
+    }
+  },
+  "notes": [
+    "Palette emotionnelle approuvee a la serie 3.",
+    "Narration neutre : base de narration existante, sans emotion ajoutee.",
+    "Soulagement : debut expressif puis apaisement, selon le raccord valide."
+  ]
+}

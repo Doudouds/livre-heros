@@ -1,0 +1,44 @@
+{
+  "baseline_take": "audio/experiments/emotions/essai_02_e12fed44e64c",
+  "next_take": "essai_03",
+  "reference_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "notes": [
+    "Conserver les prises 1 à 4 et la malice A de la série 2.",
+    "Conserver le comparatif existant et produire un nouveau comparatif entre les séries 2 et 3.",
+    "Textes et référence vocale identiques ; température 0.8 conservée.",
+    "Pour le soulagement, refaire le début et garder les échantillons audio de la seconde partie à partir de Viens, laisse-moi te regarder.",
+    "Les réglages restent des hypothèses d'interprétation à évaluer à l'écoute."
+  ],
+  "excerpts": {
+    "01_joie": {"feedback": "OK.", "decision": "accepted"},
+    "02_tristesse": {"feedback": "OK.", "decision": "accepted"},
+    "03_colere": {"feedback": "OK.", "decision": "accepted"},
+    "04_peur": {"feedback": "OK.", "decision": "accepted"},
+    "05_emerveillement": {
+      "feedback": "Pas assez d'enthousiasme.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.45, "cfg_weight": 0.20}
+    },
+    "06_tendresse": {
+      "feedback": "Il faut un tout petit peu plus de ton rassurant.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 0.60, "cfg_weight": 0.12}
+    },
+    "07_surprise": {
+      "feedback": "Presque bien ; marquer un peu plus la surprise si possible.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.35, "cfg_weight": 0.20}
+    },
+    "08_determination": {
+      "feedback": "L'idée est là ; proposer une alternative plus ferme.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.10, "cfg_weight": 0.70}
+    },
+    "09_soulagement": {
+      "feedback": "La seconde partie est meilleure que la première ; essayer d'améliorer le début.",
+      "decision": "revise_intro_preserve_tail",
+      "parameters": {"exaggeration": 0.85, "cfg_weight": 0.20}
+    },
+    "10_malice": {"feedback": "On garde malice A.", "decision": "accepted"}
+  }
+}

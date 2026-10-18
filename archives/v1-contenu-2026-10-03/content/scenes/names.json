@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "names_intro",
+      "arc": "names",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "Le Royaume des noms effacés",
+      "text": "Les noms disparaissent des panneaux du royaume. Les routes et les villages existent toujours, mais les lettres s'effacent dès qu'on les peint. Personne ne perd ses souvenirs ; pourtant, les messages arrivent difficilement, et deux bourgs se disputent déjà la même carte devenue blanche. Un enfant remarque que les lettres n'ont pas été détruites : on les voit parfois courir au ras des chemins, comme de petits insectes d'encre. Elles se dirigent toutes vers {location_name}. Le conseil te demande de comprendre ce qui les attire et de rapporter une solution avant que le grand courrier ne reparte. On te remet une feuille blanche, car aucune carte ne garde désormais ses titres. Tu décides que ce vide sera un espace pour tes découvertes.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "names_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_1",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Une lettre sur le chemin",
+      "text": "Une lettre d'encre traverse ta route et se cache sous une pierre. Tu t'accroupis sans la toucher. Elle ressemble à un R, puis se retourne et prend la forme d'un B. Elle n'est pas perdue : elle hésite entre deux mots. Une borne proche porte encore les creux d'un ancien nom, alors que son panneau plus récent est vide. Tu pourrais comparer les deux inscriptions pour découvrir ce qui fait hésiter la lettre, ou la suivre lorsqu'elle reprendra sa course vers le lieu. L'étude te donnerait un premier exemple du problème. La poursuite permettrait d'observer la manière dont les lettres se déplacent. Tu poses ta feuille blanche à l'abri du vent et cherches une trace assez nette pour guider la suite.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_1_0",
+          "text": "Comparer l'ancien nom et le panneau récent",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les deux noms parlent du même bourg. Tu conserves ce premier exemple.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu lis les noms, mais l'encre attire plusieurs lettres qui brouillent la borne.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les creux sont usés. Une marque de distance te permet néanmoins de continuer.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_1_1",
+          "text": "Suivre la lettre sans la retenir",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La lettre rejoint une file d'encre. Tu suis sa route jusqu'à l'entrée.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La file te guide, mais se divise et laisse des lettres autour du chemin.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La lettre disparaît. Une goutte d'encre fraîche t'indique un autre passage.",
+              "next": "names_2",
+              "effects": {
+                "events": [
+                  "names_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_2",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Les témoins d'encre",
+      "text": "À l'entrée, des lettres tournent autour d'une vasque sans eau. Elles forment des mots pendant un instant, puis reprennent leur place dans le cercle. Tu distingues trois noms pour un même pont : celui des voyageurs, celui des bâtisseurs et celui des enfants du village. Sur le rebord, des empreintes montrent que quelqu'un a essayé de séparer les mots avec des cloisons. L'encre passe simplement dessous. Tu peux observer quelles lettres se regroupent d'elles-mêmes, ou examiner les cloisons pour comprendre la tentative de classement. Le premier indice concerne ce que les mots veulent conserver. Le second concerne la règle qui les empêche de repartir. Aucune méthode ne demande d'attraper les lettres ; tu peux les étudier en leur laissant assez d'espace pour se former.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_2_0",
+          "text": "Observer les mots que les lettres forment ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les mots se répondent. Tu comprends qu'ils décrivent plusieurs usages du pont.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères leurs liens, mais un tourbillon d'encre gagne le rebord.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les mots changent trop vite. Une même lettre revient et indique le centre.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_2_1",
+          "text": "Examiner les marques du classement interrompu",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les cloisons révèlent la règle imposée : un seul nom pour chaque lieu.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu retrouves la règle, mais déplacer une cloison réveille une sonnerie du registre.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les marques se chevauchent. Un numéro de salle reste lisible pour la suite.",
+              "next": "names_3",
+              "effects": {
+                "events": [
+                  "names_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_3",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La porte sans titre",
+      "text": "Le passage suivant porte une plaque entièrement blanche. Quand tu t'approches, des signes apparaissent puis se retirent, comme s'ils attendaient de savoir comment appeler la salle. Une serrure n'accepte aucun métal ordinaire. À côté, une ouverture basse porte plusieurs dessins : une main, une lampe et une plume. Elle était destinée aux personnes qui entretenaient le registre sans avoir à nommer chaque pièce. Ton objet réagit aux signes mouvants et peut tenter de convaincre la porte qu'un passage reste un passage même lorsque son titre change. L'ouverture d'entretien offrirait une autre voie, plus discrète et moins directe. Tu ne cherches pas un mot magique unique. Tu cherches une manière d'entrer qui respecte ce que tu commences à comprendre du mystère.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les signes trouvent un accord. La porte s'ouvre sans réclamer de titre unique.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La porte s'ouvre, mais copie tes traces dans une marge du registre.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les signes hésitent encore. L'ouverture d'entretien s'élargit et te laisse avancer.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_3_1",
+          "text": "Emprunter l'ouverture réservée à l'entretien",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les dessins te guident. Tu rejoins la salle sans imposer de nouveau nom.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu entres, mais un panneau bascule et mélange des lettres près du passage.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'ouverture est étroite. Une trappe voisine permet néanmoins de la dépasser.",
+              "next": "names_4",
+              "effects": {
+                "events": [
+                  "names_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_4",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Le tri des histoires",
+      "text": "Dans la salle suivante, un mécanisme distribue des feuilles entre deux voies. Les unes vont vers une galerie de témoignages, les autres vers un atelier où des panneaux attendent leur encre. Tu prends une feuille au bord du dispositif : elle raconte le même village de deux manières et ne sait pas quelle voie choisir. Tu pourrais l'accompagner vers les témoignages pour entendre les usages des habitants, ou suivre les panneaux pour découvrir comment les noms étaient fixés. Les deux routes rejoignent le registre central. Elles te montreront des responsabilités différentes : écouter les personnes qui emploient les mots, ou comprendre ceux qui les inscrivent. La feuille tremble légèrement, sans se déchirer. Tu la remets sur son support et décides quel travail mérite maintenant ton attention.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_4_0",
+          "text": "Suivre les feuilles vers les témoignages",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les feuilles t'accueillent dans la galerie. Leurs récits gardent des détails précis.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La galerie s'ouvre, mais certaines voix se répètent et couvrent les autres.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le tri refuse la feuille. Un passage libre rejoint pourtant les témoignages.",
+              "next": "names_5",
+              "effects": {
+                "events": [
+                  "names_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_4_1",
+          "text": "Examiner l'atelier qui prépare les panneaux",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu atteins l'atelier et repères les outils qui dirigeaient l'encre des noms.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'accès fonctionne, mais un pot renversé répand des lettres dans l'atelier.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une grille bloque le trajet. Les traces des ouvriers révèlent une entrée latérale.",
+              "next": "names_5b",
+              "effects": {
+                "events": [
+                  "names_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_5",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Une place pour deux récits",
+      "text": "Les témoignages ne parlent pas à voix haute. Ils dessinent de courtes images sur des feuilles : une fête près du pont, un marché, un retour sous la pluie. {encounter_name} te rejoint et reconnaît un détail que tu n'avais pas remarqué. Les noms différents correspondent souvent à des moments différents. {encounter_name} peut venir avec toi pour comparer les récits au registre, ou rester ici pour empêcher le tri d'écarter les témoignages les moins nombreux. Les deux tâches comptent. Tu peux choisir un regard supplémentaire près du centre, ou préserver les documents qui soutiendront ton explication. Une feuille représente un enfant montrant le pont à quelqu'un de passage. Tu comprends que même un nom peu ancien peut être important pour la personne qui l'utilise.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_5_0",
+          "text": "Comparer les récits au registre avec {encounter_name}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les détails s'accordent. {encounter_name} vient avec toi pour porter plusieurs témoignages.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préparez les récits, mais le tri retient une feuille moins fréquente.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les images s'effacent trop vite. {encounter_name} reste pour les préserver ici.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_5_1",
+          "text": "Confier la protection des témoignages à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les feuilles restent accessibles. Tu avances avec des exemples que rien n'a exclus.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les témoignages tiennent, mais leur protection immobilise une partie du mécanisme.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le tri se referme. Vous conservez assez de feuilles pour défendre leur diversité.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_6",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "La première carte",
+      "text": "Tu trouves une carte beaucoup plus ancienne que les panneaux du royaume. Les lieux y portent parfois deux noms, écrits dans des couleurs différentes. Une note explique que le registre savait autrefois conserver plusieurs versions, à condition d'indiquer qui les utilisait. Cette fonction a été recouverte par une page de correction. Tu peux essayer de lire la note sous cette page pour retrouver le secret du registre, ou étudier les lignes de la carte afin de reconnaître les endroits que les noms décrivent. Le secret pourrait changer la règle de classement. Les lignes t'aideraient à prouver que des mots différents peuvent désigner un seul lieu. Tu dois choisir où concentrer tes efforts avant que l'encre courante ne recouvre complètement les marques anciennes.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_6_0",
+          "text": "Retrouver la règle cachée sous la page de correction",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La règle ancienne accepte plusieurs noms. Tu peux proposer un classement plus ouvert.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu lis la règle, mais la correction garde une partie de ses exemples.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La page résiste. Un symbole de pluralité demeure visible sur son bord.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_6_1",
+          "text": "Relier les noms différents aux mêmes endroits",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les lignes prouvent les liens. Tu prépares un exemple clair pour le registre.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'exemple se forme, mais une ligne s'étend et brouille une autre région.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La carte reste partielle. Le contour du pont fournit néanmoins une preuve utile.",
+              "next": "names_7",
+              "effects": {
+                "events": [
+                  "names_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_7",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Les noms cherchent leurs lieux",
+      "text": "Un fil d'encre traverse le sol et se partage en plusieurs branches. Chaque branche cherche une inscription effacée, mais revient au centre lorsqu'elle rencontre un nom différent. Le registre semble demander aux lieux d'être identiques à une seule page. Ton objet peut t'aider à suivre la liaison qui existe malgré cette contradiction. Tu pourrais aussi remettre les repères de distance dans leur ordre, pour donner aux lettres une certitude indépendante de leur titre. La première méthode te rapprocherait de la source du tri. La seconde diminuerait les perturbations accumulées dans les branches. Tu observes une lettre arrêtée au milieu du fil. Elle n'attend pas qu'on décide qui elle est ; elle attend qu'on lui montre où sa présence a encore un sens.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le fil révèle ses destinations. Tu retrouves la liaison vers le registre central.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison apparaît, mais plusieurs lettres quittent leur branche en même temps.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le fil se replie. Une trace humide te donne tout de même sa direction.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_7_1",
+          "text": "Rétablir les repères de distance du registre",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les lettres retrouvent des positions stables. Les branches cessent de se contredire.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les repères fonctionnent, mais une région devra être vérifiée au retour.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un repère manque. Les autres maintiennent un chemin lisible jusqu'au centre.",
+              "next": "names_8",
+              "effects": {
+                "events": [
+                  "names_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_8",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Une preuve ou une rencontre",
+      "text": "Tu approches du registre, dont les pages tournent sans bruit. Une table latérale permet de disposer les preuves ; une petite tribune permet de présenter directement une question au mécanisme. Tu pourrais préparer un exemple très clair, avec deux noms et un même dessin du lieu. Tu pourrais aussi annoncer que tu cherches à comprendre, pour interrompre le tri avant qu'il n'écarte d'autres lettres. La preuve offrira une base solide, mais demande du temps. L'annonce changera tout de suite la conversation, sans garantir qu'elle sera entendue. Tu repenses aux indices déjà découverts et à ce que ta formation t'aide à faire quand plusieurs versions semblent se contredire. Le registre n'a pas besoin d'un adversaire : il a besoin de reconnaître une possibilité absente de sa règle.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_8_0",
+          "text": "Préparer un exemple clair avec deux noms du même lieu",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L'exemple devient lisible. Tu peux montrer la contradiction sans accuser les témoins.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Ta preuve tient, mais une page automatique y ajoute une correction trompeuse.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'exemple se mélange. Tu gardes deux détails assez nets pour poursuivre l'échange.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_8_1",
+          "text": "Annoncer ta question pour suspendre le tri",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le tri marque une pause. Les lettres peuvent attendre sans perdre leur place.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La pause apaise l'encre, mais certaines pages devront être rouvertes ensuite.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le tri ralentit seulement. Tu profites de cet intervalle pour atteindre le registre.",
+              "next": "names_9",
+              "effects": {
+                "events": [
+                  "names_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_9",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La correction impossible",
+      "text": "Une page montre enfin la personne qui a réveillé le classement. Le souvenir la suit depuis un panneau mal lu jusqu'au centre du registre. Tu comprends que le problème n'est pas né d'une envie de nuire, mais d'une correction qui exigeait trop. Deux questions apparaissent au bas de la page. La première demande quelle version est la plus ancienne. La seconde demande pourquoi les habitants utilisent plusieurs mots. Tu peux répondre par l'histoire des inscriptions, ou par les usages actuels que tu as observés. La première montrera que les noms ont toujours changé. La seconde montrera qu'ils changent encore pour des raisons compréhensibles. Tu regardes les lettres qui attendent autour de toi et choisis le type de preuve que tu veux rendre visible.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_9_0",
+          "text": "Montrer comment les noms ont changé dans l'histoire",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les anciennes versions sont reconnues. Le registre accepte d'examiner sa règle.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'histoire convainc, mais une page refuse de perdre son statut de correction.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'ordre ancien reste incertain. Deux dates lisibles ouvrent quand même une discussion.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_9_1",
+          "text": "Expliquer les usages actuels des noms",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les usages deviennent clairs. Le registre distingue une différence d'une erreur.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'explication porte, mais des lettres demandent encore où se ranger ensemble.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les exemples manquent de précision. Une image familière suffit néanmoins à engager l'échange.",
+              "next": "names_10",
+              "effects": {
+                "events": [
+                  "names_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_10",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Nommer sans effacer",
+      "text": "Tu rencontres {revelation_actor} près du registre. Les pages gardent les lettres dans une marge immense, et aucun nom ne peut partir tant que la règle ne change pas. Tu montres les exemples recueillis. La personne reconnaît le problème, mais craint que plusieurs noms rendent les cartes incompréhensibles. Tu peux proposer un classement par usage, où chaque version porte son contexte, ou un système de liens entre les noms qui désignent le même lieu. Le premier aiderait à comprendre qui emploie le mot. Le second permettrait de retrouver rapidement toutes ses versions. Les deux exigent de renoncer à une correction unique. Autour de toi, les lettres se rapprochent de leurs voisines sans former de foule désordonnée. Tu vois déjà qu'une organisation plus souple peut rester lisible.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_10_0",
+          "text": "Classer les noms selon leurs usages",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les usages trouvent leur place. Le registre commence à reconnaître plusieurs versions légitimes.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le classement fonctionne, mais quelques usages devront être expliqués par les habitants.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le classement reste incomplet. Les premières catégories ouvrent néanmoins une sortie aux lettres.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_10_1",
+          "text": "Relier les différentes versions d'un même nom",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les liens deviennent lisibles. Les noms différents cessent de s'annuler mutuellement.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les liens tiennent, mais une page garde des versions qu'il faudra vérifier.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Certains liens résistent. Vous créez des renvois provisoires pour les trajets essentiels.",
+              "next": "names_11",
+              "effects": {
+                "events": [
+                  "names_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_11",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Le signe de liaison",
+      "text": "La nouvelle organisation a besoin d'un signe que l'encre puisse suivre. Deux marques apparaissent sur le registre : celle du lieu et celle de ses noms. Elles restent séparées, comme si la page ne savait pas encore admettre leur différence. Ton objet répond au même langage que celui de la porte et du fil d'encre. Tu peux établir la liaison directement, ou utiliser les lignes de la carte pour offrir plusieurs appuis au changement. La méthode directe serait fine et concentrée. La carte rendrait le lien visible à ceux qui devront ensuite entretenir le registre. Tu gardes la feuille blanche reçue au village près de toi. Elle n'est plus un signe d'absence ; elle représente l'espace où plusieurs réponses peuvent trouver leur place sans s'effacer.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le signe relie lieux et noms. L'encre reconnaît enfin plusieurs mots sans les retirer.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La liaison tient, mais une marge continue d'attirer les noms les plus anciens.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signe direct s'efface. Les lignes de la carte permettent une liaison plus lente.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_11_1",
+          "text": "Inscrire le lien avec les lignes de la carte",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La carte porte le changement. Les pages peuvent suivre les liens sans se contredire.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le lien fonctionne, mais certaines cartes devront recevoir le nouveau signe.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une ligne se brouille. Les autres gardent assez de repères pour libérer les premiers noms.",
+              "next": "names_12",
+              "effects": {
+                "events": [
+                  "names_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_12",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Rendre les lettres au royaume",
+      "text": "Les noms peuvent maintenant repartir. Tu vois leurs lettres attendre près des sorties, ordonnées en petits groupes qui ne se confondent plus. Une libération centrale les renverrait rapidement sur tous les panneaux. Elle pourrait aussi emporter les hésitations encore présentes dans le registre. Une diffusion par les anciens relais donnerait aux habitants le temps de reconnaître chaque retour et d'ajouter les indications nécessaires. {revelation_actor} accepte de surveiller les pages qui demandent encore une vérification. Tu n'as plus à décider quel nom mérite d'exister. Tu dois décider comment rendre les mots à ceux qui les utilisent. Ta feuille blanche porte désormais quelques lignes, plusieurs versions d'un même lieu et des flèches entre elles. Elle pourrait servir de première carte du royaume retrouvé.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "names_12_0",
+          "text": "Libérer les noms depuis le registre central",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les lettres reprennent leurs routes. Les panneaux retrouvent des noms qui peuvent coexister.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les noms reviennent, mais plusieurs panneaux mêlent encore deux inscriptions à préciser.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La libération est incomplète. Tu conserves un premier réseau de panneaux lisibles.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_12_1",
+          "text": "Faire revenir les noms par les relais des habitants",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les relais accueillent les mots. Chaque lieu retrouve ses noms avec leur contexte.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les noms reviennent lentement. Les derniers panneaux demanderont une vérification collective.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Quelques relais attendent encore. Les principales routes gardent désormais des indications utiles.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "names_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_5b",
+      "arc": "names",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "L'atelier des panneaux blancs",
+      "text": "L'atelier contient des panneaux de toutes tailles, rangés à côté de pots d'encre presque vides. Sur certains bois, tu reconnais les creux d'inscriptions plus anciennes. {encounter_name} te rejoint et remarque que personne n'a essayé de cacher ces premières versions : elles étaient seulement devenues moins visibles. Un établi permet de comparer les couches sans les abîmer. {encounter_name} peut venir au registre avec un panneau témoin, ou rester pour empêcher le mécanisme de poncer les anciennes lettres. Dans les deux cas, vous préserverez une preuve. Ce qui change, c'est l'aide disponible pour l'expliquer au centre, et le temps laissé à l'atelier pour continuer ses corrections. Tu choisis une tâche qui donne à ces marques une chance d'être comprises plutôt que remplacées.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "names_5b_0",
+          "text": "Emporter un panneau témoin et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le panneau garde ses couches. {encounter_name} vient avec toi pour présenter cette preuve.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous préservez la preuve, mais l'établi réclame une nouvelle série de corrections.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le panneau reste fragile. {encounter_name} demeure ici pour le conserver sans risque.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "names_5b_1",
+          "text": "Confier la protection des inscriptions à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les corrections s'arrêtent. Tu avances en sachant que les premières versions restent visibles.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les inscriptions sont protégées, mais l'atelier accumule des panneaux en attente.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'arrêt ne tient pas partout. Vous sauvegardez les panneaux qui témoignent le plus clairement.",
+              "next": "names_6",
+              "effects": {
+                "events": [
+                  "names_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_secret",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La carte aux plusieurs couleurs",
+      "ending": "secret",
+      "text": "La fonction oubliée du registre permet de garder plusieurs noms sans brouiller les chemins. Tu montres au conseil une carte dont les couleurs indiquent les usages et les époques. Les habitants y reconnaissent des mots qu'ils croyaient incompatibles. Ils décident d'ajouter des explications plutôt que d'effacer les différences. Certains panneaux attendront encore leur tour, mais le royaume possède désormais une méthode qui respecte son histoire. Sur ta feuille, tu écris deux noms pour ton village. Ils ne se disputent pas la place ; ils racontent deux façons d'y revenir.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_alliance",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Les noms que l'on se transmet",
+      "ending": "alliance",
+      "text": "Avec l'aide de {encounter_name}, tu rapportes des témoignages assez précis pour que le conseil poursuive le travail du registre. Vous invitez les habitants à expliquer leurs propres usages. Les cartes commencent à porter des renvois, et les messagers apprennent à poser une question lorsqu'un mot leur paraît étrange. {encounter_name} choisit de préparer un petit recueil de ces réponses. Tu regardes la première page se remplir. L'aventure a montré qu'un nom devient plus utile quand quelqu'un accepte de raconter ce qu'il signifie.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_radiant",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le courrier retrouve sa route",
+      "ending": "radiant",
+      "text": "Les panneaux retrouvent leurs inscriptions, et le grand courrier peut partir avec une carte lisible. Tu expliques comment la recherche d'une correction parfaite avait effacé des mots pourtant utiles. Le conseil adopte les liens que tu as préparés et confie l'entretien du registre à plusieurs regards. Sur la place, des enfants lisent les noms anciens à côté des noms actuels, puis inventent une histoire pour leur différence. Tu ranges ta feuille devenue carte. Elle garde des traces du mystère, mais aucune route n'y conduit plus à un titre vide.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_cost",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Des panneaux à compléter",
+      "ending": "cost",
+      "text": "Une partie des noms revient, tandis que plusieurs panneaux demandent encore des explications. Tu rapportes une méthode de classement et les premières preuves qui la rendent crédible. Les habitants organisent des ateliers pour vérifier les inscriptions ensemble. Le courrier empruntera d'abord les routes les mieux indiquées, puis les autres suivront. Tu vois des personnes de deux bourgs autrefois opposés comparer leurs cartes. Les difficultés de ton aventure ont laissé du travail, mais aussi une raison de se rencontrer. Le royaume retrouve ses mots en apprenant à écouter leurs usages.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "names_end_resilient",
+      "arc": "names",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une carte assez claire pour commencer",
+      "ending": "resilient",
+      "text": "Tous les noms ne sont pas encore revenus, mais le mystère a perdu son pouvoir de bloquer le royaume. Tu montres pourquoi les lettres avaient été rappelées et comment leur offrir une place. Le conseil ouvre les premières routes avec les exemples que tu as conservés. Le reste demandera d'autres enquêtes et des vérifications patientes. Tu poses ta carte sur la table, sans cacher ses zones encore blanches. Elles indiquent maintenant un travail possible. Les habitants savent où commencer, et le premier message peut enfin quitter le village.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

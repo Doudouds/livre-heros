@@ -1,0 +1,64 @@
+{
+  "baseline_take": "audio/experiments/emotions/essai_01_e12fed44e64c",
+  "next_take": "essai_02",
+  "reference_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "notes": [
+    "Retour de l'utilisateur : globalement proche du but, sauf la malice.",
+    "Conserver les textes et le fichier vocal pour comparer les interprétations.",
+    "Les paramètres suivants sont des hypothèses à évaluer à l'écoute.",
+    "Température 0.8 conservée sur toutes les prises. Aucun ajout de balise émotionnelle au texte."
+  ],
+  "excerpts": {
+    "01_joie": {
+      "feedback": "Manque de l'enthousiasme dans le timbre de la voix.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.20, "cfg_weight": 0.25}
+    },
+    "02_tristesse": {
+      "feedback": "OK.",
+      "decision": "accepted",
+      "parameters": {"exaggeration": 0.30, "cfg_weight": 0.25}
+    },
+    "03_colere": {
+      "feedback": "OK.",
+      "decision": "accepted",
+      "parameters": {"exaggeration": 0.95, "cfg_weight": 0.40}
+    },
+    "04_peur": {
+      "feedback": "Presque bien, manque un peu d'émotion.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 0.90, "cfg_weight": 0.25}
+    },
+    "05_emerveillement": {
+      "feedback": "Comme la joie, manque un peu d'enthousiasme.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.00, "cfg_weight": 0.25}
+    },
+    "06_tendresse": {
+      "feedback": "Pas vraiment de perception de tendresse.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 0.50, "cfg_weight": 0.15}
+    },
+    "07_surprise": {
+      "feedback": "Presque bien, mais manque d'intonation pour la surprise.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 1.15, "cfg_weight": 0.25}
+    },
+    "08_determination": {
+      "feedback": "Il faudrait que ce soit un peu plus ferme.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 0.85, "cfg_weight": 0.60}
+    },
+    "09_soulagement": {
+      "feedback": "Manque d'émotion.",
+      "decision": "revise",
+      "parameters": {"exaggeration": 0.65, "cfg_weight": 0.20}
+    },
+    "10_malice": {
+      "feedback": "L'émotion voulue est ratée, on ne sent pas l'ironie.",
+      "decision": "compare_two_variants",
+      "parameters": {"exaggeration": 1.15, "cfg_weight": 0.20},
+      "variant_b": {"id": "10_malice_b", "parameters": {"exaggeration": 0.45, "cfg_weight": 0.15}}
+    }
+  }
+}

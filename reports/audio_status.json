@@ -1,0 +1,55 @@
+{
+  "expected": 6342,
+  "valid": 0,
+  "missing": 6342,
+  "invalid": 0,
+  "speech_verified": 0,
+  "speech_unverified": 0,
+  "profiles": [],
+  "examples": [
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_intro_narration_194e66ed1d14c449e2a7.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_intro_narration_ce3cd87075c07c960d29.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_intro_narration_3fb2d9c5f258abacefc6.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_intro_narration_148921ab2ab0db1cf274.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_narration_8289391c2f10e4b1c0ab.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_atlas_1_0_success_9dbeef7a5154ae8d80b3.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_atlas_1_0_complication_854d1da4ec26163d76db.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_atlas_1_0_failure_c82ff1d363a9c6406570.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_atlas_1_1_success_ebee7bbabecb85d36036.wav",
+      "status": "missing"
+    },
+    {
+      "file": "D:\\livre_heros\\audio\\files\\atlas_1_atlas_1_1_complication_42f08b14bb0e935201ca.wav",
+      "status": "missing"
+    }
+  ],
+  "game_timing": null,
+  "timing_target_met": null,
+  "format_ready": false,
+  "ready": false
+}

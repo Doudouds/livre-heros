@@ -1,0 +1,154 @@
+{
+  "count": 3000,
+  "simulation_seed": 20261004,
+  "choice_policy": "random",
+  "timing": {
+    "words_per_minute": 150,
+    "choice_seconds": 10,
+    "mean_minutes": 20.19,
+    "minimum_minutes": 19.427,
+    "maximum_minutes": 21.067,
+    "p05_minutes": 19.82,
+    "p95_minutes": 20.647,
+    "outside_target": 0
+  },
+  "decisions": {
+    "12": 3000
+  },
+  "arcs": {
+    "cages": 3000
+  },
+  "endings": {
+    "cages:bird": 395,
+    "cages:full": 844,
+    "cages:lison": 979,
+    "cages:others": 678,
+    "cages:pending": 104
+  },
+  "outcomes_total": {
+    "success": 21323,
+    "complication": 5859,
+    "failure": 8818
+  },
+  "outcomes_per_adventure": {
+    "success": 7.108,
+    "complication": 1.953,
+    "failure": 2.939
+  },
+  "scenes": {
+    "cages_1": 3000,
+    "cages_10": 3000,
+    "cages_11": 3000,
+    "cages_12": 3000,
+    "cages_2": 3000,
+    "cages_3": 3000,
+    "cages_4_fox": 1466,
+    "cages_4_merle": 1534,
+    "cages_5": 3000,
+    "cages_6_departure": 993,
+    "cages_6_quiet": 1014,
+    "cages_6_visitor": 993,
+    "cages_7_departure": 993,
+    "cages_7_quiet": 1014,
+    "cages_7_visitor": 993,
+    "cages_8_caught": 856,
+    "cages_8_departure_public": 351,
+    "cages_8_departure_secret": 364,
+    "cages_8_quiet_public": 349,
+    "cages_8_quiet_secret": 379,
+    "cages_8_visitor_public": 335,
+    "cages_8_visitor_secret": 366,
+    "cages_9_caught": 690,
+    "cages_9_key": 2310,
+    "cages_end_bird": 395,
+    "cages_end_full": 844,
+    "cages_end_lison": 979,
+    "cages_end_others": 678,
+    "cages_end_pending": 104,
+    "cages_intro": 3000
+  },
+  "least_used_scenes": [
+    [
+      "cages_end_pending",
+      104
+    ],
+    [
+      "cages_8_visitor_public",
+      335
+    ],
+    [
+      "cages_8_quiet_public",
+      349
+    ],
+    [
+      "cages_8_departure_public",
+      351
+    ],
+    [
+      "cages_8_departure_secret",
+      364
+    ],
+    [
+      "cages_8_visitor_secret",
+      366
+    ],
+    [
+      "cages_8_quiet_secret",
+      379
+    ],
+    [
+      "cages_end_bird",
+      395
+    ],
+    [
+      "cages_end_others",
+      678
+    ],
+    [
+      "cages_9_caught",
+      690
+    ]
+  ],
+  "most_used_scenes": [
+    [
+      "cages_intro",
+      3000
+    ],
+    [
+      "cages_5",
+      3000
+    ],
+    [
+      "cages_3",
+      3000
+    ],
+    [
+      "cages_2",
+      3000
+    ],
+    [
+      "cages_12",
+      3000
+    ],
+    [
+      "cages_11",
+      3000
+    ],
+    [
+      "cages_10",
+      3000
+    ],
+    [
+      "cages_1",
+      3000
+    ],
+    [
+      "cages_9_key",
+      2310
+    ],
+    [
+      "cages_4_merle",
+      1534
+    ]
+  ]
+}

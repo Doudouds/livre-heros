@@ -1,0 +1,454 @@
+{
+  "id": "names",
+  "title": "Le Royaume des noms effacés",
+  "description": "Résoudre la disparition des noms inscrits sur les cartes et rendre au royaume plusieurs façons de raconter son histoire.",
+  "intro": "Les noms disparaissent des panneaux du royaume. Les routes et les villages existent toujours, mais les lettres s'effacent dès qu'on les peint. Personne ne perd ses souvenirs ; pourtant, les messages arrivent difficilement, et deux bourgs se disputent déjà la même carte devenue blanche. Un enfant remarque que les lettres n'ont pas été détruites : on les voit parfois courir au ras des chemins, comme de petits insectes d'encre. Elles se dirigent toutes vers {location_name}. Le conseil te demande de comprendre ce qui les attire et de rapporter une solution avant que le grand courrier ne reparte. On te remet une feuille blanche, car aucune carte ne garde désormais ses titres. Tu décides que ce vide sera un espace pour tes découvertes.",
+  "revelations": [
+    {
+      "id": "scribe",
+      "actor": "l'archiviste Maëline",
+      "text": "Une page mobile révèle Maëline, une archiviste qui a trouvé plusieurs noms pour les mêmes villages. Elle voulait corriger les cartes en choisissant une seule version. Le registre qu'elle a réveillé n'a pas su reconnaître les différences : il a retiré tous les noms en attendant une réponse unique. Maëline cherche encore cette réponse, sans comprendre que les habitants peuvent nommer un lieu de plusieurs façons."
+    },
+    {
+      "id": "engraver",
+      "actor": "le graveur Cédrin",
+      "text": "La page montre Cédrin, un graveur chargé de restaurer les anciens panneaux. Il a utilisé une encre qui retourne au registre lorsqu'une inscription paraît incertaine. Or chaque nom a changé au fil des siècles. L'encre a donc tout repris pour vérifier. Cédrin voulait préserver l'histoire ; il faut lui montrer que cette histoire comprend aussi les transformations qu'il cherchait à effacer."
+    },
+    {
+      "id": "mirror",
+      "actor": "la gardienne du Miroir des titres",
+      "text": "La page révèle la gardienne du Miroir des titres, une présence qui classe les noms pour aider les voyageurs. Deux cartes contradictoires lui ont été confiées, et elle refuse de choisir injustement. Elle a rappelé les lettres pour les interroger toutes. Son attente bloque maintenant le royaume. Il faut lui offrir un classement où plusieurs noms peuvent se répondre sans devenir une erreur."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Une lettre sur le chemin",
+      "text": "Une lettre d'encre traverse ta route et se cache sous une pierre. Tu t'accroupis sans la toucher. Elle ressemble à un R, puis se retourne et prend la forme d'un B. Elle n'est pas perdue : elle hésite entre deux mots. Une borne proche porte encore les creux d'un ancien nom, alors que son panneau plus récent est vide. Tu pourrais comparer les deux inscriptions pour découvrir ce qui fait hésiter la lettre, ou la suivre lorsqu'elle reprendra sa course vers le lieu. L'étude te donnerait un premier exemple du problème. La poursuite permettrait d'observer la manière dont les lettres se déplacent. Tu poses ta feuille blanche à l'abri du vent et cherches une trace assez nette pour guider la suite.",
+      "choices": [
+        {
+          "text": "Comparer l'ancien nom et le panneau récent",
+          "heroes": [
+            "mage",
+            "knight",
+            "explorer"
+          ],
+          "results": [
+            "Les deux noms parlent du même bourg. Tu conserves ce premier exemple.",
+            "Tu lis les noms, mais l'encre attire plusieurs lettres qui brouillent la borne.",
+            "Les creux sont usés. Une marque de distance te permet néanmoins de continuer."
+          ]
+        },
+        {
+          "text": "Suivre la lettre sans la retenir",
+          "heroes": [
+            "rogue",
+            "keeper"
+          ],
+          "results": [
+            "La lettre rejoint une file d'encre. Tu suis sa route jusqu'à l'entrée.",
+            "La file te guide, mais se divise et laisse des lettres autour du chemin.",
+            "La lettre disparaît. Une goutte d'encre fraîche t'indique un autre passage."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les témoins d'encre",
+      "text": "À l'entrée, des lettres tournent autour d'une vasque sans eau. Elles forment des mots pendant un instant, puis reprennent leur place dans le cercle. Tu distingues trois noms pour un même pont : celui des voyageurs, celui des bâtisseurs et celui des enfants du village. Sur le rebord, des empreintes montrent que quelqu'un a essayé de séparer les mots avec des cloisons. L'encre passe simplement dessous. Tu peux observer quelles lettres se regroupent d'elles-mêmes, ou examiner les cloisons pour comprendre la tentative de classement. Le premier indice concerne ce que les mots veulent conserver. Le second concerne la règle qui les empêche de repartir. Aucune méthode ne demande d'attraper les lettres ; tu peux les étudier en leur laissant assez d'espace pour se former.",
+      "choices": [
+        {
+          "text": "Observer les mots que les lettres forment ensemble",
+          "heroes": [
+            "keeper",
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Les mots se répondent. Tu comprends qu'ils décrivent plusieurs usages du pont.",
+            "Tu repères leurs liens, mais un tourbillon d'encre gagne le rebord.",
+            "Les mots changent trop vite. Une même lettre revient et indique le centre."
+          ]
+        },
+        {
+          "text": "Examiner les marques du classement interrompu",
+          "heroes": [
+            "rogue",
+            "knight"
+          ],
+          "results": [
+            "Les cloisons révèlent la règle imposée : un seul nom pour chaque lieu.",
+            "Tu retrouves la règle, mais déplacer une cloison réveille une sonnerie du registre.",
+            "Les marques se chevauchent. Un numéro de salle reste lisible pour la suite."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La porte sans titre",
+      "text": "Le passage suivant porte une plaque entièrement blanche. Quand tu t'approches, des signes apparaissent puis se retirent, comme s'ils attendaient de savoir comment appeler la salle. Une serrure n'accepte aucun métal ordinaire. À côté, une ouverture basse porte plusieurs dessins : une main, une lampe et une plume. Elle était destinée aux personnes qui entretenaient le registre sans avoir à nommer chaque pièce. Ton objet réagit aux signes mouvants et peut tenter de convaincre la porte qu'un passage reste un passage même lorsque son titre change. L'ouverture d'entretien offrirait une autre voie, plus discrète et moins directe. Tu ne cherches pas un mot magique unique. Tu cherches une manière d'entrer qui respecte ce que tu commences à comprendre du mystère.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Les signes trouvent un accord. La porte s'ouvre sans réclamer de titre unique.",
+            "La porte s'ouvre, mais copie tes traces dans une marge du registre.",
+            "Les signes hésitent encore. L'ouverture d'entretien s'élargit et te laisse avancer."
+          ]
+        },
+        {
+          "text": "Emprunter l'ouverture réservée à l'entretien",
+          "heroes": [
+            "knight",
+            "explorer",
+            "keeper"
+          ],
+          "results": [
+            "Les dessins te guident. Tu rejoins la salle sans imposer de nouveau nom.",
+            "Tu entres, mais un panneau bascule et mélange des lettres près du passage.",
+            "L'ouverture est étroite. Une trappe voisine permet néanmoins de la dépasser."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le tri des histoires",
+      "text": "Dans la salle suivante, un mécanisme distribue des feuilles entre deux voies. Les unes vont vers une galerie de témoignages, les autres vers un atelier où des panneaux attendent leur encre. Tu prends une feuille au bord du dispositif : elle raconte le même village de deux manières et ne sait pas quelle voie choisir. Tu pourrais l'accompagner vers les témoignages pour entendre les usages des habitants, ou suivre les panneaux pour découvrir comment les noms étaient fixés. Les deux routes rejoignent le registre central. Elles te montreront des responsabilités différentes : écouter les personnes qui emploient les mots, ou comprendre ceux qui les inscrivent. La feuille tremble légèrement, sans se déchirer. Tu la remets sur son support et décides quel travail mérite maintenant ton attention.",
+      "choices": [
+        {
+          "text": "Suivre les feuilles vers les témoignages",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Les feuilles t'accueillent dans la galerie. Leurs récits gardent des détails précis.",
+            "La galerie s'ouvre, mais certaines voix se répètent et couvrent les autres.",
+            "Le tri refuse la feuille. Un passage libre rejoint pourtant les témoignages."
+          ]
+        },
+        {
+          "text": "Examiner l'atelier qui prépare les panneaux",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "Tu atteins l'atelier et repères les outils qui dirigeaient l'encre des noms.",
+            "L'accès fonctionne, mais un pot renversé répand des lettres dans l'atelier.",
+            "Une grille bloque le trajet. Les traces des ouvriers révèlent une entrée latérale."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une place pour deux récits",
+      "text": "Les témoignages ne parlent pas à voix haute. Ils dessinent de courtes images sur des feuilles : une fête près du pont, un marché, un retour sous la pluie. {encounter_name} te rejoint et reconnaît un détail que tu n'avais pas remarqué. Les noms différents correspondent souvent à des moments différents. {encounter_name} peut venir avec toi pour comparer les récits au registre, ou rester ici pour empêcher le tri d'écarter les témoignages les moins nombreux. Les deux tâches comptent. Tu peux choisir un regard supplémentaire près du centre, ou préserver les documents qui soutiendront ton explication. Une feuille représente un enfant montrant le pont à quelqu'un de passage. Tu comprends que même un nom peu ancien peut être important pour la personne qui l'utilise.",
+      "choices": [
+        {
+          "text": "Comparer les récits au registre avec {encounter_name}",
+          "heroes": [
+            "keeper",
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Les détails s'accordent. {encounter_name} vient avec toi pour porter plusieurs témoignages.",
+            "Vous préparez les récits, mais le tri retient une feuille moins fréquente.",
+            "Les images s'effacent trop vite. {encounter_name} reste pour les préserver ici."
+          ]
+        },
+        {
+          "text": "Confier la protection des témoignages à {encounter_name}",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les feuilles restent accessibles. Tu avances avec des exemples que rien n'a exclus.",
+            "Les témoignages tiennent, mais leur protection immobilise une partie du mécanisme.",
+            "Le tri se referme. Vous conservez assez de feuilles pour défendre leur diversité."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La première carte",
+      "text": "Tu trouves une carte beaucoup plus ancienne que les panneaux du royaume. Les lieux y portent parfois deux noms, écrits dans des couleurs différentes. Une note explique que le registre savait autrefois conserver plusieurs versions, à condition d'indiquer qui les utilisait. Cette fonction a été recouverte par une page de correction. Tu peux essayer de lire la note sous cette page pour retrouver le secret du registre, ou étudier les lignes de la carte afin de reconnaître les endroits que les noms décrivent. Le secret pourrait changer la règle de classement. Les lignes t'aideraient à prouver que des mots différents peuvent désigner un seul lieu. Tu dois choisir où concentrer tes efforts avant que l'encre courante ne recouvre complètement les marques anciennes.",
+      "choices": [
+        {
+          "text": "Retrouver la règle cachée sous la page de correction",
+          "heroes": [
+            "mage",
+            "rogue",
+            "explorer"
+          ],
+          "flag": "secret",
+          "results": [
+            "La règle ancienne accepte plusieurs noms. Tu peux proposer un classement plus ouvert.",
+            "Tu lis la règle, mais la correction garde une partie de ses exemples.",
+            "La page résiste. Un symbole de pluralité demeure visible sur son bord."
+          ]
+        },
+        {
+          "text": "Relier les noms différents aux mêmes endroits",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Les lignes prouvent les liens. Tu prépares un exemple clair pour le registre.",
+            "L'exemple se forme, mais une ligne s'étend et brouille une autre région.",
+            "La carte reste partielle. Le contour du pont fournit néanmoins une preuve utile."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les noms cherchent leurs lieux",
+      "text": "Un fil d'encre traverse le sol et se partage en plusieurs branches. Chaque branche cherche une inscription effacée, mais revient au centre lorsqu'elle rencontre un nom différent. Le registre semble demander aux lieux d'être identiques à une seule page. Ton objet peut t'aider à suivre la liaison qui existe malgré cette contradiction. Tu pourrais aussi remettre les repères de distance dans leur ordre, pour donner aux lettres une certitude indépendante de leur titre. La première méthode te rapprocherait de la source du tri. La seconde diminuerait les perturbations accumulées dans les branches. Tu observes une lettre arrêtée au milieu du fil. Elle n'attend pas qu'on décide qui elle est ; elle attend qu'on lui montre où sa présence a encore un sens.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Le fil révèle ses destinations. Tu retrouves la liaison vers le registre central.",
+            "La liaison apparaît, mais plusieurs lettres quittent leur branche en même temps.",
+            "Le fil se replie. Une trace humide te donne tout de même sa direction."
+          ]
+        },
+        {
+          "text": "Rétablir les repères de distance du registre",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "knight"
+          ],
+          "repair": true,
+          "results": [
+            "Les lettres retrouvent des positions stables. Les branches cessent de se contredire.",
+            "Les repères fonctionnent, mais une région devra être vérifiée au retour.",
+            "Un repère manque. Les autres maintiennent un chemin lisible jusqu'au centre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une preuve ou une rencontre",
+      "text": "Tu approches du registre, dont les pages tournent sans bruit. Une table latérale permet de disposer les preuves ; une petite tribune permet de présenter directement une question au mécanisme. Tu pourrais préparer un exemple très clair, avec deux noms et un même dessin du lieu. Tu pourrais aussi annoncer que tu cherches à comprendre, pour interrompre le tri avant qu'il n'écarte d'autres lettres. La preuve offrira une base solide, mais demande du temps. L'annonce changera tout de suite la conversation, sans garantir qu'elle sera entendue. Tu repenses aux indices déjà découverts et à ce que ta formation t'aide à faire quand plusieurs versions semblent se contredire. Le registre n'a pas besoin d'un adversaire : il a besoin de reconnaître une possibilité absente de sa règle.",
+      "choices": [
+        {
+          "text": "Préparer un exemple clair avec deux noms du même lieu",
+          "heroes": [
+            "explorer",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "L'exemple devient lisible. Tu peux montrer la contradiction sans accuser les témoins.",
+            "Ta preuve tient, mais une page automatique y ajoute une correction trompeuse.",
+            "L'exemple se mélange. Tu gardes deux détails assez nets pour poursuivre l'échange."
+          ]
+        },
+        {
+          "text": "Annoncer ta question pour suspendre le tri",
+          "heroes": [
+            "keeper",
+            "rogue"
+          ],
+          "repair": true,
+          "results": [
+            "Le tri marque une pause. Les lettres peuvent attendre sans perdre leur place.",
+            "La pause apaise l'encre, mais certaines pages devront être rouvertes ensuite.",
+            "Le tri ralentit seulement. Tu profites de cet intervalle pour atteindre le registre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La correction impossible",
+      "text": "Une page montre enfin la personne qui a réveillé le classement. Le souvenir la suit depuis un panneau mal lu jusqu'au centre du registre. Tu comprends que le problème n'est pas né d'une envie de nuire, mais d'une correction qui exigeait trop. Deux questions apparaissent au bas de la page. La première demande quelle version est la plus ancienne. La seconde demande pourquoi les habitants utilisent plusieurs mots. Tu peux répondre par l'histoire des inscriptions, ou par les usages actuels que tu as observés. La première montrera que les noms ont toujours changé. La seconde montrera qu'ils changent encore pour des raisons compréhensibles. Tu regardes les lettres qui attendent autour de toi et choisis le type de preuve que tu veux rendre visible.",
+      "choices": [
+        {
+          "text": "Montrer comment les noms ont changé dans l'histoire",
+          "heroes": [
+            "mage",
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "Les anciennes versions sont reconnues. Le registre accepte d'examiner sa règle.",
+            "L'histoire convainc, mais une page refuse de perdre son statut de correction.",
+            "L'ordre ancien reste incertain. Deux dates lisibles ouvrent quand même une discussion."
+          ]
+        },
+        {
+          "text": "Expliquer les usages actuels des noms",
+          "heroes": [
+            "keeper",
+            "rogue"
+          ],
+          "results": [
+            "Les usages deviennent clairs. Le registre distingue une différence d'une erreur.",
+            "L'explication porte, mais des lettres demandent encore où se ranger ensemble.",
+            "Les exemples manquent de précision. Une image familière suffit néanmoins à engager l'échange."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nommer sans effacer",
+      "text": "Tu rencontres {revelation_actor} près du registre. Les pages gardent les lettres dans une marge immense, et aucun nom ne peut partir tant que la règle ne change pas. Tu montres les exemples recueillis. La personne reconnaît le problème, mais craint que plusieurs noms rendent les cartes incompréhensibles. Tu peux proposer un classement par usage, où chaque version porte son contexte, ou un système de liens entre les noms qui désignent le même lieu. Le premier aiderait à comprendre qui emploie le mot. Le second permettrait de retrouver rapidement toutes ses versions. Les deux exigent de renoncer à une correction unique. Autour de toi, les lettres se rapprochent de leurs voisines sans former de foule désordonnée. Tu vois déjà qu'une organisation plus souple peut rester lisible.",
+      "choices": [
+        {
+          "text": "Classer les noms selon leurs usages",
+          "heroes": [
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Les usages trouvent leur place. Le registre commence à reconnaître plusieurs versions légitimes.",
+            "Le classement fonctionne, mais quelques usages devront être expliqués par les habitants.",
+            "Le classement reste incomplet. Les premières catégories ouvrent néanmoins une sortie aux lettres."
+          ]
+        },
+        {
+          "text": "Relier les différentes versions d'un même nom",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "knight"
+          ],
+          "results": [
+            "Les liens deviennent lisibles. Les noms différents cessent de s'annuler mutuellement.",
+            "Les liens tiennent, mais une page garde des versions qu'il faudra vérifier.",
+            "Certains liens résistent. Vous créez des renvois provisoires pour les trajets essentiels."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le signe de liaison",
+      "text": "La nouvelle organisation a besoin d'un signe que l'encre puisse suivre. Deux marques apparaissent sur le registre : celle du lieu et celle de ses noms. Elles restent séparées, comme si la page ne savait pas encore admettre leur différence. Ton objet répond au même langage que celui de la porte et du fil d'encre. Tu peux établir la liaison directement, ou utiliser les lignes de la carte pour offrir plusieurs appuis au changement. La méthode directe serait fine et concentrée. La carte rendrait le lien visible à ceux qui devront ensuite entretenir le registre. Tu gardes la feuille blanche reçue au village près de toi. Elle n'est plus un signe d'absence ; elle représente l'espace où plusieurs réponses peuvent trouver leur place sans s'effacer.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Le signe relie lieux et noms. L'encre reconnaît enfin plusieurs mots sans les retirer.",
+            "La liaison tient, mais une marge continue d'attirer les noms les plus anciens.",
+            "Le signe direct s'efface. Les lignes de la carte permettent une liaison plus lente."
+          ]
+        },
+        {
+          "text": "Inscrire le lien avec les lignes de la carte",
+          "heroes": [
+            "explorer",
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "La carte porte le changement. Les pages peuvent suivre les liens sans se contredire.",
+            "Le lien fonctionne, mais certaines cartes devront recevoir le nouveau signe.",
+            "Une ligne se brouille. Les autres gardent assez de repères pour libérer les premiers noms."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Rendre les lettres au royaume",
+      "text": "Les noms peuvent maintenant repartir. Tu vois leurs lettres attendre près des sorties, ordonnées en petits groupes qui ne se confondent plus. Une libération centrale les renverrait rapidement sur tous les panneaux. Elle pourrait aussi emporter les hésitations encore présentes dans le registre. Une diffusion par les anciens relais donnerait aux habitants le temps de reconnaître chaque retour et d'ajouter les indications nécessaires. {revelation_actor} accepte de surveiller les pages qui demandent encore une vérification. Tu n'as plus à décider quel nom mérite d'exister. Tu dois décider comment rendre les mots à ceux qui les utilisent. Ta feuille blanche porte désormais quelques lignes, plusieurs versions d'un même lieu et des flèches entre elles. Elle pourrait servir de première carte du royaume retrouvé.",
+      "choices": [
+        {
+          "text": "Libérer les noms depuis le registre central",
+          "heroes": [
+            "mage",
+            "rogue",
+            "knight"
+          ],
+          "results": [
+            "Les lettres reprennent leurs routes. Les panneaux retrouvent des noms qui peuvent coexister.",
+            "Les noms reviennent, mais plusieurs panneaux mêlent encore deux inscriptions à préciser.",
+            "La libération est incomplète. Tu conserves un premier réseau de panneaux lisibles."
+          ]
+        },
+        {
+          "text": "Faire revenir les noms par les relais des habitants",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les relais accueillent les mots. Chaque lieu retrouve ses noms avec leur contexte.",
+            "Les noms reviennent lentement. Les derniers panneaux demanderont une vérification collective.",
+            "Quelques relais attendent encore. Les principales routes gardent désormais des indications utiles."
+          ]
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "L'atelier des panneaux blancs",
+    "text": "L'atelier contient des panneaux de toutes tailles, rangés à côté de pots d'encre presque vides. Sur certains bois, tu reconnais les creux d'inscriptions plus anciennes. {encounter_name} te rejoint et remarque que personne n'a essayé de cacher ces premières versions : elles étaient seulement devenues moins visibles. Un établi permet de comparer les couches sans les abîmer. {encounter_name} peut venir au registre avec un panneau témoin, ou rester pour empêcher le mécanisme de poncer les anciennes lettres. Dans les deux cas, vous préserverez une preuve. Ce qui change, c'est l'aide disponible pour l'expliquer au centre, et le temps laissé à l'atelier pour continuer ses corrections. Tu choisis une tâche qui donne à ces marques une chance d'être comprises plutôt que remplacées.",
+    "choices": [
+      {
+        "text": "Emporter un panneau témoin et poursuivre ensemble",
+        "heroes": [
+          "keeper",
+          "explorer",
+          "mage"
+        ],
+        "results": [
+          "Le panneau garde ses couches. {encounter_name} vient avec toi pour présenter cette preuve.",
+          "Vous préservez la preuve, mais l'établi réclame une nouvelle série de corrections.",
+          "Le panneau reste fragile. {encounter_name} demeure ici pour le conserver sans risque."
+        ]
+      },
+      {
+        "text": "Confier la protection des inscriptions à {encounter_name}",
+        "heroes": [
+          "knight",
+          "rogue"
+        ],
+        "results": [
+          "Les corrections s'arrêtent. Tu avances en sachant que les premières versions restent visibles.",
+          "Les inscriptions sont protégées, mais l'atelier accumule des panneaux en attente.",
+          "L'arrêt ne tient pas partout. Vous sauvegardez les panneaux qui témoignent le plus clairement."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "La carte aux plusieurs couleurs",
+      "text": "La fonction oubliée du registre permet de garder plusieurs noms sans brouiller les chemins. Tu montres au conseil une carte dont les couleurs indiquent les usages et les époques. Les habitants y reconnaissent des mots qu'ils croyaient incompatibles. Ils décident d'ajouter des explications plutôt que d'effacer les différences. Certains panneaux attendront encore leur tour, mais le royaume possède désormais une méthode qui respecte son histoire. Sur ta feuille, tu écris deux noms pour ton village. Ils ne se disputent pas la place ; ils racontent deux façons d'y revenir."
+    },
+    "alliance": {
+      "title": "Les noms que l'on se transmet",
+      "text": "Avec l'aide de {encounter_name}, tu rapportes des témoignages assez précis pour que le conseil poursuive le travail du registre. Vous invitez les habitants à expliquer leurs propres usages. Les cartes commencent à porter des renvois, et les messagers apprennent à poser une question lorsqu'un mot leur paraît étrange. {encounter_name} choisit de préparer un petit recueil de ces réponses. Tu regardes la première page se remplir. L'aventure a montré qu'un nom devient plus utile quand quelqu'un accepte de raconter ce qu'il signifie."
+    },
+    "radiant": {
+      "title": "Le courrier retrouve sa route",
+      "text": "Les panneaux retrouvent leurs inscriptions, et le grand courrier peut partir avec une carte lisible. Tu expliques comment la recherche d'une correction parfaite avait effacé des mots pourtant utiles. Le conseil adopte les liens que tu as préparés et confie l'entretien du registre à plusieurs regards. Sur la place, des enfants lisent les noms anciens à côté des noms actuels, puis inventent une histoire pour leur différence. Tu ranges ta feuille devenue carte. Elle garde des traces du mystère, mais aucune route n'y conduit plus à un titre vide."
+    },
+    "cost": {
+      "title": "Des panneaux à compléter",
+      "text": "Une partie des noms revient, tandis que plusieurs panneaux demandent encore des explications. Tu rapportes une méthode de classement et les premières preuves qui la rendent crédible. Les habitants organisent des ateliers pour vérifier les inscriptions ensemble. Le courrier empruntera d'abord les routes les mieux indiquées, puis les autres suivront. Tu vois des personnes de deux bourgs autrefois opposés comparer leurs cartes. Les difficultés de ton aventure ont laissé du travail, mais aussi une raison de se rencontrer. Le royaume retrouve ses mots en apprenant à écouter leurs usages."
+    },
+    "resilient": {
+      "title": "Une carte assez claire pour commencer",
+      "text": "Tous les noms ne sont pas encore revenus, mais le mystère a perdu son pouvoir de bloquer le royaume. Tu montres pourquoi les lettres avaient été rappelées et comment leur offrir une place. Le conseil ouvre les premières routes avec les exemples que tu as conservés. Le reste demandera d'autres enquêtes et des vérifications patientes. Tu poses ta carte sur la table, sans cacher ses zones encore blanches. Elles indiquent maintenant un travail possible. Les habitants savent où commencer, et le premier message peut enfin quitter le village."
+    }
+  }
+}

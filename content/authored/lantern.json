@@ -1,0 +1,496 @@
+{
+  "id": "lantern",
+  "title": "La Couronne d'Aubépine",
+  "description": "Poursuivre des voleurs, entrer dans leur repaire et rapporter une couronne au village.",
+  "intro": "La fête d'Aubépine devait commencer au lever du soleil. Chaque année, la reine prête sa couronne au village pour que les enfants la portent un instant pendant le défilé. Cette nuit, des voleurs l'ont emportée avec la caisse des offrandes. Le garde qui les a vus affirme qu'ils sont partis vers {location_name}. Personne n'a été blessé, mais les habitants craignent que le trésor soit vendu avant leur arrivée. La reine te confie une mission : retrouver la couronne et découvrir où se cache la bande. Elle ne te demande pas d'affronter plusieurs adultes. Si la situation devient trop dangereuse, tu devras rapporter des preuves et guider les gardes. Tu pars avec une description du coffre, un morceau de pain et la promesse que le village attendra ton retour avant de commencer la fête.",
+  "revelations": [
+    {
+      "id": "captain",
+      "actor": "le capitaine Ronce",
+      "text": "Un registre porte le nom du capitaine Ronce, un ancien garde devenu chef de bande. Il veut vendre la couronne et les offrandes à un marchand qui viendra ce soir. Ses ordres indiquent le quai de livraison et le nombre de sentinelles. Tu connais enfin son plan : il faut empêcher le départ du coffre, pas te battre contre tous ses hommes."
+    },
+    {
+      "id": "steward",
+      "actor": "l'intendante Agathe",
+      "text": "Dans le registre, tu reconnais la signature de l'intendante Agathe. Elle a engagé les voleurs pour vendre la couronne et payer ses dettes en secret. Le transport doit partir ce soir. Une page détaille la cache du coffre et le prix demandé. Ces preuves permettront à la reine de découvrir la trahison, même si tu ne peux pas tout récupérer immédiatement."
+    },
+    {
+      "id": "merchant",
+      "actor": "le marchand Corbin",
+      "text": "Le registre révèle le nom du marchand Corbin. Il a promis une forte somme à la bande pour acquérir la couronne avant la fin du jour. Il prétend qu'elle lui revient, mais les documents montrent qu'il l'a fait voler. Son rendez-vous et sa route sont notés. Tu peux maintenant empêcher l'échange ou fournir aux gardes de quoi arrêter le transport."
+    }
+  ],
+  "stages": [
+    {
+      "title": "La piste du chariot",
+      "text": "À l'entrée du lieu, deux traces de roues quittent la route. Un ruban rouge, semblable à ceux de la fête, pend à une branche. Tu le ramasses sans effacer les empreintes. Le chariot transportait quelque chose de lourd : ses roues se sont enfoncées dans la terre près du tournant. Un chemin large mène vers une entrée surveillée ; une petite piste contourne les premières constructions. Tu pourrais suivre les roues pour ne pas perdre le coffre, ou observer le détour avant d'approcher. Tu te rappelles la consigne de la reine et cherches aussi un endroit où laisser un message aux gardes. Plus loin, un chien aboie, puis quelqu'un lui ordonne de se taire. Les voleurs ne doivent pas être très loin.",
+      "choices": [
+        {
+          "text": "Suivre les roues du chariot",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "La piste te mène près du coffre déchargé. Tu repères une entrée sans te montrer.",
+            "Tu retrouves le chariot, mais le chien te remarque. Tu changes de chemin pour rester hors de vue.",
+            "La piste disparaît sur les pierres. Un ruban oublié te permet néanmoins de retrouver la direction."
+          ]
+        },
+        {
+          "text": "Observer le détour avant de t’approcher",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Le détour offre un abri et rejoint le repaire. Tu mémorises une sortie sûre.",
+            "Le détour rejoint le repaire, mais te coûte du temps. Tu entends les voleurs préparer leur départ.",
+            "Le détour est fermé par des branches. Tu reviens vers les roues et continues plus prudemment."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La sentinelle et le coffre",
+      "text": "Derrière un mur bas, tu aperçois une sentinelle assise sur une caisse. Elle compte des pièces en surveillant de temps en temps l'entrée. Le coffre royal n'est pas près d'elle, mais un morceau de tissu rouge dépasse d'un chariot vide. Tu attends pour comprendre les habitudes du garde. Quand une cloche sonne au loin, il tourne la tête et répond par un signe. Tu pourrais profiter de cet instant pour observer la cour, ou examiner le chariot afin de découvrir où le coffre a été porté. Une porte latérale porte des traces de métal sur son seuil. Tu t'accroupis pour regarder sans sortir de ton abri. Chaque détail peut t'éviter de devoir chercher au hasard parmi les bâtiments.",
+      "choices": [
+        {
+          "text": "Examiner le chariot et les traces du coffre",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les rayures conduisent à une porte latérale. Tu sais où poursuivre la recherche du trésor.",
+            "Tu trouves les rayures, mais une roue grince sous ta main. Tu dois attendre que le garde se calme.",
+            "Le chariot ne livre aucun indice net. Un porteur arrive et te montre malgré lui la bonne porte."
+          ]
+        },
+        {
+          "text": "Surveiller les déplacements de la sentinelle",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu repères une ronde régulière et un intervalle assez long pour avancer sans bruit.",
+            "Tu comprends la ronde, mais une seconde sentinelle arrive. Tu prépares un passage plus prudent.",
+            "La sentinelle ne bouge pas. Tu observes une entrée plus éloignée et t’y diriges en restant caché."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La porte du dépôt",
+      "text": "La porte latérale donne accès au dépôt. Un verrou ancien la ferme et une corde retient un volet voisin. Des pointes rouillées bordent le cadre du volet ; tu devras protéger ta main si tu y passes. À travers une fente, tu distingues des caisses et le tissu rouge utilisé pour emballer la couronne. Un crochet placé à l'intérieur peut aussi libérer la porte. Tu examines les possibilités offertes par ton objet. Il reste une autre route : une ouverture haute donne sur un grenier où des sacs sont empilés. Elle exige de grimper, mais éviterait le verrou. Tu vérifies les appuis et écoutes les bruits de pas. Le garde de la cour est encore assez loin pour te laisser tenter une entrée.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Tu dégages l’accès avec ton objet et entres dans le dépôt en gardant une sortie libre.",
+            "L’accès s’ouvre, mais le bois craque. Tu te caches un instant avant de poursuivre à l’intérieur.",
+            "Ton objet ne débloque pas l’accès. Tu trouves une fente assez large pour rejoindre le grenier."
+          ]
+        },
+        {
+          "text": "Grimper jusqu’à l’ouverture du grenier",
+          "heroes": [
+            "explorer",
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Les appuis tiennent. Tu rejoins le grenier et descends derrière les caisses du dépôt.",
+            "Tu rejoins le grenier, mais un sac tombe. Tu attends derrière les poutres avant de descendre.",
+            "Un appui cède sans te faire tomber. Tu empruntes un petit escalier extérieur découvert en reculant."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La galerie ou le passage bas",
+      "text": "Le dépôt ne contient plus le coffre. Sur une table, un billet annonce son transfert vers la salle centrale. Tu glisses le papier dans ta poche et suis les marques laissées par les porteurs. Deux chemins rejoignent la suite du repaire. Par le passage haut, tu pourrais observer les voleurs et leurs déplacements. Par le passage bas, tu resterais à l'abri des regards, mais sans savoir qui t'attend à la sortie. Une porte bat au vent au bout du couloir. Tu ne peux pas rester ici trop longtemps : la bande viendra chercher les dernières caisses. Tu prends le temps de choisir une route praticable et de retenir celle que tu pourrais employer au retour avec un objet lourd.",
+      "choices": [
+        {
+          "text": "Emprunter le passage haut pour surveiller la bande",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu franchis le passage et repères une petite cour où quelqu’un t’attend près d’un abri.",
+            "Tu avances, mais une pierre roule. Tu t’arrêtes derrière un pilier avant de rejoindre la cour.",
+            "Le passage haut est trop abîmé. Un escalier te conduit finalement vers la même petite cour."
+          ]
+        },
+        {
+          "text": "Passer en bas pour éviter les sentinelles",
+          "heroes": [
+            "rogue",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu traverses sans être vu et arrives dans une réserve proche de la salle centrale.",
+            "Le passage est dégagé, mais une flaque mouille tes affaires. Tu rejoins la réserve en les protégeant.",
+            "Une grille ferme le passage. Tu trouves une porte de service qui mène aussi à la réserve."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le rendez-vous dans la cour",
+      "text": "Dans la petite cour, {encounter_name} te fait signe depuis un abri. La personne rencontrée au départ a suivi une autre piste et connaît maintenant un accès vers la salle centrale. Vous échangez les renseignements sans parler trop fort. La caisse des offrandes a été vue près d'un escalier ; le coffre de la couronne doit être derrière la grande porte. Vous ne pourrez pas surveiller tous les chemins en même temps. Tu peux demander à {encounter_name} de venir avec toi pour transporter le trésor, ou de rester ici afin de prévenir les gardes. Dans les deux cas, vous choisissez un signal simple. Tu regardes les ouvertures de la cour avant de décider comment employer cette aide précieuse.",
+      "choices": [
+        {
+          "text": "Continuer ensemble pour rapporter le trésor",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Vous préparez un sac solide. {encounter_name} t’accompagne vers la salle centrale.",
+            "Vous partez ensemble, mais une sentinelle vous oblige à changer de route avant l’escalier.",
+            "Le trajet à deux attirerait l’attention. {encounter_name} reste pour préparer votre sortie pendant que tu avances."
+          ]
+        },
+        {
+          "text": "Demander à {encounter_name} de prévenir les gardes",
+          "heroes": [
+            "mage",
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Le message est prêt. Tu poursuis avec un signal convenu pour guider les gardes au retour.",
+            "Le message part, mais le détour est long. Tu devras gagner du temps avant l’arrivée des gardes.",
+            "La route des gardes est bloquée. {encounter_name} reste pour chercher un autre moyen de les prévenir."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le plan et la cache",
+      "text": "Tu arrives dans une pièce où les voleurs ont rangé leurs cartes. Un dessin indique la salle centrale et la route prévue pour emporter le trésor. Sur une étagère, une petite boîte contient plusieurs étiquettes de caisses. L'une porte le sceau d'Aubépine. Tu pourrais examiner les papiers plus longtemps pour trouver un accès oublié, ou suivre immédiatement l'indication qui conduit au coffre. Un bruit de voix approche, puis s'éloigne vers la cour. Tu refermes doucement la porte. La recherche d'un secret pourrait donner une avance, mais elle exige de rester ici quelques instants. Tu observes le plan du lieu et vérifies où te cacher avant de toucher aux documents. Tu n'as pas oublié que les gardes auront besoin de preuves.",
+      "choices": [
+        {
+          "text": "Chercher un passage oublié dans les papiers",
+          "heroes": [
+            "explorer",
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Une note révèle une sortie cachée derrière l’estrade. Tu retiens son emplacement pour le retour.",
+            "Les papiers donnent une piste, mais pas d’accès certain. Tu poursuis avec le plan principal.",
+            "Les documents sont incomplets. Tu gardes le sceau royal et rejoins la suite du chemin."
+          ],
+          "flag": "secret"
+        },
+        {
+          "text": "Rejoindre directement la salle du coffre",
+          "heroes": [
+            "knight",
+            "keeper"
+          ],
+          "results": [
+            "Tu mémorises le plan et avances sans perdre de temps. La grande porte est désormais proche.",
+            "Tu rejoins la salle, mais dois attendre qu’un porteur passe. Tu conserves les preuves dans ta poche.",
+            "Tu prends un mauvais couloir. Une marque rouge te permet de retrouver l’accès de la salle."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La grille de l’escalier",
+      "text": "Une grille ferme le bas de l'escalier qui mène à la salle. Un cadenas protège son verrou ; une corde fixée à une poulie retient le battant. Tu distingues le crochet de sécurité derrière les barreaux. Il faudrait l'atteindre sans heurter les pointes du cadre. Ton objet pourrait aider à dégager cette attache. Une seconde méthode consiste à remonter la poulie avec la manivelle située sur le palier voisin. Elle paraît lourde, mais son mécanisme est ordinaire. Tu vérifies où la grille se déplacera lorsqu'elle sera libérée. Au-dessus de toi, une voix ordonne de préparer le coffre. Tu dois passer, tout en gardant l'escalier utilisable pour le retour et pour l'arrivée éventuelle des gardes.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La grille s’ouvre et tu bloques son battant. Le chemin restera libre derrière toi.",
+            "La grille se lève, mais sa corde s’effiloche. Tu ajoutes un appui avant de passer.",
+            "L’attache résiste. Tu trouves le palier voisin et passes par le côté de la grille."
+          ]
+        },
+        {
+          "text": "Lever la grille avec la manivelle du palier",
+          "heroes": [
+            "knight",
+            "explorer",
+            "keeper"
+          ],
+          "results": [
+            "La manivelle soulève la grille. Tu la bloques avec une cale avant de continuer.",
+            "La grille monte à moitié. Tu dégages assez d’espace pour passer et prévenir de sa fragilité.",
+            "La manivelle est coincée. Un passage étroit derrière le palier permet néanmoins de rejoindre la salle."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Un plan pour récupérer la couronne",
+      "text": "Tu regardes la salle depuis une ouverture. Deux voleurs discutent près de la porte principale. Le coffre est posé derrière l'estrade, hors de leur vue. La caisse des offrandes se trouve plus loin, à côté d'un sac de voyage. Tu pourrais détourner l'attention en provoquant un bruit dans le couloir, puis approcher le coffre. Tu pourrais aussi déplacer des caisses pour créer un abri et avancer lentement. Dans les deux cas, il faut éviter un affrontement. Tu vérifies ton chemin de retraite et cherches un endroit où cacher le trésor si tu ne peux pas l'emporter immédiatement. La lumière descend dans les fenêtres : le rendez-vous de la bande approche. Tu prends une respiration pour choisir une ruse que tu comprends vraiment.",
+      "choices": [
+        {
+          "text": "Attirer les sentinelles vers un bruit dans le couloir",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les sentinelles vont vérifier le couloir. Tu atteins l’estrade pendant leur courte absence.",
+            "Une seule sentinelle se déplace. Tu profites de son passage pour gagner un abri plus proche.",
+            "La ruse ne les trompe pas. Tu avances derrière une pile de caisses pendant leur discussion."
+          ]
+        },
+        {
+          "text": "Approcher en préparant des abris derrière les caisses",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Tu déplaces les caisses sans bruit et rejoins le fond de la salle à couvert.",
+            "Une caisse grince. Tu attends que les voix reprennent avant d’avancer jusqu’à l’estrade.",
+            "Les caisses sont trop lourdes. Tu utilises les colonnes pour contourner la partie surveillée."
+          ],
+          "repair": true
+        }
+      ]
+    },
+    {
+      "title": "Le registre de la bande",
+      "text": "Près de l'estrade, tu trouves un registre ouvert et plusieurs lettres. Elles expliquent qui a demandé le vol et où doit partir le trésor. Tu lis les lignes utiles sans chercher à tout emporter. L'un des papiers porte le sceau de la personne qui commande la bande. Tu peux prendre ce document pour le montrer à la reine, ou copier discrètement les informations de transport et garder le registre en place. Un voleur entre dans la salle et demande quand le chef arrivera. Les sentinelles lui répondent de préparer la route. Tu restes derrière l'estrade. Les noms et les horaires donnent enfin un sens à ce que tu as observé depuis ton arrivée ; tu peux décider comment utiliser cette preuve.",
+      "choices": [
+        {
+          "text": "Emporter la lettre qui prouve le vol",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu ranges la lettre sous ta veste. Les gardes pourront identifier la personne qui dirige la bande.",
+            "Tu emportes la preuve, mais déplaces un encrier. Tu essuies rapidement la trace avant de continuer.",
+            "La lettre est attachée au registre. Tu retiens son contenu et emportes une page signée voisine."
+          ]
+        },
+        {
+          "text": "Copier les indications du transport",
+          "heroes": [
+            "mage",
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Tu notes le trajet et l’horaire. Même un départ précipité ne fera plus perdre la piste.",
+            "Tu copies les indications essentielles, mais un nom reste illisible. Le trajet suffit pour guider les gardes.",
+            "La copie serait trop longue. Tu mémorises le rendez-vous et prends le billet du transport."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le coffre derrière l’estrade",
+      "text": "Le coffre porte bien les fleurs d'Aubépine décrites par la reine. Deux courroies le maintiennent sur un petit chariot. La caisse des offrandes est à quelques pas. Tu entends {revelation_actor} donner ses ordres près de l'entrée. Tu peux tenter de déplacer le chariot vers la sortie latérale, ou cacher d'abord le coffre derrière les caisses pour empêcher son départ. Le trésor est lourd, mais tu n'as pas besoin de tout porter dans tes bras. Tu observes les roues et le sol. Si tu réussis à le mettre hors de vue, tu gagneras le temps nécessaire pour l'ouvrir et prévenir les gardes. Tu gardes un accès vers l'escalier, car la bande peut changer de plan dès qu'elle découvre la disparition.",
+      "choices": [
+        {
+          "text": "Pousser le chariot vers la sortie latérale",
+          "heroes": [
+            "knight",
+            "explorer"
+          ],
+          "results": [
+            "Les roues tournent sans bruit. Le coffre rejoint un coin abrité près de la sortie.",
+            "Une roue accroche une dalle. Tu dégages le chariot, mais dois attendre que les voix s’éloignent.",
+            "Le chariot ne passe pas la porte. Tu mets le coffre à couvert derrière l’estrade pour l’ouvrir."
+          ]
+        },
+        {
+          "text": "Cacher le coffre et bloquer le départ des voleurs",
+          "heroes": [
+            "rogue",
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Tu dissimules le coffre derrière les caisses et retires une roue du chariot de transport.",
+            "Le coffre est caché, mais le chariot reste utilisable. Tu prépares un signal pour ralentir les voleurs.",
+            "Les caisses ne cachent pas tout le coffre. Tu l’enveloppes d’une toile et prépares une autre diversion."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Les attaches du trésor",
+      "text": "Une corde nouée autour du coffre retient son couvercle en plus de la serrure. Tu aperçois une petite fermeture latérale qui peut libérer les courroies. Les bords du chariot sont couverts de clous mal rabattus. Ton objet pourrait permettre d'ouvrir le coffre et de sortir la couronne de son écrin. Une autre possibilité serait de transporter le coffre fermé avec une couverture passée sous ses poignées. Tu n'as pas encore la couronne en main : tu vérifies chaque attache avant de te réjouir. Derrière la toile, la caisse des offrandes attend elle aussi le retour au village. Tu décides quelle méthode donnera le plus de chances d'emporter au moins le bien le plus précieux, sans te laisser piéger par son poids.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "Le coffre s’ouvre. Tu enveloppes la couronne dans son tissu et gardes les preuves avec toi.",
+            "Tu ouvres le coffre, mais une attache reste bloquée. La couronne peut tout de même être mise à l’abri.",
+            "Le coffre résiste. Tu fixes une couverture sous ses poignées pour déplacer le trésor encore fermé."
+          ]
+        },
+        {
+          "text": "Préparer le transport du coffre fermé",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les poignées tiennent. Tu places le coffre sur une toile et prépares son passage vers la sortie.",
+            "La toile supporte le coffre, mais il faudra avancer lentement. Tu gardes les offrandes pour les gardes.",
+            "Une poignée se détache. Tu places le coffre près de la sortie et gardes de quoi signaler sa cache."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le retour à Aubépine",
+      "text": "Un bruit de pas annonce que la bande a remarqué quelque chose. Tu disposes maintenant d'une sortie et de renseignements suffisants pour guider les gardes. Le trésor peut être rapporté directement si le chemin reste libre ; sinon, tu peux le laisser dans une cache connue et partir avec les preuves. Tu regardes où se trouvent les sentinelles, puis la route vers le village. Tu pourrais emprunter l'accès principal au moment où les voleurs se déplacent, ou utiliser le détour préparé pour sortir discrètement. {revelation_actor} ne doit pas te retenir dans la salle. Ta mission ne sera pas perdue si les gardes doivent terminer le transport. Tu choisis le trajet qui protège le mieux ton retour et les informations nécessaires pour récupérer les biens du village.",
+      "choices": [
+        {
+          "text": "Profiter du déplacement des sentinelles pour sortir",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Tu quittes le repaire avec le trésor accessible et retrouves les gardes sur la route.",
+            "Tu sors, mais une partie des biens reste cachée. Les gardes suivent tes indications pour la récupérer.",
+            "Les sentinelles bloquent l’accès. Tu passes par un abri voisin et rapportes les preuves aux gardes."
+          ]
+        },
+        {
+          "text": "Revenir par le détour avec les preuves et le trésor disponible",
+          "heroes": [
+            "knight",
+            "keeper",
+            "mage"
+          ],
+          "results": [
+            "Le détour reste libre. Tu conduis les gardes jusqu’au repaire pour achever la récupération.",
+            "Le retour est lent, mais tu conserves les preuves. Les gardes sécurisent le dernier passage.",
+            "Le détour est encombré. Tu retrouves un chemin balisé et guides les gardes vers la cache du trésor."
+          ],
+          "repair": true
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "La réserve des voleurs",
+    "text": "Le passage bas te conduit à une réserve. Des ballots et des sacs portent les noms de plusieurs villages. Tu retrouves {encounter_name}, qui a suivi un chemin voisin. Vous comprenez que la bande a volé plus que la couronne. Une porte rejoint l'escalier central, tandis qu'un couloir permet de sortir vers la route. Tu peux demander à {encounter_name} de t'accompagner pour reconnaître les biens et aider au transport. Tu peux aussi confier la réserve à cette personne, qui gardera les preuves et appellera les gardes. Vous devez laisser un signal clair pour vous retrouver. Tu notes les noms sur les sacs sans les ouvrir : les habitants pourront ainsi récupérer leurs affaires lorsque le repaire sera sécurisé.",
+    "choices": [
+      {
+        "text": "Poursuivre ensemble pour aider au transport",
+        "heroes": [
+          "knight",
+          "keeper"
+        ],
+        "results": [
+          "Vous préparez une toile solide. {encounter_name} t’accompagne vers la porte de l’escalier.",
+          "Vous partez ensemble, mais un ballot tombe. Vous attendez que le bruit cesse avant de continuer.",
+          "Le couloir est trop étroit à deux. {encounter_name} garde la réserve pendant que tu avances."
+        ]
+      },
+      {
+        "text": "Confier les preuves de la réserve à {encounter_name}",
+        "heroes": [
+          "mage",
+          "explorer",
+          "rogue"
+        ],
+        "results": [
+          "Les noms des villages sont relevés. Tu continues tandis que la réserve et le retour sont surveillés.",
+          "Les noms sont relevés, mais l’appel des gardes prendra du temps. Tu poursuis sans aide immédiate.",
+          "Les étiquettes sont abîmées. {encounter_name} reste pour les lire et sécuriser le retour."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "La porte derrière l’estrade",
+      "text": "Le passage découvert dans les papiers permet aux gardes d'entrer par un accès que la bande ne surveillait plus. Tu leur montres la cache du coffre et les marques sur les sacs. La couronne est récupérée, ainsi que plusieurs biens volés aux villages voisins. À Aubépine, la reine remercie les personnes qui ont aidé au retour. Elle te demande surtout comment tu as trouvé cette porte oubliée. Tu racontes les détails observés, les hésitations et les moments où tu as préféré attendre. La fête commence un peu plus tard que prévu. Quand la couronne passe entre les mains des enfants, tu reconnais le tissu rouge qui t'avait mis sur la piste."
+    },
+    "alliance": {
+      "title": "Deux personnes sur la bonne piste",
+      "text": "Ton entente avec {encounter_name} aide les gardes à terminer la mission. Pendant que l'un surveille l'accès, l'autre indique les biens à rapporter. La bande ne peut plus emporter le coffre par une route oubliée. Au village, vous rendez la couronne ensemble. La reine écoute votre récit sans attribuer tout le mérite à une seule personne. Les habitants préparent du pain, des fruits et une place pour chacun à la fête. {encounter_name} conserve une copie du trajet parcouru. Tu comprends combien il était utile de convenir d'un signal et de partager les tâches avant d'approcher le trésor. Vous promettez de vous saluer lors du prochain marché."
+    },
+    "radiant": {
+      "title": "La fête retrouvée",
+      "text": "La couronne revient à Aubépine avant la nuit. Les gardes suivent les preuves et arrêtent le transport des autres biens volés. La reine retrouve le coffre, puis donne le signal du défilé. Tu marches près des enfants qui attendaient sur la place. Leurs couronnes de fleurs te semblent aussi belles que l'or que tu as rapporté. On te demande de raconter l'aventure, et tu expliques les portes, les traces de roues et la ruse employée devant les sentinelles. Tu ne prétends pas avoir affronté toute la bande. Tu as trouvé un chemin, protégé le retour et donné aux adultes les renseignements dont ils avaient besoin."
+    },
+    "cost": {
+      "title": "Les gardes terminent le voyage",
+      "text": "Tu reviens avec les preuves et l'emplacement du trésor. Les gardes partent aussitôt pour sécuriser le repaire et rapporter ce qui reste. Le village doit attendre leur retour avant de commencer la fête, mais l'incertitude a disparu. La reine te laisse boire et te reposer avant de demander ton récit. Tu racontes aussi les difficultés, car elles expliquent où les gardes devront faire attention. Dans la soirée, un chariot arrive avec la couronne et plusieurs caisses. Les habitants rallument les lanternes de la place. Ta mission a demandé de l'aide jusqu'au bout ; elle a tout de même rendu au village ce qu'on lui avait pris."
+    },
+    "resilient": {
+      "title": "Une piste que personne ne perdra",
+      "text": "Tu n'as pas pu tout rapporter seul, mais les papiers et tes observations désignent clairement le repaire. La reine ne te renvoie pas vers la bande. Elle écoute ton récit et charge les gardes d'achever la récupération. Tu leur dessines les passages, les obstacles et la cache du coffre. Le lendemain, la couronne revient au village. Les sacs retrouvés seront rendus à leurs propriétaires. La fête a lieu sous un ciel clair, avec un jour de retard et beaucoup d'histoires à raconter. Tu sais que plusieurs tentatives ont échoué. Tu sais aussi qu'en continuant prudemment, tu as empêché les voleurs de faire disparaître leur piste."
+    }
+  },
+  "item_overrides": {
+    "sword": {
+      "first": "Tu examines la corde du volet près de la porte du dépôt. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "first_action": "Couper la corde du volet avec ton épée",
+      "second": "Tu examines la corde de la grille près de la grille de l’escalier. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "second_action": "Couper la corde de la grille avec ton épée",
+      "climax": "Tu examines la corde du coffre près de le coffre royal. Ton épée peut la couper sans approcher une personne avec la lame. Tu prépares un appui pour retenir ce qui bougera, puis vérifies où reculer. Tu pourras ainsi poursuivre la quête de la couronne d’Aubépine.",
+      "climax_action": "Couper la corde du coffre avec ton épée"
+    },
+    "book": {
+      "first": "Devant la porte du dépôt, tu relis le sort des attaches. La page conseille de viser seulement le crochet du volet. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "first_action": "Desserrer le crochet du volet avec une formule",
+      "second": "Devant la grille de l’escalier, tu relis le sort des attaches. La page conseille de viser seulement le crochet de sécurité. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "second_action": "Desserrer le crochet de sécurité avec une formule",
+      "climax": "Devant le coffre royal, tu relis le sort des attaches. La page conseille de viser seulement la fermeture des courroies. Tu prépares un appui avant de prononcer la formule. Une ouverture réussie laisserait encore le geste de la quête à accomplir : la couronne d’Aubépine reste ton objectif.",
+      "climax_action": "Desserrer la fermeture des courroies avec une formule"
+    },
+    "amulet": {
+      "first": "Tu pourrais atteindre le crochet du volet près de la porte du dépôt. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "first_action": "Protéger ta main pour dégager le crochet du volet",
+      "second": "Tu pourrais atteindre le crochet de sécurité près de la grille de l’escalier. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "second_action": "Protéger ta main pour dégager le crochet de sécurité",
+      "climax": "Tu pourrais atteindre la fermeture des courroies près de le coffre royal. Ton amulette protégerait ta main des pointes pendant quelques respirations. Tu repères où agir et où reculer avant de l'activer. Ce geste bien préparé te permettrait de poursuivre la quête de la couronne d’Aubépine.",
+      "climax_action": "Protéger ta main pour dégager la fermeture des courroies"
+    },
+    "compass": {
+      "first": "Tu demandes à la boussole où trouver l’entrée du dépôt. Elle désigne un côté de la porte du dépôt. Tu pourrais y actionner le crochet du volet à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "first_action": "Trouver le crochet du volet avec la boussole",
+      "second": "Tu demandes à la boussole où trouver l’ouverture de la grille. Elle désigne un côté de la grille de l’escalier. Tu pourrais y actionner le crochet de sécurité à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "second_action": "Trouver le crochet de sécurité avec la boussole",
+      "climax": "Tu demandes à la boussole où trouver l’ouverture du coffre royal. Elle désigne un côté de le coffre royal. Tu pourrais y actionner la fermeture des courroies à la main. Tu vérifies les appuis : l'aiguille indique un but, sans connaître les dangers du chemin vers la couronne d’Aubépine.",
+      "climax_action": "Trouver la fermeture des courroies avec la boussole"
+    },
+    "key": {
+      "first": "Tu remarques la serrure du dépôt près de la porte du dépôt. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "first_action": "Ouvrir la serrure du dépôt avec ta clé",
+      "second": "Tu remarques le cadenas de la grille près de la grille de l’escalier. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "second_action": "Ouvrir le cadenas de la grille avec ta clé",
+      "climax": "Tu remarques la serrure du coffre près de le coffre royal. Ta clé change de forme lorsque tu l'approches. Tu vérifies ce qui se trouve derrière et prépares un appui pour retenir l'ouverture. La serrure pourrait céder sans dommage et laisser continuer la quête de la couronne d’Aubépine.",
+      "climax_action": "Ouvrir la serrure du coffre avec ta clé"
+    }
+  }
+}

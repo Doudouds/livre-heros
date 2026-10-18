@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+sessions/
+audio/files/
+audio/build_cache/
+audio/reference/
+.venv-tts/
+audio/experiments/
+audio/runtime/
+*.partial
+tmp/audio_playback/

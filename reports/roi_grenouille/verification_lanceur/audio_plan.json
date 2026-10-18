@@ -1,0 +1,102 @@
+{
+  "segments": [
+    {
+      "book": "roi_grenouille",
+      "scene_id": "roi_grenouille_01",
+      "segment_id": "roi_grenouille_01_narration_5c7086954d606deab565",
+      "title": "La balle dans la fontaine",
+      "text": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, vivait un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant tant vu, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'était son jeu favori.\n\nIl arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort ; elle était inconsolable. Comme elle gémissait ainsi, quelqu'un lui cria : « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.\n\nQue doit faire la princesse ? Choix 1 : Montrer l’endroit où la balle a disparu. Ou choix 2 : Raconter comment la balle est tombée dans la fontaine.",
+      "spans": [
+        {
+          "text": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, vivait un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant tant vu, s'étonnait chaque fois qu'il illuminait son visage.",
+          "speaker": "narrateur",
+          "emotion": "emerveillement",
+          "parameters": {
+            "exaggeration": 1.45,
+            "cfg_weight": 0.2,
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0
+          }
+        },
+        {
+          "text": "Non loin du château du roi, il y avait une grande et sombre forêt et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'était son jeu favori.",
+          "speaker": "narrateur",
+          "emotion": "neutral",
+          "parameters": {
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0,
+            "exaggeration": 0.4,
+            "cfg_weight": 0.3
+          }
+        },
+        {
+          "text": "Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort ; elle était inconsolable.",
+          "speaker": "narrateur",
+          "emotion": "tristesse",
+          "parameters": {
+            "exaggeration": 0.3,
+            "cfg_weight": 0.25,
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0
+          }
+        },
+        {
+          "text": "Comme elle gémissait ainsi, quelqu'un lui cria : « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? »",
+          "speaker": "narrateur puis grenouille",
+          "emotion": "tendresse",
+          "parameters": {
+            "exaggeration": 0.6,
+            "cfg_weight": 0.12,
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0
+          }
+        },
+        {
+          "text": "Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+          "speaker": "narrateur",
+          "emotion": "surprise",
+          "parameters": {
+            "exaggeration": 1.35,
+            "cfg_weight": 0.2,
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0
+          }
+        },
+        {
+          "text": "Que doit faire la princesse ? Choix 1 : Montrer l’endroit où la balle a disparu. Ou choix 2 : Raconter comment la balle est tombée dans la fontaine.",
+          "speaker": "narrateur",
+          "emotion": "neutral",
+          "role": "choix",
+          "parameters": {
+            "temperature": 0.8,
+            "repetition_penalty": 1.2,
+            "min_p": 0.05,
+            "top_p": 1.0,
+            "exaggeration": 0.4,
+            "cfg_weight": 0.3
+          }
+        }
+      ],
+      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_5c7086954d606deab565.wav",
+      "lead_in_ms": 1000,
+      "pause_ms": 150,
+      "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+      "palette_source": "audio\\experiments\\emotions\\essai_03_e12fed44e64c",
+      "chunk_chars": 300,
+      "seed": 20261018
+    }
+  ],
+  "dry_run": false,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "policy": "3db28078adab35110add807cd76dffa9ba7da6c1840fd27564d5c53e53d4df1a"
+}

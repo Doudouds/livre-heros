@@ -1,0 +1,126 @@
+{
+  "book": "roi_grenouille",
+  "scene_id": "roi_grenouille_01",
+  "segment_id": "roi_grenouille_01_narration_5c7086954d606deab565",
+  "title": "La balle dans la fontaine",
+  "text": "Dans des temps tr�s anciens, alors qu'il pouvait encore �tre utile de faire des v�ux, vivait un roi dont toutes les filles �taient belles. La plus jeune �tait si belle que le soleil, qui en a cependant tant vu, s'�tonnait chaque fois qu'il illuminait son visage. Non loin du ch�teau du roi, il y avait une grande et sombre for�t et, dans la for�t, sous un vieux tilleul, une fontaine. Un jour qu'il faisait tr�s chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fra�che. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'�tait son jeu favori.\n\nIl arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine �tait si profonde qu'on n'en voyait pas le fond. La jeune fille se mit � pleurer, � pleurer de plus en plus fort ; elle �tait inconsolable. Comme elle g�missait ainsi, quelqu'un lui cria : � Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? � Elle regarda autour d'elle pour voir d'o� venait la voix et aper�ut une grenouille qui tendait hors de l'eau sa t�te grosse et affreuse.\n\nQue doit faire la princesse ? Choix 1 : Montrer l�endroit o� la balle a disparu. Ou choix 2 : Raconter comment la balle est tomb�e dans la fontaine.",
+  "spans": [
+    {
+      "text": "Dans des temps tr�s anciens, alors qu'il pouvait encore �tre utile de faire des v�ux, vivait un roi dont toutes les filles �taient belles. La plus jeune �tait si belle que le soleil, qui en a cependant tant vu, s'�tonnait chaque fois qu'il illuminait son visage.",
+      "speaker": "narrateur",
+      "emotion": "emerveillement",
+      "parameters": {
+        "exaggeration": 1.45,
+        "cfg_weight": 0.2,
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0
+      }
+    },
+    {
+      "text": "Non loin du ch�teau du roi, il y avait une grande et sombre for�t et, dans la for�t, sous un vieux tilleul, une fontaine. Un jour qu'il faisait tr�s chaud, la royale enfant partit dans le bois, et s'assit au bord de la source fra�che. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'�tait son jeu favori.",
+      "speaker": "narrateur",
+      "emotion": "neutral",
+      "parameters": {
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0,
+        "exaggeration": 0.4,
+        "cfg_weight": 0.3
+      }
+    },
+    {
+      "text": "Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut : la fontaine �tait si profonde qu'on n'en voyait pas le fond. La jeune fille se mit � pleurer, � pleurer de plus en plus fort ; elle �tait inconsolable.",
+      "speaker": "narrateur",
+      "emotion": "tristesse",
+      "parameters": {
+        "exaggeration": 0.3,
+        "cfg_weight": 0.25,
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0
+      }
+    },
+    {
+      "text": "Comme elle g�missait ainsi, quelqu'un lui cria : � Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendrir ? �",
+      "speaker": "narrateur puis grenouille",
+      "emotion": "tendresse",
+      "parameters": {
+        "exaggeration": 0.6,
+        "cfg_weight": 0.12,
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0
+      }
+    },
+    {
+      "text": "Elle regarda autour d'elle pour voir d'o� venait la voix et aper�ut une grenouille qui tendait hors de l'eau sa t�te grosse et affreuse.",
+      "speaker": "narrateur",
+      "emotion": "surprise",
+      "parameters": {
+        "exaggeration": 1.35,
+        "cfg_weight": 0.2,
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0
+      }
+    },
+    {
+      "text": "Que doit faire la princesse ? Choix 1 : Montrer l�endroit o� la balle a disparu. Ou choix 2 : Raconter comment la balle est tomb�e dans la fontaine.",
+      "speaker": "narrateur",
+      "emotion": "neutral",
+      "role": "choix",
+      "parameters": {
+        "temperature": 0.8,
+        "repetition_penalty": 1.2,
+        "min_p": 0.05,
+        "top_p": 1.0,
+        "exaggeration": 0.4,
+        "cfg_weight": 0.3
+      }
+    }
+  ],
+  "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_5c7086954d606deab565.wav",
+  "lead_in_ms": 1000,
+  "pause_ms": 150,
+  "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+  "palette_source": "audio\\experiments\\emotions\\essai_03_e12fed44e64c",
+  "chunk_chars": 300,
+  "seed": 20261018
+}
+
+Voix 1/6 | narrateur | emerveillement
+[1/1] Chunk 1/1 | 262 caract�res | Dans des temps tr�s anciens, alors qu'il pouvait encore �tre utile de faire des v�ux, viva
+Chunk 1/1 | SUCC�S | audio 14.52 s | calcul 4.32 s | cache
+
+Voix 2/6 | narrateur | neutral
+[1/1] Chunk 1/2 | 234 caract�res | Non loin du ch�teau du roi, il y avait une grande et sombre for�t et, dans la for�t, sous 
+Chunk 1/2 | SUCC�S | audio 15.00 s | calcul 3.23 s | cache
+[1/1] Chunk 2/2 | 109 caract�res | Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa ; c'�t
+Chunk 2/2 | SUCC�S | audio 7.40 s | calcul 2.43 s | cache
+
+Voix 3/6 | narrateur | tristesse
+[1/1] Chunk 1/2 | 229 caract�res | Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula to
+Chunk 1/2 | SUCC�S | audio 11.84 s | calcul 3.11 s | cache
+[1/1] Chunk 2/2 | 90 caract�res | La jeune fille se mit � pleurer, � pleurer de plus en plus fort ; elle �tait inconsolable.
+Chunk 2/2 | SUCC�S | audio 5.36 s | calcul 2.16 s | cache
+
+Voix 4/6 | narrateur puis grenouille | tendresse
+[1/1] Chunk 1/1 | 134 caract�res | Comme elle g�missait ainsi, quelqu'un lui cria : � Pourquoi pleures-tu, princesse, si fort
+Chunk 1/1 | SUCC�S | audio 7.76 s | calcul 2.60 s | cache
+
+Voix 5/6 | narrateur | surprise
+[1/1] Chunk 1/1 | 136 caract�res | Elle regarda autour d'elle pour voir d'o� venait la voix et aper�ut une grenouille qui ten
+Chunk 1/1 | SUCC�S | audio 7.28 s | calcul 2.45 s | cache
+
+Voix 6/6 | narrateur | neutral
+[1/1] Chunk 1/1 | 148 caract�res | Que doit faire la princesse ? Choix 1 : Montrer l�endroit o� la balle a disparu. Ou choix 
+Chunk 1/1 | SUCC�S | audio 10.48 s | calcul 2.57 s | cache
+
+Contr�le du segment complet, narration et deux choix compris...
+{"output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_5c7086954d606deab565.wav", "seconds": 81.69, "lead_in_ms": 1000, "verified": true}

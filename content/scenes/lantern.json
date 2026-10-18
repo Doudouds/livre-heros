@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "lantern_intro",
+      "arc": "lantern",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "La Couronne d'Aubépine",
+      "text": "La fête d'Aubépine devait commencer au lever du soleil. Chaque année, la reine prête sa couronne au village pour que les enfants la portent un instant pendant le défilé. Cette nuit, des voleurs l'ont emportée avec la caisse des offrandes. Le garde qui les a vus affirme qu'ils sont partis vers {location_name}. Personne n'a été blessé, mais les habitants craignent que le trésor soit vendu avant leur arrivée. La reine te confie une mission : retrouver la couronne et découvrir où se cache la bande. Elle ne te demande pas d'affronter plusieurs adultes. Si la situation devient trop dangereuse, tu devras rapporter des preuves et guider les gardes. Tu pars avec une description du coffre, un morceau de pain et la promesse que le village attendra ton retour avant de commencer la fête.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "lantern_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_1",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "La piste du chariot",
+      "text": "À l'entrée du lieu, deux traces de roues quittent la route. Un ruban rouge, semblable à ceux de la fête, pend à une branche. Tu le ramasses sans effacer les empreintes. Le chariot transportait quelque chose de lourd : ses roues se sont enfoncées dans la terre près du tournant. Un chemin large mène vers une entrée surveillée ; une petite piste contourne les premières constructions. Tu pourrais suivre les roues pour ne pas perdre le coffre, ou observer le détour avant d'approcher. Tu te rappelles la consigne de la reine et cherches aussi un endroit où laisser un message aux gardes. Plus loin, un chien aboie, puis quelqu'un lui ordonne de se taire. Les voleurs ne doivent pas être très loin.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_1_0",
+          "text": "Suivre les roues du chariot",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La piste te mène près du coffre déchargé. Tu repères une entrée sans te montrer.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu retrouves le chariot, mais le chien te remarque. Tu changes de chemin pour rester hors de vue.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La piste disparaît sur les pierres. Un ruban oublié te permet néanmoins de retrouver la direction.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_1_1",
+          "text": "Observer le détour avant de t’approcher",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le détour offre un abri et rejoint le repaire. Tu mémorises une sortie sûre.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le détour rejoint le repaire, mais te coûte du temps. Tu entends les voleurs préparer leur départ.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le détour est fermé par des branches. Tu reviens vers les roues et continues plus prudemment.",
+              "next": "lantern_2",
+              "effects": {
+                "events": [
+                  "lantern_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_2",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "La sentinelle et le coffre",
+      "text": "Derrière un mur bas, tu aperçois une sentinelle assise sur une caisse. Elle compte des pièces en surveillant de temps en temps l'entrée. Le coffre royal n'est pas près d'elle, mais un morceau de tissu rouge dépasse d'un chariot vide. Tu attends pour comprendre les habitudes du garde. Quand une cloche sonne au loin, il tourne la tête et répond par un signe. Tu pourrais profiter de cet instant pour observer la cour, ou examiner le chariot afin de découvrir où le coffre a été porté. Une porte latérale porte des traces de métal sur son seuil. Tu t'accroupis pour regarder sans sortir de ton abri. Chaque détail peut t'éviter de devoir chercher au hasard parmi les bâtiments.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_2_0",
+          "text": "Examiner le chariot et les traces du coffre",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les rayures conduisent à une porte latérale. Tu sais où poursuivre la recherche du trésor.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves les rayures, mais une roue grince sous ta main. Tu dois attendre que le garde se calme.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le chariot ne livre aucun indice net. Un porteur arrive et te montre malgré lui la bonne porte.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_2_1",
+          "text": "Surveiller les déplacements de la sentinelle",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères une ronde régulière et un intervalle assez long pour avancer sans bruit.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends la ronde, mais une seconde sentinelle arrive. Tu prépares un passage plus prudent.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La sentinelle ne bouge pas. Tu observes une entrée plus éloignée et t’y diriges en restant caché.",
+              "next": "lantern_3",
+              "effects": {
+                "events": [
+                  "lantern_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_3",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La porte du dépôt",
+      "text": "La porte latérale donne accès au dépôt. Un verrou ancien la ferme et une corde retient un volet voisin. Des pointes rouillées bordent le cadre du volet ; tu devras protéger ta main si tu y passes. À travers une fente, tu distingues des caisses et le tissu rouge utilisé pour emballer la couronne. Un crochet placé à l'intérieur peut aussi libérer la porte. Tu examines les possibilités offertes par ton objet. Il reste une autre route : une ouverture haute donne sur un grenier où des sacs sont empilés. Elle exige de grimper, mais éviterait le verrou. Tu vérifies les appuis et écoutes les bruits de pas. Le garde de la cour est encore assez loin pour te laisser tenter une entrée.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu dégages l’accès avec ton objet et entres dans le dépôt en gardant une sortie libre.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’accès s’ouvre, mais le bois craque. Tu te caches un instant avant de poursuivre à l’intérieur.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Ton objet ne débloque pas l’accès. Tu trouves une fente assez large pour rejoindre le grenier.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_3_1",
+          "text": "Grimper jusqu’à l’ouverture du grenier",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les appuis tiennent. Tu rejoins le grenier et descends derrière les caisses du dépôt.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu rejoins le grenier, mais un sac tombe. Tu attends derrière les poutres avant de descendre.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un appui cède sans te faire tomber. Tu empruntes un petit escalier extérieur découvert en reculant.",
+              "next": "lantern_4",
+              "effects": {
+                "events": [
+                  "lantern_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_4",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "La galerie ou le passage bas",
+      "text": "Le dépôt ne contient plus le coffre. Sur une table, un billet annonce son transfert vers la salle centrale. Tu glisses le papier dans ta poche et suis les marques laissées par les porteurs. Deux chemins rejoignent la suite du repaire. Par le passage haut, tu pourrais observer les voleurs et leurs déplacements. Par le passage bas, tu resterais à l'abri des regards, mais sans savoir qui t'attend à la sortie. Une porte bat au vent au bout du couloir. Tu ne peux pas rester ici trop longtemps : la bande viendra chercher les dernières caisses. Tu prends le temps de choisir une route praticable et de retenir celle que tu pourrais employer au retour avec un objet lourd.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_4_0",
+          "text": "Emprunter le passage haut pour surveiller la bande",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu franchis le passage et repères une petite cour où quelqu’un t’attend près d’un abri.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais une pierre roule. Tu t’arrêtes derrière un pilier avant de rejoindre la cour.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le passage haut est trop abîmé. Un escalier te conduit finalement vers la même petite cour.",
+              "next": "lantern_5",
+              "effects": {
+                "events": [
+                  "lantern_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_4_1",
+          "text": "Passer en bas pour éviter les sentinelles",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu traverses sans être vu et arrives dans une réserve proche de la salle centrale.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le passage est dégagé, mais une flaque mouille tes affaires. Tu rejoins la réserve en les protégeant.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une grille ferme le passage. Tu trouves une porte de service qui mène aussi à la réserve.",
+              "next": "lantern_5b",
+              "effects": {
+                "events": [
+                  "lantern_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_5",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Le rendez-vous dans la cour",
+      "text": "Dans la petite cour, {encounter_name} te fait signe depuis un abri. La personne rencontrée au départ a suivi une autre piste et connaît maintenant un accès vers la salle centrale. Vous échangez les renseignements sans parler trop fort. La caisse des offrandes a été vue près d'un escalier ; le coffre de la couronne doit être derrière la grande porte. Vous ne pourrez pas surveiller tous les chemins en même temps. Tu peux demander à {encounter_name} de venir avec toi pour transporter le trésor, ou de rester ici afin de prévenir les gardes. Dans les deux cas, vous choisissez un signal simple. Tu regardes les ouvertures de la cour avant de décider comment employer cette aide précieuse.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_5_0",
+          "text": "Continuer ensemble pour rapporter le trésor",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous préparez un sac solide. {encounter_name} t’accompagne vers la salle centrale.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous partez ensemble, mais une sentinelle vous oblige à changer de route avant l’escalier.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le trajet à deux attirerait l’attention. {encounter_name} reste pour préparer votre sortie pendant que tu avances.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_5_1",
+          "text": "Demander à {encounter_name} de prévenir les gardes",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le message est prêt. Tu poursuis avec un signal convenu pour guider les gardes au retour.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le message part, mais le détour est long. Tu devras gagner du temps avant l’arrivée des gardes.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La route des gardes est bloquée. {encounter_name} reste pour chercher un autre moyen de les prévenir.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_6",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Le plan et la cache",
+      "text": "Tu arrives dans une pièce où les voleurs ont rangé leurs cartes. Un dessin indique la salle centrale et la route prévue pour emporter le trésor. Sur une étagère, une petite boîte contient plusieurs étiquettes de caisses. L'une porte le sceau d'Aubépine. Tu pourrais examiner les papiers plus longtemps pour trouver un accès oublié, ou suivre immédiatement l'indication qui conduit au coffre. Un bruit de voix approche, puis s'éloigne vers la cour. Tu refermes doucement la porte. La recherche d'un secret pourrait donner une avance, mais elle exige de rester ici quelques instants. Tu observes le plan du lieu et vérifies où te cacher avant de toucher aux documents. Tu n'as pas oublié que les gardes auront besoin de preuves.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_6_0",
+          "text": "Chercher un passage oublié dans les papiers",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Une note révèle une sortie cachée derrière l’estrade. Tu retiens son emplacement pour le retour.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les papiers donnent une piste, mais pas d’accès certain. Tu poursuis avec le plan principal.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les documents sont incomplets. Tu gardes le sceau royal et rejoins la suite du chemin.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_6_1",
+          "text": "Rejoindre directement la salle du coffre",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu mémorises le plan et avances sans perdre de temps. La grande porte est désormais proche.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu rejoins la salle, mais dois attendre qu’un porteur passe. Tu conserves les preuves dans ta poche.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Tu prends un mauvais couloir. Une marque rouge te permet de retrouver l’accès de la salle.",
+              "next": "lantern_7",
+              "effects": {
+                "events": [
+                  "lantern_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_7",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "La grille de l’escalier",
+      "text": "Une grille ferme le bas de l'escalier qui mène à la salle. Un cadenas protège son verrou ; une corde fixée à une poulie retient le battant. Tu distingues le crochet de sécurité derrière les barreaux. Il faudrait l'atteindre sans heurter les pointes du cadre. Ton objet pourrait aider à dégager cette attache. Une seconde méthode consiste à remonter la poulie avec la manivelle située sur le palier voisin. Elle paraît lourde, mais son mécanisme est ordinaire. Tu vérifies où la grille se déplacera lorsqu'elle sera libérée. Au-dessus de toi, une voix ordonne de préparer le coffre. Tu dois passer, tout en gardant l'escalier utilisable pour le retour et pour l'arrivée éventuelle des gardes.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La grille s’ouvre et tu bloques son battant. Le chemin restera libre derrière toi.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille se lève, mais sa corde s’effiloche. Tu ajoutes un appui avant de passer.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’attache résiste. Tu trouves le palier voisin et passes par le côté de la grille.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_7_1",
+          "text": "Lever la grille avec la manivelle du palier",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La manivelle soulève la grille. Tu la bloques avec une cale avant de continuer.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille monte à moitié. Tu dégages assez d’espace pour passer et prévenir de sa fragilité.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La manivelle est coincée. Un passage étroit derrière le palier permet néanmoins de rejoindre la salle.",
+              "next": "lantern_8",
+              "effects": {
+                "events": [
+                  "lantern_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_8",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Un plan pour récupérer la couronne",
+      "text": "Tu regardes la salle depuis une ouverture. Deux voleurs discutent près de la porte principale. Le coffre est posé derrière l'estrade, hors de leur vue. La caisse des offrandes se trouve plus loin, à côté d'un sac de voyage. Tu pourrais détourner l'attention en provoquant un bruit dans le couloir, puis approcher le coffre. Tu pourrais aussi déplacer des caisses pour créer un abri et avancer lentement. Dans les deux cas, il faut éviter un affrontement. Tu vérifies ton chemin de retraite et cherches un endroit où cacher le trésor si tu ne peux pas l'emporter immédiatement. La lumière descend dans les fenêtres : le rendez-vous de la bande approche. Tu prends une respiration pour choisir une ruse que tu comprends vraiment.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_8_0",
+          "text": "Attirer les sentinelles vers un bruit dans le couloir",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les sentinelles vont vérifier le couloir. Tu atteins l’estrade pendant leur courte absence.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Une seule sentinelle se déplace. Tu profites de son passage pour gagner un abri plus proche.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La ruse ne les trompe pas. Tu avances derrière une pile de caisses pendant leur discussion.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_8_1",
+          "text": "Approcher en préparant des abris derrière les caisses",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu déplaces les caisses sans bruit et rejoins le fond de la salle à couvert.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Une caisse grince. Tu attends que les voix reprennent avant d’avancer jusqu’à l’estrade.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les caisses sont trop lourdes. Tu utilises les colonnes pour contourner la partie surveillée.",
+              "next": "lantern_9",
+              "effects": {
+                "events": [
+                  "lantern_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_9",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "Le registre de la bande",
+      "text": "Près de l'estrade, tu trouves un registre ouvert et plusieurs lettres. Elles expliquent qui a demandé le vol et où doit partir le trésor. Tu lis les lignes utiles sans chercher à tout emporter. L'un des papiers porte le sceau de la personne qui commande la bande. Tu peux prendre ce document pour le montrer à la reine, ou copier discrètement les informations de transport et garder le registre en place. Un voleur entre dans la salle et demande quand le chef arrivera. Les sentinelles lui répondent de préparer la route. Tu restes derrière l'estrade. Les noms et les horaires donnent enfin un sens à ce que tu as observé depuis ton arrivée ; tu peux décider comment utiliser cette preuve.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_9_0",
+          "text": "Emporter la lettre qui prouve le vol",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu ranges la lettre sous ta veste. Les gardes pourront identifier la personne qui dirige la bande.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu emportes la preuve, mais déplaces un encrier. Tu essuies rapidement la trace avant de continuer.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La lettre est attachée au registre. Tu retiens son contenu et emportes une page signée voisine.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_9_1",
+          "text": "Copier les indications du transport",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu notes le trajet et l’horaire. Même un départ précipité ne fera plus perdre la piste.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu copies les indications essentielles, mais un nom reste illisible. Le trajet suffit pour guider les gardes.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La copie serait trop longue. Tu mémorises le rendez-vous et prends le billet du transport.",
+              "next": "lantern_10",
+              "effects": {
+                "events": [
+                  "lantern_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_10",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Le coffre derrière l’estrade",
+      "text": "Le coffre porte bien les fleurs d'Aubépine décrites par la reine. Deux courroies le maintiennent sur un petit chariot. La caisse des offrandes est à quelques pas. Tu entends {revelation_actor} donner ses ordres près de l'entrée. Tu peux tenter de déplacer le chariot vers la sortie latérale, ou cacher d'abord le coffre derrière les caisses pour empêcher son départ. Le trésor est lourd, mais tu n'as pas besoin de tout porter dans tes bras. Tu observes les roues et le sol. Si tu réussis à le mettre hors de vue, tu gagneras le temps nécessaire pour l'ouvrir et prévenir les gardes. Tu gardes un accès vers l'escalier, car la bande peut changer de plan dès qu'elle découvre la disparition.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_10_0",
+          "text": "Pousser le chariot vers la sortie latérale",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les roues tournent sans bruit. Le coffre rejoint un coin abrité près de la sortie.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Une roue accroche une dalle. Tu dégages le chariot, mais dois attendre que les voix s’éloignent.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le chariot ne passe pas la porte. Tu mets le coffre à couvert derrière l’estrade pour l’ouvrir.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_10_1",
+          "text": "Cacher le coffre et bloquer le départ des voleurs",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu dissimules le coffre derrière les caisses et retires une roue du chariot de transport.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le coffre est caché, mais le chariot reste utilisable. Tu prépares un signal pour ralentir les voleurs.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les caisses ne cachent pas tout le coffre. Tu l’enveloppes d’une toile et prépares une autre diversion.",
+              "next": "lantern_11",
+              "effects": {
+                "events": [
+                  "lantern_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_11",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Les attaches du trésor",
+      "text": "Une corde nouée autour du coffre retient son couvercle en plus de la serrure. Tu aperçois une petite fermeture latérale qui peut libérer les courroies. Les bords du chariot sont couverts de clous mal rabattus. Ton objet pourrait permettre d'ouvrir le coffre et de sortir la couronne de son écrin. Une autre possibilité serait de transporter le coffre fermé avec une couverture passée sous ses poignées. Tu n'as pas encore la couronne en main : tu vérifies chaque attache avant de te réjouir. Derrière la toile, la caisse des offrandes attend elle aussi le retour au village. Tu décides quelle méthode donnera le plus de chances d'emporter au moins le bien le plus précieux, sans te laisser piéger par son poids.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le coffre s’ouvre. Tu enveloppes la couronne dans son tissu et gardes les preuves avec toi.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu ouvres le coffre, mais une attache reste bloquée. La couronne peut tout de même être mise à l’abri.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le coffre résiste. Tu fixes une couverture sous ses poignées pour déplacer le trésor encore fermé.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_11_1",
+          "text": "Préparer le transport du coffre fermé",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les poignées tiennent. Tu places le coffre sur une toile et prépares son passage vers la sortie.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La toile supporte le coffre, mais il faudra avancer lentement. Tu gardes les offrandes pour les gardes.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une poignée se détache. Tu places le coffre près de la sortie et gardes de quoi signaler sa cache.",
+              "next": "lantern_12",
+              "effects": {
+                "events": [
+                  "lantern_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_12",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Le retour à Aubépine",
+      "text": "Un bruit de pas annonce que la bande a remarqué quelque chose. Tu disposes maintenant d'une sortie et de renseignements suffisants pour guider les gardes. Le trésor peut être rapporté directement si le chemin reste libre ; sinon, tu peux le laisser dans une cache connue et partir avec les preuves. Tu regardes où se trouvent les sentinelles, puis la route vers le village. Tu pourrais emprunter l'accès principal au moment où les voleurs se déplacent, ou utiliser le détour préparé pour sortir discrètement. {revelation_actor} ne doit pas te retenir dans la salle. Ta mission ne sera pas perdue si les gardes doivent terminer le transport. Tu choisis le trajet qui protège le mieux ton retour et les informations nécessaires pour récupérer les biens du village.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "lantern_12_0",
+          "text": "Profiter du déplacement des sentinelles pour sortir",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu quittes le repaire avec le trésor accessible et retrouves les gardes sur la route.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu sors, mais une partie des biens reste cachée. Les gardes suivent tes indications pour la récupérer.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les sentinelles bloquent l’accès. Tu passes par un abri voisin et rapportes les preuves aux gardes.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_12_1",
+          "text": "Revenir par le détour avec les preuves et le trésor disponible",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le détour reste libre. Tu conduis les gardes jusqu’au repaire pour achever la récupération.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le retour est lent, mais tu conserves les preuves. Les gardes sécurisent le dernier passage.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le détour est encombré. Tu retrouves un chemin balisé et guides les gardes vers la cache du trésor.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "lantern_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_5b",
+      "arc": "lantern",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "La réserve des voleurs",
+      "text": "Le passage bas te conduit à une réserve. Des ballots et des sacs portent les noms de plusieurs villages. Tu retrouves {encounter_name}, qui a suivi un chemin voisin. Vous comprenez que la bande a volé plus que la couronne. Une porte rejoint l'escalier central, tandis qu'un couloir permet de sortir vers la route. Tu peux demander à {encounter_name} de t'accompagner pour reconnaître les biens et aider au transport. Tu peux aussi confier la réserve à cette personne, qui gardera les preuves et appellera les gardes. Vous devez laisser un signal clair pour vous retrouver. Tu notes les noms sur les sacs sans les ouvrir : les habitants pourront ainsi récupérer leurs affaires lorsque le repaire sera sécurisé.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "lantern_5b_0",
+          "text": "Poursuivre ensemble pour aider au transport",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous préparez une toile solide. {encounter_name} t’accompagne vers la porte de l’escalier.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous partez ensemble, mais un ballot tombe. Vous attendez que le bruit cesse avant de continuer.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le couloir est trop étroit à deux. {encounter_name} garde la réserve pendant que tu avances.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "lantern_5b_1",
+          "text": "Confier les preuves de la réserve à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les noms des villages sont relevés. Tu continues tandis que la réserve et le retour sont surveillés.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les noms sont relevés, mais l’appel des gardes prendra du temps. Tu poursuis sans aide immédiate.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les étiquettes sont abîmées. {encounter_name} reste pour les lire et sécuriser le retour.",
+              "next": "lantern_6",
+              "effects": {
+                "events": [
+                  "lantern_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_secret",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La porte derrière l’estrade",
+      "ending": "secret",
+      "text": "Le passage découvert dans les papiers permet aux gardes d'entrer par un accès que la bande ne surveillait plus. Tu leur montres la cache du coffre et les marques sur les sacs. La couronne est récupérée, ainsi que plusieurs biens volés aux villages voisins. À Aubépine, la reine remercie les personnes qui ont aidé au retour. Elle te demande surtout comment tu as trouvé cette porte oubliée. Tu racontes les détails observés, les hésitations et les moments où tu as préféré attendre. La fête commence un peu plus tard que prévu. Quand la couronne passe entre les mains des enfants, tu reconnais le tissu rouge qui t'avait mis sur la piste.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_alliance",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Deux personnes sur la bonne piste",
+      "ending": "alliance",
+      "text": "Ton entente avec {encounter_name} aide les gardes à terminer la mission. Pendant que l'un surveille l'accès, l'autre indique les biens à rapporter. La bande ne peut plus emporter le coffre par une route oubliée. Au village, vous rendez la couronne ensemble. La reine écoute votre récit sans attribuer tout le mérite à une seule personne. Les habitants préparent du pain, des fruits et une place pour chacun à la fête. {encounter_name} conserve une copie du trajet parcouru. Tu comprends combien il était utile de convenir d'un signal et de partager les tâches avant d'approcher le trésor. Vous promettez de vous saluer lors du prochain marché.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_radiant",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La fête retrouvée",
+      "ending": "radiant",
+      "text": "La couronne revient à Aubépine avant la nuit. Les gardes suivent les preuves et arrêtent le transport des autres biens volés. La reine retrouve le coffre, puis donne le signal du défilé. Tu marches près des enfants qui attendaient sur la place. Leurs couronnes de fleurs te semblent aussi belles que l'or que tu as rapporté. On te demande de raconter l'aventure, et tu expliques les portes, les traces de roues et la ruse employée devant les sentinelles. Tu ne prétends pas avoir affronté toute la bande. Tu as trouvé un chemin, protégé le retour et donné aux adultes les renseignements dont ils avaient besoin.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_cost",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Les gardes terminent le voyage",
+      "ending": "cost",
+      "text": "Tu reviens avec les preuves et l'emplacement du trésor. Les gardes partent aussitôt pour sécuriser le repaire et rapporter ce qui reste. Le village doit attendre leur retour avant de commencer la fête, mais l'incertitude a disparu. La reine te laisse boire et te reposer avant de demander ton récit. Tu racontes aussi les difficultés, car elles expliquent où les gardes devront faire attention. Dans la soirée, un chariot arrive avec la couronne et plusieurs caisses. Les habitants rallument les lanternes de la place. Ta mission a demandé de l'aide jusqu'au bout ; elle a tout de même rendu au village ce qu'on lui avait pris.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "lantern_end_resilient",
+      "arc": "lantern",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une piste que personne ne perdra",
+      "ending": "resilient",
+      "text": "Tu n'as pas pu tout rapporter seul, mais les papiers et tes observations désignent clairement le repaire. La reine ne te renvoie pas vers la bande. Elle écoute ton récit et charge les gardes d'achever la récupération. Tu leur dessines les passages, les obstacles et la cache du coffre. Le lendemain, la couronne revient au village. Les sacs retrouvés seront rendus à leurs propriétaires. La fête a lieu sous un ciel clair, avec un jour de retard et beaucoup d'histoires à raconter. Tu sais que plusieurs tentatives ont échoué. Tu sais aussi qu'en continuant prudemment, tu as empêché les voleurs de faire disparaître leur piste.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

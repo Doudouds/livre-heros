@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-11",
+  "segment_id": "passeuse_1_01_narration_bb0d8a4ea32f2ffc5add",
+  "voice": "chatterbox/Recording.wav",
+  "voice_sha256": "4b5aadf0309461e16978046b66e8b4286f7147e9d27057b7c944b80f7fafd0f9",
+  "model": {
+    "repo": "ResembleAI/chatterbox",
+    "variant": "v3",
+    "revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"
+  },
+  "parameters": {
+    "exaggeration": 0.4,
+    "cfg_weight": 0.3,
+    "temperature": 0.8,
+    "repetition_penalty": 1.2,
+    "min_p": 0.05,
+    "top_p": 1.0
+  },
+  "max_chars": 300,
+  "pause_ms": 150,
+  "sample_rate": 24000,
+  "chunked": {
+    "file": "D:\\livre_heros\\audio\\experiments\\passeuse_ch1\\files\\passeuse_1_01_narration_bb0d8a4ea32f2ffc5add.wav",
+    "seconds": 81.19,
+    "integrity_ok": true,
+    "exact_concatenation_ok": true,
+    "chunks": [
+      {
+        "characters": 226,
+        "audio_seconds": 12.72
+      },
+      {
+        "characters": 239,
+        "audio_seconds": 13.96
+      },
+      {
+        "characters": 248,
+        "audio_seconds": 14.84
+      },
+      {
+        "characters": 281,
+        "audio_seconds": 15.76
+      },
+      {
+        "characters": 270,
+        "audio_seconds": 15.16
+      },
+      {
+        "characters": 114,
+        "audio_seconds": 8.0
+      }
+    ],
+    "added_pause_seconds": 0.75
+  },
+  "single_take": {
+    "file": "D:\\livre_heros\\audio\\experiments\\passeuse_ch1\\files\\passeuse_1_01_narration_bb0d8a4ea32f2ffc5add_single_take.wav",
+    "seconds": 39.96,
+    "integrity_ok": true,
+    "generation_token_limit_reached": true
+  },
+  "whisper_performed": false,
+  "targeted_tests_passed": 33
+}

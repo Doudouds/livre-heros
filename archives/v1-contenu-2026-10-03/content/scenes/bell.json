@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "bell_intro",
+      "arc": "bell",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "Le Pacte de la cloche endormie",
+      "text": "Un son très grave traverse ton village sans qu'aucune cloche ne bouge. Les bols frémissent sur les tables et les oiseaux quittent les toits, puis tout redevient calme. Le lendemain, le son revient un peu plus longtemps. Une ancienne chanson raconte qu'une puissance endormie sous {location_name} veille sur les saisons, à condition qu'on lui transmette chaque année un accord précis. Personne ne se souvient de cet accord. Les anciens ne craignent pas une attaque : ils craignent que le réveil arrive trop vite et mélange pluie, chaleur et vent dans un même jour. Tu pars chercher l'origine du son avant la prochaine résonance. Dans ta poche, une petite cloche ordinaire garde le silence, même lorsque tu la secoues.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "bell_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_1",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "Le son dans les pierres",
+      "text": "À l'approche du lieu, la petite cloche devient lourde puis légère dans ta main. Sa matière répond au son que tu n'entends pas encore. Sur le chemin, des cailloux ont roulé en lignes régulières, comme si une vague invisible les avait poussés. Un berger a placé des branches pour signaler les endroits où le sol tremble. Deux routes s'offrent à toi : celle qui suit ces marques et celle qui longe un ancien conduit de pierre. La route balisée rassurerait ceux qui viendront après toi. Le conduit pourrait te rapprocher plus directement de l'origine du son. Tu vérifies que les deux passent par une zone stable, puis décides comment commencer ton enquête avant que la résonance ne revienne.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "bell_1_0",
+          "text": "Suivre les marques et renforcer le passage sûr",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les marques te guident entre les secousses. Tu laisses un trajet clair derrière toi.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le trajet tient, mais une vibration renverse plusieurs branches près du retour.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les marques se déplacent. Tu rejoins une zone stable par un détour rocheux.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_1_1",
+          "text": "Remonter l'ancien conduit de pierre",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le conduit amplifie un faible accord. Tu en retrouves la direction sans difficulté.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves l'origine du rythme, mais le conduit transmet aussi ton passage.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le conduit est obstrué. Une ouverture latérale te permet de poursuivre l'enquête.",
+              "next": "bell_2",
+              "effects": {
+                "events": [
+                  "bell_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_2",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "L'inscription inachevée",
+      "text": "Une inscription couvre le premier mur accessible. Elle contient des mots ordinaires, séparés par des espaces trop grands : Nous entendons… nous répondons… nous gardons… La suite a été effacée par l'humidité. Des silhouettes gravées tiennent chacune une cloche de taille différente. Tu remarques que leurs pieds sont tournés vers plusieurs directions, alors que leurs regards convergent. Le pacte devait unir des personnes éloignées plutôt qu'exiger une présence dans cette salle. Tu peux étudier l'emplacement des silhouettes pour retrouver les relais du message, ou comparer les espaces de l'inscription avec les vibrations de ta petite cloche. Tu aurais ainsi soit la route du chant, soit son rythme. Les deux seront utiles, mais tu dois choisir quel indice approfondir avant la prochaine secousse.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_2_0",
+          "text": "Retrouver les relais grâce aux silhouettes",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les positions révèlent les relais. Tu identifies l'accès qui mène vers eux.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends leur ordre, mais une dalle gravée s'incline sous la vibration.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une silhouette manque. Une flèche discrète indique néanmoins le relais suivant.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_2_1",
+          "text": "Comparer la cloche aux espaces de l'inscription",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La cloche marque les silences. Tu retrouves une partie du rythme oublié.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le rythme revient, mais ta cloche répond plus fort et attire une résonance.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La cloche reste muette. Les espaces te montrent tout de même où chercher la suite.",
+              "next": "bell_3",
+              "effects": {
+                "events": [
+                  "bell_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_3",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "Le cercle des résonances",
+      "text": "Tu entres dans une salle où six petits socles entourent un passage fermé. Chaque socle porte un signe, et la cloche que tu transportes répond près de deux d'entre eux. Les quatre autres restent froids. Au centre, une surface sombre vibre sans s'ouvrir. Elle attend peut-être l'accord entier, mais tu ne le connais pas encore. Ton objet réagit aux signes et pourrait t'aider à faire passer une réponse limitée. À gauche, une ancienne poignée commande un clapet d'entretien ; ce chemin permettrait de contourner le cercle sans modifier son chant. Employer l'objet t'apprendrait quelque chose sur le pacte. Le détour préserverait les notes actuelles, même si elles restent incomplètes. Tu écoutes encore une fois le silence entre les vibrations avant de choisir.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le cercle accepte une réponse. Le passage laisse enfin entrer ta lumière.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le passage s'ouvre, mais une note supplémentaire rejoint l'appel de réveil.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La réponse reste incomplète. Un clapet de secours s'ouvre pour te laisser passer.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_3_1",
+          "text": "Ouvrir le clapet d'entretien sans toucher au chant",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le clapet s'ouvre en douceur. Tu dépasses le cercle sans brouiller ses notes.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes, mais la poignée revient trop vite et prolonge une vibration.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le clapet bloque. Son cadre révèle un autre accès au conduit intérieur.",
+              "next": "bell_4",
+              "effects": {
+                "events": [
+                  "bell_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_4",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Deux façons d'écouter",
+      "text": "Le grondement arrive enfin, long et profond, mais il n'a rien d'un rugissement. Il ressemble à une question répétée jusqu'à devenir impatiente. Des poussières descendent du plafond, puis remontent lorsqu'une note plus haute lui répond. Deux chemins rejoignent l'étage suivant. Le premier longe des cloches suspendues qui peuvent porter un message vers le centre. Le second traverse les espaces d'entretien où de petites créatures se cachent pendant les secousses. Par les cloches, tu pourrais annoncer ta présence et peut-être ralentir l'appel. Par les abris, tu découvrirais les effets du réveil sur ceux qui vivent déjà dans le lieu. Tu attends que le sol cesse de frémir, puis choisis le passage dont tu veux comprendre la réponse.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_4_0",
+          "text": "Envoyer une note par les cloches suspendues",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Une réponse courte calme le grondement. Tu rejoins la galerie des cloches.",
+              "next": "bell_5",
+              "effects": {
+                "events": [
+                  "bell_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réponse porte, mais une cloche garde un tintement qui brouille l'accord.",
+              "next": "bell_5",
+              "effects": {
+                "events": [
+                  "bell_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La note se perd. Tu suis pourtant son écho jusqu'à la galerie.",
+              "next": "bell_5",
+              "effects": {
+                "events": [
+                  "bell_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_4_1",
+          "text": "Traverser les abris des petites créatures",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les créatures te montrent un intervalle sûr entre les secousses et les abris.",
+              "next": "bell_5b",
+              "effects": {
+                "events": [
+                  "bell_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu passes sans les effrayer, mais un abri se referme derrière toi.",
+              "next": "bell_5b",
+              "effects": {
+                "events": [
+                  "bell_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les créatures restent cachées. Tu trouves un chemin d'entretien en suivant leurs réserves.",
+              "next": "bell_5b",
+              "effects": {
+                "events": [
+                  "bell_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_5",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Une voix de plus",
+      "text": "Dans la galerie, plusieurs cloches portent des noms d'habitants disparus depuis longtemps. Une seule reste sans nom et balance doucement. {encounter_name} te rejoint après avoir entendu ta tentative de réponse. Vous comprenez que chaque cloche attendait une voix distincte ; une personne seule ne devait pas porter tout l'accord. {encounter_name} peut venir jusqu'au centre pour fournir une seconde observation, ou rester ici afin de répondre aux appels pendant ton avancée. Tu regardes la cloche sans nom. Elle n'impose aucune mélodie, mais semble attendre que quelqu'un accepte de participer. En choisissant où placer ton aide, tu décideras aussi comment le lieu entendra votre présence. Tu peux chercher un accord commun dès maintenant, ou préparer un échange entre deux endroits séparés.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_5_0",
+          "text": "Trouver un accord et poursuivre ensemble",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vos notes se répondent. {encounter_name} vient avec toi pour garder cet accord.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'accord existe, mais une vieille cloche ne supporte plus sa note entière.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accord se disperse. {encounter_name} reste pour maintenir une réponse depuis la galerie.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_5_1",
+          "text": "Préparer une réponse à distance depuis la galerie",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous établissez un signal clair. Tu pourras demander une réponse depuis le centre.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le signal tient, mais il devra être répété pour traverser toutes les cloches.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal sonore ne passe pas. Vous convenez d'un signe lumineux de remplacement.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_6",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Le pacte et sa marge",
+      "text": "Tu découvres une copie du pacte, roulée dans un étui qui la protège des secousses. Le texte principal parle de repos, de réponse et de saisons. Dans la marge, une écriture différente ajoute qu'aucun chant ne doit obliger la puissance endormie à veiller pour toujours. Une autre note explique comment annoncer une absence temporaire. Le pacte prévoyait donc les oublis et les changements, mais cette partie n'a pas été transmise. Tu peux étudier cette clause pour proposer un accord nouveau, ou reconstruire précisément le chant ancien à partir du texte principal. Le premier choix ouvrirait un secret sur la liberté du veilleur. Le second donnerait une réponse immédiatement reconnaissable. L'étui protège encore le document ; tu peux travailler sans craindre de le perdre pendant la vibration suivante.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "bell_6_0",
+          "text": "Étudier la clause qui permet de changer le pacte",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La marge révèle un pacte renouvelable. Le veilleur peut accepter une réponse différente.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends la clause, mais une partie de sa formulation reste difficile à lire.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La marge s'efface sous la poussière. Tu conserves le signe d'un accord possible.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_6_1",
+          "text": "Reconstruire les notes du chant ancien",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu reconstitues les notes et leurs silences. Le chant devient une réponse claire.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le chant revient, mais une note exige un relais que tu n'as pas encore trouvé.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Deux notes manquent. Le texte fournit néanmoins une réponse courte de sécurité.",
+              "next": "bell_7",
+              "effects": {
+                "events": [
+                  "bell_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_7",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Le conduit muet",
+      "text": "Un conduit reste silencieux alors que tous les autres portent le grondement. Son entrée est fermée par une plaque posée récemment, bien plus récente que le pacte. Tu comprends qu'une simple réparation a peut-être transformé le message. Sur la plaque, des signes identiques à ceux du cercle tournent lentement. Ton objet peut suivre la liaison qui aurait dû traverser cet endroit. Tu peux aussi remettre en état les petits orifices latéraux, conçus pour évacuer une résonance trop forte. Retrouver la liaison t'aiderait à parler au centre. Réparer les évacuations rendrait les prochains appels moins dangereux et pourrait corriger les perturbations que tu as rencontrées. Tu poses la cloche près du conduit : elle reste muette, mais sa matière est toujours tiède.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La liaison réapparaît. Tu distingues enfin la note que le centre ne recevait plus.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La note revient, mais les parois transmettent une secousse supplémentaire aux autres conduits.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La liaison ne tient pas. Un sifflement léger te montre pourtant sa direction.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_7_1",
+          "text": "Rouvrir les évacuations pour apaiser les résonances",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les évacuations fonctionnent. Le grondement baisse et le passage retrouve sa stabilité.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La pression diminue, mais un orifice devra rester surveillé jusqu'à la fin.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une évacuation bloque encore. Les autres dégagent assez d'espace pour poursuivre.",
+              "next": "bell_8",
+              "effects": {
+                "events": [
+                  "bell_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_8",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Entre deux battements",
+      "text": "Les intervalles entre les grondements deviennent plus courts. Tu pourrais courir, mais tu risquerais d'entrer dans la salle centrale au moment le moins stable. Une estrade permet d'observer les vibrations dans une vasque d'eau ; un escalier mène aux clapets qui distribuent le son. Depuis l'estrade, tu chercherais le silence exact où transmettre ta réponse. Par les clapets, tu préparerais une diffusion moins brutale, quitte à ralentir l'arrivée de ton message. Tu regardes la petite cloche : elle n'est plus muette, mais laisse entendre une note très douce. Ce n'est pas un avertissement de fin. C'est un repère qui peut t'aider à compter les mouvements du lieu. Ta formation te rappelle une manière d'agir sans te laisser entraîner par leur vitesse.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "bell_8_0",
+          "text": "Repérer le bon silence grâce à la vasque",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les cercles de l'eau révèlent un silence régulier. Tu peux avancer au bon moment.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu repères le silence, mais une vague déborde et efface un repère proche.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'eau s'agite trop. La cloche te donne tout de même un intervalle utilisable.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_8_1",
+          "text": "Régler les clapets pour adoucir le message",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les clapets répartissent le son. Les prochaines réponses n'accumuleront plus la même pression.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La diffusion s'apaise, mais un clapet doit rester ouvert jusqu'au retour.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le réglage résiste. Tu sécurises au moins la position du clapet principal.",
+              "next": "bell_9",
+              "effects": {
+                "events": [
+                  "bell_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_9",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "Qui appelle sous le silence ?",
+      "text": "Une fresque se met à briller lorsque ta cloche sonne. Les images montrent le lieu à différentes saisons, puis s'arrêtent sur la présence qui veille en dessous. Tu pensais empêcher un réveil, mais le souvenir raconte une attente beaucoup plus longue. Le pacte n'est pas une chaîne magique : c'est une conversation dont une moitié s'est perdue. À côté de la fresque, deux gestes sont gravés. L'un signifie que les habitants sont en sécurité. L'autre demande un délai pour préparer la réponse. Tu peux envoyer le premier signe dès maintenant, ou demander ce délai avant de tenter l'accord complet. Le premier rassurerait rapidement. Le second donnerait au veilleur une preuve que quelqu'un a entendu sa question et prend le temps de lui répondre.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_9_0",
+          "text": "Envoyer le signe que les habitants sont en sécurité",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le grondement ralentit. Le veilleur reconnaît que son aide urgente n'est pas nécessaire.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le signe est reçu, mais une dernière vibration traverse le lieu avant l'apaisement.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signe reste incomplet. Tu obtiens néanmoins une pause pour transmettre la suite.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_9_1",
+          "text": "Demander un délai avant de reformer l'accord",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le délai est accordé. Les conduits attendent maintenant une réponse au lieu d'une alarme.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le délai commence, mais tu dois maintenir une note pour qu'il ne s'interrompe pas.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le délai est mal compris. Un battement plus lent te laisse malgré tout agir.",
+              "next": "bell_10",
+              "effects": {
+                "events": [
+                  "bell_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_10",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "Le réveil peut attendre",
+      "text": "Au centre, la vibration prend la forme d'une lumière qui grandit et diminue comme une respiration. Tu aperçois {revelation_actor} dans cette clarté, encore entre sommeil et éveil. La présence ne te menace pas. Elle veut savoir pourquoi son pacte ne reçoit plus de réponse. Tu peux lui montrer le conduit interrompu et expliquer l'oubli, ou lui proposer un nouveau signal qui ne dépendra plus d'un chant difficile à transmettre. La première réponse respecte les habitudes anciennes. La seconde demande un effort de confiance, mais pourrait éviter que le même problème revienne. Tu gardes la cloche visible pour montrer que tu souhaites répondre. Le centre laisse suffisamment de place pour agir sans approcher la lumière trop près. Il attend maintenant une proposition qui puisse durer au-delà de ton aventure.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne toujours. Le chemin que vous avez choisi ensemble permet maintenant de comparer vos observations. Tu peux compter sur cette présence pour vérifier un signal que tu ne pourrais pas surveiller tout en agissant."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} est resté près du passage précédent pour surveiller le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal. Cette précaution te rappelle de laisser une voie ouverte derrière toi."
+        }
+      ],
+      "choices": [
+        {
+          "id": "bell_10_0",
+          "text": "Expliquer l'oubli et rendre le chant reconnaissable",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L'explication est comprise. Le veilleur accepte de ralentir son réveil pendant le dernier accord.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le chant est reconnu, mais plusieurs relais devront être entretenus à chaque saison.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'explication porte imparfaitement. Le veilleur accepte au moins un repos plus court.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_10_1",
+          "text": "Proposer un signal simple pour renouveler le pacte",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le nouveau signal est accepté. Une réponse partagée pourra remplacer les notes oubliées.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le signal plaît, mais il devra être essayé à plusieurs endroits avant d'être définitif.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le signal n'est pas encore clair. Vous retenez une réponse provisoire pour la saison.",
+              "next": "bell_11",
+              "effects": {
+                "events": [
+                  "bell_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_11",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "Accorder la dernière note",
+      "text": "La réponse doit maintenant traverser le centre sans se transformer en nouvel appel. Deux marques lumineuses représentent la question du veilleur et la réponse des habitants. Elles vibrent à des vitesses proches, mais différentes. Ton objet a déjà rencontré ce langage dans le cercle et le conduit muet. Il pourrait établir leur liaison avec précision. Une autre possibilité consiste à guider la note à travers les socles qui entourent la salle, pour lui laisser plusieurs appuis. Le geste direct demanderait une attention fine au rythme. La méthode répartie utiliserait les relais dont tu as compris le rôle. Tu prends le temps d'écouter les deux vibrations sans chercher à les rendre identiques. Le pacte fonctionne parce qu'elles se répondent, pas parce qu'une voix recouvre l'autre.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les deux marques s'accordent. La réponse arrive au veilleur sans devenir une alarme.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L'accord tient, mais une note prolongée continuera de résonner après ton départ.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L'accord direct se défait. Les socles gardent assez de force pour une réponse plus lente.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_11_1",
+          "text": "Guider la dernière note à travers les socles",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les socles portent la note ensemble. Le centre retrouve une respiration calme.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La note parvient au centre, mais un socle perd une partie de sa résonance.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un socle reste muet. Les autres transmettent une réponse courte mais compréhensible.",
+              "next": "bell_12",
+              "effects": {
+                "events": [
+                  "bell_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_12",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Choisir le repos",
+      "text": "Le veilleur peut désormais recevoir la réponse. Tu dois décider comment refermer l'accord : concentrer le signal au centre pour retrouver rapidement le repos, ou le distribuer par les anciens relais pour que chacun conserve sa part de conversation. La première voie sera forte et immédiate, mais transmettra aussi les vibrations restées dans le lieu. La seconde sera plus lente et demandera de laisser plusieurs passages ouverts. {revelation_actor} promet de reconnaître les signes que vous avez préparés, même s'ils ne sont pas parfaits. Tu comprends que prévenir le réveil ne signifie pas demander un silence éternel. Il faut permettre un repos sûr et une nouvelle rencontre quand la saison le demandera. La petite cloche repose dans ta main. Pour la première fois, son poids ne change plus entre les battements.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Une vibration plus forte te rappelle les difficultés rencontrées plus tôt. Le lieu en garde une trace. Tu peux encore atteindre ton objectif, mais il faudra prévoir où cette force ira quand tu libéreras le passage."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Les repères que tu as pris le temps d'établir plus tôt sont toujours visibles. Ils t'offrent une marge pour agir et pour revenir sur ton geste si le lieu réagit autrement que prévu."
+        }
+      ],
+      "choices": [
+        {
+          "id": "bell_12_0",
+          "text": "Refermer l'accord depuis le centre",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le signal est reçu. Le veilleur retrouve son repos et les saisons gardent leur ordre.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le repos revient, mais une brève pluie traverse le lieu en emportant la dernière résonance.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le repos complet attendra. Tu obtiens un sommeil léger, assez stable pour préparer la suite.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_12_1",
+          "text": "Partager la réponse entre les anciens relais",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les relais se répondent. Le pacte reprend sa place sans enfermer aucune voix.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réponse se partage, mais quelques relais auront besoin d'une veille régulière.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Tous les relais ne répondent pas. Les premiers assurent néanmoins un repos provisoire sûr.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "bell_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_5b",
+      "arc": "bell",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Ceux qui sentent les secousses",
+      "text": "Dans les abris, tu découvres de petits lits de feuilles et des réserves de graines. Rien n'a été abandonné : les créatures attendent seulement que les secousses cessent. {encounter_name} te rejoint après avoir suivi une ouverture que leurs déplacements ont révélée. Vous observez un même comportement : elles changent d'abri juste avant chaque grondement. Leur attention pourrait t'aider à prévoir le rythme près du centre. {encounter_name} peut venir avec toi pour surveiller ces signes, ou rester afin de préserver un passage stable pour les créatures et votre retour. Tu ne veux pas transformer leurs refuges en raccourci dangereux. Le choix portera sur la manière de les protéger pendant que tu avances, et sur l'aide disponible quand il faudra répondre à la présence endormie.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "bell_5b_0",
+          "text": "Poursuivre ensemble en observant les signes des créatures",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous comprenez leurs avertissements. {encounter_name} accepte de suivre le rythme avec toi.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Les signes vous guident, mais un abri devra être déplacé après votre passage.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les signes restent confus. {encounter_name} reste près des abris pour protéger le retour.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "bell_5b_1",
+          "text": "Confier les refuges et le passage de retour à {encounter_name}",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les refuges restent accessibles. Tu peux rejoindre le centre sans couper leur route.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le passage tient, mais les créatures devront attendre avant de changer d'abri.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un accès se ferme. Vous préservez un autre trajet, plus long mais toujours sûr.",
+              "next": "bell_6",
+              "effects": {
+                "events": [
+                  "bell_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_end_secret",
+      "arc": "bell",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Un pacte que l'on peut changer",
+      "ending": "secret",
+      "text": "Tu rapportes la clause oubliée : le pacte peut évoluer, et le veilleur a le droit de demander une autre forme de repos. Les habitants préparent une réponse plus simple, que chaque génération pourra comprendre. La puissance ancienne ne devient ni un outil ni une menace. Elle redevient une présence avec laquelle on échange. Les saisons continuent leur marche, même si des réglages restent nécessaires. Ta petite cloche trouve une place sur la table du conseil, à côté d'une feuille laissée volontairement vide pour le prochain accord.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_end_alliance",
+      "arc": "bell",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Deux voix, puis beaucoup d'autres",
+      "ending": "alliance",
+      "text": "L'aide de {encounter_name} permet de maintenir une réponse quand tu ne peux pas surveiller tous les relais. À votre retour, vous apprenez le signal à d'autres habitants. Personne ne doit désormais porter seul la conversation avec le veilleur. Une rencontre sera organisée à chaque changement de saison, avec des sons, des lumières et des signes faciles à partager. Tu entends une note grave au loin, brève et paisible. Plusieurs petites cloches lui répondent. Pour la première fois depuis des jours, ce son ne demande aucune urgence.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_end_radiant",
+      "arc": "bell",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le silence du printemps",
+      "ending": "radiant",
+      "text": "Le veilleur retrouve un repos profond, et les dernières vibrations se dissipent sans bouleverser les villages. Tu racontes comment un appel protecteur avait été pris pour une menace. Le conseil rétablit l'entretien des relais et confie le chant à plusieurs personnes. Au matin, la chaleur arrive avec douceur, la pluie attend son tour et les oiseaux reprennent les toits. Ta petite cloche sonne enfin d'une voix claire. Tu la fais tinter une fois, pour rappeler que ce calme n'est pas un oubli, mais une réponse entendue.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_end_cost",
+      "arc": "bell",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Une saison à accompagner",
+      "ending": "cost",
+      "text": "Le repos revient, mais il reste des résonances à surveiller. Une pluie étrange tombe parfois sous un ciel clair, et certains relais vibrent encore la nuit. Tu donnes aux habitants les repères appris pendant l'aventure. Ils savent quand répondre et quand laisser le veilleur dormir. Ce travail demande de la patience, mais il remplace la crainte par une tâche que chacun peut comprendre. Une saison un peu inhabituelle commence. Elle gardera la trace de tes difficultés, et aussi celle du pacte retrouvé avant qu'une vraie catastrophe n'arrive.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "bell_end_resilient",
+      "arc": "bell",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La promesse d'une réponse",
+      "ending": "resilient",
+      "text": "Tu n'as pas reformé tout l'accord, mais le veilleur sait enfin que les habitants ont entendu son appel. Il accepte un repos léger pendant qu'ils préparent les relais nécessaires. Tu reviens avec la partie du pacte qui manquait et une méthode pour poursuivre. Le village organise les premières réponses au lieu d'attendre une nouvelle secousse sans rien comprendre. Le danger n'est plus une énigme sans prise. Lorsque la petite cloche sonne au soir, tu sais qu'elle appelle à un travail partagé, et non à la fin de l'histoire.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

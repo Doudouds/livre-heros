@@ -1,0 +1,2823 @@
+{
+  "scenes": [
+    {
+      "id": "feather_intro",
+      "arc": "feather",
+      "kind": "intro",
+      "rank": 0,
+      "act": 1,
+      "title": "Lume et les Braconniers",
+      "text": "Une petite plume dorée tombe devant la maison du garde forestier. Il la reconnaît : elle appartient à Lume, un jeune griffon qui vit sur les hauteurs près du village. Sa mère tourne au-dessus des arbres depuis le matin, mais le petit ne répond plus. Un voyageur a vu des braconniers transporter une cage vers {location_name}. Ils veulent vendre Lume à un riche collectionneur. Le garde forestier prépare une équipe, puis te demande de retrouver la cage et le trajet prévu pour son départ. Tu connais les lieux mieux que plusieurs adultes de passage et peux avancer sans attirer une troupe entière. Tu ne devras pas affronter les braconniers. Ton but est de repérer leur camp, d'aider le griffon si une occasion sûre se présente et de conserver assez d'informations pour guider l'équipe. Tu pars avec la plume rangée dans ta poche.\n\n{hero_origin}\n\n{item_appearance}\n\n{encounter_intro}",
+      "next": "feather_1",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_1",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 1,
+      "act": 1,
+      "title": "La plume et les roues",
+      "text": "Tu retrouves une plume près d'une ornière profonde. Le chariot de la cage a quitté la route à cet endroit. Les roues portent encore des brindilles fraîches et une trace de corde longe le sol. Tu pourrais suivre le chariot pour rejoindre directement le camp, ou chercher un point d'observation au-dessus de sa route. Tu regardes aussi le ciel. La mère de Lume continue de tourner au loin, mais une cage couverte resterait difficile à voir. Tu ne l'appelles pas tout de suite : si elle fondait sur le camp, les braconniers pourraient déplacer leur prisonnier. Tu cherches d'abord un abri et une piste claire. La plume dans ta poche te rappelle que le griffon n'est pas un objet à récupérer, mais une créature effrayée.\n\n{location_approach}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "visit_castle",
+          "when": {
+            "location": "castle"
+          },
+          "effects": {
+            "visit_locations": [
+              "castle"
+            ]
+          }
+        },
+        {
+          "id": "visit_forest",
+          "when": {
+            "location": "forest"
+          },
+          "effects": {
+            "visit_locations": [
+              "forest"
+            ]
+          }
+        },
+        {
+          "id": "visit_mountain",
+          "when": {
+            "location": "mountain"
+          },
+          "effects": {
+            "visit_locations": [
+              "mountain"
+            ]
+          }
+        },
+        {
+          "id": "visit_city",
+          "when": {
+            "location": "city"
+          },
+          "effects": {
+            "visit_locations": [
+              "city"
+            ]
+          }
+        },
+        {
+          "id": "visit_ruins",
+          "when": {
+            "location": "ruins"
+          },
+          "effects": {
+            "visit_locations": [
+              "ruins"
+            ]
+          }
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_1_0",
+          "text": "Suivre les roues vers le camp",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La piste mène à un abri d’où tu aperçois les premières caisses du camp.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu retrouves le camp, mais une branche casse sous ton pied. Tu attends à couvert avant d’approcher.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les roues passent sur des pierres. Une seconde plume te permet de retrouver leur direction.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_1_1",
+          "text": "Chercher un point d’observation au-dessus du trajet",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu trouves un point abrité et repères le camp sans être vu des braconniers.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu aperçois le camp, mais le détour est long. Tu mémorises une route plus directe pour redescendre.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier point ne montre rien. Tu en trouves un autre près de la trace de corde.",
+              "next": "feather_2",
+              "effects": {
+                "events": [
+                  "feather_1:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_2",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 2,
+      "act": 1,
+      "title": "Le cri de Lume",
+      "text": "Un petit cri vient du fond du camp. Tu distingues une cage sous une toile brune. Un braconnier pose une gamelle puis s'éloigne vers un feu. Lume frappe les barreaux avec son bec, sans parvenir à les déplacer. Tu peux observer la ronde des gardiens ou te rapprocher à couvert pour vérifier si le griffon semble blessé. Tu gardes tes mains visibles lorsque tu passes près de la cage. Il ne connaît pas tes intentions et pourrait avoir peur de toute personne. Une aile paraît coincée sous une bande de tissu, mais il peut encore se lever. Tu dois découvrir assez de détails pour préparer une sortie calme. Ouvrir une porte ne suffirait pas si Lume se précipitait ensuite vers les braconniers.\n\n{hero_observation}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_2_0",
+          "text": "Observer la ronde et le trajet des gardiens",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu repères un intervalle calme entre deux passages. Tu pourras approcher la cage à ce moment.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu comprends la ronde, mais un gardien reste plus longtemps. Tu prépares un autre abri proche.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La ronde change sans cesse. Tu repères malgré tout l’endroit où les gardiens tournent le dos.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_2_1",
+          "text": "Vérifier l’état du griffon depuis un abri proche",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Lume peut marcher. Il te regarde sans frapper les barreaux lorsque tu parles doucement.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Lume t’écoute, mais sursaute au bruit du feu. Tu recules un peu pour lui laisser de l’espace.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Lume reste agité. Tu observes son aile à distance et prépares une sortie qui évitera de le brusquer.",
+              "next": "feather_3",
+              "effects": {
+                "events": [
+                  "feather_2:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_3",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 3,
+      "act": 1,
+      "title": "La remise des cages",
+      "text": "La remise du camp contient les outils, les filets et les serrures de rechange. Sa porte est verrouillée. Une corde retient un volet équipé d'un crochet intérieur, près de bords hérissés de clous. Tu pourrais utiliser ton objet pour entrer et chercher le dessin de la cage. Une ouverture haute donne aussi accès à la remise depuis un petit escalier. Tu vérifies que personne ne travaille à l'intérieur. Les braconniers ont besoin de leurs outils pour préparer le transport ; ils reviendront peut-être bientôt. Tu prends le temps de repérer un endroit où te cacher et une sortie libre. Tu veux comprendre comment ouvrir la cage avant d'approcher Lume de nouveau, plutôt que de secouer les barreaux et d'augmenter sa peur.\n\n{item_first}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_3_0",
+          "text": "{item_first_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’accès s’ouvre. Tu entres dans la remise et trouves les instructions des fermetures de cage.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu entres, mais un filet tombe. Tu le ranges à l’écart avant de chercher le dessin.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La porte résiste. Une ouverture voisine permet néanmoins de rejoindre les outils de la remise.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_3_1",
+          "text": "Entrer par l’ouverture haute de la remise",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Les appuis tiennent. Tu entres et retrouves le dessin de la fermeture sur un établi.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu entres, mais un paquet bouge sous tes pieds. Tu le bloques avant de descendre.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’accès haut est trop usé. Un passage sous la remise te conduit vers une autre ouverture.",
+              "next": "feather_4",
+              "effects": {
+                "events": [
+                  "feather_3:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_4",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 4,
+      "act": 2,
+      "title": "Contourner le camp",
+      "text": "Le dessin montre deux attaches sur la cage et une fermeture de secours à l'arrière. Pour atteindre cette partie, tu peux traverser le passage haut qui domine le camp ou emprunter la route basse derrière les réserves. Les deux trajets rejoignent un ancien poste où tu pourras préparer la suite. Tu regardes les braconniers : ils rassemblent déjà des sacs de voyage. Il faut avancer sans perdre le retour. Tu glisses le dessin dans ta poche avec la plume et vérifies la solidité des premiers appuis. La voie haute donne une bonne vue, mais te montre davantage. La voie basse protège des regards, sans te permettre de voir tous les gardiens. Tu choisis selon ce qui te manque pour atteindre Lume.\n\n{location_hazard}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_4_0",
+          "text": "Passer en hauteur pour surveiller les gardiens",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu franchis le passage et rejoins le poste avec une vue claire sur la cage.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu avances, mais un appui glisse. Tu reprends ton équilibre avant de gagner le poste.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le passage haut est abîmé. Un petit escalier te permet de rejoindre le même poste.",
+              "next": "feather_5",
+              "effects": {
+                "events": [
+                  "feather_4:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_4_1",
+          "text": "Contourner les réserves par le passage bas",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu restes caché et atteins une réserve proche de l’arrière de la cage.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu rejoins la réserve, mais une caisse gêne le chemin. Tu la contournes sans bruit.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Une clôture ferme le passage. Une porte de service permet néanmoins de rejoindre la réserve.",
+              "next": "feather_5b",
+              "effects": {
+                "events": [
+                  "feather_4:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_5",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "Un signal pour les secours",
+      "text": "{encounter_name} te retrouve au poste après avoir repéré une autre partie du camp. Vous savez maintenant où se trouve Lume et quand le chariot doit partir. Tu peux demander à cette personne de venir avec toi pour guider le griffon une fois la cage ouverte. Tu peux aussi la charger de prévenir le garde forestier et de surveiller la sortie. Vous choisissez un signal discret et un abri où attendre si l'un doit reculer. Lume est jeune ; il ne comprendra pas forcément tout de suite quel chemin prendre. Une aide près de lui serait utile, mais une équipe bien guidée pourrait aussi arrêter les braconniers. Tu réfléchis aux tâches avant de décider, sans supposer que la mère du griffon résoudra le problème à votre place.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_5_0",
+          "text": "Préparer ensemble le trajet de Lume",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous repérez un trajet calme. {encounter_name} t’accompagne pour aider à guider le griffon.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous avancez ensemble, mais un gardien vous ralentit. Vous gardez le trajet préparé pour la sortie.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le trajet à deux est trop visible. {encounter_name} reste pour surveiller le retour pendant que tu avances.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_5_1",
+          "text": "Faire prévenir le garde forestier",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le message peut partir. Tu poursuis avec un signal prévu pour guider l’équipe jusqu’à la cage.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le message part par un détour. Tu devras gagner du temps avant l’arrivée de l’équipe.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La route du message est bloquée. {encounter_name} garde le retour et cherche un autre accès.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_6",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 6,
+      "act": 2,
+      "title": "Le passage vers le ciel",
+      "text": "Au poste, une vieille carte décrit les passages utilisés avant l'installation du camp. L'un pourrait conduire Lume jusqu'à un espace dégagé où sa mère le verra. Tu peux étudier les indications pour trouver cet accès ou te diriger directement vers l'arrière de la cage. Le terrain choisi par les braconniers offre plusieurs abris, mais tous ne permettent pas à une créature ailée de partir. Tu compares la largeur des portes et la hauteur des passages. Le griffon doit pouvoir marcher si son aile reste engourdie. Tu observes le plan du lieu et retiens la route qui rejoint l'air libre. Tu vérifies que le détour se termine bien à l'air libre, là où la mère de Lume pourrait retrouver son petit.\n\n{location_secret}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_6_0",
+          "text": "Chercher l’ancien passage vers un espace dégagé",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu découvres une sortie oubliée assez large pour Lume. Sa mère pourra le voir au-delà du camp.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:success"
+                ],
+                "set_flags": [
+                  "prepared",
+                  "secret"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu trouves une indication, mais pas encore un accès sûr. Tu la gardes pour l’équipe du garde forestier.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’ancienne route est bouchée. Tu retiens le trajet principal et continues vers la cage.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_6_1",
+          "text": "Rejoindre l’arrière de la cage sans attendre",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu mémorises le chemin principal et approches la cage par un accès à couvert.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu atteins le chemin de la cage, mais dois attendre une ronde avant de continuer.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le passage indiqué est fermé. Tu longes une réserve jusqu’à un accès voisin.",
+              "next": "feather_7",
+              "effects": {
+                "events": [
+                  "feather_6:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_7",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 7,
+      "act": 3,
+      "title": "Le sas du camp",
+      "text": "Une grille sépare les réserves de la cour où la cage est posée. Elle est fermée par un cadenas et retenue par une corde. Tu aperçois un crochet de sécurité derrière les barreaux, près d'un cadre couvert de pointes. Ton objet pourrait ouvrir cet accès. Une manivelle voisine permet aussi de lever la grille, à condition de maintenir son poids avec une cale. Tu regardes la largeur du passage : Lume devra peut-être l'emprunter, et une ouverture trop étroite le ferait paniquer. Tu prépares donc un appui avant de commencer. Les gardiens discutent près du feu. Tu écoutes leurs voix pour savoir quand t'arrêter, puis choisis un geste qui laissera derrière toi une voie de retour praticable.\n\n{item_second}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_7_0",
+          "text": "{item_second_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La grille s’ouvre. Tu bloques son battant pour garder une voie assez large pour Lume.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’accès se libère, mais une corde s’effiloche. Tu ajoutes un appui avant de continuer.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le mécanisme résiste. Tu découvres une entrée latérale qui rejoint la cour de la cage.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_7_1",
+          "text": "Lever la grille avec la manivelle et une cale",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La manivelle ouvre le passage. Tu soutiens la grille pour éviter qu’elle retombe pendant la sortie.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La grille monte difficilement. Tu dégages assez d’espace et marques la pièce à surveiller.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La manivelle se bloque. Une porte de service te permet de rejoindre la cage malgré la grille.",
+              "next": "feather_8",
+              "effects": {
+                "events": [
+                  "feather_7:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_8",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 8,
+      "act": 3,
+      "title": "Un chemin qui n’effraie pas",
+      "text": "Tu observes le trajet entre la cage et la sortie. Un filet traîne près du sol, et des caisses forment un passage étroit. Tu peux d'abord enlever les obstacles pour que Lume ne se blesse pas, ou préparer une diversion qui éloignera les gardiens au moment de sa sortie. Le griffon t'entend et cesse de frapper les barreaux. Tu lui parles doucement, sans ouvrir encore la porte. Tu regardes comment retenir la toile qui couvre la cage : si elle tombait sur ses ailes, elle pourrait l'affoler. La délivrance doit être suivie d'un chemin compréhensible pour lui. Tu choisis la tâche la plus utile en gardant un refuge proche pour attendre si les gardiens reviennent trop tôt.\n\n{hero_plan}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_8_0",
+          "text": "Dégager les filets et les caisses du trajet",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le chemin devient large et sans attache au sol. Lume pourra marcher jusqu’à la sortie.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu dégages le chemin, mais une caisse grince. Tu attends que les gardiens reprennent leur discussion.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Un filet reste coincé. Tu marques un détour assez large pour éviter ses boucles.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_8_1",
+          "text": "Préparer une diversion loin de la cage",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La diversion est prête près des réserves. Elle pourra éloigner les gardiens au moment de l’ouverture.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La diversion fonctionne seulement en partie. Tu prévois un arrêt à couvert pendant la sortie.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Les gardiens ne se laissent pas distraire. Tu gardes leur intervalle de ronde comme solution de secours.",
+              "next": "feather_9",
+              "effects": {
+                "events": [
+                  "feather_8:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_9",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 9,
+      "act": 3,
+      "title": "La commande du collectionneur",
+      "text": "Une sacoche oubliée près du chariot contient la commande de Lume. Tu y retrouves les noms, les horaires et les paiements qui expliquent la capture. Tu peux emporter la lettre comme preuve ou relever d'abord le trajet du convoi pour empêcher sa fuite. Les braconniers ne chassent pas un griffon dangereux : ils ont capturé un petit pour le vendre. Tu gardes cette différence en tête lorsque tu regardes les barreaux. Le garde forestier pourra arrêter d'autres captures si tu conserves les informations. Tu choisis les papiers utiles sans vider toute la sacoche. Le transport approche ; il faut maintenant préparer la sortie et éviter que la cage parte par une route que personne ne surveille.\n\n{revelation_text}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_9_0",
+          "text": "Conserver la lettre qui commande la capture",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu ranges la lettre au sec. Le garde forestier pourra identifier l’acheteur et la bande.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu conserves la preuve, mais une page manque. Le nom du commanditaire et la date restent lisibles.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La lettre est déchirée. Tu gardes un reçu signé qui suffit à confirmer la vente prévue.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_9_1",
+          "text": "Relever le trajet et l’heure du convoi",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu notes les indications. L’équipe pourra surveiller la route même si le camp se vide.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu retrouves le trajet, mais l’heure est raturée. Tu retiens les deux départs possibles.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le trajet est incomplet. Tu identifies le prochain rendez-vous et le signe utilisé par les porteurs.",
+              "next": "feather_10",
+              "effects": {
+                "events": [
+                  "feather_9:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_10",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 10,
+      "act": 4,
+      "title": "À côté de la cage",
+      "text": "Tu rejoins enfin l'arrière de la cage. Lume se tourne vers ta voix et laisse retomber son aile. Les braconniers évoquent {revelation_actor} près du chariot. Tu peux déplacer un panneau pour créer un écran entre les gardiens et la porte, ou retirer une petite pièce du chariot afin d'empêcher son départ immédiat. Dans les deux cas, tu gardes une route de retour et évites de toucher au griffon tant qu'il n'est pas prêt. La cage possède une attache de secours, accessible du côté où tu te trouves. Tu observes la fermeture et l'espace où le battant s'ouvrira. Tout est presque prêt pour la délivrance ; il reste à gagner quelques instants sans transformer le camp en lieu de panique.\n\n{location_core}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "memory_ally",
+          "when": {
+            "ally": "companion"
+          },
+          "append": "{encounter_name} t'accompagne. Vous comparez vos observations et vérifiez le passage de retour. Cette présence permet de surveiller deux endroits à la fois."
+        },
+        {
+          "id": "memory_solo",
+          "when": {
+            "not": {
+              "ally": "companion"
+            }
+          },
+          "append": "{encounter_name} surveille le passage précédent et le retour. Tu avances sans aide immédiate, mais vous avez convenu d'un signal."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_10_0",
+          "text": "Placer un écran entre la porte et les gardiens",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le panneau masque l’ouverture. Tu peux préparer la cage sans rester à la vue du feu.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’écran tient, mais laisse un côté visible. Tu choisis un appui mieux placé près de la cage.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le panneau est trop lourd. Tu emploies une toile pour créer un abri plus petit.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_10_1",
+          "text": "Ralentir le chariot de transport sans l’endommager",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Tu retires sa cale de direction et bloques une roue. La cage ne pourra pas partir immédiatement.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La roue est bloquée, mais les porteurs pourraient la dégager. Tu prépares la suite sans tarder.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La pièce résiste. Tu mets des caisses sur le trajet pour ralentir un départ précipité.",
+              "next": "feather_11",
+              "effects": {
+                "events": [
+                  "feather_10:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_11",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 11,
+      "act": 4,
+      "title": "La fermeture de secours",
+      "text": "La porte arrière de la cage est retenue par une serrure, une corde et un crochet. Ton objet peut t'aider à libérer ces attaches. Tu dois ensuite soutenir le battant pour qu'il ne tombe pas devant Lume. Une autre méthode consiste à employer l'outil ordinaire trouvé dans la remise, en protégeant ta main des pointes du cadre. Le griffon suit ton geste du regard. Tu gardes ta voix calme et ne promets pas une sortie brusque. Si la serrure résiste encore, l'équipe pourra la démonter avec le dessin que tu as conservé. Tu choisis un geste précis, puis vérifies une dernière fois le trajet dégagé. La liberté de Lume commencera par une porte ouverte et un endroit où poser ses pattes.\n\n{item_climax}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_11_0",
+          "text": "{item_climax_action}",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Objet choisi et disponible",
+              "when": {
+                "any": [
+                  {
+                    "all": [
+                      {
+                        "item": "sword"
+                      },
+                      {
+                        "inventory": "sword"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "book"
+                      },
+                      {
+                        "inventory": "book"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "amulet"
+                      },
+                      {
+                        "inventory": "amulet"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "compass"
+                      },
+                      {
+                        "inventory": "compass"
+                      }
+                    ]
+                  },
+                  {
+                    "all": [
+                      {
+                        "item": "key"
+                      },
+                      {
+                        "inventory": "key"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "delta": 0.12
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "La porte s’ouvre. Tu la bloques pendant que Lume avance doucement hors de la cage.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Tu ouvres la porte, mais une attache reste serrée. Lume dispose déjà de plus d’espace pour attendre l’aide.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "La fermeture résiste. Tu dégages le cadre et prépares le démontage pour l’équipe qui approche.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_11_1",
+          "text": "Employer l’outil de la remise et soutenir la porte",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’outil libère le crochet. Lume peut sortir sans recevoir le poids du battant.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Le crochet cède à moitié. Tu maintiens la porte et prépares la dernière attache pour les aides.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "L’outil ne suffit pas. Tu retires les obstacles autour de la cage et notes la pièce à démonter.",
+              "next": "feather_12",
+              "effects": {
+                "events": [
+                  "feather_11:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_12",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 12,
+      "act": 4,
+      "title": "Rejoindre la mère de Lume",
+      "text": "La sortie préparée rejoint un espace où Lume pourra être aperçu depuis le ciel. Si sa cage reste encore attachée, le garde forestier connaît maintenant sa position et la pièce à démonter. Tu peux guider le griffon directement vers cette sortie ou préparer une étape dans un abri, le temps que l'équipe bloque les gardiens. Lume ne doit pas être forcé à courir avec une aile engourdie. Tu regardes les personnes qui approchent et le ciel au-dessus du camp. Les preuves empêchent {revelation_actor} de présenter la capture comme un simple transport d'animal. Tu choisis le trajet qui protégera le mieux la créature et les personnes qui l'aident. Le retour auprès des siens vaut mieux qu'une fuite rapide suivie d'un nouveau piège.\n\n{location_decision}",
+      "conditions": {},
+      "effects": {},
+      "variants": [
+        {
+          "id": "unstable_echo",
+          "when": {
+            "flag": "unstable"
+          },
+          "append": "Les difficultés précédentes t'ont coûté du temps. Tu vérifies ton équipement et reprends ton souffle. Tu peux encore accomplir la mission, mais il vaut mieux préparer un repli avant la prochaine tentative."
+        },
+        {
+          "id": "prepared_echo",
+          "when": {
+            "all": [
+              {
+                "flag": "prepared"
+              },
+              {
+                "not": {
+                  "flag": "unstable"
+                }
+              }
+            ]
+          },
+          "append": "Tes préparatifs précédents te donnent une avance utile. Tu as gardé tes affaires en ordre et laissé des repères sur le chemin. Tu peux consacrer un instant à observer la situation."
+        }
+      ],
+      "choices": [
+        {
+          "id": "feather_12_0",
+          "text": "Guider Lume vers l’espace dégagé",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le trajet est libre. Lume rejoint l’espace ouvert et sa mère le repère depuis le ciel.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Lume avance lentement. L’équipe ferme la route des gardiens pendant que tu le guides.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le passage direct est bloqué. Tu mets Lume à l’abri et guides l’équipe vers sa cage.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_12_1",
+          "text": "Passer par un abri pendant l’arrivée du garde forestier",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            },
+            {
+              "label": "Aide du compagnon",
+              "when": {
+                "ally": "companion"
+              },
+              "delta": 0.06
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "L’abri est calme. L’équipe sécurise le camp, puis accompagne Lume jusqu’à sa mère.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "L’abri protège Lume, mais le départ attend un peu. Les aides retirent les dernières attaches.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "unset_flags": [
+                  "unstable",
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier abri est occupé. Tu retrouves le refuge prévu et conduis le garde forestier jusqu’au griffon.",
+              "next": "$ending",
+              "effects": {
+                "events": [
+                  "feather_12:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_5b",
+      "arc": "feather",
+      "kind": "decision",
+      "rank": 5,
+      "act": 2,
+      "title": "La réserve des filets",
+      "text": "Le passage bas rejoint une réserve de filets et de cordes. {encounter_name} t'y attend après avoir reconnu le trajet du chariot. Vous pouvez prendre du matériel pour soutenir la porte de la cage, puis avancer ensemble. Tu peux aussi demander à cette personne de garder la réserve et d'indiquer le camp au garde forestier. Une porte étroite mène vers l'arrière de la cage. Vous vérifiez qu'elle reste ouverte et choisissez un signal. Tu regardes les filets sans les dérouler partout : Lume pourrait s'y prendre s'il passait ici. Vous libérez d'abord le sol. La réserve devient une étape utile pour la délivrance, plutôt qu'un nouveau piège sur le chemin du griffon.\n\n{encounter_story}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "choices": [
+        {
+          "id": "feather_5b_0",
+          "text": "Poursuivre ensemble avec les cordes utiles",
+          "base_success": 0.63,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "knight"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "keeper"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Vous rangez les filets. {encounter_name} t’accompagne avec une corde pour soutenir la porte.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "Vous avancez ensemble, mais un paquet gêne le passage. Vous le déplacez avant de poursuivre.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ],
+                "add_allies": [
+                  "companion"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le couloir est trop étroit à deux. {encounter_name} garde la réserve et tu rejoins la cage.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:0:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        },
+        {
+          "id": "feather_5b_1",
+          "text": "Faire guider l’équipe depuis la réserve",
+          "base_success": 0.66,
+          "complication_share": 0.3,
+          "modifiers": [
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "mage"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "rogue"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Formation du héros",
+              "when": {
+                "hero": "explorer"
+              },
+              "delta": 0.14
+            },
+            {
+              "label": "Repères préparés",
+              "when": {
+                "flag": "prepared"
+              },
+              "delta": 0.06
+            },
+            {
+              "label": "Instabilité précédente",
+              "when": {
+                "flag": "unstable"
+              },
+              "delta": -0.07
+            }
+          ],
+          "outcomes": {
+            "success": {
+              "text": "Le sol est dégagé et le retour surveillé. Tu continues avec un signal prévu pour l’équipe.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:success"
+                ],
+                "set_flags": [
+                  "prepared"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "complication": {
+              "text": "La réserve est prête, mais le message prendra du temps. Tu poursuis vers la cage.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:complication"
+                ],
+                "set_flags": [
+                  "strain"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            },
+            "failure": {
+              "text": "Le premier accès de l’équipe est bloqué. {encounter_name} cherche une route voisine pendant que tu avances.",
+              "next": "feather_6",
+              "effects": {
+                "events": [
+                  "feather_5b:1:failure"
+                ],
+                "set_flags": [
+                  "unstable"
+                ]
+              },
+              "audio_file": "audio/files/{segment_id}.wav"
+            }
+          }
+        }
+      ],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_secret",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La sortie oubliée",
+      "ending": "secret",
+      "text": "L'ancien passage découvert sur la carte permet de conduire Lume hors du camp sans traverser la zone surveillée. Le garde forestier termine les dernières attaches et bloque le transport des braconniers. Quand le griffon atteint l'espace dégagé, sa mère descend lentement et le touche du bec. Tu restes à distance pour ne pas interrompre leurs retrouvailles. Les preuves de la vente sont conservées afin d'empêcher une nouvelle capture. Tu récupères ensuite la petite plume laissée dans ta poche. Elle ne devient ni une clé ni un trésor magique : elle te rappelle simplement la piste suivie et la créature qui a retrouvé les siens. Au-dessus de toi, deux silhouettes ailées quittent le camp.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_alliance",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Un griffon et une équipe",
+      "ending": "alliance",
+      "text": "Avec {encounter_name}, tu aides le garde forestier à dégager la cage et à guider Lume. L'un surveille les gardiens tandis que l'autre maintient le passage. Le griffon rejoint un abri, puis l'espace où sa mère l'attend. Tu remets les papiers de la vente à l'équipe. Elle pourra poursuivre les braconniers sans perdre la route de leurs acheteurs. {encounter_name} te rejoint après avoir rangé les cordes. Vous racontez la sortie au village, en expliquant les gestes qui ont calmé Lume. Le garde forestier remercie chacun pour sa tâche. Tu ne demandes pas que le griffon reste auprès de toi : sa famille et les hauteurs l'attendent.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_radiant",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Deux ailes dans le ciel",
+      "ending": "radiant",
+      "text": "Lume retrouve sa mère dans un endroit dégagé. Son aile est un peu raide, mais le garde forestier vérifie qu'il peut marcher et repartir. La grande griffonne le protège de son aile avant de prendre de la hauteur. Le camp est sécurisé et les papiers permettent d'arrêter la vente. Tu observes le ciel jusqu'à ce que les deux créatures deviennent petites au-dessus des arbres. Le soir, les habitants te demandent si le griffon t'a offert un pouvoir. Tu leur racontes plutôt sa peur, les attaches de la cage et le chemin préparé pour sa sortie. Cette aventure t'a donné une chose plus simple : la joie de voir une créature rentrer chez elle.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_cost",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "Le repos avant le départ",
+      "ending": "cost",
+      "text": "Lume doit rester un moment dans un abri pendant que l'équipe démonte les attaches et vérifie son aile. Tu apportes les dessins et indiques les passages où les gardiens pourraient revenir. Les braconniers ne peuvent plus emporter leur prisonnier. Sa mère attend sur une hauteur, guidée par les signaux du garde forestier. Le lendemain, le jeune griffon est conduit dans un espace ouvert et retrouve les siens. Tu as dû demander de l'aide et ralentir plusieurs fois. Cela a permis de protéger Lume plutôt que de le faire courir avec une aile douloureuse. Les papiers de la vente sont conservés, et le garde forestier commence à retirer les autres pièges du secteur.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    },
+    {
+      "id": "feather_end_resilient",
+      "arc": "feather",
+      "kind": "ending",
+      "act": 5,
+      "rank": 13,
+      "title": "La cage ne partira pas",
+      "ending": "resilient",
+      "text": "Tu n'as pas pu terminer seul la délivrance, mais l'équipe connaît la cage, les attaches et le trajet du convoi. Le garde forestier arrive avec les outils nécessaires. Tu lui montres aussi l'endroit où Lume se calme quand on lui laisse de l'espace. Les adultes sécurisent le camp, puis démontent la fermeture. Le jeune griffon peut sortir et rejoindre sa mère après un court repos. Tu rends les documents qui permettront d'arrêter d'autres ventes. Tes essais manqués ont révélé les obstacles réels, au lieu de faire perdre toute la piste. Quand tu rentres au village, une plume tombe près du chemin. Tu la laisses dans l'herbe et regardes les ailes au-dessus des arbres.\n\n{location_departure}\n\n{item_epilogue}",
+      "conditions": {},
+      "effects": {},
+      "variants": [],
+      "audio_file": "audio/files/{segment_id}.wav"
+    }
+  ]
+}

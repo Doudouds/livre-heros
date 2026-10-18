@@ -1,0 +1,454 @@
+{
+  "id": "rain",
+  "title": "La Nuit des pluies suspendues",
+  "description": "Empêcher une catastrophe magique en donnant une issue à la pluie retenue au-dessus du royaume.",
+  "intro": "La pluie s'arrête avant de toucher le sol. Des milliers de gouttes restent suspendues au-dessus du royaume et dessinent un plafond brillant. Les enfants en touchent d'abord quelques-unes depuis les fenêtres, puis les adultes remarquent que le plafond descend lentement. Toute l'eau des nuages semble rejoindre ce même endroit. Un vieux relevé de météo indique que les conduits magiques de {location_name} peuvent répartir les averses entre les vallées. Ils n'ont pas servi depuis des années. Tu pars les retrouver pendant que les habitants mettent les récoltes et les animaux à l'abri. Il reste une nuit pour donner à cette pluie une issue qui n'emporte pas les chemins. La première goutte tombée dans ta main est chaude comme une pierre au soleil.",
+  "revelations": [
+    {
+      "id": "captain",
+      "actor": "la capitaine des nuages Ysilde",
+      "text": "Un relevé montre Ysilde, une capitaine qui a détourné une violente averse pour protéger des voyageurs dans les hauteurs. Elle a demandé au système de retenir l'eau pendant leur passage. Le signal de libération n'a pas rejoint les anciens conduits, et la retenue attire maintenant toutes les pluies voisines. Ysilde cherche une issue sûre. Tu peux l'aider à répartir l'eau plutôt qu'à la relâcher d'un seul coup."
+    },
+    {
+      "id": "gardener",
+      "actor": "le jardinier des pluies Daran",
+      "text": "Le relevé révèle Daran, un jardinier qui a semé des graines magiques pour arroser une vallée sèche. Les graines ont rejoint un ancien réseau et retiennent désormais la pluie de toute la région. Daran ne peut plus les arracher sans provoquer une chute brutale de l'eau. Il faut leur offrir plusieurs destinations et un rythme, comme à des racines qui auraient grandi trop vite."
+    },
+    {
+      "id": "spirit",
+      "actor": "l'esprit de l'averse",
+      "text": "Le relevé présente l'esprit de l'averse, qui suit un cycle très ancien. Il attend un signe d'accueil avant de donner l'eau aux vallées. Les habitants ont changé leurs calendriers, et le signe a été envoyé au mauvais jour. La pluie attend donc sans savoir où aller. Le problème peut se résoudre par un nouvel accueil, à condition que les conduits soient prêts à recevoir toute cette eau."
+    }
+  ],
+  "stages": [
+    {
+      "title": "Sous le plafond d'eau",
+      "text": "Le chemin brille sous les gouttes immobiles. Tu peux marcher entre elles, mais certains groupes se rapprochent lentement comme s'ils cherchaient un seul point de chute. Une rigole ancienne longe la route. Elle reste sèche, alors que le sol autour retient déjà l'humidité de l'air. Tu pourrais suivre cette rigole pour retrouver le réseau qui répartissait les pluies, ou examiner les groupes de gouttes afin de repérer ceux qui risquent de tomber d'abord. La rigole conduirait plus directement vers les mécanismes. Les gouttes donneraient une information utile aux habitants qui préparent les abris. Tu observes un intervalle assez large pour avancer sans les disperser, puis choisis la piste qui guidera ton arrivée dans le lieu.",
+      "choices": [
+        {
+          "text": "Retrouver le réseau en suivant la rigole ancienne",
+          "heroes": [
+            "explorer",
+            "rogue",
+            "knight"
+          ],
+          "results": [
+            "La rigole rejoint le lieu. Tu repères un passage lié aux anciens conduits.",
+            "Le trajet est clair, mais un groupe de gouttes descend près du retour.",
+            "La rigole s'interrompt. Une pente voisine indique néanmoins la direction du réseau."
+          ]
+        },
+        {
+          "text": "Observer les gouttes les plus proches de tomber",
+          "heroes": [
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Tu repères les groupes instables. Un signe laissé derrière toi aide les habitants.",
+            "Ton observation est utile, mais une goutte en attire d'autres autour du passage.",
+            "Les groupes changent trop vite. Leur mouvement indique quand même une entrée voisine."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La jauge oubliée",
+      "text": "Une jauge de pierre marque les niveaux de pluie que le lieu pouvait recevoir. Le trait supérieur correspond à une année entière, mais une aiguille mobile s'en approche déjà. Il reste pourtant des canaux secs. L'eau n'a pas trouvé leurs entrées ; elle attend au-dessus du royaume. À côté, des marques de couleur indiquent l'ordre dans lequel les conduits devaient s'ouvrir. Tu peux étudier la jauge pour mesurer la pression réelle, ou reconstituer cet ordre à partir des couleurs. La mesure t'aiderait à savoir quand agir sans transmettre une secousse. L'ordre montrerait comment distribuer la force entre les vallées. Tu ne cherches pas à retirer toute l'eau du ciel immédiatement. Tu cherches une manière de la faire passer sans la laisser se rassembler en un seul endroit.",
+      "choices": [
+        {
+          "text": "Mesurer la pression grâce à la jauge",
+          "heroes": [
+            "mage",
+            "explorer",
+            "keeper"
+          ],
+          "results": [
+            "La jauge révèle des pauses régulières. Tu pourras intervenir dans un intervalle stable.",
+            "La mesure est claire, mais l'aiguille transmet une vibration aux canaux voisins.",
+            "L'aiguille bloque. Les marques fixes donnent néanmoins une limite à respecter."
+          ]
+        },
+        {
+          "text": "Reconstituer l'ordre des conduits colorés",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les couleurs retrouvent leur ordre. Tu identifies le premier canal à préparer.",
+            "L'ordre apparaît, mais un ancien témoin se rallume et attire de l'eau.",
+            "Une couleur manque. Le relief des marques permet tout de même de poursuivre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le seuil de la retenue",
+      "text": "La porte suivante porte un cercle de signes humides. Aucun ne laisse tomber de goutte, mais ils gonflent à chaque pulsation de la jauge. Le seuil empêche d'entrer pendant une pression trop forte. Il attend un signal que les anciens régulateurs savaient donner. Ton objet réagit aux signes et peut chercher cet accord. Un passage d'entretien permet aussi de rejoindre l'intérieur en suivant une canalisation vide. La première option ouvrirait le seuil avec une compréhension utile pour la suite. La seconde éviterait de toucher tout de suite à la retenue, au prix d'un détour où les pulsations sont plus difficiles à voir. Tu écoutes le bruit très léger de l'eau qui n'est pas encore tombée. Le lieu garde sa force, mais il te laisse encore le temps d'une action préparée.",
+      "choices": [
+        {
+          "text": "{item_first_action}",
+          "heroes": [
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Le seuil reçoit un signal stable. Les signes s'écartent pour te laisser passer.",
+            "La porte s'ouvre, mais une pulsation plus forte rejoint les conduits intérieurs.",
+            "Le seuil refuse l'accord. Une ouverture de sécurité permet néanmoins ton passage."
+          ]
+        },
+        {
+          "text": "Passer par la canalisation d'entretien vide",
+          "heroes": [
+            "rogue",
+            "explorer",
+            "keeper"
+          ],
+          "results": [
+            "La canalisation reste sèche. Tu rejoins l'intérieur sans modifier la retenue.",
+            "Tu passes, mais un clapet déplacé change le mouvement d'une petite réserve.",
+            "La canalisation bloque. Son accès de service révèle une autre ouverture praticable."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Des abris ou des réserves",
+      "text": "Le réseau se sépare entre une galerie de réserves et un passage qui commande les abris. Les réserves contiennent de l'eau gardée pour les périodes sèches. Les abris permettent de détourner une partie d'une averse trop forte. Tu peux commencer par les réserves pour comprendre comment le lieu conserve et redistribue l'eau, ou par les abris pour protéger les chemins pendant ta réparation. La première voie aiderait à employer utilement la pluie retenue. La seconde donnerait une marge si quelque chose cède plus tôt que prévu. Les deux conduisent au centre du réseau, mais ne racontent pas la même priorité. Tu regardes les marques de niveau, puis décides quelle sécurité préparer avant de faire descendre le plafond d'eau qui brille encore au-dessus du royaume.",
+      "choices": [
+        {
+          "text": "Comprendre les réserves qui redistribuent l'eau",
+          "heroes": [
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Les réserves révèlent leur capacité. Tu peux éviter de remplir un seul bassin.",
+            "Tu comprends les volumes, mais une vanne ancienne laisse entrer quelques gouttes.",
+            "Les repères sont incomplets. Un conduit de trop-plein indique néanmoins la suite."
+          ]
+        },
+        {
+          "text": "Préparer les abris et les chemins de détour",
+          "heroes": [
+            "knight",
+            "keeper",
+            "rogue"
+          ],
+          "results": [
+            "Les abris sont reliés. Un détour reste disponible si une averse arrive trop tôt.",
+            "Les passages tiennent, mais un volet devra rester maintenu pendant la libération.",
+            "Un abri ne s'ouvre pas. Les autres offrent tout de même une route protégée."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Répartir les tâches avant la pluie",
+      "text": "Dans la galerie des réserves, tu trouves des bassins de tailles différentes. Chacun porte le nom d'une vallée et une marque de saison. {encounter_name} te rejoint et remarque qu'aucun bassin ne doit être rempli avant que le suivant soit prêt à recevoir son trop-plein. Votre aide peut se placer de deux manières : continuer ensemble pour vérifier les réglages, ou garder ici une surveillance des niveaux pendant ton avancée vers le centre. Le réseau ne demande pas un geste héroïque isolé. Il demande que des endroits différents restent capables de se répondre. Tu expliques les signes que tu as déjà compris, puis écoutes l'observation de {encounter_name}. Vous choisissez un rôle clair, avec un signal si le niveau change avant ton arrivée au dispositif principal.",
+      "choices": [
+        {
+          "text": "Continuer ensemble pour vérifier les réglages",
+          "heroes": [
+            "keeper",
+            "mage",
+            "knight"
+          ],
+          "results": [
+            "Vos vérifications se complètent. {encounter_name} vient avec toi jusqu'au centre.",
+            "Vous préparez les réglages, mais une réserve exige une surveillance supplémentaire.",
+            "Les niveaux restent difficiles à lire. {encounter_name} demeure ici pour les observer."
+          ]
+        },
+        {
+          "text": "Confier la surveillance des niveaux à {encounter_name}",
+          "heroes": [
+            "explorer",
+            "rogue"
+          ],
+          "results": [
+            "Les niveaux sont surveillés. Tu peux avancer avec un signal fiable derrière toi.",
+            "La surveillance fonctionne, mais le signal devra traverser un conduit presque fermé.",
+            "Le signal direct ne porte pas. Vous convenez d'un témoin lumineux de remplacement."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La pluie qui nourrissait les vallées",
+      "text": "Un registre de saisons raconte les usages du réseau. L'eau était répartie entre champs, forêts et réserves, puis les habitants envoyaient un signe lorsque chacun avait reçu assez. Une page cachée décrit une quatrième destination : une vallée presque oubliée, qui pouvait accueillir les pluies exceptionnelles sans habitation sur leur passage. Tu peux étudier cette destination pour retrouver une issue supplémentaire, ou reconstruire les besoins actuels à partir des marques des autres vallées. La page cachée offrirait un secret utile en cas de pression trop forte. Les besoins actuels permettraient de distribuer l'eau avec plus de justesse. Tu remarques que les anciens régulateurs ne cherchaient pas à faire disparaître la pluie. Ils cherchaient à lui donner des endroits où elle devenait une aide.",
+      "choices": [
+        {
+          "text": "Retrouver la vallée des pluies exceptionnelles",
+          "heroes": [
+            "explorer",
+            "mage",
+            "rogue"
+          ],
+          "flag": "secret",
+          "results": [
+            "La page révèle un conduit oublié. Une issue supplémentaire devient possible.",
+            "Tu repères la vallée, mais son conduit demande encore une vérification.",
+            "La page manque de détails. Une direction reste assez claire pour la suite."
+          ]
+        },
+        {
+          "text": "Comprendre les besoins actuels des vallées",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Les besoins se distinguent. Tu peux distribuer l'eau sans surcharger un seul lieu.",
+            "La répartition est claire, mais une réserve devra recevoir son eau plus tard.",
+            "Des marques manquent. Les besoins essentiels restent néanmoins reconnaissables."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le canal qui ne reçoit plus rien",
+      "text": "Un canal central reste vide tandis que ses voisins vibrent. Deux marques lumineuses devraient relier son entrée à la retenue du ciel, mais la liaison ne se forme plus. Ton objet peut retrouver le lien invisible qui indique où le signal s'est interrompu. Tu peux aussi remettre en état les petites sorties latérales destinées à répartir une pression excessive. La première méthode te donnera une route directe vers la cause du blocage. La seconde protégera le réseau contre les secousses accumulées depuis le début de l'aventure. Tu vois une goutte monter au lieu de tomber. Elle revient vers le plafond parce qu'aucun passage ne l'accueille correctement. Tu dois créer une possibilité stable, avant de demander à beaucoup d'eau de l'emprunter en même temps.",
+      "choices": [
+        {
+          "text": "{item_second_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "La liaison apparaît. Tu retrouves le trajet du signal jusqu'à la retenue.",
+            "Le lien revient, mais une pulsation d'eau se reporte dans les canaux voisins.",
+            "La liaison résiste. Une goutte lumineuse indique néanmoins la direction du centre."
+          ]
+        },
+        {
+          "text": "Rétablir les sorties qui répartissent la pression",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les sorties fonctionnent. Les canaux retrouvent une marge avant la prochaine pulsation.",
+            "La pression diminue, mais une sortie restera à surveiller pendant la pluie.",
+            "Une sortie bloque. Les autres dégagent assez de force pour poursuivre."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le temps d'une respiration",
+      "text": "Le plafond d'eau descend encore, mais plus lentement près des conduits que tu as compris. Tu peux préparer une mesure de pression depuis un balcon, ou ouvrir un circuit de sécurité avant d'entrer au centre. La mesure te permettra de choisir le moment où la retenue peut se relâcher sans secousse trop forte. Le circuit réduira les conséquences si ce moment est manqué. Tu ne disposes pas d'une certitude parfaite. Tu disposes de repères que ton aventure a rendus plus clairs. En regardant les gouttes, tu remarques qu'elles ne bougent pas toutes ensemble : certaines attendent une réponse des vallées. Ta formation te rappelle une manière d'organiser l'action et de garder une issue, même lorsque la force devant toi paraît beaucoup plus grande que ton propre geste.",
+      "choices": [
+        {
+          "text": "Mesurer le bon moment depuis le balcon",
+          "heroes": [
+            "explorer",
+            "mage",
+            "keeper"
+          ],
+          "results": [
+            "Tu repères la pause de pression. Le prochain geste pourra suivre ce rythme.",
+            "La mesure est utile, mais une goutte déforme un témoin près du balcon.",
+            "Le témoin se brouille. Les pulsations du canal te donnent un intervalle de secours."
+          ]
+        },
+        {
+          "text": "Préparer un circuit de sécurité avant l'ouverture",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "repair": true,
+          "results": [
+            "Le circuit est prêt. Une secousse pourra se répartir sans gagner tous les chemins.",
+            "Le circuit apaise le réseau, mais il faudra le refermer après la libération.",
+            "Le circuit reste partiel. Il protège néanmoins les premiers passages vers les abris."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La pluie attend une réponse",
+      "text": "Un relevé central montre le moment où la pluie a cessé de tomber. Tu y vois le signal de retenue, puis l'espace laissé vide par la réponse qui aurait dû le suivre. Le problème n'est pas une eau devenue hostile. C'est une force utile à laquelle on n'a pas donné d'issue. Tu peux envoyer un signe d'accueil pour annoncer que les vallées se préparent, ou transmettre d'abord les limites des conduits pour que la retenue sache combien libérer. Le premier signal réduirait l'attente. Le second rendrait la distribution plus précise. Tu regardes les relevés, puis les gouttes qui brillent près de la fenêtre. Leur immobilité a fini par sembler naturelle. Pourtant, leur place est dans les sols, les sources et les chemins d'eau que les habitants ont commencé à préparer.",
+      "choices": [
+        {
+          "text": "Annoncer que les vallées se préparent à accueillir l'eau",
+          "heroes": [
+            "keeper",
+            "knight"
+          ],
+          "results": [
+            "Le signal est reçu. La pluie cesse d'attirer les nuages voisins.",
+            "L'accueil porte, mais une première averse attendra près des conduits.",
+            "Le signal reste incomplet. La retenue ralentit néanmoins assez pour poursuivre."
+          ]
+        },
+        {
+          "text": "Transmettre les limites du réseau avant la libération",
+          "heroes": [
+            "mage",
+            "rogue",
+            "explorer"
+          ],
+          "results": [
+            "Les limites sont reconnues. La retenue peut répartir sa force avec davantage de précision.",
+            "La mesure fonctionne, mais un canal réclame une marge plus grande.",
+            "Les limites sont mal reçues. Un réglage réduit reste possible pour les premiers conduits."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Une issue pour toute cette eau",
+      "text": "Tu rencontres {revelation_actor} près du dispositif central. La personne ou la présence reconnaît les signaux que tu as retrouvés et comprend pourquoi la retenue ne peut plus continuer. Deux solutions peuvent ouvrir la nuit : répartir la pluie selon les besoins des vallées, ou employer d'abord les voies de sécurité pour réduire la pression avant une distribution plus fine. La première utiliserait mieux l'eau, mais exige une coordination précise. La seconde donnera une marge immédiate, au prix d'une partie de la pluie dirigée vers des sols qui en ont moins besoin. Tu n'as pas à choisir entre tout sauver parfaitement et tout abandonner. Tu choisis une méthode capable de protéger les chemins, puis de rendre l'eau utile autant que les réglages le permettront.",
+      "choices": [
+        {
+          "text": "Distribuer la pluie selon les besoins des vallées",
+          "heroes": [
+            "keeper",
+            "mage",
+            "explorer"
+          ],
+          "results": [
+            "Les besoins trouvent leurs conduits. Le réseau accepte une répartition utile de la pluie.",
+            "La distribution fonctionne, mais une vallée recevra son eau en deux étapes.",
+            "La coordination reste fragile. Vous préparez une distribution limitée aux premières vallées."
+          ]
+        },
+        {
+          "text": "Réduire d'abord la pression par les voies de sécurité",
+          "heroes": [
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "Les voies libèrent une marge. La retenue peut maintenant être ouverte sans précipitation.",
+            "La pression baisse, mais une partie de l'eau demandera ensuite un nouveau trajet.",
+            "Une voie résiste. Les autres dégagent assez de marge pour une ouverture progressive."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Le geste qui donne une direction",
+      "text": "Deux marques restent séparées : celle de l'eau retenue et celle des canaux qui l'attendent. Ton objet répond à leur langage comme aux premiers seuils du réseau. Tu peux établir une liaison précise pour donner à la pluie sa direction. Une autre méthode consiste à relier les marques par les témoins de niveau autour de la salle, afin que chaque canal confirme sa capacité avant de recevoir l'eau. La liaison directe serait plus rapide. Les témoins offriraient une réponse répartie, avec davantage de contrôle. Tu observes le plafond brillant au-delà de la fenêtre. Il ne disparaîtra pas parce que tu en auras eu le courage. Il changera parce qu'un geste assez clair permettra à cette force immense d'emprunter des chemins préparés pour elle.",
+      "choices": [
+        {
+          "text": "{item_climax_action}",
+          "heroes": [
+            "mage",
+            "rogue"
+          ],
+          "results": [
+            "L'eau reconnaît sa direction. La retenue se relie aux canaux préparés.",
+            "La liaison tient, mais une pulsation supplémentaire devra traverser le circuit de sécurité.",
+            "Le lien direct se défait. Les témoins gardent une possibilité d'ouverture plus lente."
+          ]
+        },
+        {
+          "text": "Relier les marques par les témoins de niveau",
+          "heroes": [
+            "knight",
+            "keeper",
+            "explorer"
+          ],
+          "results": [
+            "Les témoins répondent ensemble. Chaque canal peut recevoir une part mesurée de pluie.",
+            "La liaison fonctionne, mais un témoin impose de ralentir l'une des averses.",
+            "Un témoin reste muet. Les autres permettent d'ouvrir les premières voies sûres."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "La première goutte qui tombe",
+      "text": "La nuit touche à sa fin. Une goutte descend enfin jusqu'au sol, puis une seconde reste suspendue comme si elle attendait la décision suivante. Tu peux ouvrir la liaison centrale pour lancer rapidement la distribution, ou faire passer la pluie par les relais préparés afin que les vallées répondent l'une après l'autre. La première méthode libérerait vite le poids accumulé dans le ciel. La seconde ménagerait le réseau et les chemins qui portent encore les traces des difficultés. {revelation_actor} accepte de surveiller la retenue pendant ton dernier geste. Les habitants, au loin, ont allumé des lampes près des abris et des canaux. Tu ne les vois pas tous, mais leurs signaux montrent qu'ils sont prêts à recevoir une réponse. Tu choisis comment transformer ce plafond inquiétant en une pluie que l'on peut accompagner.",
+      "choices": [
+        {
+          "text": "Ouvrir la distribution depuis la liaison centrale",
+          "heroes": [
+            "mage",
+            "knight",
+            "rogue"
+          ],
+          "results": [
+            "La pluie retrouve ses chemins. Le plafond d'eau se défait en averses réparties.",
+            "Les averses commencent, mais un passage devra rester fermé jusqu'à la baisse du niveau.",
+            "L'ouverture centrale résiste. Vous conservez une distribution réduite pendant les derniers réglages."
+          ]
+        },
+        {
+          "text": "Libérer la pluie par les relais des vallées",
+          "heroes": [
+            "keeper",
+            "explorer"
+          ],
+          "repair": true,
+          "results": [
+            "Les vallées se répondent. L'eau descend sans se rassembler sur une seule route.",
+            "La pluie se répartit lentement. Certaines averses attendront encore la journée suivante.",
+            "Quelques relais restent fermés. Les premières vallées reçoivent assez d'eau pour alléger la retenue."
+          ]
+        }
+      ]
+    }
+  ],
+  "branch": {
+    "title": "Les passages à garder secs",
+    "text": "Le chemin des abris mène à une salle où des volets dirigent l'eau loin des routes habitées. Aucun ne fonctionne tout seul : il faut surveiller les niveaux des deux côtés. {encounter_name} te rejoint et propose de garder cette veille pendant ton avancée. {encounter_name} pourrait aussi venir au centre pour aider à lire les signaux, si tu prépares ici des repères assez clairs. Les deux tâches comptent autant. Tu observes les premières gouttes prises dans les volets et comprends qu'un abri ne sert pas seulement à attendre. Il peut donner à une force un autre chemin, à condition de ne pas l'envoyer vers quelqu'un d'autre sans prévenir. Vous convenez d'un signal pour les passages encore ouverts, puis tu choisis où placer l'aide disponible.",
+    "choices": [
+      {
+        "text": "Préparer les repères et continuer ensemble",
+        "heroes": [
+          "keeper",
+          "mage",
+          "explorer"
+        ],
+        "results": [
+          "Les repères sont clairs. {encounter_name} vient lire les signaux avec toi.",
+          "Vous préparez l'aide, mais un volet demande une surveillance que le repère ne remplace pas.",
+          "Les repères restent incertains. {encounter_name} demeure ici pour surveiller les niveaux."
+        ]
+      },
+      {
+        "text": "Confier la veille des abris à {encounter_name}",
+        "heroes": [
+          "knight",
+          "rogue"
+        ],
+        "results": [
+          "Les abris sont surveillés. Tu peux rejoindre le centre sans fermer leur route.",
+          "La veille fonctionne, mais un volet devra être maintenu lors de la première averse.",
+          "Un accès devient humide. Vous gardez une autre voie protégée pour les habitants."
+        ]
+      }
+    ]
+  },
+  "endings": {
+    "secret": {
+      "title": "La vallée qui attendait la pluie",
+      "text": "Le conduit oublié offre une issue supplémentaire à l'eau retenue. Tu rapportes sa place et sa règle d'usage, pour qu'il ne disparaisse plus des relevés. Une vallée sèche reçoit une pluie lente que personne n'avait prévue, tandis que les chemins habités restent sous surveillance. Les habitants découvrent qu'un ancien secours peut aussi devenir une ressource. Tout le réseau demandera encore de l'entretien, mais le royaume dispose d'une voie qu'il croyait perdue. Au matin, les premières pousses se redressent dans un sol qui n'avait pas bu depuis longtemps."
+    },
+    "alliance": {
+      "title": "La pluie que l'on accompagne",
+      "text": "L'aide de {encounter_name} permet de garder plusieurs signaux visibles pendant la libération. Vous ne contrôlez pas chaque goutte, mais vous donnez aux habitants le temps d'accompagner les averses et de protéger les passages fragiles. À votre retour, des équipes prennent le relais près des canaux. {encounter_name} montre les témoins qui ont guidé votre intervention. Tu regardes le ciel redevenir profond. Il a fallu des gestes modestes dans plusieurs endroits pour changer la direction d'une force immense. Les premières gouttes ordinaires semblent presque nouvelles sur tes mains."
+    },
+    "radiant": {
+      "title": "Un matin sous la pluie",
+      "text": "Le plafond d'eau se défait sans emporter les chemins. Les averses trouvent leurs vallées et les réserves retrouvent des niveaux utiles. Tu racontes la cause de la retenue et les signaux qui permettent désormais de l'éviter. Le conseil remet le réseau en service, avec une veille à chaque saison. Au matin, les habitants sortent des abris sous une pluie ordinaire. Personne ne la trouve ordinaire tout de suite. Tu lèves la main et laisses plusieurs gouttes y tomber. Elles ne portent plus tout le poids d'une catastrophe ; elles ne font que mouiller ta peau."
+    },
+    "cost": {
+      "title": "Les canaux du lendemain",
+      "text": "La retenue baisse assez pour que les chemins ne soient plus menacés, mais plusieurs averses attendront encore leurs réglages. Tu rapportes les niveaux à surveiller et les passages fragiles. Les habitants organisent des veilles et des réparations, sans confondre urgence et précipitation. Une route restera fermée un moment ; une vallée recevra son eau plus tard. Ces conséquences sont visibles, mais elles ont une solution. Tu regardes les premières lampes s'éteindre au bord des abris. La nuit difficile a laissé du travail. Elle a aussi rendu au royaume un matin qu'il peut préparer."
+    },
+    "resilient": {
+      "title": "Assez d'espace pour le matin",
+      "text": "Tu n'as pas libéré toute la pluie, mais les premières voies sûres allègent le ciel et donnent du temps aux habitants. Le plafond ne descend plus comme avant. Tu reviens avec la cause du blocage, les niveaux utiles et une méthode pour poursuivre sans tout relâcher. Une équipe peut prendre la suite avec des informations précises. Tu restes près du premier canal lorsqu'une averse courte commence enfin. Elle ne résout pas tout, mais elle prouve qu'un chemin existe. Le royaume peut travailler à sa sécurité au lieu d'attendre sans réponse."
+    }
+  }
+}

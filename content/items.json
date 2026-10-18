@@ -1,0 +1,67 @@
+[
+  {
+    "id": "sword",
+    "label": "Une épée enchantée",
+    "name": "l'épée enchantée",
+    "appearance": "Le forgeron te prête une épée courte dont la lame luit faiblement près des enchantements. Elle peut couper une corde ou détourner un sort léger.",
+    "first": "Tu prends le temps d'examiner l'obstacle avant de sortir ton épée. Une lame peut dégager un passage, mais elle ne remplace pas la prudence. Tu repères un appui solide et vérifies qu'il restera assez de place pour reculer après ton geste.",
+    "first_action": "Employer ton épée pour dégager le passage",
+    "second": "La garde de ton épée est assez solide pour servir d'appui. Sa faible lumière t'aide aussi à voir les détails proches. Tu cherches une utilisation précise de l'arme, sans frapper au hasard. Une action bien préparée protégera mieux les autres qu'un grand coup spectaculaire.",
+    "second_action": "Utiliser ton épée pour préparer une ouverture",
+    "climax": "Ton épée reste à portée de main. Tu observes la partie sur laquelle intervenir et l'espace autour de toi. Si tu décides de l'employer, tu devras garder ton équilibre et surveiller ce qui pourrait tomber. Tu sais qu'une seconde méthode reste possible si la lame ne suffit pas.",
+    "climax_action": "Intervenir avec ton épée enchantée",
+    "epilogue": "De retour chez toi, tu nettoies la lame et ranges l'épée dans son fourreau. Le forgeron écoute ton récit avant de vérifier sa garde. Il sourit surtout en apprenant les moments où tu as trouvé une solution sans combattre."
+  },
+  {
+    "id": "book",
+    "label": "Un livre de sorts",
+    "name": "le livre de sorts",
+    "appearance": "La magicienne du village te confie un petit livre. Trois rubans marquent des formules pour éclairer, desserrer une attache et protéger brièvement. Tu peux les lire sans être un grand mage, à condition de suivre les instructions.",
+    "first": "Tu ouvres le livre à la page indiquée par le premier ruban. La formule est courte, mais les instructions conseillent d'agir sur un seul obstacle à la fois. Tu lis les mots en silence et observes le passage. Tu gardes les autres pages fermées pour éviter de te distraire.",
+    "first_action": "Lire la formule qui ouvre un passage",
+    "second": "Le deuxième ruban indique une formule destinée aux attaches. Elle fonctionne mieux quand on voit exactement ce que l'on veut desserrer. Tu relis l'avertissement écrit en marge : ne jamais libérer une chose lourde sans préparer un appui. Tu gardes cette précaution en tête avant de décider.",
+    "second_action": "Lire la formule qui desserre les attaches",
+    "climax": "La dernière page marquée offre une protection brève. Le sort donne du temps pour agir ; il ne règle pas tout à lui seul. Tu places le livre là où tu pourras le lire sans perdre de vue la situation. Tu sais quel geste devra suivre les mots.",
+    "climax_action": "Lire la formule de protection",
+    "epilogue": "Tu rends le livre avec quelques coins de pages un peu usés. La magicienne te demande quelles instructions t'ont été utiles. Vous notez tes observations dans la marge, sans ajouter de formule inventée au hasard."
+  },
+  {
+    "id": "amulet",
+    "label": "Une amulette protectrice",
+    "name": "l'amulette protectrice",
+    "appearance": "Une voyageuse te donne une amulette qu'elle a reçue autrefois d'une fée. Pendant quelques instants, elle peut former un petit bouclier autour de ta main ou de ton épaule. Elle ne rend pas invincible.",
+    "first": "Tu sens l'amulette tiédir dans ta paume. Son bouclier ne dure que le temps de quelques respirations. Il faut donc choisir un geste simple et préparer la suite avant de l'activer. Tu regardes où placer ta main et où te mettre à l'abri après avoir franchi l'obstacle.",
+    "first_action": "Activer la protection de ton amulette",
+    "second": "Ton amulette peut protéger une main pendant une intervention délicate. Tu prends le temps de dégager l'espace et de prévoir ce qui bougera quand tu auras terminé. La magie te donne une petite marge ; la solidité de ton appui et ton attention feront le reste du travail.",
+    "second_action": "Protéger ta main avant de dégager l'attache",
+    "climax": "Tu tiens l'amulette sans encore l'activer. Sa protection sera plus utile au moment exact où tu devras t'exposer. Tu décides d'abord quel geste accomplir et quel abri rejoindre ensuite. Tu pourras demander de l'aide ou employer une autre méthode si le bouclier s'éteint trop tôt.",
+    "climax_action": "Employer le bouclier pour accomplir le dernier geste",
+    "epilogue": "L'amulette refroidit pendant le retour. Tu la ranges dans une petite boîte, près de tes souvenirs de voyage. Elle ne porte aucune marque extraordinaire, mais tu sais ce qu'elle t'a permis d'essayer."
+  },
+  {
+    "id": "compass",
+    "label": "Une boussole magique",
+    "name": "la boussole magique",
+    "appearance": "Le cartographe te prête une boussole dont l'aiguille peut chercher un lieu ou un objet clairement nommé. Elle indique une direction, sans connaître tous les dangers du chemin.",
+    "first": "Tu formules précisément ce que tu veux trouver avant d'ouvrir ta boussole. L'aiguille indique une direction, mais une ligne droite peut traverser un mur ou un ravin. Tu compares sa réponse aux passages visibles. C'est à toi de choisir une route praticable pour rejoindre le bon endroit.",
+    "first_action": "Chercher le bon passage avec la boussole",
+    "second": "La boussole se stabilise quand tu nommes ton objectif. Elle confirme une direction que tu dois maintenant relier au terrain. Tu observes les escaliers, les portes et les abris. Tu peux suivre son indication ou t'en servir pour vérifier un détour qui semble plus sûr à première vue.",
+    "second_action": "Localiser le mécanisme utile avec la boussole",
+    "climax": "Tu demandes à la boussole de chercher ce qui aidera la dernière étape. L'aiguille te guide vers un point précis. Tu gardes cependant les yeux sur le terrain : la magie ne sait pas si une planche résiste ou si une porte est surveillée. Tu prépares ton geste comme un voyageur attentif.",
+    "climax_action": "Suivre la boussole vers la dernière ouverture",
+    "epilogue": "Le cartographe récupère sa boussole et t'offre un carnet de voyage. Tu y dessines les routes vraiment parcourues, avec les passages faciles et les obstacles. L'aiguille indiquait un but ; tes notes expliqueront comment l'atteindre."
+  },
+  {
+    "id": "key",
+    "label": "Une clé ancienne",
+    "name": "la clé ancienne",
+    "appearance": "Le portier te confie une clé trouvée dans les affaires d'une ancienne fée. Elle peut s'adapter à certains verrous, à condition de prendre le temps de trouver le bon sens. Elle n'ouvre pas tous les passages.",
+    "first": "Tu approches la clé du verrou sans la forcer. Ses dents changent légèrement de forme lorsqu'elles rencontrent une serrure ancienne. Tu vérifies d'abord ce qui retient la porte. Un loquet ajouté récemment pourrait rester fermé même après le travail de la clé. Tu gardes une autre route en vue.",
+    "first_action": "Essayer la clé sur le verrou du passage",
+    "second": "La clé ancienne réagit au métal proche. Tu observes le trou de serrure et le mécanisme autour. Il faut parfois soutenir une porte ou déplacer un crochet avant de tourner. Tu prends le temps de comprendre l'attache pour éviter qu'une ouverture réussie entraîne une chute imprévue.",
+    "second_action": "Ouvrir l'attache avec la clé ancienne",
+    "climax": "Tu gardes la clé prête pour la dernière serrure. Ses dents brillent faiblement, mais elle réclame encore ta patience. Tu cherches le verrou qui commande réellement l'ouverture et vérifies ce qui se trouve derrière. Le bon outil peut aider beaucoup, à condition de servir au bon endroit.",
+    "climax_action": "Déverrouiller la dernière ouverture avec la clé",
+    "epilogue": "Tu rapportes la clé au portier. Vous examinez les petites rayures laissées par les serrures de l'aventure. Il te propose de raconter leur usage dans son registre. La clé retourne ensuite à son crochet, prête pour une prochaine mission."
+  }
+]

@@ -1,0 +1,539 @@
+{
+  "scope": "Chapitre 1 seulement — relecture éditoriale manuelle de toutes les formes écrites",
+  "passages_reviewed": 28,
+  "scene_variants_reviewed": 49,
+  "choice_consequences_reviewed": 54,
+  "conditional_consequences_reviewed": 5,
+  "edited_passages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "edits": [
+    {
+      "passage": 1,
+      "part": "narration"
+    },
+    {
+      "passage": 1,
+      "part": "choix 1"
+    },
+    {
+      "passage": 1,
+      "part": "choix 2"
+    },
+    {
+      "passage": 2,
+      "part": "matin_calme"
+    },
+    {
+      "passage": 2,
+      "part": "choix 1"
+    },
+    {
+      "passage": 2,
+      "part": "choix 2"
+    },
+    {
+      "passage": 3,
+      "part": "narration"
+    },
+    {
+      "passage": 3,
+      "part": "narration"
+    },
+    {
+      "passage": 3,
+      "part": "file_pres_des_roues"
+    },
+    {
+      "passage": 3,
+      "part": "choix 1"
+    },
+    {
+      "passage": 3,
+      "part": "choix 2"
+    },
+    {
+      "passage": 4,
+      "part": "narration"
+    },
+    {
+      "passage": 4,
+      "part": "choix 1"
+    },
+    {
+      "passage": 4,
+      "part": "choix 2"
+    },
+    {
+      "passage": 5,
+      "part": "narration"
+    },
+    {
+      "passage": 5,
+      "part": "narration"
+    },
+    {
+      "passage": 5,
+      "part": "narration"
+    },
+    {
+      "passage": 5,
+      "part": "choix 1"
+    },
+    {
+      "passage": 5,
+      "part": "choix 2"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "bonne_appreciation"
+    },
+    {
+      "passage": 6,
+      "part": "choix 1"
+    },
+    {
+      "passage": 6,
+      "part": "choix 2"
+    },
+    {
+      "passage": 7,
+      "part": "repas"
+    },
+    {
+      "passage": 7,
+      "part": "repas_apres_remontrance"
+    },
+    {
+      "passage": 8,
+      "part": "narration"
+    },
+    {
+      "passage": 8,
+      "part": "fatigue"
+    },
+    {
+      "passage": 8,
+      "part": "premiere_nuit_reposee"
+    },
+    {
+      "passage": 8,
+      "part": "choix 2"
+    },
+    {
+      "passage": 9,
+      "part": "narration"
+    },
+    {
+      "passage": 9,
+      "part": "narration"
+    },
+    {
+      "passage": 9,
+      "part": "choix 1"
+    },
+    {
+      "passage": 9,
+      "part": "choix 2"
+    },
+    {
+      "passage": 10,
+      "part": "narration"
+    },
+    {
+      "passage": 10,
+      "part": "narration"
+    },
+    {
+      "passage": 10,
+      "part": "choix 2"
+    },
+    {
+      "passage": 11,
+      "part": "narration"
+    },
+    {
+      "passage": 11,
+      "part": "narration"
+    },
+    {
+      "passage": 11,
+      "part": "narration"
+    },
+    {
+      "passage": 11,
+      "part": "narration"
+    },
+    {
+      "passage": 11,
+      "part": "echo_du_retour"
+    },
+    {
+      "passage": 11,
+      "part": "choix 2"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "travail"
+    },
+    {
+      "passage": 12,
+      "part": "travail_main_eraflee"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "ronde_reconnue"
+    },
+    {
+      "passage": 13,
+      "part": "narration"
+    },
+    {
+      "passage": 13,
+      "part": "narration"
+    },
+    {
+      "passage": 13,
+      "part": "recul_a_decouvert"
+    },
+    {
+      "passage": 14,
+      "part": "narration"
+    },
+    {
+      "passage": 14,
+      "part": "narration"
+    },
+    {
+      "passage": 14,
+      "part": "narration"
+    },
+    {
+      "passage": 14,
+      "part": "choix 1"
+    },
+    {
+      "passage": 15,
+      "part": "narration"
+    },
+    {
+      "passage": 15,
+      "part": "narration"
+    },
+    {
+      "passage": 15,
+      "part": "narration"
+    },
+    {
+      "passage": 15,
+      "part": "narration"
+    },
+    {
+      "passage": 15,
+      "part": "narration"
+    },
+    {
+      "passage": 15,
+      "part": "choix 1"
+    },
+    {
+      "passage": 15,
+      "part": "choix 2"
+    },
+    {
+      "passage": 16,
+      "part": "narration"
+    },
+    {
+      "passage": 16,
+      "part": "narration"
+    },
+    {
+      "passage": 17,
+      "part": "narration"
+    },
+    {
+      "passage": 17,
+      "part": "narration"
+    },
+    {
+      "passage": 17,
+      "part": "narration"
+    },
+    {
+      "passage": 17,
+      "part": "narration"
+    },
+    {
+      "passage": 18,
+      "part": "narration"
+    },
+    {
+      "passage": 18,
+      "part": "choix 2"
+    },
+    {
+      "passage": 19,
+      "part": "narration"
+    },
+    {
+      "passage": 20,
+      "part": "narration"
+    },
+    {
+      "passage": 20,
+      "part": "cave_entree_prudente"
+    },
+    {
+      "passage": 20,
+      "part": "cave_entree_inquiete"
+    },
+    {
+      "passage": 21,
+      "part": "narration"
+    },
+    {
+      "passage": 21,
+      "part": "malaise_apres_recherche"
+    },
+    {
+      "passage": 21,
+      "part": "choix 1"
+    },
+    {
+      "passage": 22,
+      "part": "narration"
+    },
+    {
+      "passage": 22,
+      "part": "narration"
+    },
+    {
+      "passage": 22,
+      "part": "patrouille"
+    },
+    {
+      "passage": 22,
+      "part": "mouvement_connu"
+    },
+    {
+      "passage": 22,
+      "part": "choix 1"
+    },
+    {
+      "passage": 22,
+      "part": "choix 2"
+    },
+    {
+      "passage": 23,
+      "part": "narration"
+    },
+    {
+      "passage": 23,
+      "part": "narration"
+    },
+    {
+      "passage": 24,
+      "part": "narration"
+    },
+    {
+      "passage": 24,
+      "part": "narration"
+    },
+    {
+      "passage": 24,
+      "part": "narration"
+    },
+    {
+      "passage": 24,
+      "part": "bras_apres_effort"
+    },
+    {
+      "passage": 25,
+      "part": "narration"
+    },
+    {
+      "passage": 25,
+      "part": "narration"
+    },
+    {
+      "passage": 25,
+      "part": "narration"
+    },
+    {
+      "passage": 25,
+      "part": "attente_apres_reperage"
+    },
+    {
+      "passage": 26,
+      "part": "narration"
+    },
+    {
+      "passage": 26,
+      "part": "jambe"
+    },
+    {
+      "passage": 26,
+      "part": "narration"
+    },
+    {
+      "passage": 26,
+      "part": "choix 1"
+    },
+    {
+      "passage": 27,
+      "part": "narration"
+    },
+    {
+      "passage": 27,
+      "part": "narration"
+    },
+    {
+      "passage": 27,
+      "part": "choix 1"
+    },
+    {
+      "passage": 27,
+      "part": "choix 2"
+    },
+    {
+      "passage": 28,
+      "part": "courant"
+    },
+    {
+      "passage": 28,
+      "part": "narration"
+    },
+    {
+      "passage": 28,
+      "part": "sortie_bras_vides"
+    },
+    {
+      "passage": 28,
+      "part": "sortie_prise_conservee"
+    },
+    {
+      "passage": 5,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 6,
+      "part": "bonne_appreciation"
+    },
+    {
+      "passage": 6,
+      "part": "choix 1"
+    },
+    {
+      "passage": 9,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 13,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 14,
+      "part": "choix 2"
+    },
+    {
+      "passage": 15,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 16,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 17,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 19,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 22,
+      "part": "mouvement_connu"
+    },
+    {
+      "passage": 22,
+      "part": "choix 2"
+    },
+    {
+      "passage": 25,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 28,
+      "part": "courant"
+    },
+    {
+      "passage": 10,
+      "part": "habitude du toit distincte de la nuit du caillou"
+    },
+    {
+      "passage": 16,
+      "part": "bruits des robots dans le couloir, avant leur descente en ascenseur"
+    },
+    {
+      "passage": 25,
+      "part": "attente du jour présente dans le parcours avec repérage"
+    }
+  ]
+}

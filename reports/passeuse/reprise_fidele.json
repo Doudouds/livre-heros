@@ -1,0 +1,751 @@
+{
+  "scope": "Premier chapitre uniquement, troisième personne, trame du PDF conservée",
+  "passages_reviewed": 28,
+  "scene_variants_reviewed": 49,
+  "choice_consequences_reviewed": 54,
+  "conditional_consequences_reviewed": 5,
+  "editorial_approach": "Conserver la voix et les images du roman ; réserver les ajouts aux décisions, à leurs effets et aux raccords ; vérifier les intentions et la vraisemblance de chaque geste.",
+  "previous_version": "archives/passeuse-avant-reprise-fidele-2026-10-10-170522",
+  "edits": [
+    {
+      "passage": 1,
+      "part": "narration"
+    },
+    {
+      "passage": 1,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 1,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 2,
+      "part": "matin_calme"
+    },
+    {
+      "passage": 2,
+      "part": "matin_hatif"
+    },
+    {
+      "passage": 2,
+      "part": "narration"
+    },
+    {
+      "passage": 2,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 2,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 3,
+      "part": "file_pres_du_mur"
+    },
+    {
+      "passage": 3,
+      "part": "file_pres_des_roues"
+    },
+    {
+      "passage": 3,
+      "part": "narration"
+    },
+    {
+      "passage": 3,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 3,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 4,
+      "part": "narration"
+    },
+    {
+      "passage": 4,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 4,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 5,
+      "part": "narration"
+    },
+    {
+      "passage": 5,
+      "part": "decoupe_reguliere"
+    },
+    {
+      "passage": 5,
+      "part": "mesure_retrouvee"
+    },
+    {
+      "passage": 5,
+      "part": "narration"
+    },
+    {
+      "passage": 5,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 5,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "bonne_appreciation"
+    },
+    {
+      "passage": 6,
+      "part": "remontrance"
+    },
+    {
+      "passage": 6,
+      "part": "narration"
+    },
+    {
+      "passage": 6,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 6,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 7,
+      "part": "repas"
+    },
+    {
+      "passage": 7,
+      "part": "repas_apres_remontrance"
+    },
+    {
+      "passage": 7,
+      "part": "repas_sans_reproche"
+    },
+    {
+      "passage": 7,
+      "part": "narration"
+    },
+    {
+      "passage": 7,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 7,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 8,
+      "part": "fatigue"
+    },
+    {
+      "passage": 8,
+      "part": "premiere_nuit_reposee"
+    },
+    {
+      "passage": 8,
+      "part": "premiere_nuit_fatiguee"
+    },
+    {
+      "passage": 8,
+      "part": "narration"
+    },
+    {
+      "passage": 8,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 8,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 9,
+      "part": "narration"
+    },
+    {
+      "passage": 9,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 9,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 10,
+      "part": "narration"
+    },
+    {
+      "passage": 10,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 10,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 11,
+      "part": "main"
+    },
+    {
+      "passage": 11,
+      "part": "paume_douloureuse"
+    },
+    {
+      "passage": 11,
+      "part": "echo_du_retour"
+    },
+    {
+      "passage": 11,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 11,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "travail"
+    },
+    {
+      "passage": 12,
+      "part": "travail_main_eraflee"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "ronde"
+    },
+    {
+      "passage": 12,
+      "part": "ronde_reconnue"
+    },
+    {
+      "passage": 12,
+      "part": "narration"
+    },
+    {
+      "passage": 12,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 12,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 13,
+      "part": "narration"
+    },
+    {
+      "passage": 13,
+      "part": "narration"
+    },
+    {
+      "passage": 13,
+      "part": "recul"
+    },
+    {
+      "passage": 13,
+      "part": "recul_deja_abrite"
+    },
+    {
+      "passage": 13,
+      "part": "recul_a_decouvert"
+    },
+    {
+      "passage": 13,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 13,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 14,
+      "part": "avance"
+    },
+    {
+      "passage": 14,
+      "part": "retour_heurte"
+    },
+    {
+      "passage": 14,
+      "part": "retour_ecoute"
+    },
+    {
+      "passage": 14,
+      "part": "narration"
+    },
+    {
+      "passage": 14,
+      "part": "narration"
+    },
+    {
+      "passage": 14,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 14,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 15,
+      "part": "position"
+    },
+    {
+      "passage": 15,
+      "part": "sortie_contre_cloison"
+    },
+    {
+      "passage": 15,
+      "part": "sortie_recul"
+    },
+    {
+      "passage": 15,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 15,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 16,
+      "part": "narration"
+    },
+    {
+      "passage": 16,
+      "part": "poursuite"
+    },
+    {
+      "passage": 16,
+      "part": "quelques_marches_avance"
+    },
+    {
+      "passage": 16,
+      "part": "roues_tout_pres"
+    },
+    {
+      "passage": 16,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 16,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 17,
+      "part": "douleur"
+    },
+    {
+      "passage": 17,
+      "part": "genou_pendant_fuite"
+    },
+    {
+      "passage": 17,
+      "part": "narration"
+    },
+    {
+      "passage": 17,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 17,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 18,
+      "part": "souffle"
+    },
+    {
+      "passage": 18,
+      "part": "course_encore_presente"
+    },
+    {
+      "passage": 18,
+      "part": "souffle_repris_usine"
+    },
+    {
+      "passage": 18,
+      "part": "narration"
+    },
+    {
+      "passage": 18,
+      "part": "narration"
+    },
+    {
+      "passage": 18,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 18,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 19,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 19,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 20,
+      "part": "entree"
+    },
+    {
+      "passage": 20,
+      "part": "cave_entree_prudente"
+    },
+    {
+      "passage": 20,
+      "part": "cave_entree_inquiete"
+    },
+    {
+      "passage": 20,
+      "part": "narration"
+    },
+    {
+      "passage": 20,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 20,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 21,
+      "part": "chaleur"
+    },
+    {
+      "passage": 21,
+      "part": "repos_loin_des_tuyaux"
+    },
+    {
+      "passage": 21,
+      "part": "malaise_apres_recherche"
+    },
+    {
+      "passage": 21,
+      "part": "narration"
+    },
+    {
+      "passage": 21,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 21,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 22,
+      "part": "narration"
+    },
+    {
+      "passage": 22,
+      "part": "patrouille"
+    },
+    {
+      "passage": 22,
+      "part": "mouvement_connu"
+    },
+    {
+      "passage": 22,
+      "part": "narration"
+    },
+    {
+      "passage": 22,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 22,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 23,
+      "part": "genou"
+    },
+    {
+      "passage": 23,
+      "part": "genou_pendant_montee"
+    },
+    {
+      "passage": 23,
+      "part": "narration"
+    },
+    {
+      "passage": 23,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 23,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 24,
+      "part": "bras_apres_effort"
+    },
+    {
+      "passage": 24,
+      "part": "prises_encore_sures"
+    },
+    {
+      "passage": 24,
+      "part": "narration"
+    },
+    {
+      "passage": 24,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 24,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 25,
+      "part": "froid"
+    },
+    {
+      "passage": 25,
+      "part": "abri_du_vent"
+    },
+    {
+      "passage": 25,
+      "part": "attente_apres_reperage"
+    },
+    {
+      "passage": 25,
+      "part": "descente"
+    },
+    {
+      "passage": 25,
+      "part": "descente_genou_douloureux"
+    },
+    {
+      "passage": 25,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 25,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 26,
+      "part": "trajet_prepare"
+    },
+    {
+      "passage": 26,
+      "part": "trajet_neons"
+    },
+    {
+      "passage": 26,
+      "part": "genou_apres_reception"
+    },
+    {
+      "passage": 26,
+      "part": "narration"
+    },
+    {
+      "passage": 26,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 26,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 27,
+      "part": "choc_apres_appui"
+    },
+    {
+      "passage": 27,
+      "part": "choc_plein_courant"
+    },
+    {
+      "passage": 27,
+      "part": "bras_grue_sous_eau"
+    },
+    {
+      "passage": 27,
+      "part": "paume_sous_eau"
+    },
+    {
+      "passage": 27,
+      "part": "narration"
+    },
+    {
+      "passage": 27,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 27,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 28,
+      "part": "courant"
+    },
+    {
+      "passage": 28,
+      "part": "rive"
+    },
+    {
+      "passage": 28,
+      "part": "sortie_bras_vides"
+    },
+    {
+      "passage": 28,
+      "part": "sortie_prise_conservee"
+    },
+    {
+      "passage": 28,
+      "part": "rive_genou_douloureux"
+    },
+    {
+      "passage": 28,
+      "part": "rive_sans_genou_heurte"
+    },
+    {
+      "passage": 1,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 2,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 2,
+      "part": "matin_hatif"
+    },
+    {
+      "passage": 2,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 3,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 4,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 6,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 7,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 8,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 8,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 9,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 10,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 12,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 14,
+      "part": "retour_heurte"
+    },
+    {
+      "passage": 14,
+      "part": "conséquence 2"
+    },
+    {
+      "passage": 16,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 17,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 18,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 21,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 22,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 22,
+      "part": "mouvement_connu"
+    },
+    {
+      "passage": 23,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 23,
+      "part": "conséquence 1"
+    },
+    {
+      "passage": 24,
+      "part": "raccord de narration"
+    },
+    {
+      "passage": 25,
+      "part": "descente"
+    },
+    {
+      "passage": 28,
+      "part": "rive"
+    },
+    {
+      "passage": 9,
+      "part": "pensées et observation cohérentes quel que soit le choix précédent"
+    },
+    {
+      "passage": 22,
+      "part": "rue à traverser attribuée à Alex"
+    },
+    {
+      "passage": 24,
+      "part": "abri du vent sans supposer une vue entièrement masquée"
+    },
+    {
+      "passage": 9,
+      "part": "observation attribuée à Alex"
+    },
+    {
+      "passage": 16,
+      "part": "avance et proximité rapportées au début de la descente"
+    },
+    {
+      "passage": 18,
+      "part": "répétition retirée"
+    }
+  ]
+}

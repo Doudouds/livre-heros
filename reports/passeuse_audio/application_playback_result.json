@@ -1,0 +1,37 @@
+{
+  "entry_point": "main_pc.py (utilisé par Lancer.cmd)",
+  "exit_code": 0,
+  "real_windows_playback": true,
+  "first_wav_seconds": 81.19,
+  "scenes": [
+    {
+      "segment_id": "passeuse_1_01_narration_bb0d8a4ea32f2ffc5add",
+      "audio_file": "audio/experiments/passeuse_ch1/files/passeuse_1_01_narration_bb0d8a4ea32f2ffc5add.wav",
+      "started": true,
+      "error": null
+    },
+    {
+      "segment_id": "passeuse_1_02_narration_bab16393adb949c78081",
+      "audio_file": "audio/experiments/passeuse_ch1/files/passeuse_1_02_narration_bab16393adb949c78081.wav",
+      "started": false,
+      "error": null
+    },
+    {
+      "segment_id": "passeuse_1_01_narration_bb0d8a4ea32f2ffc5add",
+      "audio_file": "audio/experiments/passeuse_ch1/files/passeuse_1_01_narration_bb0d8a4ea32f2ffc5add.wav",
+      "started": true,
+      "error": null
+    }
+  ],
+  "callback_errors": [],
+  "lead_in_ms": 800,
+  "controls_positions": {
+    "source_sha256": "e422d95ebd0a132a8f5ff2d411ba559a5eb61e5ae912871d43c85524aa59adf4",
+    "playback_seconds": 81.99,
+    "paused_ms": 901,
+    "after_pause_ms": 901,
+    "resumed_ms": 901,
+    "before_replay_ms": 1284,
+    "replayed_ms": 0
+  }
+}

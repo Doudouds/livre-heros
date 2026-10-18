@@ -1,0 +1,33 @@
+{
+  "status": "ready",
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "policy": "3db28078adab35110add807cd76dffa9ba7da6c1840fd27564d5c53e53d4df1a",
+  "segments": [
+    {
+      "segment_id": "roi_grenouille_01_narration_5c7086954d606deab565",
+      "scene_id": "roi_grenouille_01",
+      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_5c7086954d606deab565.wav",
+      "status": "ready",
+      "reused": true,
+      "sha256": "42f8b36106dc3dccb5f4dcef0df0b9e727e6335ea121036be28e0c382ccfcb6a",
+      "seconds": 81.69,
+      "verification": {
+        "passed": true,
+        "transcript": "Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, l'ivet un roi dont toutes les filles étaient belles. La pluie jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleuil, une fontaine. Un jour qu'il faisait très chaud, la royale enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuiait, elle prit sa balle en or, la jetant en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse l'a suivi des yeux, mais la balle disparu. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. comme elle gémissait ainsi quelqu'un lui cria. Pourquoi pleure-tu, princesse, si fort qu'une pierre s'en laisserait attendre-y ? Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Chois 1. Montrez l'endroit où la balle a disparu. Ou chois 2. Racontez comment la balle est tombée dans la fontaine.",
+        "expected_words": 260,
+        "recognized_words": 263,
+        "word_error_rate": 0.0654,
+        "tail_matched": true,
+        "choices_matched": true,
+        "reasons": [],
+        "choice_homophones_normalized": 2,
+        "vad_filter": true,
+        "policy": "3db28078adab35110add807cd76dffa9ba7da6c1840fd27564d5c53e53d4df1a",
+        "method": "faster-whisper-small-full-segment-vad"
+      }
+    }
+  ],
+  "updated_at": 1792352392.7842906,
+  "failed": 0,
+  "ready": 1
+}

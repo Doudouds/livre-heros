@@ -1,0 +1,150 @@
+test_all_segments_dry_run_does_not_import_tts_or_create_wavs (test_book_audio.BookAudioTests.test_all_segments_dry_run_does_not_import_tts_or_create_wavs) ... ok
+test_catalog_matches_every_path_on_small_book_with_delayed_memory (test_book_audio.BookAudioTests.test_catalog_matches_every_path_on_small_book_with_delayed_memory) ... ok
+test_default_segment_matches_the_current_book_including_both_choices (test_book_audio.BookAudioTests.test_default_segment_matches_the_current_book_including_both_choices) ... ok
+test_full_catalog_covers_mixed_choices_and_preserves_runtime_filenames (test_book_audio.BookAudioTests.test_full_catalog_covers_mixed_choices_and_preserves_runtime_filenames) ... ok
+test_generation_without_whisper_resumes_without_loading_another_backend (test_book_audio.BookAudioTests.test_generation_without_whisper_resumes_without_loading_another_backend) ... ok
+test_later_segment_and_chapter_follow_the_selected_path (test_book_audio.BookAudioTests.test_later_segment_and_chapter_follow_the_selected_path) ... ok
+test_abbreviations_and_decimal_numbers_are_not_sentence_endings (test_book_audio.LinguisticSplitTests.test_abbreviations_and_decimal_numbers_are_not_sentence_endings) ... ok
+test_complete_sentences_and_closing_quotes_stay_together (test_book_audio.LinguisticSplitTests.test_complete_sentences_and_closing_quotes_stay_together) ... ok
+test_long_sentence_prefers_semicolon_over_word_boundary (test_book_audio.LinguisticSplitTests.test_long_sentence_prefers_semicolon_over_word_boundary) ... ok
+test_long_sentence_without_punctuation_keeps_every_word (test_book_audio.LinguisticSplitTests.test_long_sentence_without_punctuation_keeps_every_word) ... ok
+test_all_configurations_and_extreme_outcomes_keep_a_complete_story (test_cages.CagesTests.test_all_configurations_and_extreme_outcomes_keep_a_complete_story) ... ok
+test_choices_change_rescues_and_the_following_choices (test_cages.CagesTests.test_choices_change_rescues_and_the_following_choices) ... ok
+test_explicit_plot_replays_without_changing_older_journals (test_cages.CagesTests.test_explicit_plot_replays_without_changing_older_journals) ... ok
+test_failed_unlock_keeps_the_key_and_lison_remains_a_bird (test_cages.CagesTests.test_failed_unlock_keeps_the_key_and_lison_remains_a_bird) ... ok
+test_mouse_promise_requires_actually_collecting_the_family (test_cages.CagesTests.test_mouse_promise_requires_actually_collecting_the_family) ... ok
+test_new_games_have_three_distinct_middle_plots (test_cages.CagesTests.test_new_games_have_three_distinct_middle_plots) ... ok
+test_pilot_ui_advances_directly_and_restarts_with_the_same_tale (test_cages.CagesTests.test_pilot_ui_advances_directly_and_restarts_with_the_same_tale) ... ok
+test_remembered_key_and_alert_change_later_odds (test_cages.CagesTests.test_remembered_key_and_alert_change_later_odds) ... ok
+test_replay_and_audio_use_the_actual_joined_passages (test_cages.CagesTests.test_replay_and_audio_use_the_actual_joined_passages) ... ok
+test_transformation_is_witnessed_before_the_mouse_explains_the_spell (test_cages.CagesTests.test_transformation_is_witnessed_before_the_mouse_explains_the_spell) ... ok
+test_catalog_covers_all_plots_mixed_choices_and_outcomes (test_cages_audio.CagesAudioTests.test_catalog_covers_all_plots_mixed_choices_and_outcomes) ... ok
+test_dry_run_and_filters_do_not_load_tts_or_create_audio (test_cages_audio.CagesAudioTests.test_dry_run_and_filters_do_not_load_tts_or_create_audio) ... ok
+test_generation_resumes_with_one_voice_load_and_no_whisper (test_cages_audio.CagesAudioTests.test_generation_resumes_with_one_voice_load_and_no_whisper) ... ok
+test_model_revision_reuses_the_book_pin_without_overriding_existing_or_explicit_choices (test_cages_audio.CagesAudioTests.test_model_revision_reuses_the_book_pin_without_overriding_existing_or_explicit_choices) ... ok
+test_pruning_matches_exhaustive_paths_with_delayed_flags_and_counts (test_cages_audio.CagesAudioTests.test_pruning_matches_exhaustive_paths_with_delayed_flags_and_counts) ... ok
+test_same_voice_and_parameters_as_the_validated_book_setup (test_cages_audio.CagesAudioTests.test_same_voice_and_parameters_as_the_validated_book_setup) ... ok
+test_all_125_configurations_across_all_arcs_and_two_routes (test_engine.EngineTests.test_all_125_configurations_across_all_arcs_and_two_routes) ... ok
+test_audio_hash_identifies_the_actual_text (test_engine.EngineTests.test_audio_hash_identifies_the_actual_text) ... ok
+test_branch_then_rejoin (test_engine.EngineTests.test_branch_then_rejoin) ... ok
+test_debug_journal_complete_and_partial_replay (test_engine.EngineTests.test_debug_journal_complete_and_partial_replay) ... ok
+test_every_result_keeps_all_twelve_decisions (test_engine.EngineTests.test_every_result_keeps_all_twelve_decisions) ... ok
+test_initial_parameters_are_more_than_decorations (test_engine.EngineTests.test_initial_parameters_are_more_than_decorations) ... ok
+test_invalid_input_and_double_click (test_engine.EngineTests.test_invalid_input_and_double_click) ... ok
+test_new_adventure_erases_previous_world (test_engine.EngineTests.test_new_adventure_erases_previous_world) ... ok
+test_previous_decisions_change_later_odds_and_text (test_engine.EngineTests.test_previous_decisions_change_later_odds_and_text) ... ok
+test_probabilities_and_boundaries (test_engine.EngineTests.test_probabilities_and_boundaries) ... ok
+test_rules_are_declarative_and_update_sets (test_engine.EngineTests.test_rules_are_declarative_and_update_sets) ... ok
+test_seed_reproduces_text_variants_and_results (test_engine.EngineTests.test_seed_reproduces_text_variants_and_results) ... ok
+test_seed_variation_changes_several_story_elements (test_engine.EngineTests.test_seed_variation_changes_several_story_elements) ... ok
+test_simulator_statistics_and_repeatability (test_engine.EngineTests.test_simulator_statistics_and_repeatability) ... ok
+test_template_cannot_execute_or_access_attributes (test_engine.EngineTests.test_template_cannot_execute_or_access_attributes) ... ok
+test_changed_content_and_falsified_journal_are_rejected (test_passeuse.BookTests.test_changed_content_and_falsified_journal_are_rejected) ... ok
+test_every_choice_preserves_order_and_has_its_own_consequence (test_passeuse.BookTests.test_every_choice_preserves_order_and_has_its_own_consequence) ... ok
+test_hasty_work_and_crane_effort_have_visible_later_costs (test_passeuse.BookTests.test_hasty_work_and_crane_effort_have_visible_later_costs) ... ok
+test_home_book_tale_and_image_display_in_the_same_ui (test_passeuse.BookTests.test_home_book_tale_and_image_display_in_the_same_ui) ... ok
+test_journals_replay_before_after_and_between_choices (test_passeuse.BookTests.test_journals_replay_before_after_and_between_choices) ... ok
+test_knee_injury_changes_later_climbing_descent_and_exit (test_passeuse.BookTests.test_knee_injury_changes_later_climbing_descent_and_exit) ... ok
+test_observed_patrol_changes_the_same_later_choice (test_passeuse.BookTests.test_observed_patrol_changes_the_same_later_choice) ... ok
+test_rebuilt_book_records_the_pdf_in_the_project_and_only_chapter_one (test_passeuse.BookTests.test_rebuilt_book_records_the_pdf_in_the_project_and_only_chapter_one) ... ok
+test_rejects_invalid_choices_and_duplicate_submissions (test_passeuse.BookTests.test_rejects_invalid_choices_and_duplicate_submissions) ... ok
+test_varied_paths_terminate_with_third_person_text (test_passeuse.BookTests.test_varied_paths_terminate_with_third_person_text) ... ok
+test_audio_does_not_escape_project (test_pc_audio_tts.AdapterTests.test_audio_does_not_escape_project) ... ok
+test_book_ui_plays_existing_first_wav_and_continues_without_later_audio (test_pc_audio_tts.AdapterTests.test_book_ui_plays_existing_first_wav_and_continues_without_later_audio) ... ok
+test_corrupt_audio_is_silent_and_has_no_controls (test_pc_audio_tts.AdapterTests.test_corrupt_audio_is_silent_and_has_no_controls) ... ok
+test_leading_silence_preserves_every_sample_and_is_cached (test_pc_audio_tts.AdapterTests.test_leading_silence_preserves_every_sample_and_is_cached) ... ok
+test_missing_wav_is_found_after_generation_without_recreating_the_player (test_pc_audio_tts.AdapterTests.test_missing_wav_is_found_after_generation_without_recreating_the_player) ... ok
+test_no_audio_files_is_silent_and_non_blocking (test_pc_audio_tts.AdapterTests.test_no_audio_files_is_silent_and_non_blocking) ... ok
+test_pc_ui_full_story_and_debug_visibility (test_pc_audio_tts.AdapterTests.test_pc_ui_full_story_and_debug_visibility) ... ok
+test_playback_and_stop_errors_leave_the_player_usable (test_pc_audio_tts.AdapterTests.test_playback_and_stop_errors_leave_the_player_usable) ... ok
+test_session_tts_has_resolved_text_and_matching_audio_paths (test_pc_audio_tts.AdapterTests.test_session_tts_has_resolved_text_and_matching_audio_paths) ... ok
+test_wav_backend_supports_pause_resume_replay_and_natural_end (test_pc_audio_tts.AdapterTests.test_wav_backend_supports_pause_resume_replay_and_natural_end) ... ok
+test_all_1024_routes_reach_the_same_canonical_ending (test_roi_grenouille.FrogTaleTests.test_all_1024_routes_reach_the_same_canonical_ending) ... ok
+test_dry_run_creates_only_the_plan_without_tts_or_other_segments (test_roi_grenouille.FrogTaleTests.test_dry_run_creates_only_the_plan_without_tts_or_other_segments) ... ok
+test_exactly_one_second_is_embedded_before_any_speech (test_roi_grenouille.FrogTaleTests.test_exactly_one_second_is_embedded_before_any_speech) ... ok
+test_first_audio_plan_matches_runtime_and_approved_emotions (test_roi_grenouille.FrogTaleTests.test_first_audio_plan_matches_runtime_and_approved_emotions) ... ok
+test_journal_replays_choices_without_changing_the_tale (test_roi_grenouille.FrogTaleTests.test_journal_replays_choices_without_changing_the_tale) ... ok
+test_narrator_is_third_person_and_question_follows_the_character (test_roi_grenouille.FrogTaleTests.test_narrator_is_third_person_and_question_follows_the_character) ... ok
+test_source_is_preserved_in_full_and_in_the_same_order (test_roi_grenouille.FrogTaleTests.test_source_is_preserved_in_full_and_in_the_same_order) ... ok
+test_library_launch_restart_and_audio_do_not_open_the_passeuse (test_roi_grenouille.FrogTaleUITests.test_library_launch_restart_and_audio_do_not_open_the_passeuse) ... ok
+test_early_stops_are_retried_with_new_seeds_and_only_complete_take_is_saved (test_speech_verification.ProductionSpeechTests.test_early_stops_are_retried_with_new_seeds_and_only_complete_take_is_saved) ... ok
+test_failed_speech_is_never_marked_ready_and_shared_failure_is_not_generated_repeatedly (test_speech_verification.ProductionSpeechTests.test_failed_speech_is_never_marked_ready_and_shared_failure_is_not_generated_repeatedly) ... ok
+test_new_recognition_policy_rechecks_audio_without_invalidating_voice_cache (test_speech_verification.ProductionSpeechTests.test_new_recognition_policy_rechecks_audio_without_invalidating_voice_cache) ... ok
+test_old_format_only_audio_is_rechecked_without_synthesizing_again (test_speech_verification.ProductionSpeechTests.test_old_format_only_audio_is_rechecked_without_synthesizing_again) ... ok
+test_rejected_recheck_removes_old_ready_status (test_speech_verification.ProductionSpeechTests.test_rejected_recheck_removes_old_ready_status) ... ok
+test_restart_after_failed_attempts_uses_a_new_seed (test_speech_verification.ProductionSpeechTests.test_restart_after_failed_attempts_uses_a_new_seed) ... ok
+test_shorter_subpassages_are_checked_separately_and_resume_uses_their_proof (test_speech_verification.ProductionSpeechTests.test_shorter_subpassages_are_checked_separately_and_resume_uses_their_proof) ... ok
+test_choice_homophones_from_asr_are_accepted_only_as_numbered_announcements (test_speech_verification.TranscriptTests.test_choice_homophones_from_asr_are_accepted_only_as_numbered_announcements) ... ok
+test_complete_local_model_directory_is_accepted (test_speech_verification.TranscriptTests.test_complete_local_model_directory_is_accepted) ... ok
+test_french_punctuation_accents_and_choice_numbers_are_normalized (test_speech_verification.TranscriptTests.test_french_punctuation_accents_and_choice_numbers_are_normalized) ... ok
+test_full_audio_uses_vad_without_prompt_and_still_refuses_a_missing_ending (test_speech_verification.TranscriptTests.test_full_audio_uses_vad_without_prompt_and_still_refuses_a_missing_ending) ... ok
+test_missing_choice_one_is_rejected_even_with_correct_ending (test_speech_verification.TranscriptTests.test_missing_choice_one_is_rejected_even_with_correct_ending) ... ok
+test_missing_last_word_is_rejected_despite_high_global_coverage (test_speech_verification.TranscriptTests.test_missing_last_word_is_rejected_despite_high_global_coverage) ... ok
+test_missing_local_tokenizer_is_rejected_before_implicit_download (test_speech_verification.TranscriptTests.test_missing_local_tokenizer_is_rejected_before_implicit_download) ... ok
+test_silence_wrong_text_repetition_and_missing_choice_two_are_rejected (test_speech_verification.TranscriptTests.test_silence_wrong_text_repetition_and_missing_choice_two_are_rejected) ... ok
+test_compiler_rejects_text_changes_and_missing_consequence_annotation (test_story_audio.MarkupTests.test_compiler_rejects_text_changes_and_missing_consequence_annotation) ... ok
+test_markup_roundtrip_preserves_punctuation_paragraphs_and_xml_characters (test_story_audio.MarkupTests.test_markup_roundtrip_preserves_punctuation_paragraphs_and_xml_characters) ... ok
+test_corrupt_final_is_reassembled_from_verified_chunks_without_synthesis (test_story_audio.ResumeTests.test_corrupt_final_is_reassembled_from_verified_chunks_without_synthesis) ... ok
+test_exhausted_full_retries_are_not_ready_and_next_run_uses_next_round (test_story_audio.ResumeTests.test_exhausted_full_retries_are_not_ready_and_next_run_uses_next_round) ... ok
+test_finished_run_is_preserved_without_loading_tts_or_asr (test_story_audio.ResumeTests.test_finished_run_is_preserved_without_loading_tts_or_asr) ... ok
+test_full_rejection_uses_separate_cache_round_and_can_then_finish (test_story_audio.ResumeTests.test_full_rejection_uses_separate_cache_round_and_can_then_finish) ... ok
+test_hard_process_death_releases_locks_and_resumes_only_missing_chunks (test_story_audio.ResumeTests.test_hard_process_death_releases_locks_and_resumes_only_missing_chunks) ... ok
+test_incompatible_voice_is_refused_before_other_outputs_or_status_are_changed (test_story_audio.ResumeTests.test_incompatible_voice_is_refused_before_other_outputs_or_status_are_changed) ... ok
+test_interrupt_between_final_wav_and_receipt_is_recoverable (test_story_audio.ResumeTests.test_interrupt_between_final_wav_and_receipt_is_recoverable) ... ok
+test_reference_copy_is_frozen_and_fingerprinted (test_story_audio.ResumeTests.test_reference_copy_is_frozen_and_fingerprinted) ... ok
+test_rejected_chunk_is_retried_with_new_seeds (test_story_audio.ResumeTests.test_rejected_chunk_is_retried_with_new_seeds) ... ok
+test_approved_first_segment_keeps_exactly_the_previous_identity_inputs (test_story_audio.StoryPlanningTests.test_approved_first_segment_keeps_exactly_the_previous_identity_inputs) ... ok
+test_dry_run_has_no_torch_requirement_and_does_not_touch_completed_status (test_story_audio.StoryPlanningTests.test_dry_run_has_no_torch_requirement_and_does_not_touch_completed_status) ... ok
+test_every_route_has_the_exact_runtime_text_and_all_consequences_are_voiced (test_story_audio.StoryPlanningTests.test_every_route_has_the_exact_runtime_text_and_all_consequences_are_voiced) ... ok
+test_audio_audit_detects_missing_corrupt_and_mixed_voice_files (test_tts_batch.BatchTests.test_audio_audit_detects_missing_corrupt_and_mixed_voice_files) ... ok
+test_concurrent_run_is_refused_and_lock_can_be_reused (test_tts_batch.BatchTests.test_concurrent_run_is_refused_and_lock_can_be_reused) ... ok
+test_corrupt_chunk_is_regenerated_when_final_requires_rebuilding (test_tts_batch.BatchTests.test_corrupt_chunk_is_regenerated_when_final_requires_rebuilding) ... ok
+test_crash_between_final_wav_and_receipt_recovers_automatically (test_tts_batch.BatchTests.test_crash_between_final_wav_and_receipt_recovers_automatically) ... ok
+test_dry_run_works_without_torch_or_reference_voice (test_tts_batch.BatchTests.test_dry_run_works_without_torch_or_reference_voice) ... ok
+test_keyboard_interrupt_resumes_inside_scene_without_losing_first_chunk (test_tts_batch.BatchTests.test_keyboard_interrupt_resumes_inside_scene_without_losing_first_chunk) ... ok
+test_manifest_refuses_wrong_hash_or_escape_path (test_tts_batch.BatchTests.test_manifest_refuses_wrong_hash_or_escape_path) ... ok
+test_segment_failure_preserves_successes_and_continues (test_tts_batch.BatchTests.test_segment_failure_preserves_successes_and_continues) ... ok
+test_shared_paragraphs_generated_once_and_completed_run_never_loads_model (test_tts_batch.BatchTests.test_shared_paragraphs_generated_once_and_completed_run_never_loads_model) ... ok
+test_split_preserves_all_words_and_both_choices (test_tts_batch.BatchTests.test_split_preserves_all_words_and_both_choices) ... ok
+test_truncated_final_audio_is_reassembled_from_verified_chunks (test_tts_batch.BatchTests.test_truncated_final_audio_is_reassembled_from_verified_chunks) ... ok
+test_unmanaged_wav_is_not_silently_replaced (test_tts_batch.BatchTests.test_unmanaged_wav_is_not_silently_replaced) ... ok
+test_voice_change_is_refused_before_any_output_is_modified (test_tts_batch.BatchTests.test_voice_change_is_refused_before_any_output_is_modified) ... ok
+test_choice_with_no_destination_or_non_object (test_validation.ValidatorTests.test_choice_with_no_destination_or_non_object) ... ok
+test_cycle (test_validation.ValidatorTests.test_cycle) ... ok
+test_duration_too_short_and_too_long (test_validation.ValidatorTests.test_duration_too_short_and_too_long) ... ok
+test_full_content_all_paths_and_compatibilities (test_validation.ValidatorTests.test_full_content_all_paths_and_compatibilities) ... ok
+test_incompatible_arc_and_scene (test_validation.ValidatorTests.test_incompatible_arc_and_scene) ... ok
+test_invalid_probability_choice_count_and_unknown_condition (test_validation.ValidatorTests.test_invalid_probability_choice_count_and_unknown_condition) ... ok
+test_missing_conclusion (test_validation.ValidatorTests.test_missing_conclusion) ... ok
+test_missing_destination (test_validation.ValidatorTests.test_missing_destination) ... ok
+test_undeclared_template (test_validation.ValidatorTests.test_undeclared_template) ... ok
+test_unreachable_scene (test_validation.ValidatorTests.test_unreachable_scene) ... ok
+
+----------------------------------------------------------------------
+Ran 121 tests in 302.078s
+
+OK
+[1/1] Chunk 1/6 | 226 caract�res | Ayant pour habitude de s'�veiller quelques minutes avant l'heure, Alex contempla le monde 
+Chunk 1/6 | SUCC�S | audio 0.20 s | calcul 0.88 s
+[1/1] Chunk 2/6 | 239 caract�res | Tout cela �tait � elle : ce matelas gris�tre sur lequel elle �tait �tendue, ces habits enf
+Chunk 2/6 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] Chunk 3/6 | 248 caract�res | Les murs, jaunis par les ann�es, ne la d�rangeaient pas r�ellement ; ses voisins n'entrete
+Chunk 3/6 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] Chunk 4/6 | 281 caract�res | Elle prit une ultime inspiration et posa ses pieds nus sur le sol froid. En pyjama, Alex p
+Chunk 4/6 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] Chunk 5/6 | 270 caract�res | Le perp�tuel rituel matinal pouvait commencer : se laver, s'habiller et profiter des cinq 
+Chunk 5/6 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] Chunk 6/6 | 114 caract�res | Choix 1 : Rejoindre les douches sans attendre. Ou choix 2 : Pr�parer ses v�tements avant d
+Chunk 6/6 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] d�j� pr�sent et int�gre ; conserv�.
+[1/1] Chunk 1/5 | 250 caract�res | � Quand la nuit descend sur les bois, le bon chemin m�ne chez soi �, chante votre m�re. Li
+Chunk 1/5 | SUCC�S | audio 0.20 s | calcul 0.08 s
+[1/1] Chunk 2/5 | 293 caract�res | Ce matin, elle est partie cueillir des m�res avec son panier d'osier. Lison est partie ver
+Chunk 2/5 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] Chunk 3/5 | 277 caract�res | Votre m�re laisse refroidir son bol. � Quelqu'un l'aura vue sur la route. Je vais demander
+Chunk 3/5 | SUCC�S | audio 0.20 s | calcul 0.08 s
+[1/1] Chunk 4/5 | 256 caract�res | Cette fois, c'est ta petite s�ur qui a besoin de toi. Avec du pain, une gourde et l'�p�e e
+Chunk 4/5 | SUCC�S | audio 0.20 s | calcul 0.08 s
+[1/1] Chunk 5/5 | 113 caract�res | Plus haut pend le ruban bleu qu'elle portait ce matin. Tu le gardes dans ta main ; il est 
+Chunk 5/5 | SUCC�S | audio 0.20 s | calcul 0.09 s
+[1/1] d�j� pr�sent et int�gre ; conserv�.

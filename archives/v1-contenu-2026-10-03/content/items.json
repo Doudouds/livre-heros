@@ -1,0 +1,67 @@
+[
+  {
+    "id": "sword",
+    "label": "Une épée runique",
+    "name": "ton épée runique",
+    "appearance": "Les runes de ton épée brillent doucement sous son fourreau. Cette arme ancienne peut défendre un passage, mais ses signes savent aussi répondre aux mécanismes qui parlent le langage de la magie.",
+    "first": "Tu sors l'épée runique sans la brandir. Une ligne lumineuse court le long de sa lame et se place face aux marques du passage. Les runes réagissent comme des notes que l'on accorde : tu peux tenter de trouver le signe qui apaise le dispositif, plutôt que de couper ce qui te barre la route.",
+    "first_action": "Accorder les runes de l'épée aux signes du passage",
+    "second": "Les runes de ton épée dessinent maintenant une ligne discontinue. En inclinant la lame, tu vois où cette ligne se rejoint. L'objet peut révéler une liaison invisible entre deux parties du mécanisme. Tu pourrais suivre ce fil de lumière, ou continuer à interpréter les traces qui se trouvent dans le décor.",
+    "second_action": "Suivre le lien que révèle la lame runique",
+    "climax": "Ton épée runique vibre doucement dans ta main. Sa lame ne cherche pas un adversaire ; les signes qu'elle porte répondent à la force rassemblée devant toi. En la plaçant entre deux marques, tu pourrais établir une liaison précise. Il faudra accompagner le mouvement, car une pression trop forte brouillerait les runes.",
+    "climax_action": "Relier les deux marques avec l'épée runique",
+    "epilogue": "Avant de ranger ton épée, tu observes une rune que tu ne connaissais pas. Elle représente un passage ouvert. Tu n'as pas seulement appris à manier la lame : tu as découvert une autre manière de t'en servir."
+  },
+  {
+    "id": "book",
+    "label": "Un grimoire vivant",
+    "name": "ton grimoire vivant",
+    "appearance": "Ton grimoire vivant remue légèrement dans ta sacoche. Il tourne parfois ses pages sans qu'on le touche. Il ne donne pas toutes les réponses, mais il aime reconnaître les questions que personne n'a encore osé poser.",
+    "first": "Le grimoire vivant ouvre une page où les signes du passage se déplacent entre les lignes. Il ne te dicte pas de sort ; il propose deux rythmes, puis attend que tu en choisisses un. Les pages pourront accompagner ta tentative si tu acceptes d'écouter leurs corrections au lieu de leur demander une solution toute faite.",
+    "first_action": "Lire le rythme proposé par le grimoire vivant",
+    "second": "Ton grimoire vivant fait apparaître une phrase inachevée. Quand tu le déplaces, les mots changent de place et suivent un lien invisible entre les mécanismes. Le livre reconnaît une relation, mais il te laisse décider de sa signification. Tu peux lui demander de préciser ce lien ou chercher toi-même ce que montrent les traces voisines.",
+    "second_action": "Compléter la phrase que forme le grimoire",
+    "climax": "Le grimoire vivant garde ses pages ouvertes malgré les vibrations. Plusieurs lignes se répondent comme les voix d'un chœur, puis laissent une place vide. Ce silence attend ton intervention. Tu pourrais lire la suite indiquée par le livre pour relier les forces, en prenant garde de ne pas accélérer quand les lettres se mettent à courir.",
+    "climax_action": "Lire la dernière ligne du grimoire vivant",
+    "epilogue": "Ton grimoire tourne une page blanche, où apparaît lentement un dessin du chemin parcouru. Il ne résume pas tes erreurs et tes réussites. Il conserve la question que tu as appris à poser au bon moment."
+  },
+  {
+    "id": "amulet",
+    "label": "Une amulette de protection",
+    "name": "ton amulette de protection",
+    "appearance": "Ton amulette repose contre ton cœur. Sa chaleur change lorsque la magie devient instable. Elle peut amortir une secousse, mais elle ne remplace ni l'observation ni les décisions que tu devras prendre.",
+    "first": "L'amulette de protection devient tiède à l'approche des signes. Sa chaleur augmente près d'une marque, puis diminue près d'une autre. Tu comprends qu'elle peut amortir la réaction du passage pendant un instant. Ce répit te permettrait d'avancer avec précaution, sans rendre pour autant le mécanisme complètement inoffensif.",
+    "first_action": "Amortir le passage avec l'amulette de protection",
+    "second": "Ton amulette transmet deux pulsations différentes selon la direction où tu te tournes. L'une répond immédiatement ; l'autre arrive après un court silence. Cette différence révèle une liaison que tu ne peux pas voir. Tu pourrais suivre la pulsation la plus régulière, ou rechercher des indices matériels pour vérifier ce que l'objet te suggère.",
+    "second_action": "Suivre la pulsation régulière de l'amulette",
+    "climax": "L'amulette de protection bat maintenant au même rythme que le lieu. Elle peut absorber une partie de la secousse et laisser un intervalle où les forces deviennent moins dangereuses. Tu pourrais employer cet intervalle pour établir la liaison centrale. L'objet te donnera du temps ; il ne décidera pas du geste à ta place.",
+    "climax_action": "Créer un répit avec l'amulette de protection",
+    "epilogue": "L'amulette retrouve une chaleur paisible. Elle a soutenu tes pas dans des instants difficiles, mais tu sais désormais que la protection peut aussi venir d'un geste réfléchi, d'un détour préparé ou d'une personne à qui l'on fait confiance."
+  },
+  {
+    "id": "compass",
+    "label": "Une boussole enchantée",
+    "name": "ta boussole enchantée",
+    "appearance": "L'aiguille de ta boussole ne cherche pas toujours le nord. Elle suit parfois ce que tu veux comprendre, puis hésite si ta question reste trop vague. Tu as appris à lui laisser le temps de choisir une direction.",
+    "first": "La boussole enchantée cesse de tourner lorsque tu la tiens près des signes du passage. Son aiguille ne montre pas une sortie : elle suit une succession de marques que tu n'avais pas remarquées. Tu peux tenter ce trajet précis, mais il faudra garder la question en tête pour éviter que l'aiguille cherche autre chose.",
+    "first_action": "Suivre les marques indiquées par la boussole",
+    "second": "Ta boussole ne pointe plus devant toi. Elle oscille entre deux directions, à intervalles réguliers, comme si elle montrait les extrémités d'un même fil. Tu peux tenter de suivre cette liaison invisible. Il reste possible de comparer d'abord les traces du lieu, car la boussole indique une relation sans expliquer ce qui l'a créée.",
+    "second_action": "Suivre les deux directions de la boussole",
+    "climax": "L'aiguille de ta boussole enchantée décrit un cercle, puis se fixe sur une marque précise. Elle a trouvé le point où les forces peuvent se rejoindre. Tu pourrais guider ton intervention avec cet indice. Pour que la direction reste juste, tu devras penser à l'équilibre du lieu entier plutôt qu'au seul chemin le plus rapide.",
+    "climax_action": "Guider la liaison avec la boussole enchantée",
+    "epilogue": "Sur le chemin du retour, la boussole indique de nouveau une direction familière. Une petite marque est apparue sur son cadran. Elle ne désigne pas un trésor, mais l'endroit où tu as décidé de regarder autrement."
+  },
+  {
+    "id": "key",
+    "label": "Une clé de cristal",
+    "name": "ta clé de cristal",
+    "appearance": "La clé de cristal que tu portes n'a jamais trouvé de serrure ordinaire. Dans la lumière, ses dents changent légèrement de forme. Elle semble destinée aux portes qui demandent autre chose qu'un simple tour de poignet.",
+    "first": "La clé de cristal projette une forme lumineuse sur les signes du passage. Ses dents s'alignent avec un creux que tu prenais pour une décoration. Tu peux essayer d'ouvrir cette liaison sans forcer le reste du dispositif. Le cristal devra trouver sa forme exacte ; une tentative trop rapide pourrait réveiller le mécanisme voisin.",
+    "first_action": "Ouvrir la liaison avec la clé de cristal",
+    "second": "Ta clé de cristal laisse apparaître deux ombres quand tu la tiens face à la lumière. Elles correspondent à des marques situées de part et d'autre du dispositif. L'objet peut essayer de réunir leurs formes. Tu pourrais suivre cette indication, ou vérifier d'abord les traces laissées par les personnes qui utilisaient autrefois ce passage.",
+    "second_action": "Aligner les deux ombres de la clé de cristal",
+    "climax": "La clé de cristal prend une forme que tu ne lui avais encore jamais vue. Ses dents s'étendent comme un petit pont entre deux marques. Tu pourrais ouvrir la liaison centrale en la tournant lentement. Il faudra sentir le mouvement du lieu, car cette serrure commande un équilibre plutôt qu'une simple porte.",
+    "climax_action": "Tourner la clé de cristal dans la liaison centrale",
+    "epilogue": "La clé de cristal reprend sa forme habituelle, mais une lueur demeure entre ses dents. Tu comprends qu'une porte ouverte n'est pas toujours faite de bois ou de pierre. Certaines relient des personnes qui avaient cessé de se répondre."
+  }
+]

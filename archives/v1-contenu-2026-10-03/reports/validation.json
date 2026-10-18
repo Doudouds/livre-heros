@@ -1,0 +1,40 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "configuration_count": 125,
+  "arc_configuration_count": 750,
+  "duration_bounds": {
+    "atlas": {
+      "minimum_minutes": 20.14,
+      "maximum_minutes": 21.2
+    },
+    "bell": {
+      "minimum_minutes": 19.95,
+      "maximum_minutes": 20.98
+    },
+    "feather": {
+      "minimum_minutes": 20.21,
+      "maximum_minutes": 21.34
+    },
+    "lantern": {
+      "minimum_minutes": 20.27,
+      "maximum_minutes": 21.39
+    },
+    "names": {
+      "minimum_minutes": 19.89,
+      "maximum_minutes": 20.99
+    },
+    "rain": {
+      "minimum_minutes": 20.19,
+      "maximum_minutes": 21.24
+    }
+  },
+  "content_metrics": {
+    "arcs": 6,
+    "scenes": 114,
+    "distinct_prose_blocks": 682,
+    "prepared_unique_words": 24123,
+    "prepared_narration_minutes": 160.82
+  }
+}

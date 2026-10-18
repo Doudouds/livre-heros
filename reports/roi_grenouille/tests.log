@@ -1,0 +1,13 @@
+test_all_1024_routes_reach_the_same_canonical_ending (tests.test_roi_grenouille.FrogTaleTests.test_all_1024_routes_reach_the_same_canonical_ending) ... ok
+test_dry_run_creates_only_the_plan_without_tts_or_other_segments (tests.test_roi_grenouille.FrogTaleTests.test_dry_run_creates_only_the_plan_without_tts_or_other_segments) ... ok
+test_exactly_one_second_is_embedded_before_any_speech (tests.test_roi_grenouille.FrogTaleTests.test_exactly_one_second_is_embedded_before_any_speech) ... ok
+test_first_audio_plan_matches_runtime_and_approved_emotions (tests.test_roi_grenouille.FrogTaleTests.test_first_audio_plan_matches_runtime_and_approved_emotions) ... ok
+test_journal_replays_choices_without_changing_the_tale (tests.test_roi_grenouille.FrogTaleTests.test_journal_replays_choices_without_changing_the_tale) ... ok
+test_narrator_is_third_person_and_question_follows_the_character (tests.test_roi_grenouille.FrogTaleTests.test_narrator_is_third_person_and_question_follows_the_character) ... ok
+test_source_is_preserved_in_full_and_in_the_same_order (tests.test_roi_grenouille.FrogTaleTests.test_source_is_preserved_in_full_and_in_the_same_order) ... ok
+test_library_launch_restart_and_audio_do_not_open_the_passeuse (tests.test_roi_grenouille.FrogTaleUITests.test_library_launch_restart_and_audio_do_not_open_the_passeuse) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 5.163s
+
+OK
