@@ -20,6 +20,8 @@ from tools.generate_faithful_audio import normalize
 def parser():
     result = argparse.ArgumentParser(description=__doc__)
     result.add_argument('--book',default='roi_grenouille')
+    result.add_argument('--automatic',action='store_true',
+                        help='Parcours continu : choix 1 uniquement, sans question ni annonce de choix')
     source = result.add_mutually_exclusive_group()
     source.add_argument('--all-segments',action='store_true',help='Tous les textes accessibles (comportement par défaut)')
     source.add_argument('--segment',type=int,help='Un passage sur le parcours --choice')
@@ -30,12 +32,15 @@ def parser():
     result.add_argument('--cache-dir',type=Path)
     result.add_argument('--report',type=Path)
     result.add_argument('--asr-model-dir',type=Path)
+    result.add_argument('--review-model-dir',type=Path,help='Modèle local de contre-vérification ASR')
     result.add_argument('--chunk-chars',type=int,default=300)
     result.add_argument('--pause-ms',type=int,default=150)
     result.add_argument('--seed',type=int,default=20261018)
     result.add_argument('--threads',type=int,default=8)
     result.add_argument('--attempts',type=int,default=3,help='Essais par prise et par contrôle intégral, bornés à chaque lancement')
     result.add_argument('--dry-run',action='store_true',help='Compiler et exporter le plan sans charger les modèles')
+    result.add_argument('--recheck-only',action='store_true',
+                        help='Réécouter les prises et fichiers en cache, sans jamais lancer de nouvelle synthèse')
     return result
 
 
@@ -73,7 +78,10 @@ def plan_current(engine, args, palette):
 
 def plans_for_book(args, content=None):
     content = content or Content()
-    first = BookEngine(content,args.book)
+    automatic = getattr(args,'automatic',False)
+    first = BookEngine(content,args.book,automatic=automatic)
+    if automatic and args.choice != 1:
+        raise ValueError('Le mode automatique suit le choix 1 : --choice 2 est incompatible.')
     if first.book.get('audio_tagged_version') != 1:
         raise ValueError('Compiler le balisage vocal de ce conte avant sa génération.')
     palette = Content.read(ROOT/'audio/emotion_profiles.json')
@@ -84,6 +92,14 @@ def plans_for_book(args, content=None):
             first.choose(args.choice-1)
             first.advance()
         return [plan_current(first,args,palette)]
+    if automatic:
+        plans = []
+        while True:
+            plans.append(plan_current(first,args,palette))
+            if first.finished:
+                return plans
+            first.choose(0)
+            first.advance()
     needed = future_flags(first.book)
     queue,seen,expanded,plans = deque([first]),set(),set(),[]
     while queue:
@@ -139,12 +155,17 @@ def main(argv=None):
             raise ValueError('Ajouter le dossier audio du conte à config.json avant sa production.')
         args.output_dir = (args.output_dir or ROOT/configured).resolve()
         args.cache_dir = (args.cache_dir or ROOT/'audio/experiments'/args.book/'cache').resolve()
-        args.report = (args.report or ROOT/'reports'/args.book/'generation_status.json').resolve()
+        report_dir = ROOT/'reports'/args.book
+        if args.automatic:
+            report_dir = report_dir/'automatic'
+        args.report = (args.report or report_dir/'generation_status.json').resolve()
         plans = plans_for_book(args,content)
         total = len(plans)
         if args.limit:
             plans = plans[:args.limit]
         print(f"{content.books[args.book]['title']} : {total} textes distincts ; {len(plans)} à traiter.",flush=True)
+        if args.automatic:
+            print('Écoute automatique : parcours du choix 1, sans annonces ni questions au lecteur.',flush=True)
         print(f'Sorties : {args.output_dir}\nÉtat : {args.report}',flush=True)
         if args.dry_run:
             target = args.report.with_name('audio_plan.json')
@@ -172,15 +193,44 @@ def main(argv=None):
         model_dir,model = prepare_model(args.cache_dir)
         environment = environment_identity()
         asr_dir,asr_identity = prepare_asr(args.cache_dir,model_dir=args.asr_model_dir or ROOT/settings['asr_model'])
+        review_dir = None
+        if args.review_model_dir or settings.get('asr_review_required'):
+            from audio.speech_review import review_identity
+            configured_review = args.review_model_dir or settings.get('asr_review_model')
+            if not configured_review:
+                raise ValueError('Vérificateur Medium requis : lancer python -m tools.prepare_audio_review.')
+            review_dir,review_asr_identity = prepare_asr(args.cache_dir,model_dir=ROOT/configured_review)
+            asr_identity = review_identity(asr_identity,review_asr_identity)
         reference,voice_sha = voice_snapshot(args.voice,args.cache_dir)
+        def release_tts():
+            if runner.backend is not None and hasattr(runner.backend,'release'):
+                runner.backend.release()
+        def release_review():
+            if runner.verifier is not None and hasattr(runner.verifier,'release_review'):
+                runner.verifier.release_review()
+        def verifier_factory():
+            if review_dir is None:
+                return SpeechVerifier(asr_dir)
+            from audio.speech_review import ReviewingSpeechVerifier, TimedReviewVerifier
+            return ReviewingSpeechVerifier(lambda:SpeechVerifier(asr_dir),
+                       lambda:TimedReviewVerifier(review_dir,threads=args.threads),
+                       before_review=release_tts,progress=lambda message:print(message,flush=True))
+        def backend_factory(parameters):
+            if review_dir is None:
+                return ChatterboxBackend(model_dir,reference,'cpu',parameters)
+            from audio.speech_review import EvictableBackend
+            return EvictableBackend(lambda p:ChatterboxBackend(model_dir,reference,'cpu',p),
+                       parameters,before_load=release_review,progress=lambda message:print(message,flush=True))
         runner = StyledRun(cache_dir=args.cache_dir,output_dir=args.output_dir,report=args.report,
                            voice_sha=voice_sha,model=model,environment=environment,threads=args.threads,
-                           backend_factory=lambda parameters:ChatterboxBackend(model_dir,reference,'cpu',parameters),
-                           verifier_factory=lambda:SpeechVerifier(asr_dir),verifier_identity=asr_identity,
-                           attempts=args.attempts,progress=lambda message:print(message,flush=True))
+                           backend_factory=backend_factory,
+                           verifier_factory=verifier_factory,verifier_identity=asr_identity,
+                           attempts=args.attempts,progress=lambda message:print(message,flush=True),
+                           recheck_only=args.recheck_only)
         print('Ctrl+C interrompt. Relancer exactement la même commande reprend les prises validées.',flush=True)
         result = runner.run(plans)
-        print(f"Terminé : {runner.state['ready']} prêts, {runner.state['failed']} en échec. État : {args.report}",flush=True)
+        remaining = 'à compléter après réécoute' if args.recheck_only else 'en échec'
+        print(f"Terminé : {runner.state['ready']} prêts, {runner.state['failed']} {remaining}. État : {args.report}",flush=True)
         return result
     except KeyboardInterrupt:
         print('\nInterruption enregistrée. La même commande reprendra sans refaire les prises validées.',file=sys.stderr)

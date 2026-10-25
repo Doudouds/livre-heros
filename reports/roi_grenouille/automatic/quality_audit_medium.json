@@ -1,0 +1,97 @@
+{
+  "book": "roi_grenouille",
+  "passed": true,
+  "required": 11,
+  "ready": 11,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+  "segments": [
+    {
+      "segment_id": "roi_grenouille_01_automatic_52109c490924c5d9d1bd",
+      "passed": true,
+      "sha256": "d9c42d67ff2634f3b059e40223190726a6b68dfd57cc2e9d0469168b0d654aa5",
+      "seconds": 71.06,
+      "word_error_rate": 0.0258
+    },
+    {
+      "segment_id": "roi_grenouille_02_automatic_05685d6f1bd7e0501e65",
+      "passed": true,
+      "sha256": "9c6d83eb1bf159b3c0a47033c21809d210f9a4d61d469be03453a9e218043385",
+      "seconds": 45.47,
+      "word_error_rate": 0.0
+    },
+    {
+      "segment_id": "roi_grenouille_03_automatic_dc3737e518a0e27e3b08",
+      "passed": true,
+      "sha256": "61e6002bae07b6b82ff1f83fce56f13f489bb846467dc4eb79f69fd75b7d2206",
+      "seconds": 44.03,
+      "word_error_rate": 0.0238
+    },
+    {
+      "segment_id": "roi_grenouille_04_automatic_dbe3dd2e5c31c4775ca2",
+      "passed": true,
+      "sha256": "e5b3d2f29b11a7963a1db2ad7f738a3199723564f00e37e3dcbec60ebfafcc65",
+      "seconds": 68.05,
+      "word_error_rate": 0.0357
+    },
+    {
+      "segment_id": "roi_grenouille_05_automatic_aa30ca4ebd46cd9ff51c",
+      "passed": true,
+      "sha256": "b7975c68876f869f588e014c896d6ad3033fe26e71b4aba2f824cf8706c3be83",
+      "seconds": 45.31,
+      "word_error_rate": 0.0382
+    },
+    {
+      "segment_id": "roi_grenouille_06_automatic_7ebe5c2b534b1ecf2668",
+      "passed": true,
+      "sha256": "b8ab94b19912c77173cae3f52def35d5d2745f329c6c956d06b808227dc7b2cf",
+      "seconds": 30.07,
+      "word_error_rate": 0.0
+    },
+    {
+      "segment_id": "roi_grenouille_07_automatic_3bf84f474c3780759d6f",
+      "passed": true,
+      "sha256": "f1976e4e62488c335cf63df8e0cab4cca147d82299785597163643edf209780a",
+      "seconds": 43.8,
+      "word_error_rate": 0.0292
+    },
+    {
+      "segment_id": "roi_grenouille_08_automatic_1c84629eb1ab95935b99",
+      "passed": true,
+      "sha256": "306a41234661a99231d275b688aa2c1e6d207409ff5bebf9d4f0b1aa7f2ae500",
+      "seconds": 30.67,
+      "word_error_rate": 0.101
+    },
+    {
+      "segment_id": "roi_grenouille_09_automatic_06f4810677f7951fd492",
+      "passed": true,
+      "sha256": "04654df19b9db491ed9f86bea9b8d488095bd52ecdea1becc5df9fcc95f83733",
+      "seconds": 50.62,
+      "word_error_rate": 0.0314
+    },
+    {
+      "segment_id": "roi_grenouille_10_automatic_6c2cf175f4f563a44a25",
+      "passed": true,
+      "sha256": "27f36992bbdf41e3733c3eea8b66e6d0abea06b67d5b7c1bd3b586cdcb1f550d",
+      "seconds": 18.7,
+      "word_error_rate": 0.0169
+    },
+    {
+      "segment_id": "roi_grenouille_11_automatic_da493f09dc65d57dd5e2",
+      "passed": true,
+      "sha256": "378b339edbf886e6b433fadcbeb5d6c836cef35c855e5f818b5151531289aa9b",
+      "seconds": 31.96,
+      "word_error_rate": 0.0204
+    }
+  ],
+  "previous_wavs_unchanged": {
+    "roi_grenouille_01_automatic_52109c490924c5d9d1bd.wav": true,
+    "roi_grenouille_02_automatic_05685d6f1bd7e0501e65.wav": true,
+    "roi_grenouille_03_automatic_dc3737e518a0e27e3b08.wav": true,
+    "roi_grenouille_04_automatic_dbe3dd2e5c31c4775ca2.wav": true,
+    "roi_grenouille_06_automatic_7ebe5c2b534b1ecf2668.wav": true,
+    "roi_grenouille_07_automatic_3bf84f474c3780759d6f.wav": true,
+    "roi_grenouille_10_automatic_6c2cf175f4f563a44a25.wav": true,
+    "roi_grenouille_11_automatic_da493f09dc65d57dd5e2.wav": true
+  }
+}

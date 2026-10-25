@@ -15,13 +15,17 @@ class PcUI:
     INK = "#242735"
     ACCENT = "#30485c"
 
-    def __init__(self, root, content, debug=False, seed=None, arc=None, book=None):
+    def __init__(self, root, content, debug=False, seed=None, arc=None, book=None, automatic=False):
         self.root, self.content = root, content
         self.engine = None
         self.initial_seed, self.initial_arc = seed, arc
         self.active_tale_arc = arc
         self.setup_kind = "library"
         self.active_book_id = "passeuse_ch1"
+        self.automatic_options = {}
+        self.automatic_playback = False
+        self.automatic_audio_started = False
+        self.automatic_done = False
         self.illustration = None
         self.pilot_plots_seen = set()
         self.pressed_choice_keys = set()
@@ -73,7 +77,9 @@ class PcUI:
         self.root.bind("<Right>", lambda e: self.keyboard_choice(1, e.keysym))
         self.root.bind("<KeyRelease>", lambda e: self.pressed_choice_keys.discard(e.keysym))
         if book is not None:
-            self.start_book(book)
+            self.start_book(book, automatic=automatic)
+            if self.engine is None:
+                self.home()
         else:
             self.setup() if arc is not None else self.home()
 
@@ -92,6 +98,9 @@ class PcUI:
 
     def reset_reading(self):
         self.audio.stop()
+        self.automatic_playback = False
+        self.automatic_audio_started = False
+        self.automatic_done = False
         self.engine = None
         self.pressed_choice_keys.clear()
         self.last_choice_time = 0
@@ -106,18 +115,18 @@ class PcUI:
         cards = [
             ("Le conte", "La Maison aux Sept Cages",
              "Retrouve Lison et délivre les enfants changés en oiseaux.\n"
-             "Choisis ton héros, ton lieu et ton objet.", self.select_tale, "Ouvrir le conte"),
+             "Choisis ton héros, ton lieu et ton objet.", self.select_tale, "Ouvrir le conte", None),
             ("Le livre", "La petite passeuse d'étoile",
              "Accompagne Alex dans une ville où chaque pas est imposé.\n"
-             "Premier chapitre complet, illustré en noir et blanc.", self.start_book, "Ouvrir le livre"),
+             "Premier chapitre complet, illustré en noir et blanc.", self.start_book, "Ouvrir le livre", 'passeuse_ch1'),
         ]
         for book_id, book in self.content.books.items():
             if book_id != "passeuse_ch1":
                 cards.append((book.get("library_label", "Le conte"), book["title"],
                               book.get("library_description", "Deux choix à chaque étape."),
-                              lambda selected=book_id: self.start_book(selected),
-                              book.get("open_label", "Ouvrir cette histoire")))
-        for title, subtitle, description, command, button_label in cards:
+                              lambda selected=book_id: self.open_book(selected),
+                              book.get("open_label", "Ouvrir cette histoire"), book_id))
+        for title, subtitle, description, command, button_label, book_id in cards:
             frame = ttk.Frame(self.page, padding=(18, 12), relief="solid", borderwidth=1)
             frame.pack(fill="x", pady=(0, 12))
             ttk.Button(frame, text=button_label, style="Primary.TButton", command=command).pack(
@@ -125,6 +134,14 @@ class PcUI:
             ttk.Label(frame, text=title, font=("Segoe UI", 11, "bold")).pack(anchor="w")
             ttk.Label(frame, text=subtitle, font=("Georgia", 18), wraplength=430).pack(anchor="w", pady=(4, 5))
             ttk.Label(frame, text=description, style="Sub.TLabel", wraplength=430).pack(anchor="w")
+            if book_id and self.content.books[book_id].get('audio_tagged_version') == 1:
+                option = self.automatic_options.setdefault(book_id, tk.BooleanVar(value=False))
+                ttk.Checkbutton(frame, text='Écoute automatique · sans choix',
+                                variable=option).pack(anchor='w', pady=(6, 0))
+
+    def open_book(self, book_id):
+        option = self.automatic_options.get(book_id)
+        self.start_book(book_id, automatic=bool(option and option.get()))
 
     def select_tale(self):
         self.active_tale_arc = self.initial_arc or "cages"
@@ -132,18 +149,42 @@ class PcUI:
 
     def restart(self):
         if self.setup_kind == "book":
-            self.start_book(self.engine.book["id"] if self.engine else self.active_book_id)
+            self.start_book(self.engine.book["id"] if self.engine else self.active_book_id,
+                            automatic=self.automatic_playback)
         elif self.setup_kind == "tale":
             self.setup()
         else:
             self.home()
 
-    def start_book(self, book_id="passeuse_ch1"):
+    def automatic_missing_audio(self, book_id):
+        engine = BookEngine(self.content, book_id, automatic=True)
+        audio_root = self.content.config.get('book_audio_roots', {}).get(book_id)
+        missing = []
+        while True:
+            path = (self.content.root/audio_root/(engine.current['segment_id']+'.wav')).resolve() if audio_root else None
+            if path is None or not path.is_relative_to(self.content.root.resolve()) or not path.is_file():
+                missing.append(engine.current['id'])
+            if engine.finished:
+                return missing
+            engine.choose(0)
+            engine.advance()
+
+    def start_book(self, book_id="passeuse_ch1", *, automatic=False):
+        if automatic:
+            missing = self.automatic_missing_audio(book_id)
+            if missing:
+                launcher = ('Generer_audio_Roi_Grenouille_Automatique.cmd' if book_id == 'roi_grenouille'
+                            else f'generer_audio_conte.py --book {book_id} --automatic')
+                messagebox.showinfo('Écoute automatique',
+                                    f'Les audio pour écouter cette histoire en continu ne sont pas encore tous prêts.\n\n'
+                                    f'Lancez {launcher}, puis rouvrez le conte.', parent=self.root)
+                return False
         self.reset_reading()
         self.setup_kind = "book"
         self.active_book_id = book_id
-        self.engine = BookEngine(self.content, book_id)
+        self.engine = BookEngine(self.content, book_id, automatic=automatic)
         self.show_scene()
+        return True
 
     def resize_reading_image(self, event):
         if event.widget != self.body or self.original_illustration is None:
@@ -186,25 +227,44 @@ class PcUI:
         if self.audio_controls is None:
             return
         state = self.audio.state
+        if self.automatic_playback and self.automatic_audio_started and state == 'ready':
+            self.automatic_audio_started = False
+            if not self.engine.finished:
+                self.engine.choose(0)
+                self.engine.advance()
+                self.show_scene()
+                return
+            self.automatic_done = True
         available = state != "unavailable"
-        self.audio_buttons["play"].configure(state="normal" if available and state != "playing" else "disabled")
+        self.audio_buttons["play"].configure(state="normal" if (available or self.automatic_playback) and state != "playing" else "disabled")
         self.audio_buttons["pause"].configure(state="normal" if state == "playing" else "disabled")
         self.audio_buttons["replay"].configure(state="normal" if available else "disabled")
         self.audio_status.configure(text={"playing": "Lecture en cours", "paused": "En pause",
                                           "ready": "Prêt à écouter", "unavailable": "Audio indisponible"}[state])
+        if self.automatic_playback and state == 'unavailable':
+            self.audio_status.configure(text='Audio indisponible · lecture suspendue')
+        elif self.automatic_done:
+            self.audio_status.configure(text='Écoute terminée')
         if available:
             self.audio_poll = self.root.after(250, self.update_audio_controls)
 
     def resume_audio(self):
-        self.audio.resume()
-        self.update_audio_controls()
+        if self.automatic_playback and self.audio.state == 'unavailable':
+            self.play_audio(*self.current_audio)
+        else:
+            if self.audio.resume() and self.automatic_playback:
+                self.automatic_audio_started = True
+                self.automatic_done = False
+            self.update_audio_controls()
 
     def pause_audio(self):
         self.audio.pause()
         self.update_audio_controls()
 
     def replay_audio(self):
-        self.audio.replay()
+        if self.audio.replay() and self.automatic_playback:
+            self.automatic_audio_started = True
+            self.automatic_done = False
         self.update_audio_controls()
 
     def play_audio(self, segment_id, audio_file=None):
@@ -212,7 +272,8 @@ class PcUI:
         if isinstance(self.engine, BookEngine):
             lead_in = self.engine.book.get("audio_lead_in_ms", lead_in)
         self.audio.lead_in_ms = lead_in
-        self.audio.play(segment_id, audio_file)
+        self.current_audio = (segment_id, audio_file)
+        self.automatic_audio_started = self.audio.play(segment_id, audio_file)
         self.update_audio_controls()
 
 
@@ -339,9 +400,13 @@ class PcUI:
     def show_scene(self):
         scene = self.engine.current
         is_book = isinstance(self.engine, BookEngine)
+        self.automatic_playback = bool(is_book and self.engine.automatic)
+        self.automatic_done = False
         if is_book:
             chapter = f" · Chapitre {self.engine.book['chapter']}" if self.engine.book.get("chapter") else ""
             subtitle = f"{self.engine.book['title']}{chapter} · Passage {scene['rank']}/{len(self.engine.scenes)}"
+            if self.automatic_playback:
+                subtitle += ' · Écoute automatique'
         else:
             subtitle = "Les Portes de l'Imaginaire"
         self.story_layout(scene["title"], subtitle, scene)
@@ -365,7 +430,7 @@ class PcUI:
             else:
                 ttk.Button(self.actions, text="Une nouvelle aventure", style="Primary.TButton",
                            command=self.setup).pack(fill="x")
-        else:
+        elif not self.automatic_playback:
             ttk.Label(self.actions, text=scene.get("choice_question", "Que fais-tu ?"),
                       font=("Segoe UI", 12, "bold")).pack(anchor="w", pady=(0, 8))
             for i, choice in enumerate(scene["choices"]):
@@ -374,7 +439,7 @@ class PcUI:
         self.update_debug()
 
     def choose(self, index):
-        if not self.engine or self.engine.finished or self.engine.pending or self.engine.current["kind"] != "decision":
+        if self.automatic_playback or not self.engine or self.engine.finished or self.engine.pending or self.engine.current["kind"] != "decision":
             return
         result = self.engine.choose(index)
         if self.engine.arc.get("inline_consequences"):
@@ -388,6 +453,8 @@ class PcUI:
         self.update_debug()
 
     def submit_choice(self, index):
+        if self.automatic_playback:
+            return
         now = time.monotonic()
         if now - self.last_choice_time < .3:
             return
@@ -395,6 +462,8 @@ class PcUI:
         self.choose(index)
 
     def keyboard_choice(self, index, key=None):
+        if self.automatic_playback:
+            return
         if self.root.focus_get() and isinstance(self.root.focus_get(), (ttk.Entry, ttk.Combobox)):
             return
         if key is not None:
@@ -404,7 +473,7 @@ class PcUI:
         self.submit_choice(index)
 
     def advance(self):
-        if not self.engine or self.engine.finished:
+        if self.automatic_playback or not self.engine or self.engine.finished:
             return
         self.engine.advance()
         self.show_scene()

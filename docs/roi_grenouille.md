@@ -3,6 +3,16 @@
 Ouvrir **Lancer.cmd**, puis **Ouvrir le Roi-grenouille**, ou utiliser directement
 **Essayer_Roi_Grenouille.cmd**.
 
+Avant d'ouvrir le conte à l'accueil, la case **Écoute automatique · sans choix**
+permet de suivre le premier choix jusqu'au bout, sans annoncer les options.
+Préparer les 11 WAV de ce mode avec **Generer_audio_Roi_Grenouille_Automatique.cmd**
+ou `python generer_audio_conte.py --automatic`. Les fichiers et rapports de
+l'écoute automatique sont distincts des versions interactives ; les prises
+narratives communes sont réutilisées. Les audio doivent être prêts avant le
+lancement de l'écoute complète.
+`Ecouter_Roi_Grenouille_Automatique.cmd` ouvre directement ce mode après sa
+préparation.
+
 Le conte entier du recueil fourni, pages PDF **14 et 15**, est repris dans son
 ordre : 1 298 mots de texte source, répartis en **11 passages et 10 décisions**.
 La narration reste à la troisième personne. Les dialogues, la promesse, la
@@ -77,15 +87,20 @@ de la grenouille reçoivent les réglages d'émerveillement, de tristesse, de
 tendresse et de surprise. Aucun nom d'émotion n'est prononcé.
 
 Les prises sont découpées sur les phrases et les mots, à 300 caractères au
-maximum. Les pauses valent 150 ms. Le modèle est chargé une seule fois et les
+maximum. Les reprises difficiles utilisent des phrases ou propositions
+complètes, sans couper après une préposition. Les pauses valent 150 ms. Les
 prises réussies restent en cache. Les empreintes de la voix, des poids du
 modèle, des versions et des réglages empêchent de confondre deux productions.
 
 Le contrôle **Whisper Small local est activé** : chaque bloc est retranscrit
 sans lui donner le texte attendu comme prompt. Une fin absente, des paroles
 trop différentes ou une annonce de choix manquante provoquent de nouvelles
-prises ; les refus et transcriptions sont conservés. Un dernier contrôle porte
-sur le WAV complet, avec la narration, la question et les deux choix.
+prises ; les refus et transcriptions sont conservés. **Whisper Medium**, installé
+localement, arbitre les refus de Small et effectue obligatoirement le dernier
+contrôle sur le WAV complet, avec la narration et les annonces du mode choisi.
+Le seuil et les exigences de fin sont inchangés. Chatterbox et Medium sont
+chargés à tour de rôle pour limiter la mémoire utilisée ; les paramètres de
+synthèse restent les mêmes.
 Ce contrôle intégral utilise la détection de parole pour éviter les phrases
 de sous-titrage que Whisper peut inventer sur les silences ; le fichier audio
 et les exigences de contenu restent identiques.
@@ -117,6 +132,28 @@ le WAV à l'échantillon près depuis ses prises validées. Il vérifie aussi la
 seconde de silence initial et l'absence de silence ajouté par le lecteur.
 Le résultat est enregistré dans
 `reports/roi_grenouille/audio_audit.json`.
+
+## Parcours automatique complet
+
+Les **11 WAV automatiques sont désormais prêts**, contre huit avant la
+réparation. Les huit fichiers d'origine ont été revérifiés avec Medium sans
+modifier leurs octets. Les portions correctes des trois passages manquants ont
+été récupérées dans le cache ; seules les portions encore refusées ou absentes
+ont nécessité une nouvelle prise.
+
+Double-cliquer sur `Ecouter_Roi_Grenouille_Automatique.cmd` pour écouter le
+parcours du choix 1 sans annonces. La génération reprend avec
+`python generer_audio_conte.py --automatic`. Son état est conservé dans
+`reports/roi_grenouille/automatic/generation_status.json`.
+
+```powershell
+python -m tools.audit_automatic_audio
+```
+
+Cet audit contrôle les onze textes réellement joués, les émotions, les
+empreintes, l'assemblage exact, la seconde de silence et les preuves finales
+Medium. Son résultat est dans
+`reports/roi_grenouille/automatic/quality_audit_medium.json`.
 
 La reconnaissance automatique vérifie les paroles, pas l'émotion ni chaque
 nuance de prononciation. L'écoute du premier passage sert à valider le rendu

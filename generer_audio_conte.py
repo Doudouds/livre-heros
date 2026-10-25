@@ -3,6 +3,7 @@
     python generer_audio_conte.py
     python generer_audio_conte.py --dry-run
     python generer_audio_conte.py --segment 1
+    python generer_audio_conte.py --automatic
 
 Relancer la même commande reprend après une interruption ou un plantage.
 """

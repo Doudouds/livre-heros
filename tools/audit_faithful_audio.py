@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from audio.speech_verification import compare_transcript
+from audio.verification_evidence import validate_evidence
 from audio.tts_batch import (SPLITTERS, atomic_json, digest, file_hash,
                             read_wave, receipt_matches, receipt_path)
 from engine.book_engine import BookEngine
@@ -40,7 +41,9 @@ def audit(report_path):
     assert receipt['verification'] == plan['verification']
     assert receipt['voice_sha256'] == plan['voice_sha256']
     assert receipt['verification']['passed'] is True
-    compare_transcript(plan['text'], receipt['verification']['transcript'])
+    last_span = plan['spans'][-1]
+    validate_evidence(plan['text'],receipt['verification'],read_wave(target),
+                      tail_text=last_span['text'],tail_pcm=read_wave(last_span['component']))
     checks = []
 
     def chunk(profile_dir, text):

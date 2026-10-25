@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .tts_batch import ModelLoadError, atomic_json, batch_lock, file_hash
 
-CHECK_VERSION = 2
+CHECK_VERSION = 3
 NUMBER_WORDS = dict(zip(map(str, range(0, 13)),
                        ('zero','un','deux','trois','quatre','cinq','six','sept','huit','neuf','dix','onze','douze')))
 
@@ -36,8 +36,71 @@ def distance(expected, heard):
     return row[-1]
 
 
+# Équivalences de prononciation explicites : aucune suppression générale de
+# suffixe, qui confondrait par exemple « parle » et « parler ».
+HOMOPHONES = {}
+for name, spellings in {
+    'delivre_e': ('délivré','délivrée','délivrés','délivrées','délivrer'),
+    'seche_e': ('séché','séchée','séchés','séchées','sécher'),
+    'fer': ('fer','faire'), 'henri': ('henri','henry'),
+    'cher': ('cher','chère','chers','chères'),
+    'excuse': ('excuse','excuses'), 'autre': ('autre','autres'),
+    'moyen': ('moyen','moyens'), 'jeu': ('jeu','jeux'),
+}.items():
+    HOMOPHONES.update({word:name for word in spellings})
+
+
+def spoken_tokens(text):
+    text = unicodedata.normalize('NFC',text.lower())
+    # Cas contextuels : conserver notamment la distinction il/ils avec liaison.
+    text = re.sub(r'\b(?:il|ils)\s+(?:partirait|partiraient)\b','il partirait',text)
+    text = re.sub(r'\b(?:seul|seule|seuls|seules)\s+(?:pouvait|pouvaient)\b','seul pouvait',text)
+    text = re.sub(r'\bcherche\s+à\b','chercha',text)
+    words = re.findall(r'[^\W\d_]+|\d+',text)
+    return [HOMOPHONES.get(word) or tokens(word)[0] for word in words if tokens(word)]
+
+
+def repair_boundaries(reference, actual):
+    """Réparer seulement les fusions/séparations dont les lettres sont identiques.
+
+    « tabale » et « ta balle » ont la même suite de lettres après réduction des
+    consonnes doubles. Aucun mot manquant ou mot différent n'est inventé.
+    """
+    def compact(words):
+        # « balle / bale », mais pas « fille / file » ou des voyelles doubles.
+        return re.sub(r'(?<=[aàâ])ll','l',''.join(words))
+    joined = {}
+    for left,right in zip(reference,reference[1:]):
+        if left.isalpha() and right.isalpha():
+            joined.setdefault(compact((left,right)),set()).add((left,right))
+    result,repairs,index = [],[],0
+    while index < len(actual):
+        word = actual[index]
+        options = joined.get(compact([word]),set()) if word not in reference else set()
+        if len(options) == 1:
+            replacement = next(iter(options))
+            result.extend(replacement)
+            repairs.append(dict(heard=[word],compared_as=list(replacement)))
+        elif index+1 < len(actual) and (word not in reference or actual[index+1] not in reference):
+            pair = actual[index:index+2]
+            matches = {r for r in reference if r.isalpha() and compact([r]) == compact(pair)}
+            if len(matches) == 1:
+                replacement = next(iter(matches))
+                result.append(replacement)
+                repairs.append(dict(heard=pair,compared_as=[replacement]))
+                index += 1
+            else:
+                result.append(word)
+        else:
+            result.append(word)
+        index += 1
+    return result,repairs
+
+
 def compare_transcript(expected, transcript, max_wer=0.15):
-    reference, actual = tokens(expected), tokens(transcript)
+    raw_reference,raw_actual = tokens(expected),tokens(transcript)
+    reference, actual = spoken_tokens(expected),spoken_tokens(transcript)
+    actual,boundary_repairs = repair_boundaries(reference,actual)
     # Whisper peut écrire le verbe « chois » pour le nom homophone « choix ».
     # Cette équivalence ne vaut que devant le numéro d'une annonce ; aucun
     # numéro ni mot absent n'est ajouté, et leur ordre reste contrôlé ensuite.
@@ -71,8 +134,10 @@ def compare_transcript(expected, transcript, max_wer=0.15):
                       if word == 'choix' and actual[i+1] in ('un','deux')]
     if expected_choices != actual_choices:
         reasons.append('annonce des choix absente, répétée ou dans le mauvais ordre')
-    report = dict(passed=not reasons, transcript=transcript, expected_words=len(reference),
-                  recognized_words=len(actual), word_error_rate=round(wer,4),
+    report = dict(passed=not reasons, transcript=transcript, expected_words=len(raw_reference),
+                  recognized_words=len(raw_actual), word_error_rate=round(wer,4),
+                  orthographic_word_error_rate=round(distance(raw_reference,raw_actual)/len(raw_reference),4),
+                  word_boundary_repairs=boundary_repairs,comparison='french-spoken-v1',
                   tail_matched=tail_ok and tail_distance <= 1,
                   choices_matched=expected_choices == actual_choices, reasons=reasons,
                   choice_homophones_normalized=homophones)
@@ -98,6 +163,7 @@ def prepare_asr(cache_dir, model='small', model_dir=None):
     from huggingface_hub import HfApi, snapshot_download
     identity = {'checker_version':CHECK_VERSION, 'method':'faster-whisper', 'language':'fr',
                 'max_wer':0.15, 'exact_last_words':3, 'tail_words':8,
+                'comparison':'french-spoken-v1','asr_attempts':2,
                 'versions':{n:metadata.version(n) for n in ('faster-whisper','ctranslate2')},
                 'checker_source_sha256':file_hash(Path(__file__)),
                 'asr_source_sha256':file_hash(Path(module.__file__))}
@@ -140,15 +206,46 @@ class SpeechVerifier:
             wav.setframerate(pcm.sample_rate)
             wav.writeframes(pcm.frames)
         stream.seek(0)
-        try:
+        attempts = []
+        for number in range(2):
             # Ne pas fournir le texte attendu en prompt : cela pourrait aider
             # le reconnaisseur à inventer une fin qui n'a pas été prononcée.
-            segments, _ = self.model.transcribe(stream,language='fr',beam_size=5,
-                                               temperature=0,condition_on_previous_text=False,
-                                               vad_filter=vad_filter)
-            transcript = ' '.join(segment.text.strip() for segment in segments)
-        except Exception as exc:
-            raise ModelLoadError(f'Contrôle des paroles indisponible : {exc}') from exc
-        report = compare_transcript(expected,transcript)
-        report['vad_filter'] = vad_filter
-        return report
+            stream.seek(0)
+            options = dict(language='fr',beam_size=5 if number == 0 else 8,
+                           temperature=0,condition_on_previous_text=False,
+                           vad_filter=vad_filter if number == 0 else True)
+            if number:
+                options['patience'] = 2
+            try:
+                segments, _ = self.model.transcribe(stream,**options)
+                transcript = ' '.join(segment.text.strip() for segment in segments)
+            except Exception as exc:
+                raise ModelLoadError(f'Contrôle des paroles indisponible : {exc}') from exc
+            try:
+                report = compare_transcript(expected,transcript)
+            except IncompleteSpeech as exc:
+                report = exc.report
+                attempts.append(dict(options=options,verification=report.copy()))
+                continue
+            attempts.append(dict(options=options,verification=report.copy()))
+            report.update(vad_filter=options['vad_filter'],asr_attempts=attempts)
+            return report
+        report['asr_attempts'] = attempts
+        raise IncompleteSpeech(report)
+
+    def verify_complete(self, expected, pcm, *, tail_text, tail_frames):
+        """Contre-vérifier une fin douteuse sur les échantillons du WAV complet."""
+        try:
+            return self.verify(expected,pcm,vad_filter=True)
+        except IncompleteSpeech as exc:
+            global_check = exc.report
+            if global_check['reasons'] != ['fin du texte non retrouvée']:
+                raise
+            from .tts_batch import PCM
+            if not 0 < tail_frames <= len(pcm.frames):
+                raise ValueError('Découpage de la fin invalide.')
+            tail = PCM(pcm.sample_rate,pcm.frames[-tail_frames:])
+            tail_check = self.verify(tail_text,tail,vad_filter=True)
+            return dict(global_check,passed=True,reasons=[],tail_matched=True,
+                        method='full-and-tail',global_check=global_check,tail_check=tail_check,
+                        tail_frames=tail_frames)

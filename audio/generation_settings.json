@@ -5,5 +5,7 @@
     "repo": "ResembleAI/chatterbox",
     "variant": "v3",
     "revision": "5bb1f6ee58e50c3b8d408bc82a6d3740c2db6e18"
-  }
+  },
+  "asr_review_model": "audio\\runtime\\asr_models\\models--Systran--faster-whisper-medium\\snapshots\\08e178d48790749d25932bbc082711ddcfdfbc4f",
+  "asr_review_required": true
 }

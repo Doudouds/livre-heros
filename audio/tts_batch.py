@@ -132,6 +132,34 @@ SPLITTERS = {'paragraph-sentence-v1': split_text,
              'linguistic-v1': split_linguistic, 'whole-text-v1': whole_text}
 
 
+def recovery_parts(text):
+    """Couper à une vraie frontière de phrase/proposition, jamais au nombre de caractères."""
+    text = ' '.join(text.split())
+    dangling = {'de','du','des','à','au','aux','et','ou','ni','que','qui','dont','si',
+                'quand','comme','un','une','le','la','les','son','sa','ses','leur','leurs',
+                'pour','sans','avec','dans','sur','sous','en'}
+    candidates = []
+    for match in re.finditer(r'[.!?…;:]+(?:\s*[»”"\)\]])*(?=\s|$)',text):
+        left,right = text[:match.end()].strip(),text[match.end():].strip()
+        if not right:
+            continue
+        punctuation = match.group()[0]
+        minimum_right = 6 if punctuation in '.!?…' or right.startswith(('«','“','"')) else 8
+        minimum_left = 6 if punctuation in '.!?…' else 8
+        if len(left.split()) < minimum_left or len(right.split()) < minimum_right:
+            continue
+        last = re.search(r"([\w’']+)[^\w]*$",left)
+        if last and (last[1].lower() in dangling or last[1].lower() in {'m','mme','mlle','dr','etc'}):
+            continue
+        candidates.append((abs(len(left)-len(right))+(0 if punctuation in '.!?…' else 50),left,right))
+    if not candidates:
+        return [text]
+    _,left,right = min(candidates,key=lambda item:item[0])
+    if left+' '+right != text:
+        raise ValueError('Le découpage de secours a modifié les paroles.')
+    return [left,right]
+
+
 def read_manifest(path, project_root, output_dir=None):
     root = Path(project_root).resolve()
     output_root = Path(output_dir).resolve() if output_dir else root
@@ -268,7 +296,7 @@ class Batch:
     def __init__(self, cache_dir, recipe, synthesizer_factory, *, max_chars=380,
                  pause_ms=160, seed=20261003, overwrite=False, progress=print,
                  verifier_factory=None, verifier_identity=None, attempts=3,
-                 splitter='paragraph-sentence-v1'):
+                 splitter='paragraph-sentence-v1', allow_synthesis=True):
         if type(pause_ms) is not int or not 0 <= pause_ms <= 3000:
             raise ValueError('Pause invalide.')
         split_text('Validation.', max_chars)
@@ -288,6 +316,7 @@ class Batch:
         self.verifier_identity = verifier_identity
         self.validation_id = digest(verifier_identity) if verifier_factory else None
         self.attempts = attempts
+        self.allow_synthesis = allow_synthesis
         self.failed_chunks = {}
         self.overwrite, self.progress = overwrite, progress
         self.stats = {'generated': 0, 'skipped': 0, 'failed': 0, 'chunks_generated': 0, 'chunks_reused': 0,
@@ -317,6 +346,8 @@ class Batch:
                 raise ValueError(f'WAV sans reçu vérifiable : {path.name}. Employer --overwrite pour le reconstruire depuis le cache.')
 
     def backend(self):
+        if not self.allow_synthesis:
+            raise ValueError('Réécoute seule : aucune prise du cache ne passe le contrôle ; synthèse désactivée.')
         if self.synthesizer is None:
             try:
                 self.synthesizer = self.factory()
@@ -356,9 +387,43 @@ class Batch:
         if pcm is not None:
             try:
                 atomic_wave(directory / f'attempt_{attempt}.wav',pcm)
+                report['sha256'] = file_hash(directory / f'attempt_{attempt}.wav')
             except ValueError:
                 pass
         atomic_json(directory / f'attempt_{attempt}.json',report)
+
+    def recover_rejected(self, identity, text, target):
+        """Une nouvelle politique peut sauver une prise, après une vraie réécoute ASR."""
+        if self.verifier_factory is None:
+            return None
+        candidates = []
+        for report_path in (self.cache_dir/self.profile/'rejected'/identity).glob('attempt_*.json'):
+            try:
+                report = json.loads(report_path.read_text(encoding='utf-8'))
+                wav = report_path.with_suffix('.wav')
+                if report.get('policy') == self.validation_id or report.get('text') != text or not wav.is_file():
+                    continue
+                if report.get('sha256') and file_hash(wav) != report['sha256']:
+                    continue
+                score = (report.get('verification') or {}).get('word_error_rate',1)
+                candidates.append((score,report_path,wav,report))
+            except (OSError,ValueError,TypeError):
+                continue
+        for _,report_path,wav,report in sorted(candidates,key=lambda item:(item[0],str(item[1])))[:3]:
+            try:
+                pcm = read_wave(wav)
+                check = self.verify(text,pcm)
+            except ModelLoadError:
+                raise
+            except (ValueError,RuntimeError,OSError,EOFError,wave.Error):
+                continue
+            atomic_wave(target,pcm)
+            write_receipt(target,identity,pcm,profile=self.profile,text=text,seed=None,
+                          verification=check,recovered_from=str(wav),source_sha256=file_hash(wav))
+            self.stats['chunks_reused'] += 1
+            self.progress('Prise précédemment refusée : réécoute ASR réussie, audio conservé.')
+            return pcm
+        return None
 
     def chunk(self, text, depth=0):
         from .speech_verification import IncompleteSpeech
@@ -381,6 +446,9 @@ class Batch:
                 return pcm
             except IncompleteSpeech as exc:
                 self.reject(identity,text,'cached',exc,pcm)
+        recovered = self.recover_rejected(identity,text,path)
+        if recovered is not None:
+            return recovered
         counter_path = self.cache_dir / self.profile / 'attempts' / (identity + '.json')
         try:
             count = json.loads(counter_path.read_text(encoding='utf-8'))['count']
@@ -396,7 +464,7 @@ class Batch:
             atomic_json(counter_path,{'count':number+1})
             if attempt:
                 self.stats['retry_attempts'] += 1
-                self.progress(f'Nouvel essai {attempt+1}/{self.attempts} pour le passage incomplet.')
+                self.progress(f'Nouvel essai {attempt+1}/{self.attempts} pour la prise non validée.')
             pcm = None
             try:
                 pcm = backend.synthesize(text,seed)
@@ -410,11 +478,17 @@ class Batch:
             except (ValueError,RuntimeError) as exc:
                 last_error = exc
                 self.reject(identity,text,number+1,exc,pcm)
+                self.progress(f'Contrôle refusé : {exc}')
+                # Les rapports ne doivent pas garder les poids ASR/TTS vivants
+                # via les frames d'une exception entre deux tentatives.
+                exc.__traceback__ = None
+                exc.__context__ = None
+                exc.__cause__ = None
         # Une phrase trop longue pour une génération stable devient plusieurs
         # passages, chacun contrôlé et sauvegardé séparément. Profondeur bornée.
-        if self.verifier_factory and self.recipe['splitter'] != 'whole-text-v1' and depth < 2 and len(text) > 160:
-            shorter = self.splitter(text,max(80,len(text)//2))
-            if len(shorter) > 1 and all(len(tokens.split()) >= 4 for tokens in shorter):
+        if self.verifier_factory and self.recipe['splitter'] != 'whole-text-v1' and depth < 2:
+            shorter = recovery_parts(text)
+            if len(shorter) > 1:
                 self.stats['fallback_splits'] += 1
                 self.progress('Le passage reste suspect : découpage en passages plus courts et nouveaux contrôles.')
                 try:

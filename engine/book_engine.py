@@ -82,8 +82,9 @@ class BookEngine:
     JOURNAL_FORMAT = "interactive-book"
     JOURNAL_VERSION = 1
 
-    def __init__(self, content, book_id="passeuse_ch1"):
+    def __init__(self, content, book_id="passeuse_ch1", *, automatic=False):
         self.content = content
+        self.automatic = automatic
         self.book = content.books[book_id]
         validate_book(self.book)
         self.scenes = {s["id"]: s for s in self.book["scenes"]}
@@ -93,6 +94,8 @@ class BookEngine:
         self.journal = {"format": self.JOURNAL_FORMAT, "version": self.JOURNAL_VERSION,
                         "book": book_id, "content_hash": fingerprint, "scenes": [], "choices": [],
                         "conclusion": None}
+        if self.automatic:
+            self.journal['playback_mode'] = 'automatic'
         self.pending = None
         self._enter(self.book["start"])
 
@@ -120,12 +123,15 @@ class BookEngine:
         scene["selected_variants"] = selected
         scene["choice_question"] = scene.get("choice_question", self.book.get("choice_question", "Que doit choisir Alex ?"))
         scene["choice_prompt"] = None
-        if scene.get("choices"):
+        if scene.get("choices") and not self.automatic:
             first, second = scene["choices"]
             scene["choice_prompt"] = (scene["choice_question"] + " Choix 1 : " + first["text"].rstrip(".?!")
                                       + ". Ou choix 2 : " + second["text"].rstrip(".?!") + ".")
         scene["spoken_text"] = text + "\n\n" + scene["choice_prompt"] if scene["choice_prompt"] else text
-        scene["segment_id"] = segment_id(scene_id, "narration", scene["spoken_text"])
+        scene["segment_id"] = segment_id(scene_id, "automatic" if self.automatic else "narration", scene["spoken_text"])
+        if self.automatic:
+            # Un éventuel alias du WAV interactif contiendrait les annonces.
+            scene.pop('audio_file', None)
         self.state.current_scene = scene_id
         self.state.estimated_seconds += self.content.seconds(scene["spoken_text"])
         self.current = scene
@@ -139,6 +145,8 @@ class BookEngine:
             raise ValueError("Ce passage n'attend pas de choix.")
         if type(index) is not int or index not in (0, 1):
             raise ValueError("Le choix doit être 0 ou 1.")
+        if self.automatic and index != 0:
+            raise ValueError('Le parcours automatique suit toujours le premier choix.')
         choice = copy.deepcopy(self.current["choices"][index])
         for variant in choice.get("consequence_variants", []):
             if matches_flags(variant["when"], self.state.flags):
@@ -146,7 +154,8 @@ class BookEngine:
                 choice.setdefault("flags", []).extend(variant.get("flags", []))
         self.state.flags.update(choice.get("flags", []))
         self.state.story_progress += 1
-        self.state.estimated_seconds += self.content.config["choice_seconds"]
+        if not self.automatic:
+            self.state.estimated_seconds += self.content.config["choice_seconds"]
         record = {"scene": self.current["id"], "choice_index": index, "choice_id": choice["id"],
                   "choice_text": choice["text"], "text": choice["consequence"], "destination": choice["next"]}
         self.journal["choices"].append(record)
@@ -177,7 +186,7 @@ class BookEngine:
         log = Content.read(path)
         if log.get("format") != cls.JOURNAL_FORMAT or log.get("version") != cls.JOURNAL_VERSION:
             raise ValueError("Format de journal de livre inconnu.")
-        engine = cls(content, log["book"])
+        engine = cls(content, log["book"], automatic=log.get('playback_mode') == 'automatic')
         if log.get("content_hash") != engine.journal["content_hash"]:
             raise ValueError("Le chapitre a changé depuis l'enregistrement de ce journal.")
         for index, saved in enumerate(log["choices"]):

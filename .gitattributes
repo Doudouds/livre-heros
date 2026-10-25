@@ -1,0 +1,5 @@
+# Empreintes des réglages et des adaptateurs utilisés dans les reçus audio.
+/audio/emotion_profiles.json text eol=lf
+/audio/chatterbox_backend.py text eol=lf
+/audio/speech_verification.py text eol=lf
+/audio/speech_review.py text eol=lf

@@ -7,6 +7,28 @@ Double-cliquer sur **Generer_audio_Roi_Grenouille.cmd**, ou exécuter
 avec émotions balisées, contrôle des paroles, essais automatiques et reprise
 après interruption. Relancer la même commande conserve les fichiers validés.
 `python generer_audio_conte.py --dry-run` prépare seulement le plan.
+Après des refus du vérificateur, cette commande réexamine le cache sans lancer
+de nouvelle synthèse :
+
+```powershell
+python generer_audio_conte.py --automatic --recheck-only
+```
+
+Pour écouter sans prendre de décisions, cocher **Écoute automatique · sans
+choix** avant d'ouvrir le Roi-grenouille. Ce mode suit le premier choix et
+enchaîne les passages sans lire les questions ou les options. Préparer ses
+**11 fichiers** avec **Generer_audio_Roi_Grenouille_Automatique.cmd**, ou
+`python generer_audio_conte.py --automatic`. Pause et Rejouer restent disponibles.
+Les fichiers interactifs existants sont conservés.
+
+Le parcours automatique est complet : **11 fichiers validés, aucun échec**.
+Whisper Small contrôle les prises ; un second modèle local, Whisper Medium,
+arbitre ses refus et vérifie systématiquement chaque fichier final. Les tons
+approuvés et les critères de contrôle restent inchangés. Le modèle est déjà
+installé sur ce PC ; sa préparation sur un autre PC et la reprise sont décrites
+dans le guide. Lancer **Ecouter_Roi_Grenouille_Automatique.cmd** pour écouter.
+L'audit des onze fichiers se relance avec
+`python -m tools.audit_automatic_audio`.
 
 La méthode complète pour le prochain conte est conservée dans
 [le guide de création et de génération](docs/creation_conte_audio.md), avec

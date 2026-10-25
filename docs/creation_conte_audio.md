@@ -104,6 +104,55 @@ python .\generer_audio_conte.py --book IDENTIFIANT --segment 1
 python .\generer_audio_conte.py --book IDENTIFIANT
 ```
 
+### Écoute automatique, sans annonces de choix
+
+À l'accueil du logiciel, cocher **Écoute automatique · sans choix** sur la
+fiche du conte avant de l'ouvrir. Cette option est proposée pour les contes
+balisés. Le lecteur suit le premier choix à chaque étape et conserve son
+raccord narratif. Le texte et la voix ne présentent ni question au lecteur,
+ni « Choix 1 », ni « Choix 2 ». Les boutons de décision et leurs raccourcis
+clavier sont inactifs dans ce mode.
+
+Préparer uniquement les audio de ce parcours avec :
+
+```powershell
+python .\generer_audio_conte.py --automatic --dry-run
+python .\generer_audio_conte.py --automatic --segment 1
+python .\generer_audio_conte.py --automatic
+```
+
+Ou double-cliquer sur **Generer_audio_Roi_Grenouille_Automatique.cmd**. Pour un
+autre conte, ajouter `--book IDENTIFIANT`. `--choice 2` est refusé avec
+`--automatic` afin de garder un seul parcours reproductible.
+
+Ce mode prépare **11 fichiers** pour le Roi-grenouille, au lieu des 21 variantes
+interactives. Les fichiers ont des identifiants au rôle `automatic` : le
+lecteur ne risque pas de lire les annonces d'un ancien WAV interactif. Les
+prises narratives et leurs émotions restent identiques et sont réutilisées
+depuis le cache lorsqu'elles existent. Le contrôle intégral porte sur le texte
+sans choix ; les vérifications, reprises et 1 000 ms de silence restent actives.
+
+Le plan et l'état sont conservés dans `reports/IDENTIFIANT/automatic/`, pour ne
+pas remplacer les rapports interactifs. Les WAV peuvent partager le même dossier
+final grâce à leurs noms distincts. Le lecteur attend la fin réelle de chaque
+WAV pour passer au suivant ; Pause suspend l'enchaînement. Rejouer relit le
+passage courant, et Recommencer conserve le mode automatique.
+
+Les fichiers de ce mode doivent être préparés avant de commencer une écoute
+complète. Le logiciel vérifie leur présence et indique le lanceur à utiliser
+s'ils manquent. Si un fichier devient indisponible pendant la lecture, elle
+reste suspendue à ce passage ; Lecture permet de réessayer. Aucun WAV interactif
+n'est utilisé en remplacement et aucun passage n'est sauté.
+
+Pour ouvrir directement ce mode depuis la ligne de commande :
+
+```powershell
+.\Lancer.cmd --book roi_grenouille --automatic
+```
+
+Le raccourci `Ecouter_Roi_Grenouille_Automatique.cmd` ouvre directement ce mode
+une fois les fichiers préparés.
+
 Le lanceur sélectionne automatiquement `.venv-tts\Scripts\python.exe` pour une
 génération réelle, même si `python` désigne un autre environnement. Les chemins
 par défaut sont calculés depuis le projet ; le lanceur fonctionne aussi depuis
@@ -114,6 +163,16 @@ Options utiles : `--segment N --choice 2` pour un seul passage après les choix 
 essais, `--threads 8`, `--voice CHEMIN`, `--cache-dir CHEMIN`,
 `--output-dir CHEMIN` et `--asr-model-dir CHEMIN`. Les profils émotionnels
 proviennent toujours du balisage et de la palette.
+
+Après de nombreux refus, `--recheck-only` réécoute les fichiers et les prises
+déjà en cache avec le contrôleur courant. Ce mode **interdit toute nouvelle
+synthèse** : il peut récupérer une prise anciennement refusée, après une vraie
+reconnaissance ASR réussie, mais laisse en échec les portions qui n'ont aucune
+prise valide. Exemple :
+
+```powershell
+python .\generer_audio_conte.py --automatic --recheck-only
+```
 
 Le nouveau dossier `--output-dir` n'est pas automatiquement affecté au jeu :
 mettre à jour `book_audio_roots` après validation si une autre série doit être
@@ -130,22 +189,56 @@ sont synthétisées une seule fois par profil et réutilisées depuis le cache.
 2. Le WAV de référence est contrôlé, copié dans le cache sous son SHA-256 et
    figé pour la session. Un changement de référence, texte, modèle, environnement
    ou profil ne peut pas écraser silencieusement une série incompatible.
-3. Les réglages, poids V3 et versions sont identifiés. Chatterbox est chargé
-   une seule fois, et les réglages changent entre les portions émotionnelles.
+3. Les réglages, poids V3 et versions sont identifiés. Les paramètres de
+   Chatterbox changent entre les portions émotionnelles. Pour limiter la RAM,
+   les poids de Chatterbox sont libérés avant de charger le vérificateur Medium,
+   et inversement. Un rechargement reprend les mêmes poids, référence,
+   paramètres et graine ; il ne change pas le profil vocal.
 4. Chaque petite prise est contrôlée : format PCM, fichier complet et paroles
    reconnues par Whisper Small local, **sans le texte attendu comme prompt**.
    Les critères actuels sont un écart de mots au plus égal à 15 %, une fin
-   retrouvée (trois derniers mots exacts et contrôle des huit derniers) et les
-   annonces 1/2 présentes dans l'ordre, sans répétition.
+   retrouvée (trois dernières unités normalisées exactes et contrôle des huit
+   dernières) et les annonces 1/2 présentes dans l'ordre, sans répétition.
+   La comparaison normalise une liste explicite d'homophones français, par
+   exemple « délivré / délivrer », et certaines frontières de mots comme
+   « ta balle / tabale ». Aucun suffixe n'est supprimé de façon générale.
+   Le rapport conserve la transcription brute, son écart orthographique et
+   l'écart après normalisation. Les fins absentes et annonces manquantes restent
+   refusées ; les autres écarts restent soumis au même seuil de comparaison.
+   Avant de refaire la voix, une reconnaissance non concluante est relancée
+   une fois avec un autre décodage et détection de parole, sans prompt attendu.
+   Si Small reste incertain, un **deuxième modèle, Whisper Medium**, vérifie le
+   même enregistrement avec les mêmes critères. Les deux verdicts sont
+   conservés. Le texte attendu ne sert jamais de prompt à l'un ou l'autre.
 5. Une prise refusée est conservée dans `rejected`, puis régénérée avec une
    autre graine, trois essais par défaut. Si nécessaire, le découpage est réduit
-   avec une profondeur bornée. Les compteurs de graines sont persistants.
-6. Le segment entier est retranscrit une nouvelle fois avec détection de parole
+   avec une profondeur bornée, uniquement aux fins de phrases ou de propositions.
+   Les phrases complètes de secours contiennent au moins six mots, les
+   propositions au moins huit (une citation complète peut en compter six).
+   Aucune coupe artificielle après « de », « avec », un déterminant ou une
+   autre amorce de groupe n'est admise. Ainsi « attelée de huit chevaux blancs »
+   n'est plus coupé en « attelée de » puis un complément isolé.
+   Les compteurs de graines sont persistants. Si le contrôleur a changé, les
+   meilleurs anciens refus peuvent être réécoutés avant de demander une nouvelle
+   prise. Les enregistrements d'origine sont conservés et la nouvelle preuve
+   mentionne leur provenance et leur empreinte.
+6. Le segment entier est obligatoirement validé par **Whisper Medium**, même
+   lorsque Small avait accepté les portions. Un fichier final ne peut donc pas
+   être approuvé par le seul petit modèle. Le seuil de 15 %, le contrôle de fin
+   et les annonces requises restent identiques. Les horodatages de mots et la
+   détection des hallucinations sur silence sont activés dans ce vérificateur ;
+   aucune liste de phrases à supprimer n'est utilisée.
+   Le segment entier est retranscrit une nouvelle fois avec détection de parole
    pour éviter les hallucinations de sous-titres sur les silences. L'orthographe
    homophone « chois » est acceptée uniquement devant 1 ou 2 ; elle ne remplace
-   jamais un numéro absent. Un refus intégral déclenche des prises dans un
-   espace de cache distinct avec une nouvelle graine, sans toucher aux autres
-   segments. Les essais intégraux sont également bornés.
+   jamais un numéro absent. Si seul le dernier mot pose problème, la dernière
+   portion est contre-vérifiée sur les échantillons prélevés à la fin du WAV
+   réellement assemblé. Le rapport conserve les deux transcriptions.
+   Un refus persistant fait régénérer seulement les portions identifiées comme
+   problématiques, avec une autre graine ; les autres sont conservées. Si le
+   contrôle global reste incertain alors que chaque portion est validée,
+   enregistrer ce doute et arrêter ce segment sans le régénérer entièrement.
+   Les essais restent bornés et l'état conserve la graine de chaque portion.
 7. Le segment reçoit **1 000 ms de vrai silence PCM au début**, puis il est
    publié par écriture atomique avec un reçu SHA-256. Les pauses entre portions
    valent 150 ms. Le lecteur n'ajoute pas les 800 ms des autres livres.
@@ -172,6 +265,13 @@ La vérification de voix repose sur l'empreinte de la référence et la traçabi
 de la génération ; elle ne constitue pas une reconnaissance biométrique du
 locuteur. L'ASR vérifie le contenu, avec sa marge d'erreur, pas chaque phonème.
 
+Les empreintes portent sur les octets des fichiers. Conserver les fins de ligne
+LF des fichiers d'identité (`emotion_profiles.json`, `chatterbox_backend.py`,
+`speech_verification.py`, `speech_review.py`) ; les règles sont inscrites dans `.gitattributes`.
+Une conversion CRLF seule peut sinon rendre le cache incompatible alors que
+les réglages n'ont pas changé. Ne pas supprimer les reçus ou désactiver leur
+contrôle pour résoudre une différence d'empreinte.
+
 ## Fichiers conservés
 
 - `reports/IDENTIFIANT/audio_plan.json` : plan complet, textes et émotions.
@@ -194,13 +294,40 @@ ASR compatibles (faster-whisper 1.2.1, ctranslate2 4.8.3, onnxruntime 1.31.0,
 av 18.1.0) dans le dossier ASR configuré, puis télécharger/copier les poids
 locaux avant de lancer. Aucune clé d'API n'est nécessaire.
 
+Le modèle d'arbitrage Medium est préparé une seule fois avec :
+
+```powershell
+.\.venv-tts\Scripts\python.exe -m tools.prepare_audio_review
+```
+
+Il provient du dépôt public `Systran/faster-whisper-medium` (environ 1,5 Go de
+poids). Sa révision et ses empreintes sont conservées dans
+`audio/runtime/asr_models/medium_revision.json`. Le téléchargement est
+reprenable ; les lectures suivantes sont locales. `--offline` vérifie la
+préparation sans télécharger. `asr_review_required: true` impose ce niveau de
+contrôle : ne pas le désactiver pour faire passer un lot. Une absence de poids
+arrête la génération plutôt que de revenir silencieusement à Small.
+
+Lorsqu'on change de vérificateur, les WAV finaux intègres déjà produits sont
+réécoutés directement. S'ils sont validés, seuls leurs reçus sont actualisés ;
+leurs échantillons restent identiques. Pour le Roi-grenouille, la réparation a
+abouti à **11 fichiers automatiques prêts, 0 échec**, avec les huit WAV d'origine
+strictement conservés. L'audit reproductible `python -m tools.audit_automatic_audio`
+vérifie les onze fichiers et enregistre ses résultats dans
+`reports/roi_grenouille/automatic/quality_audit_medium.json`.
+
 ## Vérifier une modification du pipeline
 
 `tests/test_story_audio.py` couvre le balisage, les parcours, le cache, les
 reprises, les refus et une mort brutale réelle d'un sous-processus. Exécuter
 également les tests `test_roi_grenouille`, `test_speech_verification` et
-`test_tts_batch`. Utiliser un dossier temporaire situé dans le projet si les
+`test_tts_batch`. `test_automatic_playback` contrôle le parcours du choix 1,
+l'absence de questions, la fin réelle des WAV, Pause, les fichiers manquants
+et la conservation du mode au redémarrage. Utiliser un dossier temporaire situé dans le projet si les
 permissions du répertoire temporaire système empêchent les tests d'écrire.
+`test_independent_review` vérifie notamment qu'un accord de Small ne peut pas
+annuler un refus final de Medium, ainsi que la gestion mémoire et les frontières
+naturelles du découpage de secours.
 
 Effectuer enfin un `--dry-run` exhaustif et une relance réelle du premier
 segment déjà validé : sa conservation doit être confirmée sans charger le
