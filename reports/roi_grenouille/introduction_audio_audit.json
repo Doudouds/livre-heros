@@ -1,0 +1,612 @@
+{
+  "passed": true,
+  "announcement": "Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm.",
+  "pronunciation": [
+    {
+      "written": "Grimm",
+      "spoken": "grime"
+    }
+  ],
+  "intro_seconds": 5.72,
+  "intro_independent_review": {
+    "passed": true,
+    "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+    "expected_words": 13,
+    "recognized_words": 13,
+    "word_error_rate": 0.0,
+    "orthographic_word_error_rate": 0.0,
+    "word_boundary_repairs": [],
+    "comparison": "french-spoken-v1",
+    "tail_matched": true,
+    "choices_matched": true,
+    "reasons": [],
+    "choice_homophones_normalized": 0,
+    "vad_filter": false,
+    "asr_attempts": [
+      {
+        "options": {
+          "language": "fr",
+          "beam_size": 5,
+          "temperature": 0,
+          "condition_on_previous_text": false,
+          "vad_filter": false
+        },
+        "verification": {
+          "passed": true,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+          "expected_words": 13,
+          "recognized_words": 13,
+          "word_error_rate": 0.0,
+          "orthographic_word_error_rate": 0.0,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 0
+        }
+      }
+    ],
+    "review_decoding": {
+      "word_timestamps": true,
+      "hallucination_silence_threshold": 1.0
+    },
+    "review_verifier": "Whisper Medium"
+  },
+  "previous_files_unchanged": {
+    "roi_grenouille_01_automatic_52109c490924c5d9d1bd.wav": true,
+    "roi_grenouille_01_narration_5c7086954d606deab565.wav": true,
+    "roi_grenouille_02_automatic_05685d6f1bd7e0501e65.wav": true,
+    "roi_grenouille_03_automatic_dc3737e518a0e27e3b08.wav": true,
+    "roi_grenouille_04_automatic_dbe3dd2e5c31c4775ca2.wav": true,
+    "roi_grenouille_05_automatic_aa30ca4ebd46cd9ff51c.wav": true,
+    "roi_grenouille_06_automatic_7ebe5c2b534b1ecf2668.wav": true,
+    "roi_grenouille_07_automatic_3bf84f474c3780759d6f.wav": true,
+    "roi_grenouille_08_automatic_1c84629eb1ab95935b99.wav": true,
+    "roi_grenouille_09_automatic_06f4810677f7951fd492.wav": true,
+    "roi_grenouille_10_automatic_6c2cf175f4f563a44a25.wav": true,
+    "roi_grenouille_11_automatic_da493f09dc65d57dd5e2.wav": true
+  },
+  "first_segments": [
+    {
+      "mode": "interactive",
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_narration_bb659e501c905847de1b.wav",
+      "sha256": "f31d7d753ad9e1f043ef6ebf3bf655349a5ba3fee2b19f9cda14256faa591eaa",
+      "seconds": 87.56,
+      "exact_original_narration": true,
+      "verification": {
+        "passed": true,
+        "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Soit, un, montrer l'endroit où la balle a disparu, ou soit, deux, raconter comment la balle est tombée dans la fontaine.",
+        "expected_words": 273,
+        "recognized_words": 273,
+        "word_error_rate": 0.0256,
+        "orthographic_word_error_rate": 0.0256,
+        "word_boundary_repairs": [],
+        "comparison": "french-spoken-v1",
+        "tail_matched": true,
+        "choices_matched": true,
+        "reasons": [],
+        "choice_homophones_normalized": 0,
+        "asr_attempts": [
+          {
+            "options": {
+              "language": "fr",
+              "beam_size": 5,
+              "temperature": 0,
+              "condition_on_previous_text": false,
+              "vad_filter": true
+            },
+            "verification": {
+              "passed": false,
+              "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. « Que doit faire la princesse ? » « Chois un, montrer l'endroit où la balle a disparu. ou soit deux, racontez comment la balle est tombée dans la fontaine.",
+              "expected_words": 273,
+              "recognized_words": 273,
+              "word_error_rate": 0.0256,
+              "orthographic_word_error_rate": 0.0293,
+              "word_boundary_repairs": [],
+              "comparison": "french-spoken-v1",
+              "tail_matched": true,
+              "choices_matched": false,
+              "reasons": [
+                "annonce des choix absente, répétée ou dans le mauvais ordre"
+              ],
+              "choice_homophones_normalized": 1
+            }
+          },
+          {
+            "options": {
+              "language": "fr",
+              "beam_size": 8,
+              "temperature": 0,
+              "condition_on_previous_text": false,
+              "vad_filter": true,
+              "patience": 2
+            },
+            "verification": {
+              "passed": false,
+              "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Soit, un, montrer l'endroit où la balle a disparu, ou soit, deux, raconter comment la balle est tombée dans la fontaine.",
+              "expected_words": 273,
+              "recognized_words": 273,
+              "word_error_rate": 0.0256,
+              "orthographic_word_error_rate": 0.0256,
+              "word_boundary_repairs": [],
+              "comparison": "french-spoken-v1",
+              "tail_matched": true,
+              "choices_matched": false,
+              "reasons": [
+                "annonce des choix absente, répétée ou dans le mauvais ordre"
+              ],
+              "choice_homophones_normalized": 0
+            }
+          }
+        ],
+        "review_decoding": {
+          "word_timestamps": true,
+          "hallucination_silence_threshold": 1.0
+        },
+        "review_verifier": "Whisper Medium",
+        "method": "full-and-choices",
+        "global_check": {
+          "passed": false,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Soit, un, montrer l'endroit où la balle a disparu, ou soit, deux, raconter comment la balle est tombée dans la fontaine.",
+          "expected_words": 273,
+          "recognized_words": 273,
+          "word_error_rate": 0.0256,
+          "orthographic_word_error_rate": 0.0256,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": false,
+          "reasons": [
+            "annonce des choix absente, répétée ou dans le mauvais ordre"
+          ],
+          "choice_homophones_normalized": 0,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true
+              },
+              "verification": {
+                "passed": false,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. « Que doit faire la princesse ? » « Chois un, montrer l'endroit où la balle a disparu. ou soit deux, racontez comment la balle est tombée dans la fontaine.",
+                "expected_words": 273,
+                "recognized_words": 273,
+                "word_error_rate": 0.0256,
+                "orthographic_word_error_rate": 0.0293,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": false,
+                "reasons": [
+                  "annonce des choix absente, répétée ou dans le mauvais ordre"
+                ],
+                "choice_homophones_normalized": 1
+              }
+            },
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 8,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true,
+                "patience": 2
+              },
+              "verification": {
+                "passed": false,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Que doit faire la princesse ? Soit, un, montrer l'endroit où la balle a disparu, ou soit, deux, raconter comment la balle est tombée dans la fontaine.",
+                "expected_words": 273,
+                "recognized_words": 273,
+                "word_error_rate": 0.0256,
+                "orthographic_word_error_rate": 0.0256,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": false,
+                "reasons": [
+                  "annonce des choix absente, répétée ou dans le mauvais ordre"
+                ],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "head_check": {
+          "passed": true,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+          "expected_words": 246,
+          "recognized_words": 246,
+          "word_error_rate": 0.0203,
+          "orthographic_word_error_rate": 0.0203,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 0,
+          "vad_filter": true,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true
+              },
+              "verification": {
+                "passed": true,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+                "expected_words": 246,
+                "recognized_words": 246,
+                "word_error_rate": 0.0203,
+                "orthographic_word_error_rate": 0.0203,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": true,
+                "reasons": [],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "tail_check": {
+          "passed": true,
+          "transcript": "que doit faire la princesse. Chois 1, montrer l'endroit où la balle a disparu. Ou choix 2, raconter comment la balle est tombée dans la fontaine.",
+          "expected_words": 27,
+          "recognized_words": 27,
+          "word_error_rate": 0.0,
+          "orthographic_word_error_rate": 0.037,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 1,
+          "vad_filter": true,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true
+              },
+              "verification": {
+                "passed": true,
+                "transcript": "que doit faire la princesse. Chois 1, montrer l'endroit où la balle a disparu. Ou choix 2, raconter comment la balle est tombée dans la fontaine.",
+                "expected_words": 27,
+                "recognized_words": 27,
+                "word_error_rate": 0.0,
+                "orthographic_word_error_rate": 0.037,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": true,
+                "reasons": [],
+                "choice_homophones_normalized": 1
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "tail_frames": 503040,
+        "head_frames": 3699840,
+        "final_review_required": true,
+        "introduction_verification": {
+          "passed": true,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+          "expected_words": 13,
+          "recognized_words": 13,
+          "word_error_rate": 0.0,
+          "orthographic_word_error_rate": 0.0,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 0,
+          "vad_filter": false,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": false
+              },
+              "verification": {
+                "passed": true,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+                "expected_words": 13,
+                "recognized_words": 13,
+                "word_error_rate": 0.0,
+                "orthographic_word_error_rate": 0.0,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": true,
+                "reasons": [],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "policy": "25b382a5c809736cd030856b2354aa945d7fce316c806cf4f74944fb5a12d9f3"
+      }
+    },
+    {
+      "mode": "automatic",
+      "file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_01_automatic_502af95b841c4938633e.wav",
+      "sha256": "0606d82bd0c18d3f9085ba4b116c11b5a91838e7c1c85da1e8b424430f83345f",
+      "seconds": 76.93,
+      "exact_original_narration": true,
+      "verification": {
+        "passed": true,
+        "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. ❤️ par SousTitreur.com",
+        "expected_words": 246,
+        "recognized_words": 249,
+        "word_error_rate": 0.0325,
+        "orthographic_word_error_rate": 0.0325,
+        "word_boundary_repairs": [],
+        "comparison": "french-spoken-v1",
+        "tail_matched": true,
+        "choices_matched": true,
+        "reasons": [],
+        "choice_homophones_normalized": 0,
+        "asr_attempts": [
+          {
+            "options": {
+              "language": "fr",
+              "beam_size": 5,
+              "temperature": 0,
+              "condition_on_previous_text": false,
+              "vad_filter": true
+            },
+            "verification": {
+              "passed": false,
+              "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Merci d'avoir regardé cette vidéo !",
+              "expected_words": 246,
+              "recognized_words": 252,
+              "word_error_rate": 0.0447,
+              "orthographic_word_error_rate": 0.0447,
+              "word_boundary_repairs": [],
+              "comparison": "french-spoken-v1",
+              "tail_matched": false,
+              "choices_matched": true,
+              "reasons": [
+                "fin du texte non retrouvée"
+              ],
+              "choice_homophones_normalized": 0
+            }
+          },
+          {
+            "options": {
+              "language": "fr",
+              "beam_size": 8,
+              "temperature": 0,
+              "condition_on_previous_text": false,
+              "vad_filter": true,
+              "patience": 2
+            },
+            "verification": {
+              "passed": false,
+              "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. ❤️ par SousTitreur.com",
+              "expected_words": 246,
+              "recognized_words": 249,
+              "word_error_rate": 0.0325,
+              "orthographic_word_error_rate": 0.0325,
+              "word_boundary_repairs": [],
+              "comparison": "french-spoken-v1",
+              "tail_matched": false,
+              "choices_matched": true,
+              "reasons": [
+                "fin du texte non retrouvée"
+              ],
+              "choice_homophones_normalized": 0
+            }
+          }
+        ],
+        "review_decoding": {
+          "word_timestamps": true,
+          "hallucination_silence_threshold": 1.0
+        },
+        "review_verifier": "Whisper Medium",
+        "method": "full-and-tail",
+        "global_check": {
+          "passed": false,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. ❤️ par SousTitreur.com",
+          "expected_words": 246,
+          "recognized_words": 249,
+          "word_error_rate": 0.0325,
+          "orthographic_word_error_rate": 0.0325,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": false,
+          "choices_matched": true,
+          "reasons": [
+            "fin du texte non retrouvée"
+          ],
+          "choice_homophones_normalized": 0,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true
+              },
+              "verification": {
+                "passed": false,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. Merci d'avoir regardé cette vidéo !",
+                "expected_words": 246,
+                "recognized_words": 252,
+                "word_error_rate": 0.0447,
+                "orthographic_word_error_rate": 0.0447,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": false,
+                "choices_matched": true,
+                "reasons": [
+                  "fin du texte non retrouvée"
+                ],
+                "choice_homophones_normalized": 0
+              }
+            },
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 8,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true,
+                "patience": 2
+              },
+              "verification": {
+                "passed": false,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm. Dans des temps très anciens, alors qu'il pouvait encore être utile de faire des vœux, Livet un roi dont toutes les filles étaient belles. La plus jeune était si belle que le soleil, qui en a cependant en vue, s'étonnait chaque fois qu'il illuminait son visage. Non loin du château du roi, il y avait une grande et sombre forêt, et, dans la forêt, sous un vieux tilleul, une fontaine. Un jour, qu'il faisait très chaud, la royal enfant partit dans le bois et s'assit au bord de la source fraîche. Et comme elle s'ennuyait, elle prit sa balle en or, la jeta en l'air et la rattrapa. C'était son jeu favori. Il arriva que la balle d'or, au lieu de revenir dans sa main, tomba sur le sol et roula tout droit dans l'eau. La princesse la suivit des yeux, mais la balle disparut. La fontaine était si profonde qu'on n'en voyait pas le fond. La jeune fille se mit à pleurer, à pleurer de plus en plus fort. Elle était inconsolable. Comme elle gémissait, ainsi quelqu'un lui cria. « Pourquoi pleures-tu, princesse, si fort qu'une pierre s'en laisserait attendir ? » Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse. ❤️ par SousTitreur.com",
+                "expected_words": 246,
+                "recognized_words": 249,
+                "word_error_rate": 0.0325,
+                "orthographic_word_error_rate": 0.0325,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": false,
+                "choices_matched": true,
+                "reasons": [
+                  "fin du texte non retrouvée"
+                ],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "tail_check": {
+          "passed": true,
+          "transcript": "Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+          "expected_words": 27,
+          "recognized_words": 27,
+          "word_error_rate": 0.0,
+          "orthographic_word_error_rate": 0.0,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 0,
+          "vad_filter": true,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": true
+              },
+              "verification": {
+                "passed": true,
+                "transcript": "Elle regarda autour d'elle pour voir d'où venait la voix et aperçut une grenouille qui tendait hors de l'eau sa tête grosse et affreuse.",
+                "expected_words": 27,
+                "recognized_words": 27,
+                "word_error_rate": 0.0,
+                "orthographic_word_error_rate": 0.0,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": true,
+                "reasons": [],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "tail_frames": 349440,
+        "final_review_required": true,
+        "introduction_verification": {
+          "passed": true,
+          "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+          "expected_words": 13,
+          "recognized_words": 13,
+          "word_error_rate": 0.0,
+          "orthographic_word_error_rate": 0.0,
+          "word_boundary_repairs": [],
+          "comparison": "french-spoken-v1",
+          "tail_matched": true,
+          "choices_matched": true,
+          "reasons": [],
+          "choice_homophones_normalized": 0,
+          "vad_filter": false,
+          "asr_attempts": [
+            {
+              "options": {
+                "language": "fr",
+                "beam_size": 5,
+                "temperature": 0,
+                "condition_on_previous_text": false,
+                "vad_filter": false
+              },
+              "verification": {
+                "passed": true,
+                "transcript": "le Roi Grenouille ou Henri le Ferré, des frères Jacob et Wilhelm Grimm.",
+                "expected_words": 13,
+                "recognized_words": 13,
+                "word_error_rate": 0.0,
+                "orthographic_word_error_rate": 0.0,
+                "word_boundary_repairs": [],
+                "comparison": "french-spoken-v1",
+                "tail_matched": true,
+                "choices_matched": true,
+                "reasons": [],
+                "choice_homophones_normalized": 0
+              }
+            }
+          ],
+          "review_decoding": {
+            "word_timestamps": true,
+            "hallucination_silence_threshold": 1.0
+          },
+          "review_verifier": "Whisper Medium"
+        },
+        "policy": "25b382a5c809736cd030856b2354aa945d7fce316c806cf4f74944fb5a12d9f3"
+      }
+    }
+  ]
+}

@@ -2,6 +2,13 @@
 
 ## Générer les audio d'un conte
 
+Chaque conte doit être produit dans **les deux modes** : jeu avec toutes les
+variantes des deux choix, et écoute automatique sur le choix 1 sans annonces.
+Lancer les deux commandes : `python generer_audio_conte.py --book IDENTIFIANT`
+puis `python generer_audio_conte.py --book IDENTIFIANT --automatic`.
+Le premier audio de chaque mode annonce le titre et l'auteur après la seconde
+de silence initial. Pour le Roi-grenouille, « Grimm » se prononce « Grimme ».
+
 Double-cliquer sur **Generer_audio_Roi_Grenouille.cmd**, ou exécuter
 `python generer_audio_conte.py`. Le lanceur génère les 21 variantes du conte,
 avec émotions balisées, contrôle des paroles, essais automatiques et reprise

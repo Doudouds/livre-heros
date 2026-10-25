@@ -1,0 +1,18 @@
+{
+  "book": "roi_grenouille",
+  "mode": "interactive",
+  "passed": true,
+  "required": 1,
+  "ready": 1,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+  "segments": [
+    {
+      "segment_id": "roi_grenouille_01_narration_bb659e501c905847de1b",
+      "passed": true,
+      "sha256": "f31d7d753ad9e1f043ef6ebf3bf655349a5ba3fee2b19f9cda14256faa591eaa",
+      "seconds": 87.56,
+      "word_error_rate": 0.0256
+    }
+  ]
+}

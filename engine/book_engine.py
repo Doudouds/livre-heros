@@ -128,6 +128,8 @@ class BookEngine:
             scene["choice_prompt"] = (scene["choice_question"] + " Choix 1 : " + first["text"].rstrip(".?!")
                                       + ". Ou choix 2 : " + second["text"].rstrip(".?!") + ".")
         scene["spoken_text"] = text + "\n\n" + scene["choice_prompt"] if scene["choice_prompt"] else text
+        if scene_id == self.book['start'] and self.book.get('audio_intro'):
+            scene['spoken_text'] = self.book['audio_intro']['text']+'\n\n'+scene['spoken_text']
         scene["segment_id"] = segment_id(scene_id, "automatic" if self.automatic else "narration", scene["spoken_text"])
         if self.automatic:
             # Un éventuel alias du WAV interactif contiendrait les annonces.

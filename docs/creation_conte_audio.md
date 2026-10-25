@@ -3,6 +3,21 @@
 Ce guide conserve les décisions de travail prises avec l'utilisateur. Il sert
 à préparer le prochain conte sans devoir retrouver cette conversation.
 
+## Les deux versions sont obligatoires
+
+Pour **chaque conte**, préparer le jeu interactif avec **les deux choix à chaque
+étape**, et le conte en **écoute automatique**, du début à la fin sur le choix 1.
+Le mode automatique ne lit ni question ni options. Les deux plans et les deux
+lots doivent être vérifiés ; produire un seul mode ne constitue pas la livraison
+complète. La validation initiale d'une nouvelle adaptation porte d'abord sur le
+premier segment de chacun des deux modes, puis la production complète suit
+après validation du rendu. Ne pas lancer toute la synthèse pour préparer un lanceur.
+
+Les WAV finaux sont distincts, même lorsque les prises narratives sont partagées
+dans le cache. Pour le Roi-grenouille : **21 WAV interactifs + 11 WAV automatiques
+= 32 fichiers**, pour deux usages. Une génération des 21 variantes seule ne
+crée pas les 11 WAV automatiques.
+
 ## Rédiger et intégrer le conte
 
 1. Lire le texte source complet. Pour un PDF, extraire le texte et inspecter les
@@ -31,6 +46,40 @@ Ce guide conserve les décisions de travail prises avec l'utilisateur. Il sert
    `BookEngine`, raccord, question et annonces des deux choix compris.
 
 ## Annoter les émotions
+
+### Annoncer le titre et l'auteur
+
+Le premier segment de **chaque mode** commence par 1 000 ms de silence, puis
+le titre complet et l'auteur, avant la première phrase du récit. Cette annonce
+est lue une seule fois par écoute complète, jamais à chaque passage. Elle utilise
+le profil neutre approuvé et reste hors des corps des scènes, afin de préserver
+la fidélité au texte source. Le lecteur ne lit aucune balise technique.
+
+Dans le manuscrit, renseigner par exemple :
+
+```json
+"audio_intro": {
+  "author_credit": "des frères Jacob et Wilhelm Grimm",
+  "text": "Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm.",
+  "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm.</voix>",
+  "pronunciations": [{"written": "Grimm", "spoken": "grime"}]
+}
+```
+
+Le texte d'introduction est exactement `titre + ", " + author_credit + "."`.
+Le champ `author` conserve les noms des auteurs. Les consignes de prononciation
+s'appliquent aux mots entiers envoyés à Chatterbox : ici le mot français
+« grime » sert à obtenir le son demandé « Grimme ». Le texte éditorial et l'ASR conservent
+« Grimm » ; les seuils et vérifications ne changent pas. La recette identifie
+la consigne et le code qui l'applique : un changement ne peut pas réutiliser
+une prise de prononciation incompatible. Réutiliser cette annonce depuis le
+cache dans les deux modes. Seuls les identifiants des premiers WAV changent ;
+les segments suivants et les anciennes prises sont conservés.
+L'annonce isolée est obligatoirement contrôlée par Medium, en plus du WAV
+complet. Un nom mal reconnu ne peut donc pas être masqué par la longueur du
+récit. Un refus de cette vérification reprend seulement l'annonce.
+
+### Balisage des passages
 
 La sélection de l'émotion est **éditoriale** : lire la scène et choisir le ton
 approprié. Chatterbox reçoit du texte propre et des paramètres numériques.
@@ -102,6 +151,9 @@ variantes de choix comprises. On peut aussi double-cliquer sur
 python .\generer_audio_conte.py --book IDENTIFIANT --dry-run
 python .\generer_audio_conte.py --book IDENTIFIANT --segment 1
 python .\generer_audio_conte.py --book IDENTIFIANT
+python .\generer_audio_conte.py --book IDENTIFIANT --automatic --dry-run
+python .\generer_audio_conte.py --book IDENTIFIANT --automatic --segment 1
+python .\generer_audio_conte.py --book IDENTIFIANT --automatic
 ```
 
 ### Écoute automatique, sans annonces de choix
@@ -234,6 +286,13 @@ sont synthétisées une seule fois par profil et réutilisées depuis le cache.
    jamais un numéro absent. Si seul le dernier mot pose problème, la dernière
    portion est contre-vérifiée sur les échantillons prélevés à la fin du WAV
    réellement assemblé. Le rapport conserve les deux transcriptions.
+   Si seuls les numéros ou le mot « choix » posent problème dans la transcription
+   complète, Medium contrôle séparément la narration et la portion finale des
+   annonces, prélevées dans ce même WAV. Les deux vérifications doivent passer
+   intégralement, avec les annonces 1/2 exactes et dans l'ordre. Le reçu conserve
+   le refus global, les deux preuves et les longueurs physiques ; l'audit
+   recontrôle ces preuves. Un refus global déjà enregistré peut être réutilisé
+   seulement si sa politique, son texte et les octets du WAV correspondent.
    Un refus persistant fait régénérer seulement les portions identifiées comme
    problématiques, avec une autre graine ; les autres sont conservées. Si le
    contrôle global reste incertain alors que chaque portion est validée,
@@ -267,7 +326,7 @@ locuteur. L'ASR vérifie le contenu, avec sa marge d'erreur, pas chaque phonème
 
 Les empreintes portent sur les octets des fichiers. Conserver les fins de ligne
 LF des fichiers d'identité (`emotion_profiles.json`, `chatterbox_backend.py`,
-`speech_verification.py`, `speech_review.py`) ; les règles sont inscrites dans `.gitattributes`.
+`speech_verification.py`, `speech_review.py`, `pronunciation.py`) ; les règles sont inscrites dans `.gitattributes`.
 Une conversion CRLF seule peut sinon rendre le cache incompatible alors que
 les réglages n'ont pas changé. Ne pas supprimer les reçus ou désactiver leur
 contrôle pour résoudre une différence d'empreinte.
@@ -328,6 +387,19 @@ permissions du répertoire temporaire système empêchent les tests d'écrire.
 `test_independent_review` vérifie notamment qu'un accord de Small ne peut pas
 annuler un refus final de Medium, ainsi que la gestion mémoire et les frontières
 naturelles du découpage de secours.
+`test_audio_intro` contrôle l'annonce unique dans chaque mode, la conservation
+des identifiants suivants, la prononciation tracée et les paroles canoniques
+vérifiées par l'ASR, ainsi que la reprise de l'annonce depuis le cache.
+
+Auditer les deux productions après génération :
+
+```powershell
+python -m tools.audit_automatic_audio --book IDENTIFIANT
+python -m tools.audit_automatic_audio --book IDENTIFIANT --interactive
+```
+
+Pour une validation initiale seulement, ajouter `--segment 1` et, si nécessaire,
+`--report-dir CHEMIN_DU_RAPPORT` pointant vers le dossier de son état de génération.
 
 Effectuer enfin un `--dry-run` exhaustif et une relance réelle du premier
 segment déjà validé : sa conservation doit être confirmée sans charger le

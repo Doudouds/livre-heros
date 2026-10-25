@@ -2,6 +2,14 @@
   "id": "roi_grenouille",
   "title": "Le roi-grenouille ou Henri-le-Ferré",
   "author": "Jacob et Wilhelm Grimm",
+  "audio_intro": {
+    "author_credit": "des frères Jacob et Wilhelm Grimm",
+    "text": "Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm.",
+    "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm.</voix>",
+    "pronunciations": [
+      {"written": "Grimm", "spoken": "grime"}
+    ]
+  },
   "illustrated": false,
   "narrative_person": 3,
   "decision_count": 10,

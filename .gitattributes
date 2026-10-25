@@ -3,3 +3,4 @@
 /audio/chatterbox_backend.py text eol=lf
 /audio/speech_verification.py text eol=lf
 /audio/speech_review.py text eol=lf
+/audio/pronunciation.py text eol=lf

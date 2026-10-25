@@ -60,6 +60,20 @@ def compile_book(book, profiles):
         if plain != item[text_key]:
             raise ValueError(f'Le balisage modifie le texte : {item.get("id",text_key)}')
         item[spans_key] = spans
+    intro = book.get('audio_intro')
+    if not isinstance(intro,dict) or not isinstance(intro.get('text'),str) or not intro['text'].strip():
+        raise ValueError('Introduction audio obligatoire : titre du conte et auteur.')
+    credit = intro.get('author_credit')
+    if not book.get('author') or not isinstance(credit,str) or not credit.strip() \
+            or intro['text'] != book['title']+', '+credit+'.':
+        raise ValueError('L’introduction doit annoncer le titre complet et préciser l’auteur.')
+    compile_field(intro,'text','audio_markup','audio_spans')
+    from .pronunciation import validate_pronunciations
+    rules = validate_pronunciations(intro.get('pronunciations',[]),intro['text'])
+    for span in intro['audio_spans']:
+        span['role'] = 'introduction'
+        if rules:
+            span['pronunciations'] = rules
     for scene in book['scenes']:
         if scene.get('values') or scene.get('variants') or scene.get('echoes'):
             raise ValueError('Ce format exige des textes explicites, sans fragments conditionnels non balisés.')

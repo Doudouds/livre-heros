@@ -23,7 +23,10 @@ class AutomaticEngineTests(unittest.TestCase):
         while True:
             a,i = automatic.current,interactive.current
             self.assertEqual(a['text'],i['text'])
-            self.assertEqual(a['spoken_text'],i['text'])
+            expected = i['text']
+            if a['id'] == automatic.book['start']:
+                expected = automatic.book['audio_intro']['text']+'\n\n'+expected
+            self.assertEqual(a['spoken_text'],expected)
             self.assertIsNone(a['choice_prompt'])
             self.assertIn('_automatic_',a['segment_id'])
             self.assertNotEqual(a['segment_id'],i['segment_id'])

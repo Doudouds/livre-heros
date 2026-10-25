@@ -104,7 +104,7 @@ class StoryPlanningTests(unittest.TestCase):
                     engine.choose(choice)
                     engine.advance()
 
-    def test_approved_first_segment_keeps_exactly_the_previous_identity_inputs(self):
+    def test_first_segment_plan_matches_the_shared_story_planner(self):
         args = parser().parse_args(['--segment','1'])
         args.output_dir = ROOT/'audio/experiments/roi_grenouille/files'
         self.assertEqual(plans_for_book(args)[0],plan_segment(old_parser().parse_args([])))

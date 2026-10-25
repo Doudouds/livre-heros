@@ -4,8 +4,8 @@ import json
 from pathlib import Path
 import time
 
-from audio.speech_verification import IncompleteSpeech
-from audio.tts_batch import (Batch, ModelLoadError, atomic_json, atomic_wave, batch_lock,
+from audio.speech_verification import IncompleteSpeech, compare_transcript
+from audio.tts_batch import (Batch, PCM, ModelLoadError, atomic_json, atomic_wave, batch_lock,
                             digest, file_hash, read_wave, receipt_matches, receipt_path,
                             write_receipt)
 from tools.generate_faithful_audio import assemble
@@ -71,33 +71,105 @@ class StyledRun:
             self.verifier = self.verifier_factory()
         return self.verifier
 
-    def verify_full(self, base, pcm, tail_frames):
+    def verify_full(self, base, pcm, tail_frames, intro_frames=None):
         verifier = self.speech_verifier()
-        if hasattr(verifier,'verify_complete'):
-            check = verifier.verify_complete(base['text'],pcm,
-                      tail_text=base['spans'][-1]['text'],tail_frames=tail_frames)
-        else:
-            check = verifier.verify(base['text'],pcm,vad_filter=True)
+        cached = None
+        if base['spans'][-1].get('role') == 'choix':
+            profile,_ = self.identity(base)
+            for path in (self.cache_dir/profile/'rejected_full').glob('*.wav.json'):
+                proof = load_optional(path) or {}
+                wav = path.with_suffix('')
+                try:
+                    compare_transcript(base['text'],proof.get('verification',{}).get('transcript',''))
+                except IncompleteSpeech as doubt:
+                    whole_doubt = self.choice_only_doubt(doubt.report)
+                else:
+                    whole_doubt = False
+                if (proof.get('policy') == self.policy and proof.get('text') == base['text']
+                        and whole_doubt and self.choice_only_doubt(proof.get('verification',{})) and wav.is_file()
+                        and proof.get('sha256') == file_hash(wav) and read_wave(wav) == pcm):
+                    cached = proof['verification']
+                    break
+        try:
+            if cached is not None:
+                raise IncompleteSpeech(cached)
+            if hasattr(verifier,'verify_complete'):
+                check = verifier.verify_complete(base['text'],pcm,
+                          tail_text=base['spans'][-1]['text'],tail_frames=tail_frames)
+            else:
+                check = verifier.verify(base['text'],pcm,vad_filter=True)
+        except IncompleteSpeech as exc:
+            if not self.choice_only_doubt(exc.report) or base['spans'][-1].get('role') != 'choix':
+                raise
+            last = base['spans'][-1]['text']
+            if not base['text'].endswith(last) or not 0 < tail_frames < len(pcm.frames):
+                raise ValueError('Découpage des annonces incorrect.')
+            reviewer = verifier.reviewer() if hasattr(verifier,'reviewer') else verifier
+            head_check = reviewer.verify(base['text'][:-len(last)].strip(),
+                               PCM(pcm.sample_rate,pcm.frames[:-tail_frames]),vad_filter=True)
+            try:
+                tail_check = reviewer.verify(last,PCM(pcm.sample_rate,pcm.frames[-tail_frames:]),vad_filter=True)
+            except IncompleteSpeech as tail_error:
+                tail_error.report.update(scope='choices',affected_spans=[len(base['spans'])-1])
+                raise
+            check = dict(exc.report,passed=True,reasons=[],choices_matched=True,tail_matched=True,
+                         method='full-and-choices',global_check=exc.report,head_check=head_check,
+                         tail_check=tail_check,tail_frames=tail_frames,head_frames=len(pcm.frames)-tail_frames,
+                         final_review_required=True)
         if check.get('passed') is not True:
             raise ModelLoadError('Le contrôle complet ne fournit pas de preuve valide.')
+        if base['spans'][0].get('role') == 'introduction':
+            if not intro_frames:
+                raise ModelLoadError('Échantillons de l’introduction absents.')
+            start = pcm.sample_rate*2
+            reviewer = verifier.reviewer() if hasattr(verifier,'reviewer') else verifier
+            try:
+                intro_check = reviewer.verify(base['spans'][0]['text'],PCM(pcm.sample_rate,pcm.frames[start:start+intro_frames]))
+            except IncompleteSpeech as exc:
+                exc.report.update(scope='introduction',affected_spans=[0])
+                raise
+            check['introduction_verification'] = intro_check
         check.update(policy=self.policy,method=check.get('method','faster-whisper-full-segment-vad'))
         return check
 
+    @staticmethod
+    def choice_only_doubt(check):
+        reason = 'annonce des choix absente, répétée ou dans le mauvais ordre'
+        return (reason in check.get('reasons',[]) and check.get('word_error_rate',1) <= .15
+                and set(check['reasons']).issubset({reason,'fin du texte non retrouvée'}))
+
     def component(self, span, plan, round_number):
         parameters = span['parameters']
+        rules = span.get('pronunciations',[])
         def backend_factory():
             if self.backend is None:
                 self.progress('Initialisation de la synthèse Chatterbox Multilingual V3…')
                 self.backend = self.backend_factory(parameters)
             self.backend.parameters = parameters
+            if rules:
+                from audio.pronunciation import PronouncingBackend
+                return PronouncingBackend(self.backend,rules)
             return self.backend
         recipe = dict(voice_sha256=self.voice_sha,language='fr',model=self.model,
                       environment=self.environment,device='cpu',parameters=parameters,
                       torch_threads=self.threads,palette_sha256=plan['palette_sha256'])
+        if rules:
+            from audio.pronunciation import pronunciation_identity
+            recipe['pronunciation'] = pronunciation_identity(rules)
+        intro = span.get('role') == 'introduction'
+        def component_verifier():
+            verifier = self.speech_verifier()
+            if intro and hasattr(verifier,'reviewer'):
+                class IntroReviewer:
+                    def verify(self, expected, pcm, **options):
+                        return verifier.reviewer().verify(expected,pcm,**options)
+                return IntroReviewer()
+            return verifier
+        validation = dict(controller=self.verifier_identity,scope='introduction-medium-v1') if intro else self.verifier_identity
         batch = Batch(self.cache_dir,recipe,backend_factory,max_chars=plan['chunk_chars'],
                       pause_ms=plan['pause_ms'],seed=(plan['seed']+round_number*104729)%(2**31),
                       attempts=self.attempts,splitter='linguistic-v1',
-                      verifier_factory=self.speech_verifier,verifier_identity=self.verifier_identity,
+                      verifier_factory=component_verifier,verifier_identity=validation,
                       progress=self.progress,allow_synthesis=not self.recheck_only)
         key = digest(dict(text=span['text'],profile=batch.profile))
         target = self.cache_dir/batch.profile/'components'/(key+'.wav')
@@ -118,8 +190,10 @@ class StyledRun:
             pcm = read_wave(target)
             if pcm.frames[:pcm.sample_rate*2] != b'\0'*(pcm.sample_rate*2):
                 raise ValueError('Le fichier annoncé prêt ne contient pas la seconde de silence.')
-            valid = existing['verification'].get('policy') == self.policy
-            if not valid:
+            same_policy = existing['verification'].get('policy') == self.policy
+            has_intro = base['spans'][0].get('role') == 'introduction'
+            valid = same_policy and (not has_intro or existing['verification'].get('introduction_verification',{}).get('passed') is True)
+            if not same_policy:
                 self.progress('Audio intègre déjà produit : nouvelle vérification du fichier original, sans le resynthétiser.')
                 last = (existing.get('components') or [])[-1:]
                 tail_frames = len(pcm.frames)
@@ -130,7 +204,8 @@ class StyledRun:
                         if pcm.frames.endswith(tail.frames):
                             tail_frames = len(tail.frames)
                 try:
-                    check = self.verify_full(base,pcm,tail_frames)
+                    intro_frames = len(read_wave(existing['components'][0]['file']).frames) if has_intro else None
+                    check = self.verify_full(base,pcm,tail_frames,intro_frames)
                 except IncompleteSpeech as exc:
                     record['reverification_rejection'] = exc.report
                 else:
@@ -178,7 +253,7 @@ class StyledRun:
                           if any(s.get('role') == 'choix' for s in base['spans'])
                           else '  Contrôle de la narration complète…')
             try:
-                check = self.verify_full(base,pcm,len(parts[-1].frames))
+                check = self.verify_full(base,pcm,len(parts[-1].frames),len(parts[0].frames))
             except IncompleteSpeech as exc:
                 rejected = self.cache_dir/profile/'rejected_full'/f'round_{round_number}_{self.policy[:12]}.wav'
                 atomic_wave(rejected,pcm)
@@ -189,7 +264,9 @@ class StyledRun:
                            reasons=exc.report['reasons'])
                 self.save()
                 self.progress('  Contrôle global refusé : '+ '; '.join(exc.report['reasons']))
-                if exc.report['reasons'] == ['fin du texte non retrouvée']:
+                if exc.report.get('affected_spans'):
+                    affected = exc.report['affected_spans']
+                elif exc.report['reasons'] == ['fin du texte non retrouvée']:
                     affected = [len(parts)-1]
                 else:
                     affected = []

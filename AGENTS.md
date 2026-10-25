@@ -28,6 +28,18 @@ La lecture avance à la fin réelle du son, respecte Pause et ne saute pas les
 fichiers absents. Le Roi-grenouille nécessite 11 fichiers pour ce parcours,
 contre 21 pour toutes les variantes interactives.
 
+Pour chaque conte, préparer et livrer les deux modes : le jeu couvrant les
+deux choix à chaque étape, puis l'écoute automatique suivant le choix 1 sans
+annonces. Une production interactive seule ne suffit pas et ne produit pas
+les WAV automatiques. Compiler et vérifier les deux plans séparément.
+
+Chaque conte annonce son titre complet et son auteur une seule fois, avant
+le premier passage, dans les deux modes. Renseigner et baliser `audio_intro`
+dans le manuscrit ; conserver cette annonce hors du texte canonique du récit.
+Le premier WAV commence toujours par 1 000 ms de silence, puis l'annonce.
+Les consignes `pronunciations` sont tracées dans la recette de synthèse ;
+l'ASR contrôle le texte correctement orthographié. Grimm se prononce « Grimme ».
+
 Après des refus ASR, distinguer une coupure réelle d'une orthographe homophone.
 Les nouvelles règles de comparaison et la seconde reconnaissance sont dans
 `audio/speech_verification.py`. Ne pas augmenter arbitrairement le seuil WER.

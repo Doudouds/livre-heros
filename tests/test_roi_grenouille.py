@@ -85,7 +85,8 @@ class FrogTaleTests(unittest.TestCase):
         self.assertIn('Ou choix 2 :',plan['spans'][-1]['text'])
         approved = Content.read(ROOT/'audio/experiments/emotions/essai_03_e12fed44e64c/plan.json')
         profiles = {i['id']:i['parameters'] for i in approved['excerpts']}
-        self.assertEqual(plan['spans'][0]['parameters'],profiles['05_emerveillement'])
+        self.assertEqual(plan['spans'][0]['role'],'introduction')
+        self.assertEqual(plan['spans'][1]['parameters'],profiles['05_emerveillement'])
 
     def test_exactly_one_second_is_embedded_before_any_speech(self):
         first, second = PCM(24000,b'\x01\x02'*2400),PCM(24000,b'\x03\x04'*2400)

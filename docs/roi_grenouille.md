@@ -13,6 +13,12 @@ lancement de l'écoute complète.
 `Ecouter_Roi_Grenouille_Automatique.cmd` ouvre directement ce mode après sa
 préparation.
 
+Les deux modes sont à préparer pour livrer le conte complet : **21 WAV pour le
+jeu à deux choix et 11 WAV pour l'écoute automatique**. Le premier segment de
+chacun annonce « Le roi-grenouille ou Henri-le-Ferré, des frères Jacob et Wilhelm Grimm. », avec
+la prononciation « Grimme », après la seconde de silence initial. Les corps du
+récit restent inchangés. L'annonce est balisée dans `audio_intro` du manuscrit.
+
 Le conte entier du recueil fourni, pages PDF **14 et 15**, est repris dans son
 ordre : 1 298 mots de texte source, répartis en **11 passages et 10 décisions**.
 La narration reste à la troisième personne. Les dialogues, la promesse, la
@@ -56,11 +62,11 @@ deux possibilités par décision. Il refuse un découpage audio différent du te
 
 ## Premier segment audio
 
-Seul le premier passage est demandé et généré. Le logiciel reconnaît son WAV
-par l'identifiant exact du texte affiché, question et deux choix compris. Les
-passages suivants restent lisibles et affichent « Audio indisponible ».
-La prise livrée dure **1 min 21,69 s**, silence initial compris. Le contrôle
-des paroles et l'audit des fichiers sont validés.
+Le premier passage est disponible dans les deux modes, avec l'annonce du titre
+et de l'auteur. Le logiciel reconnaît son WAV par l'identifiant exact du texte
+prononcé. Le jeu ajoute sa question et ses deux choix ; le mode automatique
+lit seulement l'annonce et le récit. Les versions antérieures sans annonce
+restent conservées, et les prises de narration approuvées sont réutilisées.
 
 ```powershell
 python .\generer_audio_conte.py --segment 1
@@ -123,15 +129,16 @@ reprend les blocs déjà vérifiés.
 Après génération, vérifier les fichiers présents avec :
 
 ```powershell
-.\.venv-tts\Scripts\python.exe -m tools.audit_faithful_audio
+python -m tools.audit_automatic_audio --interactive --segment 1
 ```
 
-Cet audit porte sur le **premier segment uniquement**. Il compare le texte au passage réellement chargé par l'application,
-contrôle les empreintes et les transcriptions enregistrées, puis reconstitue
-le WAV à l'échantillon près depuis ses prises validées. Il vérifie aussi la
-seconde de silence initial et l'absence de silence ajouté par le lecteur.
-Le résultat est enregistré dans
-`reports/roi_grenouille/audio_audit.json`.
+Cette commande porte sur le **premier segment interactif uniquement**. Elle
+compare le texte au passage réellement chargé par l'application, contrôle les
+empreintes, la consigne de prononciation et les transcriptions enregistrées,
+puis reconstitue le WAV à l'échantillon près depuis ses prises validées. Elle
+vérifie aussi la seconde de silence initial et l'absence de silence ajouté
+par le lecteur. Le résultat est enregistré dans
+`reports/roi_grenouille/quality_audit_medium.json`.
 
 ## Parcours automatique complet
 

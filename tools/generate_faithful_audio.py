@@ -51,31 +51,12 @@ def plan_segment(args, content=None):
     for _ in range(args.segment-1):
         engine.choose(args.choice-1)
         engine.advance()
-    scene = engine.current
-    authored = engine.scenes[scene['id']]
-    spans = list(authored.get('audio_spans', [dict(text=authored['text'],speaker='narrateur',emotion='neutral')]))
-    if normalize(' '.join(p['text'] for p in spans)) != normalize(authored['text']):
-        raise ValueError('Le découpage vocal ne correspond pas à la narration.')
-    if scene['text'] != authored['text']:
-        if not scene['text'].endswith(authored['text']):
-            raise ValueError('Variante narrative non prise en charge par ce plan vocal.')
-        lead = scene['text'][:-len(authored['text'])].strip()
-        spans.insert(0, dict(text=lead, speaker='narrateur', emotion='neutral'))
-    if scene['choice_prompt']:
-        spans.append(dict(text=scene['choice_prompt'],speaker='narrateur',emotion='neutral',role='choix'))
-    palette = Content.read(PALETTE)
-    for span in spans:
-        if not span['text'].strip() or span['emotion'] not in palette['profiles']:
-            raise ValueError('Passage vide ou émotion absente de la palette approuvée.')
-        span['parameters'] = palette['profiles'][span['emotion']]
-    if normalize(' '.join(p['text'] for p in spans)) != normalize(scene['spoken_text']):
-        raise ValueError('Le plan ne couvre pas le texte affiché et les deux choix.')
-    return dict(book=args.book, scene_id=scene['id'], segment_id=scene['segment_id'],
-                title=scene['title'], text=scene['spoken_text'], spans=spans,
-                output_file=str(args.output_dir/(scene['segment_id']+'.wav')),
-                lead_in_ms=args.lead_in_ms, pause_ms=args.pause_ms,
-                palette_sha256=file_hash(PALETTE), palette_source=palette['approved_take'],
-                chunk_chars=args.chunk_chars, seed=args.seed)
+    # Garder le plan historique compatible avec le générateur courant,
+    # notamment l'annonce du titre et ses consignes de prononciation.
+    from tools.generate_story_audio import plan_current
+    plan = plan_current(engine,args,Content.read(PALETTE))
+    plan['lead_in_ms'] = args.lead_in_ms
+    return plan
 
 
 def assemble(parts, lead_in_ms, pause_ms):

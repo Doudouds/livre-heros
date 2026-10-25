@@ -1,5 +1,6 @@
 {
   "book": "roi_grenouille",
+  "mode": "automatic",
   "passed": true,
   "required": 11,
   "ready": 11,
@@ -7,11 +8,11 @@
   "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
   "segments": [
     {
-      "segment_id": "roi_grenouille_01_automatic_52109c490924c5d9d1bd",
+      "segment_id": "roi_grenouille_01_automatic_502af95b841c4938633e",
       "passed": true,
-      "sha256": "d9c42d67ff2634f3b059e40223190726a6b68dfd57cc2e9d0469168b0d654aa5",
-      "seconds": 71.06,
-      "word_error_rate": 0.0258
+      "sha256": "0606d82bd0c18d3f9085ba4b116c11b5a91838e7c1c85da1e8b424430f83345f",
+      "seconds": 76.93,
+      "word_error_rate": 0.0325
     },
     {
       "segment_id": "roi_grenouille_02_automatic_05685d6f1bd7e0501e65",

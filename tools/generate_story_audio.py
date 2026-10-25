@@ -64,6 +64,11 @@ def plan_current(engine, args, palette):
         for span in copy.deepcopy(authored['choice_audio_spans']):
             span['role'] = 'choix'
             spans.append(span)
+    if scene['id'] == engine.book['start'] and engine.book.get('audio_intro'):
+        intro = engine.book['audio_intro']
+        if not intro.get('audio_spans'):
+            raise ValueError('Introduction audio non balisée.')
+        spans = copy.deepcopy(intro['audio_spans'])+spans
     for span in spans:
         span['parameters'] = copy.deepcopy(palette['profiles'][span['emotion']])
     if normalize(' '.join(s['text'] for s in spans)) != normalize(scene['spoken_text']):
