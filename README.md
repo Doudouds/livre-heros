@@ -1,5 +1,23 @@
 # Les Portes de l'Imaginaire
 
+## Contrôler le PC depuis un téléphone
+
+Double-cliquer sur **Telecommande_Telephone.cmd**, puis ouvrir sur le téléphone
+l’adresse « Téléphone » affichée dans la fenêtre. Les deux appareils doivent
+être sur le même réseau local. Si la page demande un code, saisir les huit
+chiffres affichés sur le PC. Autoriser Python sur le réseau **privé** si Windows
+le demande ; garder la fenêtre du lanceur ouverte.
+
+La télécommande propose la bibliothèque, les deux modes des contes préparés,
+les choix interactifs, Lecture/Pause/Reprise, Rejouer le passage, Recommencer,
+Arrêter, le volume et la progression audio sous Windows. **Le son sort du PC.**
+L’écoute automatique continue même lorsque le téléphone est verrouillé ou
+déconnecté. Les fichiers absents suspendent ce mode sans sauter de passage.
+
+Ce lanceur fonctionne séparément de l’application Tkinter. Les commandes ne
+pilotent pas une fenêtre déjà ouverte avec `Lancer.cmd`. Il ne génère aucun son
+nouveau et ne demande aucun paquet pip. [Guide de connexion et de dépannage](docs/telecommande_telephone.md).
+
 ## Générer les audio d'un conte
 
 Chaque conte doit être produit dans **les deux modes** : jeu avec toutes les

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#244f49">
+  <title>Les Portes de l’Imaginaire · Télécommande</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Les Portes de l’Imaginaire, accueil"><img src="/icon.svg" alt="" width="40" height="40"><span>Les Portes<br>de l’Imaginaire</span></a>
+    <span id="connection" class="connection" role="status">Connexion au lecteur…</span>
+  </header>
+  <main>
+    <section id="login" class="login panel" hidden>
+      <p class="eyebrow">VOTRE TÉLÉCOMMANDE</p>
+      <h1>Ouvrir la porte.</h1>
+      <p>Le son reste sur le PC. Retrouvez ses histoires et pilotez la lecture depuis ce téléphone.</p>
+      <form id="login-form">
+        <label for="access-code">Code affiché dans la fenêtre du PC</label>
+        <input id="access-code" name="code" autocomplete="one-time-code" inputmode="numeric" placeholder="1234 5678" required>
+        <button class="primary" type="submit">Se connecter au lecteur <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+    <p id="notice" class="notice" role="alert" hidden></p>
+    <div id="app" hidden>
+      <nav class="navigation" aria-label="Navigation">
+        <button id="library-nav" class="tab selected" type="button">Bibliothèque</button>
+        <button id="player-nav" class="tab" type="button" disabled>Lecture en cours</button>
+      </nav>
+      <section id="library-view" aria-labelledby="library-title">
+        <div class="intro"><div><p class="eyebrow">LE TEMPS D’UNE HISTOIRE</p><h1 id="library-title">Où allons-nous<br>aujourd’hui ?</h1><p>Choisissez une histoire. Installez-vous. Écoutez.</p></div><div class="intro-art" aria-hidden="true"><span>✦</span><span class="arch">☾</span><span>✧</span></div></div>
+        <div class="section-row"><h2>Les livres &amp; les contes</h2><button id="refresh-library" class="text-button" type="button">↻ Actualiser les audio</button></div>
+        <div id="books" class="books"></div>
+        <details class="adventures panel"><summary>Les aventures à personnaliser <span>Un héros, un lieu, un objet</span></summary><div id="adventures"></div></details>
+        <p class="footnote">Les histoires et les voix restent sur le PC. La lecture continue si vous fermez cette page.</p>
+      </section>
+      <section id="player-view" aria-labelledby="story-title" hidden>
+        <div class="player-heading"><p class="eyebrow" id="playback-mode">VOTRE HISTOIRE</p><h1 id="story-title"></h1><p id="passage-label"></p></div>
+        <div class="player-grid">
+          <section class="controls panel" aria-label="Commandes audio">
+            <div class="player-emblem" aria-hidden="true">✦</div>
+            <p id="audio-status" class="audio-status" role="status"></p>
+            <div class="transport"><button id="replay" class="round secondary" type="button" aria-label="Rejouer le passage">↺</button><button id="resume" class="round primary play" type="button" aria-label="Lecture">▶</button><button id="pause" class="round secondary" type="button" aria-label="Pause">Ⅱ</button></div>
+            <p class="transport-caption">Rejouer <span>Lecture / reprise</span> Pause</p>
+            <div id="time-progress" hidden><progress id="audio-progress" max="1" value="0" aria-label="Progression du son"></progress><p class="time"><span id="position">0:00</span><span id="duration">0:00</span></p></div>
+            <label id="volume-control" class="volume" hidden>Volume <output id="volume-label">70 %</output><input id="volume" type="range" min="0" max="100" value="70" aria-label="Volume de l’histoire"></label>
+            <p id="volume-help" class="footnote">Le volume se règle sur le PC.</p>
+            <div class="more-controls"><button id="stop" class="text-button" type="button">■ Arrêter</button><button id="restart" class="text-button" type="button">Recommencer l’histoire</button></div>
+            <p class="footnote">Le son est joué par le PC.</p>
+          </section>
+          <article class="reading panel"><h2 id="scene-title"></h2><div id="decisions"><p id="question"></p><div id="choices"></div><button id="advance" class="primary" type="button" hidden>Poursuivre →</button></div><details class="transcript"><summary>Lire le passage</summary><div id="story-text" class="story-text"></div></details></article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <dialog id="confirmation" aria-labelledby="confirmation-title"><form method="dialog"><h2 id="confirmation-title">Changer de lecture ?</h2><p id="confirmation-message"></p><div class="dialog-actions"><button value="cancel" class="secondary" autofocus>Annuler</button><button value="confirm" class="primary">Continuer</button></div></form></dialog>
+  <footer>LES PORTES DE L’IMAGINAIRE <span>Une voix, mille chemins.</span></footer>
+</body>
+</html>
