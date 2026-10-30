@@ -95,10 +95,11 @@ Si le port est déjà occupé, fermer l’ancien lanceur ou choisir un autre por
 Après un changement de réseau du PC, relancer le service pour actualiser les
 adresses et le code.
 
-Cette version est une interface web locale : aucune installation depuis un
-magasin d’applications n’est requise. L’installation complète comme PWA, le
-déploiement sur Raspberry Pi et son éventuel point d’accès Wi-Fi restent les
-étapes suivantes. La lecture sur Linux nécessite `aplay` ; le réglage du volume
+Cette interface web locale reste disponible en complément de
+[l’application Android native](application_android.md). Le lien `/android`
+permet de télécharger l’APK préparée sur ce PC. Le déploiement sur Raspberry Pi
+et son éventuel point d’accès Wi-Fi restent les étapes suivantes.
+La lecture sur Linux nécessite `aplay` ; le réglage du volume
 et la progression de cette version ont été préparés pour Windows.
 
 ## Architecture et vérifications

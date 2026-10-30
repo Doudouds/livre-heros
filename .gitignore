@@ -10,3 +10,4 @@ audio/experiments/
 audio/runtime/
 *.partial
 tmp/audio_playback/
+dist/android/

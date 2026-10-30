@@ -1,5 +1,22 @@
 # Les Portes de l'Imaginaire
 
+## Application Android
+
+Une **application Android native en Kotlin** contrôle le lecteur : bibliothèque,
+jeu à deux choix, écoute automatique, Lecture/Pause/Reprise, Rejouer, Recommencer,
+volume et progression. Le son reste sur le PC ; le même protocole pourra servir
+au Raspberry Pi.
+
+Lancer **Telecommande_Telephone.cmd**, puis ouvrir sur le téléphone le lien
+**Application Android** affiché dans la console pour télécharger l’APK. Après
+installation, saisir dans l’application l’adresse du lecteur et son code à huit
+chiffres. Les deux appareils doivent partager le même réseau local.
+
+L’APK est produite dans `dist/android/LesPortesImaginaire.apk`, hors de Git.
+**Compiler_Application_Android.cmd** la reconstruit avec Android Studio/son SDK,
+les tests et les vérifications Android. Le projet se trouve dans `android/`.
+[Installation, compilation et limites de cette première version](docs/application_android.md).
+
 ## Contrôler le PC depuis un téléphone
 
 Double-cliquer sur **Telecommande_Telephone.cmd**, puis ouvrir sur le téléphone

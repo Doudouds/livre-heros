@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Les Portes de l’Imaginaire</string>
+    <string name="volume_label">Volume · %1$d %%</string>
+    <string name="playback_time">%1$s / %2$s</string>
+</resources>

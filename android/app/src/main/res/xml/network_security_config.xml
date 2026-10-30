@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- L’adresse privée du lecteur est choisie à l’exécution et vérifiée par RemoteApi.
+         Aucun certificat HTTPS non fiable n’est accepté. -->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

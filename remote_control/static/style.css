@@ -282,6 +282,16 @@ p{
   background:var(--green);
   color:#fffdf7
 }
+.download-link{
+  display:block;
+  padding:15px 18px;
+  background:var(--green);
+  color:var(--white);
+  border-radius:10px;
+  text-decoration:none;
+  text-align:center;
+  font-weight:600
+}
 .book>.primary{
   width:100%;
   display:flex;

@@ -37,6 +37,8 @@ def main(argv=None):
         for address in addresses:
             label = 'Sur ce PC ' if address == '127.0.0.1' else 'Téléphone '
             print(f'{label}: http://{address}:{server.server_port}/#connexion={server.token}', flush=True)
+            if address != '127.0.0.1':
+                print(f'Application Android : http://{address}:{server.server_port}/android', flush=True)
         print('\nOuvre le lien Téléphone ou saisis le code dans la page de connexion.', flush=True)
         print(f'Code : {server.pair_code[:4]} {server.pair_code[4:]}', flush=True)
         print('Autorise Python sur le réseau privé si Windows le demande.', flush=True)

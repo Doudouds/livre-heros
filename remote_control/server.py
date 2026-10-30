@@ -16,7 +16,10 @@ from .controller import StaleCommand
 
 
 STATIC = Path(__file__).parent / 'static'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+ANDROID_APK = PROJECT_ROOT / 'dist/android/LesPortesImaginaire.apk'
 ASSETS = {'/': ('index.html', 'text/html; charset=utf-8'),
+          '/android': ('android.html', 'text/html; charset=utf-8'),
           '/app.js': ('app.js', 'text/javascript; charset=utf-8'),
           '/style.css': ('style.css', 'text/css; charset=utf-8'),
           '/icon.svg': ('icon.svg', 'image/svg+xml')}
@@ -74,6 +77,8 @@ class RemoteHandler(BaseHTTPRequestHandler):
         self.send_response(status)
         self.send_header('Content-Type', content_type)
         self.send_header('Content-Length', str(len(data)))
+        if content_type == 'application/vnd.android.package-archive':
+            self.send_header('Content-Disposition', 'attachment; filename="LesPortesImaginaire.apk"')
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Referrer-Policy', 'no-referrer')
@@ -109,6 +114,12 @@ class RemoteHandler(BaseHTTPRequestHandler):
         if path in ASSETS:
             filename, content_type = ASSETS[path]
             self.send(200, (STATIC / filename).read_bytes(), content_type)
+        elif path == '/android.apk':
+            apk = ANDROID_APK.resolve()
+            if not apk.is_relative_to(PROJECT_ROOT) or not apk.is_file():
+                self.send(404, {'error': 'L’APK n’est pas encore compilée sur ce lecteur.'})
+                return
+            self.send(200, apk.read_bytes(), 'application/vnd.android.package-archive')
         elif path in ('/api/state', '/api/library'):
             if not self.authorized():
                 return

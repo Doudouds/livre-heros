@@ -319,6 +319,18 @@ class RemoteHTTPTests(PlaybackFixture):
         with self.assertRaises(OSError):
             RemoteServer(('127.0.0.1', self.server.server_port), self.service)
 
+    def test_android_installer_serves_only_the_prepared_apk_without_credentials(self):
+        self.assertEqual(self.request('/android', token=False)[0], 200)
+        target = self.folder / 'test.apk'
+        with patch('remote_control.server.ANDROID_APK', target):
+            self.assertEqual(self.request('/android.apk', token=False)[0], 404)
+            target.write_bytes(b'prepared-apk-without-credentials')
+            status, mime, content = self.request('/android.apk', token=False)
+            self.assertEqual(status, 200)
+            self.assertEqual(mime, 'application/vnd.android.package-archive')
+            self.assertEqual(content, target.read_bytes())
+        self.assertEqual(self.request('/api/state', token=False)[0], 401)
+
     def test_http_pairing_throttles_wrong_codes(self):
         for _ in range(10):
             self.assertEqual(self.request('/api/connect', {'code': 'wrong'}, token=False)[0], 401)
