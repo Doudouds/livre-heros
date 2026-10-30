@@ -36,6 +36,9 @@ class MainActivity : Activity() {
     private var progress: ProgressBar? = null
     private var timing: TextView? = null
     private var audioStatus: TextView? = null
+    private var discoveryList: LinearLayout? = null
+    private var discoveryStatus: TextView? = null
+    private var selectDiscoveredReader: ((DiscoveredReader) -> Unit)? = null
     private val controls = mutableListOf<Pair<View, () -> Boolean>>()
     private val selectedModes = mutableMapOf<String, String>()
     private var page = "library"
@@ -110,6 +113,7 @@ class MainActivity : Activity() {
         if (structural || !screenBuilt) {
             val offset = scroll.scrollY
             body.removeAllViews(); controls.clear(); progress = null; timing = null; audioStatus = null
+            discoveryList = null; discoveryStatus = null; selectDiscoveredReader = null
             when {
                 page == "connection" -> connectionScreen()
                 page == "player" && state?.active == true -> playerScreen(state)
@@ -132,6 +136,7 @@ class MainActivity : Activity() {
         playerTab.setTextColor(if (page == "player") green else muted)
         controls.forEach { (view, enabled) -> view.isEnabled = !coordinator.busy && enabled(); view.alpha = if (view.isEnabled) 1f else .4f }
         updateProgress(state)
+        updateDiscovery()
     }
 
     private fun connectionScreen() {
@@ -141,6 +146,14 @@ class MainActivity : Activity() {
         space(body, 12)
         body.addView(text("Retrouvez les histoires du lecteur et pilotez l’écoute depuis votre téléphone.", 15, muted))
         space(body, 26)
+        val searchCard = card(body)
+        val search = button("Rechercher un lecteur sur le Wi-Fi") { coordinator.findReaders() }
+        searchCard.addView(search, LinearLayout.LayoutParams(-1, dp(52)))
+        controls.add(search to { !coordinator.findingReaders })
+        discoveryStatus = text("Le PC ou le Raspberry Pi apparaîtra ici lorsqu’il est lancé sur le même réseau.", 12, muted)
+        space(searchCard, 12); searchCard.addView(discoveryStatus)
+        discoveryList = column().also { searchCard.addView(it, matchWrap()) }
+        space(body, 18)
         val card = card(body)
         card.addView(text("Adresse du lecteur", 13, bold = true))
         val address = EditText(this).apply {
@@ -156,6 +169,11 @@ class MainActivity : Activity() {
             contentDescription = "Code à huit chiffres"; textSize = 20f; letterSpacing = .15f; isSaveEnabled = false
         }
         card.addView(code, matchWrap())
+        selectDiscoveredReader = { reader ->
+            address.setText(reader.endpoint.base)
+            code.requestFocus()
+            scroll.post { scroll.smoothScrollTo(0, card.top + code.top - dp(20)) }
+        }
         space(card, 20)
         val connect = button("Se connecter au lecteur  →") {
             (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(code.windowToken, 0)
@@ -167,6 +185,19 @@ class MainActivity : Activity() {
         body.addView(text("Sur le PC, lancez Telecommande_Telephone.cmd. Les deux appareils doivent partager le même Wi-Fi. Le son est joué par le PC.", 13, muted))
         space(body, 12)
         body.addView(text("Vous pouvez aussi coller le lien complet affiché par le lecteur : le code ne sera alors pas nécessaire.", 12, muted))
+    }
+
+    private fun updateDiscovery() {
+        val list = discoveryList ?: return
+        if (coordinator.discoveryMessage.isNotEmpty()) discoveryStatus?.text = coordinator.discoveryMessage
+        list.removeAllViews()
+        coordinator.foundReaders.forEach { reader ->
+            space(list, 10)
+            val choose = button("${reader.name}\n${reader.endpoint.base}", false) { selectDiscoveredReader?.invoke(reader) }
+            choose.gravity = Gravity.START or Gravity.CENTER_VERTICAL
+            choose.isEnabled = !coordinator.busy
+            list.addView(choose, matchWrap())
+        }
     }
 
     private fun libraryScreen() {

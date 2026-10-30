@@ -6,6 +6,7 @@ import webbrowser
 from engine.content import Content, ROOT
 from remote_control.audio import RemoteAudioPlayer
 from remote_control.controller import PlaybackController, PlaybackService
+from remote_control.discovery import DiscoveryResponder
 from remote_control.server import RemoteServer, local_addresses
 
 
@@ -15,6 +16,7 @@ def parser():
     result.add_argument('--port', type=int, default=8765)
     result.add_argument('--open', action='store_true', help='Ouvrir aussi la télécommande sur ce PC')
     result.add_argument('--no-restore', action='store_true', help='Commencer sans reprendre la dernière session')
+    result.add_argument('--no-discovery', action='store_true', help='Désactiver la découverte locale depuis Android')
     return result
 
 
@@ -24,6 +26,7 @@ def main(argv=None):
         parser().error('Le port doit être compris entre 1 et 65535.')
     service = None
     server = None
+    discovery = None
     try:
         content = Content()
         session = ROOT / 'sessions/remote/session.json'
@@ -31,8 +34,15 @@ def main(argv=None):
             content, audio=RemoteAudioPlayer(content.root, content.config['audio_root']),
             session_path=session, restore=not args.no_restore))
         server = RemoteServer((args.host, args.port), service)
+        if args.host == '0.0.0.0' and not args.no_discovery:
+            try:
+                discovery = DiscoveryResponder(server.server_port)
+            except OSError:
+                print('Découverte locale indisponible ; la connexion par adresse reste disponible.', flush=True)
         print('\nLes Portes de l’Imaginaire — Télécommande téléphone', flush=True)
         print('Le son est joué par ce PC. Téléphone et PC doivent partager le même Wi-Fi.', flush=True)
+        if discovery:
+            print('Dans l’application Android : Rechercher un lecteur, puis sélectionner ce PC.', flush=True)
         addresses = local_addresses() if args.host == '0.0.0.0' else [args.host]
         for address in addresses:
             label = 'Sur ce PC ' if address == '127.0.0.1' else 'Téléphone '
@@ -52,6 +62,8 @@ def main(argv=None):
         print(f'Impossible de démarrer la télécommande : {exc}', file=sys.stderr)
         return 1
     finally:
+        if discovery:
+            discovery.close()
         if server:
             server.server_close()
         if service:

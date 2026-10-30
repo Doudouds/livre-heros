@@ -342,6 +342,12 @@ class RemoteHTTPTests(PlaybackFixture):
         self.assertEqual(self.request('/api/state', headers={'Host': 'attacker.example'})[0], 403)
         self.assertFalse(self.controller.engine)
 
+    def test_discovered_interface_address_is_valid_even_if_not_initially_listed(self):
+        self.server.hosts.discard(f'127.0.0.1:{self.server.server_port}')
+        self.assertEqual(self.request('/api/state')[0], 200)
+        self.assertEqual(self.request('/api/state', token=False)[0], 401)
+        self.assertEqual(self.request('/api/state', headers={'Host': 'unrelated.example'})[0], 403)
+
     def test_http_serves_only_allowlisted_assets_and_no_audio_or_project_files(self):
         self.assertEqual(self.request('/', token=False)[0], 200)
         self.assertIn('text/javascript', self.request('/app.js', token=False)[1])

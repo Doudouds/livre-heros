@@ -30,6 +30,12 @@ retient le jeton pour retrouver la télécommande ; au prochain lancement du
 service, il demandera le nouveau code. Aucun code ni jeton n’est enregistré dans
 le dépôt ou dans la sauvegarde de lecture.
 
+Dans l’application Android 1.1, **Rechercher un lecteur sur le Wi-Fi** affiche
+les lecteurs lancés sur ce réseau et remplit l’adresse en touchant un résultat.
+Le lanceur PC répond aux demandes de découverte sur le port UDP 18766. Cette
+fonction ne change pas le fonctionnement de la télécommande web et ne diffuse
+jamais le code d’association. `--no-discovery` permet de la désactiver.
+
 ## Commandes et comportement
 
 - **Lecture** reprend un son en pause à sa position ; après un arrêt, un fichier

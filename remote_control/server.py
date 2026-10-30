@@ -91,7 +91,11 @@ class RemoteHandler(BaseHTTPRequestHandler):
             pass
 
     def valid_host(self):
-        if self.headers.get('Host', '').lower() not in self.server.hosts:
+        host = self.headers.get('Host', '').lower()
+        # Une adresse découverte après un changement de Wi-Fi/DHCP reste valide
+        # si elle correspond réellement à l'interface qui a reçu cette connexion.
+        local_host = f'{self.connection.getsockname()[0]}:{self.server.server_port}'.lower()
+        if host not in self.server.hosts and host != local_host:
             self.send(403, {'error': 'Adresse du lecteur non autorisée.'})
             return False
         origin = self.headers.get('Origin')

@@ -8,10 +8,24 @@ import org.junit.Assert.*
 import org.junit.Assume.assumeTrue
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.net.InetAddress
+import java.net.URI
 
 /** Intégration sur Android réel : aucun événement tactile ou état d’interface simulé. */
 @RunWith(AndroidJUnit4::class)
 class ReaderDeviceTest {
+    @Test fun discoversThePcReaderThroughTheNativeUdpClient() {
+        val args = InstrumentationRegistry.getArguments()
+        val target = args.getString("discoveryTarget").orEmpty()
+        assumeTrue("Fournir une cible UDP de test accessible depuis l’émulateur.", target.isNotEmpty())
+        val port = args.getString("discoveryPort")?.toInt() ?: ReaderDiscovery.PORT
+        val readers = if (target == "broadcast") ReaderDiscovery(InstrumentationRegistry.getInstrumentation().targetContext, port = port).search()
+            else ReaderDiscovery(targets = listOf(InetAddress.getByName(target)), port = port).search()
+        val httpPort = URI(args.getString("readerAddress")).port
+        assertTrue("Le lecteur PC doit être découvert.", readers.any { URI(it.endpoint.base).port == httpPort })
+        assertTrue(readers.all { it.name.isNotEmpty() && it.endpoint.embeddedToken.isEmpty() })
+    }
+
     @Test fun nativeClientAndLifecycleControlThePcWithoutDependingOnTheActivity() {
         val args = InstrumentationRegistry.getArguments()
         val address = args.getString("readerAddress").orEmpty()

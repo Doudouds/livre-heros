@@ -15,9 +15,12 @@ continuera à utiliser la même API lorsque le lecteur sera porté sur Raspberry
 3. Télécharger l’APK puis l’ouvrir sur le téléphone. Android peut demander
    d’autoriser l’installation depuis le navigateur utilisé. Cette version de
    test est installée directement ; elle n’est pas publiée sur Google Play.
-4. Ouvrir **Les Portes de l’Imaginaire**. Saisir l’adresse du lecteur affichée
-   sur le PC, par exemple `192.168.1.20:8765`, puis les huit chiffres du code.
-   Coller le lien complet contenant `#connexion=…` fonctionne également.
+4. Ouvrir **Les Portes de l’Imaginaire**, puis **Rechercher un lecteur sur le
+   Wi-Fi**. Toucher le PC ou le Raspberry Pi trouvé pour remplir son adresse,
+   puis saisir les huit chiffres du code. Si un lecteur est déjà associé,
+   passer par **Lecteur → Changer de lecteur** pour afficher cette recherche.
+   La saisie manuelle d’une adresse comme `192.168.1.20:8765` et le collage du
+   lien complet contenant `#connexion=…` restent possibles.
 5. Dans la bibliothèque, choisir le livre et son mode. Pour un premier essai,
    sélectionner **Le roi-grenouille → Écoute automatique** lorsque son catalogue
    indique **11/11 fichiers prêts**.
@@ -32,6 +35,34 @@ cours. L’adresse et le jeton sont conservés dans les préférences privées d
 l’application, exclues des sauvegardes Android. Le code change à chaque
 redémarrage du lecteur ; l’app demande alors le nouveau code. Aucun compte,
 service cloud ou accès aux contacts n’est requis.
+
+## Recherche sur le réseau local
+
+Le lanceur PC active un petit répondeur UDP sur le port **18766**, en plus de
+son serveur HTTP. Le téléphone effectue une recherche de trois secondes, avec
+trois demandes espacées sur les adresses de diffusion de ses réseaux locaux.
+Il utilise le Wi-Fi ou Ethernet lorsqu’ils sont disponibles, même sans accès
+Internet. Les lecteurs répondent directement au téléphone avec leur nom et
+leur port HTTP réel. Plusieurs lecteurs peuvent apparaître dans la liste.
+
+Ce protocole ciblé ne parcourt pas les adresses IP et ne recherche pas d’autres
+types d’appareils. Un identifiant aléatoire relie les réponses à la recherche
+en cours ; les résultats sont dédoublonnés. L’adresse du lecteur est celle du
+paquet reçu, et aucun code ni jeton n’est diffusé. La sélection d’un résultat
+ne déclenche pas de connexion ou de lecture : le code d’association reste requis.
+
+La recherche s’arrête à son échéance, lorsque l’application passe en arrière-plan
+ou lorsqu’une connexion commence. Elle ne bloque pas les commandes du lecteur
+et ne modifie pas le texte ou le code déjà saisis dans le formulaire.
+
+Le PC doit utiliser le lanceur mis à jour et écouter le réseau local, comme le
+fait `Telecommande_Telephone.cmd` par défaut. Un serveur limité à `127.0.0.1`
+ou démarré avec `--no-discovery` reste accessible manuellement mais ne se
+présente pas à la recherche. Si le port UDP est indisponible, le lecteur
+continue de fonctionner et signale que la découverte n’est pas disponible.
+Les Wi-Fi invités ou les règles bloquant les paquets UDP peuvent empêcher la
+recherche ; l’adresse manuelle reste alors utilisable. Aucun réglage de
+pare-feu n’est modifié automatiquement.
 
 ## Lecture
 
@@ -89,6 +120,10 @@ Ce niveau cible permet la connexion locale avec la permission normale
 système prévu par Android.
 [Documentation Android sur le réseau local](https://developer.android.com/privacy-and-security/local-network-permission).
 
+La version 1.1 ajoute la permission normale `ACCESS_NETWORK_STATE` pour choisir
+le réseau Wi-Fi/Ethernet de la recherche. Elle ne demande pas la localisation
+et ne lit pas le nom du réseau Wi-Fi.
+
 Le lecteur actuel utilise HTTP sur le réseau privé. Le client vérifie que les
 adresses résolues appartiennent au réseau local, refuse les redirections et ne
 désactive aucune vérification de certificat HTTPS. Il n’accède ni à un serveur
@@ -104,13 +139,14 @@ d’authentification et les redirections. `lintDebug` vérifie la compatibilité
 API Android et des ressources. Le contrôle PC s’exécute séparément :
 
 ```powershell
-python -m unittest tests.test_remote_control -v
+python -m unittest tests.test_reader_discovery tests.test_remote_control -v
 ```
 
-Pour tester dans un émulateur avec un serveur limité à la boucle locale du PC,
-rediriger explicitement son port avec `adb -s IDENTIFIANT_EMULATEUR reverse
-tcp:8765 tcp:8765`, puis utiliser `127.0.0.1:8765` dans l’application. Sur un vrai
-téléphone en Wi-Fi, utiliser l’adresse réseau du PC affichée dans la console.
+Pour les essais Android de ce projet, privilégier le téléphone connecté depuis
+le projet Android Studio, conformément à la préférence de l’utilisateur. Le PC
+et le téléphone partagent le même Wi-Fi ; la découverte utilise alors la
+diffusion réelle du réseau. Pour les connexions manuelles, utiliser l’adresse
+réseau du PC affichée dans sa console.
 
 Le test d’intégration `ReaderDeviceTest` s’exécute directement sur Android avec
 un lecteur de test contenant les 11 WAV automatiques du Roi-grenouille. Il
@@ -118,20 +154,29 @@ exerce le vrai client et `RemoteCoordinator`, sans simuler d’événements tact
 connexion, catalogue, lecture, pause, mise en arrière-plan, retour, reprise,
 volume, rejouer, arrêt et recommencement. Il mémorise la connexion dans cet
 appareil de test et laisse le premier passage en pause pour l’inspection.
-Utiliser un émulateur jetable et un lecteur distinct de la session habituelle.
+Utiliser un lecteur de test distinct de la session habituelle.
+
+Un second test contrôle la découverte UDP réelle. L’argument
+`discoveryTarget=broadcast` utilise la recherche Wi-Fi normale du téléphone,
+sans adresse de serveur fournie au client de découverte. Une adresse explicite
+dans cet argument limite la recherche à une cible pour le diagnostic.
+
+La version 1.1 a été compilée, contrôlée par lint et vérifiée par **14 tests JVM**
+et **31 tests PC**. Les **deux tests d’intégration sur le Google Pixel 10a de
+l’utilisateur, sous Android 17**, passent : découverte par diffusion sur son
+Wi-Fi réel, connexion, catalogue, commandes audio et cycle de vie. Les tests
+utilisent le projet Android Studio et ciblent explicitement ce téléphone.
+La version installée est ensuite conservée avec la tâche `installDebug`.
+
+Exemple de lancement depuis le projet Android Studio avec un téléphone connecté :
 
 ```powershell
-cd android
-.\gradlew.bat --no-daemon assembleDebugAndroidTest
-adb -s IDENTIFIANT_EMULATEUR install -r app/build/outputs/apk/debug/app-debug.apk
-adb -s IDENTIFIANT_EMULATEUR install -r app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk
-adb -s IDENTIFIANT_EMULATEUR reverse tcp:PORT_DU_LECTEUR tcp:PORT_DU_LECTEUR
-adb -s IDENTIFIANT_EMULATEUR shell am instrument -w -e readerAddress http://127.0.0.1:PORT_DU_LECTEUR -e readerCode CODE_A_HUIT_CHIFFRES fr.portesimaginaire.remote.test/androidx.test.runner.AndroidJUnitRunner
+$env:ANDROID_SERIAL = 'IDENTIFIANT_DU_TELEPHONE'
+.\gradlew.bat --no-daemon connectedDebugAndroidTest '-Pandroid.testInstrumentationRunnerArguments.readerAddress=http://ADRESSE_DU_PC:PORT' '-Pandroid.testInstrumentationRunnerArguments.readerCode=CODE_A_HUIT_CHIFFRES' '-Pandroid.testInstrumentationRunnerArguments.discoveryTarget=broadcast'
+.\gradlew.bat --no-daemon installDebug
 ```
 
-Cette première livraison a été compilée, contrôlée par lint, vérifiée par les
-10 tests JVM et le test d’intégration sur un émulateur Android 17. L’APK signée
-a été installée dans cet émulateur ; la restauration de la connexion et l’écran
-de lecture natif ont également été inspectés. Les 24 tests du lecteur PC,
-dont le téléchargement de l’APK, passent. Un essai sur le téléphone de l’utilisateur
-reste nécessaire pour valider son réseau Wi-Fi et son installation Android.
+La tâche de tests connectés peut désinstaller les APK à sa fin ; `installDebug`
+remet l’application principale sur l’appareil. Le serveur utilisé pour ces
+essais doit rester distinct de la session habituelle, car le test audio
+commence et recommence le Roi-grenouille.

@@ -7,9 +7,13 @@ import java.util.concurrent.Executors
 
 /** Le cycle de vie du téléphone ne commande jamais l’arrêt du lecteur. */
 class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit) {
+    private val appContext = context.applicationContext
     private val preferences = context.getSharedPreferences("reader_connection", Context.MODE_PRIVATE)
     private val main = Handler(Looper.getMainLooper())
     private val worker = Executors.newSingleThreadExecutor()
+    private val discoveryWorker = Executors.newSingleThreadExecutor()
+    private var discovery: ReaderDiscovery? = null
+    private var discoveryGeneration = 0
     private var api: RemoteApi? = null
     private var running = false
     private var polling = false
@@ -29,6 +33,12 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
     var state: Snapshot? = null
         private set
     val needsConnection: Boolean get() = api == null
+    var findingReaders = false
+        private set
+    var foundReaders: List<DiscoveredReader> = emptyList()
+        private set
+    var discoveryMessage = ""
+        private set
 
     init {
         val token = preferences.getString("token", "").orEmpty()
@@ -39,6 +49,7 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
 
     fun start() { running = true; changed(false); refresh() }
     fun stop() {
+        cancelDiscovery()
         running = false
         epoch++
         main.removeCallbacks(poll)
@@ -46,7 +57,39 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
         busy = false
         connected = false
     }
-    fun close() { stop(); worker.shutdownNow() }
+    fun close() { stop(); worker.shutdownNow(); discoveryWorker.shutdownNow() }
+
+    private fun cancelDiscovery() {
+        discoveryGeneration++
+        discovery?.close(); discovery = null
+        if (findingReaders) discoveryMessage = "Recherche interrompue. Vous pouvez la relancer."
+        findingReaders = false
+    }
+
+    fun findReaders() {
+        if (!running || busy || findingReaders || !needsConnection) return
+        cancelDiscovery()
+        val generation = discoveryGeneration
+        val search = ReaderDiscovery(appContext)
+        discovery = search
+        findingReaders = true; foundReaders = emptyList(); discoveryMessage = "Recherche des lecteurs sur le Wi-Fi…"
+        message = ""; changed(false)
+        discoveryWorker.execute {
+            val result = runCatching { search.search() }
+            search.close()
+            main.post {
+                if (!running || generation != discoveryGeneration || !needsConnection) return@post
+                discovery = null; findingReaders = false
+                foundReaders = result.getOrDefault(emptyList())
+                discoveryMessage = when {
+                    result.isFailure -> "Recherche indisponible. Vous pouvez saisir l’adresse du lecteur ci-dessous."
+                    foundReaders.isEmpty() -> "Aucun lecteur trouvé. Vérifiez le Wi-Fi et le lanceur sur le PC, puis réessayez."
+                    else -> "${foundReaders.size} lecteur(s) trouvé(s). Touchez celui que vous voulez utiliser."
+                }
+                changed(false)
+            }
+        }
+    }
 
     private fun schedule() {
         main.removeCallbacks(poll)
@@ -72,6 +115,7 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
         val endpoint = try { Endpoint.parse(input) } catch (error: IllegalArgumentException) {
             message = error.message.orEmpty(); changed(false); return
         }
+        cancelDiscovery()
         busy = true; message = ""; changed(false)
         submit(block = {
             val token = endpoint.embeddedToken.ifEmpty { RemoteApi(endpoint).connect(code) }
@@ -87,6 +131,8 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
     }
 
     fun disconnect() {
+        cancelDiscovery()
+        foundReaders = emptyList(); discoveryMessage = ""
         epoch++
         main.removeCallbacks(poll)
         api = null; state = null; library = null; connected = false; busy = false; polling = false; message = ""
