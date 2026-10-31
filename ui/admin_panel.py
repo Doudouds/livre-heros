@@ -90,6 +90,7 @@ class AdminPanel:
         left,right = ttk.Frame(panes),ttk.Frame(panes,padding=(14,0,0,0))
         panes.add(left,weight=3)
         panes.add(right,weight=4)
+        self._initial_split(panes,.42)
         self.tree = ttk.Treeview(left,columns=('passage','variant','status'),show='headings',selectmode='browse',height=13)
         for key,title,width in (('passage','Passage',180),('variant','Version',125),('status','Audio',95)):
             self.tree.heading(key,text=title)
@@ -98,6 +99,7 @@ class AdminPanel:
         self.tree.configure(yscrollcommand=scroll.set)
         scroll.pack(side='right',fill='y')
         self.tree.pack(fill='both',expand=True)
+        self._fit_columns(self.tree,(.47,.33,.20))
         for key,color in (('ready','#247149'),('failed','#ad3333'),('invalid','#a56813'),('running','#245ab0'),('missing','#666666')):
             self.tree.tag_configure(key,foreground=color)
         self.tree.bind('<<TreeviewSelect>>',lambda event:self.show_selected())
@@ -148,6 +150,7 @@ class AdminPanel:
         left,text_frame = ttk.Frame(body),ttk.Frame(body)
         body.add(left,weight=3)
         body.add(text_frame,weight=2)
+        self._initial_split(body,.55)
         self.portion_tree = ttk.Treeview(left,columns=('number','tone','state'),show='headings',selectmode='extended',height=3,style='AdminPortions.Treeview')
         for key,title,width in (('number','N°',45),('tone','Ton en service',110),('state','Dernier essai',145)):
             self.portion_tree.heading(key,text=title)
@@ -156,6 +159,7 @@ class AdminPanel:
         self.portion_tree.configure(yscrollcommand=scroll.set)
         scroll.pack(side='right',fill='y')
         self.portion_tree.pack(fill='both',expand=True)
+        self._fit_columns(self.portion_tree,(.12,.40,.48))
         self.portion_tree.bind('<<TreeviewSelect>>',lambda event:self.show_portions())
         for tag in ('generating','checking','assembly_failed','failed'):
             self.portion_tree.tag_configure(tag,foreground='#b00020',background='#fff0ed')
@@ -194,6 +198,7 @@ class AdminPanel:
         self.history_tree.configure(yscrollcommand=scroll.set)
         scroll.pack(side='right',fill='y')
         self.history_tree.pack(fill='both',expand=True)
+        self._fit_columns(self.history_tree,(.30,.50,.20))
         self.history_tree.bind('<<TreeviewSelect>>',lambda event:self.update_buttons())
         actions = ttk.Frame(frame)
         actions.pack(fill='x',pady=8)
@@ -243,6 +248,31 @@ class AdminPanel:
         self.publish_button = ttk.Button(actions,text='Intégrer le brouillon relu',command=self.publish_import,style='Audio.TButton')
         self.publish_button.grid(row=1,column=0,sticky='ew',padx=(0,6),pady=3)
         ttk.Button(actions,text='Vérifier la connexion Codex',command=self.check_codex,style='Audio.TButton').grid(row=1,column=1,sticky='ew',padx=(6,0),pady=3)
+
+    @staticmethod
+    def _initial_split(panes, fraction):
+        # Les grands champs de texte ne doivent pas absorber l'espace réservé
+        # aux états. Initialiser une seule fois, puis laisser la poignée libre.
+        def initialise(event):
+            if event.width>1:
+                panes.unbind('<Configure>',binding)
+                def position():
+                    if panes.winfo_exists():
+                        panes.sashpos(0,int(panes.winfo_width()*fraction))
+                panes.after_idle(position)
+        binding = panes.bind('<Configure>',initialise,add='+')
+
+    @staticmethod
+    def _fit_columns(tree, weights):
+        def resize(event):
+            available = max(1,event.width-4)
+            used = 0
+            columns = tree['columns']
+            for index,(column,weight) in enumerate(zip(columns,weights)):
+                width = available-used if index==len(columns)-1 else int(available*weight)
+                tree.column(column,width=max(20,width),minwidth=20)
+                used += width
+        tree.bind('<Configure>',resize,add='+')
 
     @staticmethod
     def _text(frame, readonly=True):
