@@ -44,6 +44,8 @@ def parser():
                         help='Réécouter les prises et fichiers en cache, sans jamais lancer de nouvelle synthèse')
     result.add_argument('--regenerate',action='store_true',help='Nouvelle prise de la sélection ; conserver la version précédente')
     result.add_argument('--regeneration-id',help='Identifiant de demande conservé pour reprendre une nouvelle prise')
+    result.add_argument('--span',type=int,action='append',help='Portion à refaire (à partir de 1), répétable avec --regenerate')
+    result.add_argument('--restore-take',help='Restaurer une prise historique de la sélection, après contrôle intégral')
     return result
 
 
@@ -164,6 +166,10 @@ def main(argv=None):
             raise ValueError('Une nouvelle prise ne peut pas être demandée en réécoute seule.')
         if args.regeneration_id and not args.regenerate:
             raise ValueError('--regeneration-id exige --regenerate.')
+        if args.span is not None and not args.regenerate:
+            raise ValueError('--span exige --regenerate et un segment explicite.')
+        if args.restore_take and (not args.segment_id or args.regenerate or args.recheck_only):
+            raise ValueError('--restore-take exige --segment-id, sans --regenerate ni --recheck-only.')
         if not 1 <= args.threads <= 32 or not 1 <= args.attempts <= 10:
             raise ValueError('Threads : 1 à 32 ; tentatives : 1 à 10.')
         if not 80 <= args.chunk_chars <= 1000 or not 0 <= args.pause_ms <= 3000:
@@ -182,6 +188,8 @@ def main(argv=None):
             report_dir = report_dir/'automatic'
         args.report = (args.report or report_dir/'generation_status.json').resolve()
         plans = plans_for_book(args,content)
+        if args.span is not None and (len(plans)!=1 or any(not 1 <= n <= len(plans[0]['spans']) for n in args.span)):
+            raise ValueError('Numéro de portion hors du segment sélectionné.')
         total = len(plans)
         if args.limit:
             plans = plans[:args.limit]
@@ -250,7 +258,9 @@ def main(argv=None):
                            attempts=args.attempts,progress=lambda message:print(message,flush=True),
                            recheck_only=args.recheck_only,
                            regenerate_ids={p['segment_id'] for p in plans} if args.regenerate else set(),
-                           regeneration_id=args.regeneration_id)
+                           regeneration_id=args.regeneration_id,
+                           regenerate_spans={n-1 for n in args.span} if args.span is not None else None,
+                           restore_take=args.restore_take)
         print('Ctrl+C interrompt. Relancer exactement la même commande reprend les prises validées.',flush=True)
         result = runner.run(plans)
         remaining = 'à compléter après réécoute' if args.recheck_only else 'en échec'

@@ -141,6 +141,10 @@ la génération ciblée et les nouvelles prises avec conservation de la version
 actuelle jusqu'à validation. Son formulaire d'import confie à Codex un brouillon
 structuré en lecture seule, contrôlé puis intégré après relecture. Pour un
 conte importé, valider les deux premiers audios avant de lancer les lots complets.
+L'onglet **Portions à reprendre** refait uniquement les passages sélectionnés
+en conservant les autres échantillons. L'historique garde dix versions validées
+par segment et mode, actuelle comprise ; une restauration repasse le contrôle
+intégral sans synthèse. Voir le guide du panneau pour ces actions et leur reprise.
 
 Depuis PowerShell, dans le projet :
 

@@ -1,13 +1,12 @@
 """Production émotionnelle reprenable : prises, assemblage et publication atomique."""
 import copy
 import json
-import os
-import shutil
 from pathlib import Path
 import time
 import uuid
 
 from audio.speech_verification import IncompleteSpeech, compare_transcript
+from audio.take_history import archive_take, prune_takes, read_take
 from audio.tts_batch import (Batch, PCM, ModelLoadError, atomic_json, atomic_wave, batch_lock,
                             digest, file_hash, read_wave, receipt_matches, receipt_path,
                             write_receipt)
@@ -24,13 +23,16 @@ def load_optional(path):
 class StyledRun:
     def __init__(self, *, cache_dir, output_dir, report, voice_sha, model, environment,
                  threads, backend_factory, verifier_factory, verifier_identity,
-                 attempts=3, progress=print, recheck_only=False, regenerate_ids=None, regeneration_id=None):
+                 attempts=3, progress=print, recheck_only=False, regenerate_ids=None, regeneration_id=None,
+                 regenerate_spans=None, restore_take=None):
         self.cache_dir,self.output_dir,self.report = map(Path,(cache_dir,output_dir,report))
         self.voice_sha,self.model,self.environment = voice_sha,model,environment
         self.threads,self.attempts = threads,attempts
         self.recheck_only = recheck_only
         self.regenerate_ids = set(regenerate_ids or [])
         self.regeneration_id = regeneration_id
+        self.regenerate_spans = set(regenerate_spans) if regenerate_spans is not None else None
+        self.restore_take = restore_take
         self.backend_factory,self.verifier_factory = backend_factory,verifier_factory
         self.verifier_identity = verifier_identity
         self.policy = digest(verifier_identity)
@@ -47,6 +49,12 @@ class StyledRun:
 
     def preflight(self, plans):
         """Vérifier toutes les sorties avant la première génération."""
+        if self.regenerate_spans is not None:
+            if (not self.regenerate_spans or len(plans)!=1 or not self.regenerate_ids or self.recheck_only
+                    or any(type(n) is not int or not 0 <= n < len(plans[0]['spans']) for n in self.regenerate_spans)):
+                raise ValueError('Sélection de portions invalide pour cette nouvelle prise.')
+        if self.restore_take and (len(plans)!=1 or self.regenerate_ids or self.recheck_only):
+            raise ValueError('La restauration exige un seul segment, sans synthèse ni réécoute seule.')
         for plan in plans:
             profile,identity = self.identity(plan)
             target = Path(plan['output_file'])
@@ -191,6 +199,8 @@ class StyledRun:
         profile,identity = self.identity(base)
         target = Path(base['output_file'])
         existing = load_optional(receipt_path(target))
+        if self.restore_take:
+            return self.restore(base,record,existing)
         counter = self.cache_dir/'story_attempts'/(identity+'.json')
         previous = load_optional(counter) or {}
         forced = base['segment_id'] in self.regenerate_ids
@@ -246,14 +256,35 @@ class StyledRun:
         else:
             span_rounds = previous.get('span_rounds',[start_round]*len(base['spans']))
         regeneration = {}
+        source_parts = None
         if forced:
             requested = requested or uuid.uuid4().hex
             continuing = previous.get('regeneration_request') == requested
+            selected = sorted(self.regenerate_spans) if self.regenerate_spans is not None else None
+            if continuing and previous.get('regenerated_spans') != selected:
+                raise ValueError('Cette demande interrompue portait sur une autre sélection de portions.')
             if not continuing:
-                used = [start_round,(existing or {}).get('round',0),*(existing or {}).get('span_rounds',[])]
+                used = [start_round,(existing or {}).get('round',0),*(existing or {}).get('span_rounds',[]),
+                        *previous.get('span_rounds',[])]
                 start_round = max(used)+1
                 span_rounds = [start_round]*len(base['spans'])
             regeneration = dict(regeneration_request=requested)
+            if selected is not None:
+                if continuing:
+                    source_key = previous.get('regeneration_source')
+                else:
+                    if not existing or not receipt_matches(target,identity):
+                        raise ValueError('Une reprise partielle exige un segment actuel intègre et validé.')
+                    source_key = archive_take(self.cache_dir,target,identity,existing)
+                source_path,source = read_take(self.cache_dir,identity,source_key)
+                source_parts = self.cached_components(base,source)
+                if read_wave(source_path) != assemble([part[0] for part in source_parts],base['lead_in_ms'],base['pause_ms']):
+                    raise ValueError('Les composants ne reproduisent pas la version actuellement en service.')
+                if not continuing:
+                    old_rounds = source.get('span_rounds',[source.get('round',0)]*len(base['spans']))
+                    span_rounds = [start_round if n in self.regenerate_spans else old_rounds[n]
+                                   for n in range(len(base['spans']))]
+                regeneration.update(regenerated_spans=selected,regeneration_source=source_key)
             record['regeneration_request'] = requested
             self.progress('Nouvelle prise demandée ; la version actuelle reste disponible jusqu’à validation.')
         for round_number in range(start_round,start_round+self.attempts):
@@ -264,7 +295,11 @@ class StyledRun:
             parts = []
             for number,span in enumerate(record['spans'],1):
                 self.progress(f"  Portion {number}/{len(record['spans'])} | {span['speaker']} | {span['emotion']}")
-                pcm,details = self.component(span,base,span_rounds[number-1])
+                if source_parts is not None and number-1 not in self.regenerate_spans:
+                    pcm,details = source_parts[number-1]
+                    self.progress('    Portion conservée à l’identique.')
+                else:
+                    pcm,details = self.component(span,base,span_rounds[number-1])
                 parts.append(pcm)
                 span.update(details)
                 self.save()
@@ -299,6 +334,9 @@ class StyledRun:
                         raise ValueError('Contrôle global incertain : toutes les portions isolées sont validées. '
                                          'Prises conservées pour réécoute ; aucune régénération intégrale automatique.')
                 for number in affected:
+                    if source_parts is not None and number not in self.regenerate_spans:
+                        raise ValueError('Le contrôle réclame une portion hors sélection. Aucun remplacement publié ; '
+                                         'élargir la sélection ou réécouter le segment actuel.')
                     span_rounds[number] += 1
                 atomic_json(counter,dict(round=round_number+1,status='retry-required',
                                          policy=self.policy,span_rounds=span_rounds,**regeneration))
@@ -306,26 +344,8 @@ class StyledRun:
                               ', '.join(str(i+1) for i in affected)+'. Les autres sont conservées.')
                 continue
             check.update(policy=self.policy,method=check.get('method','faster-whisper-small-full-segment-vad'))
-            if base['lead_in_ms'] != 1000 or pcm.frames[:pcm.sample_rate*2] != b'\0'*(pcm.sample_rate*2):
-                raise ValueError('La seconde de silence initial n’est pas conforme.')
-            pending = Path(str(target)+'.pending.json')
-            if forced and existing and receipt_matches(target,identity):
-                archive = self.cache_dir/'previous_versions'/identity/(existing['sha256']+'.wav')
-                archive.parent.mkdir(parents=True,exist_ok=True)
-                temporary = Path(str(archive)+'.partial')
-                shutil.copyfile(target,temporary)
-                if file_hash(temporary) != existing['sha256']:
-                    raise ValueError('La version précédente a changé pendant son archivage.')
-                os.replace(temporary,archive)
-                atomic_json(receipt_path(archive),existing)
-            atomic_json(pending,dict(identity=identity,profile=profile))
-            atomic_wave(target,pcm)
-            write_receipt(target,identity,pcm,profile=profile,segment_id=base['segment_id'],
-                          text=base['text'],lead_in_ms=1000,verification=check,
-                          voice_sha256=self.voice_sha,round=round_number,span_rounds=list(span_rounds),**regeneration,
-                          components=[dict(file=s['component'],sha256=s['sha256'],emotion=s['emotion'],
-                                           parameters=s['parameters']) for s in record['spans']])
-            pending.unlink(missing_ok=True)
+            self.publish_take(base,record,pcm,check,existing,
+                              dict(round=round_number,span_rounds=list(span_rounds),created_at=time.time(),**regeneration))
             if forced:
                 atomic_json(counter,dict(round=round_number,status='ready',policy=self.policy,
                                          span_rounds=span_rounds,**regeneration))
@@ -335,6 +355,66 @@ class StyledRun:
             self.save()
             return
         raise ValueError('Contrôle intégral refusé après les reprises automatiques ; voir les transcriptions enregistrées.')
+
+    def cached_components(self, base, proof):
+        """Lire les octets de la version choisie, sans synthèse de remplacement."""
+        if proof.get('identity') != self.identity(base)[1] or len(proof.get('components',[])) != len(base['spans']):
+            raise ValueError('La prise source ne correspond pas au découpage de ce segment.')
+        result = []
+        for span,part in zip(base['spans'],proof['components']):
+            path = Path(part['file'])
+            if not path.resolve().is_relative_to(self.cache_dir.resolve()):
+                raise ValueError('Un composant sort du cache de ce conte.')
+            component = load_optional(receipt_path(path)) or {}
+            recipe = load_optional(path.parent.parent/'recipe.json') or {}
+            if (not component.get('verification',{}).get('passed') or
+                    not receipt_matches(path,component.get('identity')) or file_hash(path) != part['sha256'] or
+                    digest(recipe) != path.parent.parent.name or component.get('profile') != path.parent.parent.name or
+                    any(recipe.get(k)!=v for k,v in dict(voice_sha256=self.voice_sha,model=self.model,
+                        environment=self.environment,torch_threads=self.threads,parameters=span['parameters'],palette_sha256=base['palette_sha256']).items()) or
+                    part['emotion'] != span['emotion'] or part['parameters'] != span['parameters'] or
+                    path.stem != digest(dict(text=span['text'],profile=component.get('profile')))):
+                raise ValueError('Composant absent, modifié ou incompatible ; reprise partielle refusée sans refaire le reste.')
+            pcm = read_wave(path)
+            result.append((pcm,dict(component=str(path),sha256=part['sha256'],profile=component['profile'],
+                                    seconds=len(pcm.frames)/2/pcm.sample_rate,reused=True)))
+        return result
+
+    def publish_take(self, base, record, pcm, check, existing, metadata):
+        profile,identity = self.identity(base)
+        target = Path(base['output_file'])
+        if base['lead_in_ms'] != 1000 or pcm.frames[:pcm.sample_rate*2] != b'\0'*(pcm.sample_rate*2):
+            raise ValueError('La seconde de silence initial n’est pas conforme.')
+        if existing and existing.get('verification',{}).get('passed') and receipt_matches(target,identity):
+            archive_take(self.cache_dir,target,identity,existing)
+        pending = Path(str(target)+'.pending.json')
+        atomic_json(pending,dict(identity=identity,profile=profile))
+        atomic_wave(target,pcm)
+        write_receipt(target,identity,pcm,profile=profile,segment_id=base['segment_id'],
+                      text=base['text'],lead_in_ms=1000,verification=check,voice_sha256=self.voice_sha,**metadata,
+                      components=[dict(file=s['component'],sha256=s['sha256'],emotion=s['emotion'],
+                                       parameters=s['parameters']) for s in record['spans']])
+        pending.unlink(missing_ok=True)
+        archive_take(self.cache_dir,target,identity,load_optional(receipt_path(target)))
+        prune_takes(self.cache_dir,target,identity)
+
+    def restore(self, base, record, existing):
+        _,identity = self.identity(base)
+        path,proof = read_take(self.cache_dir,identity,self.restore_take)
+        parts = self.cached_components(base,proof)
+        pcm = read_wave(path)
+        if pcm != assemble([p[0] for p in parts],base['lead_in_ms'],base['pause_ms']):
+            raise ValueError('La prise historique ne correspond pas à ses portions.')
+        self.progress('Restauration : nouveau contrôle intégral de la prise historique, sans synthèse.')
+        check = self.verify_full(base,pcm,len(parts[-1][0].frames),len(parts[0][0].frames))
+        record['spans'] = [dict(span,**part[1]) for span,part in zip(base['spans'],parts)]
+        metadata = {key:proof[key] for key in ('round','span_rounds','regeneration_request','regenerated_spans','created_at') if key in proof}
+        metadata.update(restored_from=self.restore_take,restored_at=time.time())
+        self.publish_take(base,record,pcm,check,existing,metadata)
+        record.update(status='ready',reused=False,sha256=file_hash(base['output_file']),verification=check,
+                      seconds=len(pcm.frames)/2/pcm.sample_rate)
+        self.event(segment_id=base['segment_id'],status='restored',take=self.restore_take)
+        self.save()
 
     def run(self, plans):
         with batch_lock(self.cache_dir/'.story.lock'),batch_lock(self.output_dir/'.story-output.lock'):

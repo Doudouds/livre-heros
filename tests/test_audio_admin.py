@@ -13,6 +13,7 @@ from unittest.mock import patch
 from audio.speech_verification import compare_transcript
 from audio.tts_batch import atomic_json, atomic_wave, file_hash, PCM, read_wave, receipt_path
 from audio.voice_markup import render_markup
+from audio.take_history import archive_take, list_takes, read_take, take_key
 from engine.audio_admin import AdminJobs, AudioInventory
 from engine.content import Content, ROOT
 from engine.story_import import StoryImports
@@ -47,8 +48,8 @@ class RegenerationTests(unittest.TestCase):
         self.assertNotEqual(target.read_bytes(),self.original)
         self.assertEqual(len(voice.calls),2)
         backups = list((self.root/'cache/previous_versions').glob('*/*.wav'))
-        self.assertEqual(len(backups),1)
-        self.assertEqual(backups[0].read_bytes(),self.original)
+        self.assertEqual(len(backups),2)
+        self.assertIn(self.original,[p.read_bytes() for p in backups])
         current = file_hash(target)
         forbidden = lambda *args:self.fail('Une demande déjà livrée ne doit pas lancer de modèles.')
         again = runner(self.root,backend_factory=forbidden,verifier_factory=forbidden,
@@ -88,6 +89,130 @@ class RegenerationTests(unittest.TestCase):
         args.automatic = True
         with self.assertRaisesRegex(ValueError,'inconnue'):
             plans_for_book(args)
+
+    def test_partial_take_only_synthesizes_selected_portion_and_preserves_other_pcm(self):
+        voice = SeedVoice()
+        fresh = runner(self.root,fake=voice,regenerate_ids={self.plan['segment_id']},
+                       regeneration_id='partial-1',regenerate_spans={1})
+        self.assertEqual(fresh.run([self.plan]),0)
+        self.assertEqual([call[0] for call in voice.calls],[self.plan['spans'][1]['text']])
+        proof = Content.read(receipt_path(self.plan['output_file']))
+        self.assertEqual(proof['components'][0],self.proof['components'][0])
+        self.assertNotEqual(proof['components'][1]['sha256'],self.proof['components'][1]['sha256'])
+        self.assertEqual(proof['span_rounds'],[0,1])
+        self.assertEqual(proof['regenerated_spans'],[1])
+        pcm = read_wave(self.plan['output_file'])
+        self.assertEqual(pcm.frames[:pcm.sample_rate*2],b'\0'*(pcm.sample_rate*2))
+        self.assertTrue(proof['verification']['passed'])
+
+    def test_partial_resume_keeps_new_portions_and_the_unselected_original(self):
+        plan = fake_plan(self.root,number=2,paragraphs=[s['text'] for s in self.plan['spans']]+
+                         ['Le roi attendait sa fille dans la grande salle du château.'])
+        self.assertEqual(runner(self.root,fake=SeedVoice()).run([plan]),0)
+        before = Path(plan['output_file']).read_bytes()
+        old = Content.read(receipt_path(plan['output_file']))
+        options = dict(regenerate_ids={plan['segment_id']},regeneration_id='partial-crash',regenerate_spans={0,2})
+        with self.assertRaises(KeyboardInterrupt):
+            runner(self.root,fake=SeedVoice(crash_on=2),**options).run([plan])
+        self.assertEqual(Path(plan['output_file']).read_bytes(),before)
+        voice = SeedVoice()
+        self.assertEqual(runner(self.root,fake=voice,**options).run([plan]),0)
+        self.assertEqual([c[0] for c in voice.calls],[plan['spans'][2]['text']])
+        current = Content.read(receipt_path(plan['output_file']))
+        self.assertEqual(current['components'][1],old['components'][1])
+        forbidden = lambda *args:self.fail('Cette demande a déjà été livrée.')
+        self.assertEqual(runner(self.root,backend_factory=forbidden,verifier_factory=forbidden,**options).run([plan]),0)
+
+    def test_partial_publish_crash_recovers_using_pinned_source_and_cached_takes(self):
+        options = dict(regenerate_ids={self.plan['segment_id']},regeneration_id='partial-publication',regenerate_spans={1})
+        with patch('audio.styled_generation.write_receipt',side_effect=KeyboardInterrupt),self.assertRaises(KeyboardInterrupt):
+            runner(self.root,fake=SeedVoice(),**options).run([self.plan])
+        voice = SeedVoice()
+        self.assertEqual(runner(self.root,fake=voice,**options).run([self.plan]),0)
+        self.assertEqual(voice.calls,[])
+        current = Content.read(receipt_path(self.plan['output_file']))
+        self.assertEqual(current['components'][0],self.proof['components'][0])
+
+    def test_restore_verifies_without_tts_then_partial_take_preserves_restored_source(self):
+        old_key = take_key(self.proof)
+        self.assertEqual(runner(self.root,fake=SeedVoice(),regenerate_ids={self.plan['segment_id']},regeneration_id='full-1').run([self.plan]),0)
+        class CountFull(Verifier):
+            full_checks = 0
+            def verify(self,expected,pcm,**options):
+                if options.get('vad_filter'):
+                    self.full_checks += 1
+                return super().verify(expected,pcm,**options)
+        verifier = CountFull()
+        forbidden = lambda *args:self.fail('Restaurer ne doit pas lancer Chatterbox.')
+        self.assertEqual(runner(self.root,backend_factory=forbidden,verifier=verifier,restore_take=old_key).run([self.plan]),0)
+        self.assertGreater(verifier.full_checks,0)
+        self.assertEqual(Path(self.plan['output_file']).read_bytes(),self.original)
+        voice = SeedVoice()
+        self.assertEqual(runner(self.root,fake=voice,regenerate_ids={self.plan['segment_id']},
+                               regeneration_id='partial-restored',regenerate_spans={1}).run([self.plan]),0)
+        self.assertEqual(len(voice.calls),1)
+        self.assertEqual(Content.read(receipt_path(self.plan['output_file']))['components'][0],self.proof['components'][0])
+
+    def test_history_keeps_ten_versions_and_never_deletes_shared_components(self):
+        for number in range(12):
+            self.assertEqual(runner(self.root,fake=SeedVoice(),regenerate_ids={self.plan['segment_id']},
+                                    regeneration_id='take-'+str(number)).run([self.plan]),0)
+        identity = self.proof['identity']
+        history = list_takes(self.root/'cache',self.plan['output_file'],identity)
+        self.assertEqual(len(history),10)
+        self.assertTrue(history[0]['current'])
+        self.assertEqual(len(list((self.root/'cache/previous_versions'/identity).glob('*.wav'))),10)
+        self.assertTrue(Path(self.proof['components'][0]['file']).is_file())
+        with self.assertRaises(FileNotFoundError):
+            read_take(self.root/'cache',identity,take_key(self.proof))
+        self.assertEqual(runner(self.root,restore_take=history[-1]['key']).run([self.plan]),0)
+        self.assertEqual(len(list_takes(self.root/'cache',self.plan['output_file'],identity)),10)
+
+    def test_failed_restore_keeps_current_wav_and_receipt_and_partial_never_repairs_unselected(self):
+        self.assertEqual(runner(self.root,fake=SeedVoice(),regenerate_ids={self.plan['segment_id']},regeneration_id='new').run([self.plan]),0)
+        before = Path(self.plan['output_file']).read_bytes()
+        proof = Content.read(receipt_path(self.plan['output_file']))
+        self.assertEqual(runner(self.root,verifier=Verifier(fail_full=1),restore_take=take_key(self.proof)).run([self.plan]),1)
+        self.assertEqual(Path(self.plan['output_file']).read_bytes(),before)
+        self.assertEqual(Content.read(receipt_path(self.plan['output_file'])),proof)
+        class RejectOther(Verifier):
+            def verify(self,expected,pcm,**options):
+                if options.get('vad_filter') and expected==self_text:
+                    from audio.speech_verification import IncompleteSpeech
+                    raise IncompleteSpeech(dict(passed=False,reasons=['Refus de la première portion.'],affected_spans=[0]))
+                return super().verify(expected,pcm,**options)
+        self_text = self.plan['text']
+        voice = SeedVoice()
+        self.assertEqual(runner(self.root,fake=voice,verifier=RejectOther(),regenerate_ids={self.plan['segment_id']},
+                               regeneration_id='outside',regenerate_spans={1}).run([self.plan]),1)
+        self.assertEqual([c[0] for c in voice.calls],[self.plan['spans'][1]['text']])
+        self.assertEqual(Path(self.plan['output_file']).read_bytes(),before)
+
+    def test_missing_unselected_component_refuses_partial_without_synthesis(self):
+        Path(self.proof['components'][0]['file']).unlink()
+        forbidden = lambda *args:self.fail('Un composant absent ne doit pas faire refaire le reste.')
+        self.assertEqual(runner(self.root,backend_factory=forbidden,regenerate_ids={self.plan['segment_id']},
+                               regeneration_id='missing',regenerate_spans={1}).run([self.plan]),1)
+        self.assertEqual(Path(self.plan['output_file']).read_bytes(),self.original)
+        self.assertEqual(Content.read(receipt_path(self.plan['output_file'])),self.proof)
+
+    def test_legacy_history_is_deduplicated_and_corrupt_take_is_not_restored(self):
+        from audio.take_history import history_directory
+        directory = history_directory(self.root/'cache',self.proof['identity'])
+        legacy = directory/(self.proof['sha256']+'.wav')
+        shutil.copyfile(self.plan['output_file'],legacy)
+        atomic_json(receipt_path(legacy),self.proof)
+        self.assertEqual(len(list_takes(self.root/'cache',self.plan['output_file'],self.proof['identity'])),1)
+        self.assertEqual(runner(self.root,fake=SeedVoice(),regenerate_ids={self.plan['segment_id']},regeneration_id='legacy-new').run([self.plan]),0)
+        history = list_takes(self.root/'cache',self.plan['output_file'],self.proof['identity'])
+        self.assertEqual(len(history),2)
+        self.assertEqual(len(list(directory.glob('*.wav'))),2)
+        before = Path(self.plan['output_file']).read_bytes()
+        with Path(history[1]['file']).open('ab') as stream:
+            stream.write(b'corruption')
+        self.assertEqual(len(list_takes(self.root/'cache',self.plan['output_file'],self.proof['identity'])),1)
+        self.assertEqual(runner(self.root,restore_take=history[1]['key']).run([self.plan]),1)
+        self.assertEqual(Path(self.plan['output_file']).read_bytes(),before)
 
 
 def import_response(texts):
@@ -243,6 +368,21 @@ class ImportTests(unittest.TestCase):
 
 
 class JobTests(unittest.TestCase):
+    def test_partial_job_builds_exact_portion_command_and_rejects_invalid_selection(self):
+        inventory = AudioInventory()
+        row = inventory.rows('roi_grenouille')[0]
+        jobs = AdminJobs()
+        with patch.object(jobs,'start') as start:
+            jobs.start_audio('roi_grenouille',segment_id=row['plan']['segment_id'],regenerate=True,spans=[4,2,2])
+            label,intent,specs = start.call_args.args
+            command = specs(ROOT/'reports/admin/fake-job')[0]['command']
+            self.assertEqual(intent['spans'],[2,4])
+            self.assertEqual(command[-6:-2],['--span','2','--span','4'])
+            self.assertIn(row['plan']['segment_id'],command)
+        for spans in ([],[0],[999]):
+            with self.subTest(spans=spans),self.assertRaises(ValueError):
+                jobs.start_audio('roi_grenouille',segment_id=row['plan']['segment_id'],regenerate=True,spans=spans)
+
     def test_background_job_lock_log_and_release_after_failure(self):
         with tempfile.TemporaryDirectory(dir=ROOT/'tmp') as temp:
             root = Path(temp)
@@ -265,7 +405,7 @@ class JobTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=ROOT/'tmp') as temp:
             root = Path(temp)
             intent = dict(kind='audio',book_id='roi_grenouille',automatic=True,segment_id='exact-variant',
-                          regenerate=True,both=False,first=False,regeneration_id='same-request')
+                          regenerate=True,both=False,first=False,regeneration_id='same-request',spans=[2,4])
             atomic_json(root/'reports/admin/last_job.json',dict(status='stopped',intent=intent))
             jobs = AdminJobs(root)
             with patch.object(jobs,'start_audio') as start:
@@ -312,6 +452,13 @@ class AdminUITests(unittest.TestCase):
                     panel.regenerate_button.invoke()
                     self.assertEqual(start.call_args.kwargs['segment_id'],selected)
                     self.assertTrue(start.call_args.kwargs['regenerate'])
+                    panel.portion_tree.selection_set('2'); root.update()
+                    panel.regenerate_portions_button.invoke()
+                    self.assertEqual(start.call_args.kwargs['spans'],[2])
+                    self.assertEqual(start.call_args.kwargs['segment_id'],selected)
+                    self.assertIn(panel.selected()['plan']['spans'][1]['text'],panel.portion_text.get('1.0','end'))
+                self.assertEqual(len(panel.history_tree.get_children()),1)
+                self.assertEqual(str(panel.restore_button['state']),'disabled')
                 panel.mode.set('Écoute automatique'); panel.refresh_rows()
                 self.assertEqual(len(panel.tree.get_children()),11)
                 original = panel

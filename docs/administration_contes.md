@@ -25,16 +25,50 @@ L'écoute automatique suit le choix 1 et ne lit aucune annonce de choix.
 
 ## Demander une nouvelle prise
 
-Sélectionner un audio prêt, puis **Créer une nouvelle prise de ce morceau**.
+Sélectionner un audio prêt, puis **Refaire tout le segment**.
 Le générateur utilise de nouvelles graines pour les portions de cette variante,
 avec la même référence vocale, les mêmes textes et les mêmes profils approuvés.
 Les autres variantes restent intactes.
 
 La prise actuelle reste disponible jusqu'à la validation complète de sa
 remplaçante. Un refus ou une interruption ne retire pas cet audio de la
-bibliothèque. Après un remplacement réussi, **Écouter la prise précédente**
-permet de comparer. Les anciens WAV et leurs reçus sont conservés dans
-`audio/experiments/IDENTIFIANT/cache/previous_versions/`.
+bibliothèque.
+
+### Refaire seulement une partie
+
+Ouvrir **Portions à reprendre**. Chaque ligne est un passage déjà balisé avec
+un ton : une phrase ou un groupe de phrases, un raccord, l'introduction ou
+l'annonce des choix. Sélectionner une ligne pour lire son texte intégral et
+**Écouter la portion**. Avec Ctrl + clic, choisir plusieurs portions, puis
+**Refaire la sélection**. Le texte et les réglages approuvés restent identiques.
+
+Seules les portions choisies reçoivent de nouvelles prises. Les autres sont
+reprises depuis la version actuellement en service, avec exactement les mêmes
+échantillons, même si cette version vient d'être restaurée. Le WAV entier est
+réassemblé avec son silence initial et passe à nouveau le contrôle Medium.
+Un composant manquant ou un refus concernant une portion hors sélection
+arrête le remplacement : le logiciel ne refait pas silencieusement le reste.
+Une interruption conserve la sélection et les portions nouvelles déjà terminées.
+
+La sélection suit les limites du balisage vocal ; elle ne découpe pas un mot
+ou une zone arbitraire au milieu d'une phrase.
+
+### Comparer et restaurer les dix dernières prises
+
+L'onglet **Historique · 10 prises** conserve jusqu'à **dix versions validées par
+segment et par mode, version actuelle comprise**. Il indique la date, les
+portions reprises et la version en service. **Écouter cette prise** permet la
+comparaison. **Restaurer cette prise** contrôle à nouveau l'ancien WAV avec
+Medium avant de le remettre en service, sans relancer Chatterbox. La version
+remplacée reste dans l'historique ; un refus laisse le WAV courant intact.
+
+Les WAV et leurs reçus sont conservés dans
+`audio/experiments/IDENTIFIANT/cache/previous_versions/`. Après validation d'un
+nouveau résultat, les versions les plus anciennes au-delà des dix sont retirées
+de ce dossier. Les composants partagés du cache ne sont jamais supprimés. Les
+anciens historiques sont reconnus. Les essais refusés par l'ASR ne sont pas des
+versions livrables : leurs diagnostics et leurs prises de contrôle restent dans
+le journal et le cache, sans occuper les dix places de versions validées.
 
 Les contrôles ASR des portions, du fichier complet et de l'annonce titre/auteur,
 les écritures atomiques et les 1 000 ms de silence sont conservés. L'interface
@@ -101,8 +135,13 @@ Le panneau réutilise `generer_audio_conte.py` :
 ```powershell
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --regenerate
+python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --regenerate --span 2 --span 4
+python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --restore-take IDENTIFIANT_PRISE
 ```
 
 Ajouter `--automatic` pour un identifiant de cette version. `--regenerate`
 exige une sélection explicite ; `--regeneration-id` conserve la même demande
 lorsque l'interface la reprend. `--dry-run` vérifie la sélection sans synthèse.
+`--span` numérote les portions à partir de 1 et peut être répété. Il exige
+`--regenerate`. `--restore-take` exige `--segment-id` et ne se combine pas avec
+une nouvelle prise ni avec `--recheck-only`.

@@ -12,6 +12,7 @@ import time
 import uuid
 
 from audio.tts_batch import atomic_json, batch_lock, digest, file_hash, read_wave, receipt_matches, receipt_path
+from audio.take_history import HISTORY_LIMIT, list_takes
 from engine.content import Content, ROOT
 from tools.generate_story_audio import parser, plans_for_book
 
@@ -140,17 +141,27 @@ class AudioInventory:
         atomic_json(self.root/'reports/admin/approvals'/(book_id+'.json'),proof)
 
     def previous_versions(self, plan):
+        return [Path(v['file']) for v in self.takes(plan) if not v['current']]
+
+    def takes(self, plan):
         current = read_optional(receipt_path(plan['output_file']))
         identity = current.get('identity','')
         if not identity or len(identity)!=64 or any(c not in '0123456789abcdef' for c in identity):
             return []
-        directory = self.root/'audio/experiments'/plan['book']/'cache/previous_versions'/identity
-        versions = []
-        for path in sorted(directory.glob('*.wav'),key=lambda p:p.stat().st_mtime,reverse=True):
-            proof = read_optional(receipt_path(path))
-            if proof.get('verification',{}).get('passed') and proof.get('sha256') != current.get('sha256') and receipt_matches(path,identity):
-                versions.append(path)
-        return versions
+        cache = self.root/'audio/experiments'/plan['book']/'cache'
+        return list_takes(cache,plan['output_file'],identity)[:HISTORY_LIMIT]
+
+    def portion_file(self, plan, number):
+        proof = read_optional(receipt_path(plan['output_file']))
+        if not receipt_matches(plan['output_file'],proof.get('identity')) or not 1 <= number <= len(proof.get('components',[])):
+            raise ValueError('Ce segment ou cette portion n’est plus disponible.')
+        part = proof['components'][number-1]
+        path = within(self.root,part['file'])
+        component = read_optional(receipt_path(path))
+        if (file_hash(path)!=part['sha256'] or not component.get('verification',{}).get('passed') or
+                not receipt_matches(path,component.get('identity'))):
+            raise ValueError('La portion a changé ou son reçu est absent.')
+        return path
 
     def preview_approved(self, book_id):
         book = Content(self.root).books[book_id]
@@ -206,7 +217,8 @@ class AdminJobs:
         atomic_json(self.folder/'last_job.json',self.current)
         atomic_json(Path(self.current['folder'])/'job.json',self.current)
 
-    def start_audio(self, book_id, automatic=False, segment_id=None, regenerate=False, both=False, first=False, regeneration_id=None):
+    def start_audio(self, book_id, automatic=False, segment_id=None, regenerate=False, both=False, first=False,
+                    regeneration_id=None, spans=None, restore_take=None):
         inventory = AudioInventory(self.root)
         if regenerate and not segment_id:
             raise ValueError('Sélectionner un audio pour demander une nouvelle prise.')
@@ -214,13 +226,22 @@ class AdminJobs:
         rows = {mode:inventory.rows(book_id,mode) for mode in modes}
         if segment_id and not any(r['plan']['segment_id']==segment_id for r in rows[automatic]):
             raise ValueError('La sélection n’appartient pas au conte courant.')
+        selected = next((r for r in rows[automatic] if r['plan']['segment_id']==segment_id),None)
+        if spans is not None:
+            if (not regenerate or not selected or selected['status']!='ready' or not spans or both or first or
+                    any(type(n) is not int or not 1 <= n <= len(selected['plan']['spans']) for n in spans)):
+                raise ValueError('Sélectionner des portions d’un segment prêt pour cette nouvelle prise.')
+            spans = sorted(set(spans))
+        if restore_take and (regenerate or not selected or both or first or
+                             not any(v['key']==restore_take and not v['current'] for v in inventory.takes(selected['plan']))):
+            raise ValueError('Sélectionner une ancienne prise validée de ce segment.')
         if not first and not inventory.preview_approved(book_id):
             first_ids = {values[0]['plan']['segment_id'] for values in rows.values()}
             if not segment_id or segment_id not in first_ids:
                 raise ValueError('Écouter puis valider les premiers audios des deux modes avant de compléter ce conte.')
         token = regeneration_id or uuid.uuid4().hex
         intent = dict(kind='audio',book_id=book_id,automatic=automatic,segment_id=segment_id,
-                      regenerate=regenerate,both=both,first=first,regeneration_id=token)
+                      regenerate=regenerate,both=both,first=first,regeneration_id=token,spans=spans,restore_take=restore_take)
         def specifications(folder):
             specs = []
             for mode in modes:
@@ -233,6 +254,10 @@ class AdminJobs:
                     command += ['--segment','1']
                 if regenerate:
                     command += ['--regenerate','--regeneration-id',token]
+                for number in spans or []:
+                    command += ['--span',str(number)]
+                if restore_take:
+                    command += ['--restore-take',restore_take]
                 report = folder/('automatic' if mode else 'interactive')/'generation_status.json'
                 # Une action ciblée ne remplace pas le rapport du lot complet.
                 if segment_id or first:
@@ -241,7 +266,12 @@ class AdminJobs:
                     report = self.root/'reports'/book_id/('automatic/generation_status.json' if mode else 'generation_status.json')
                 specs.append(dict(command=command,report=str(report)))
             return specs
-        return self.start('Nouvelle prise' if regenerate else 'Génération audio',intent,specifications)
+        label = 'Génération audio'
+        if regenerate:
+            label = 'Nouvelle prise partielle' if spans else 'Nouvelle prise'
+        if restore_take:
+            label = 'Restauration d’une prise'
+        return self.start(label,intent,specifications)
 
     def start(self, label, intent, specifications, finish=None):
         if self.busy:
