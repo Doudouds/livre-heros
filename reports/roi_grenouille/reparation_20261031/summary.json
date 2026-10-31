@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "interactive_ready": 21,
+  "automatic_ready": 11,
+  "previous_wavs_unchanged": 29,
+  "canonical_text_unchanged": true,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
+  "tests_passed": 14,
+  "story_routes_checked": 1024,
+  "repairs": [
+    {
+      "segment_id": "roi_grenouille_04_narration_f796a7051b95490f9143",
+      "scene_id": "roi_grenouille_04",
+      "old_transition": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+      "new_transition": "La princesse jeta un regard en arrière, puis elle courut vers le château.",
+      "emotion": "neutral",
+      "parameters_unchanged": true
+    },
+    {
+      "segment_id": "roi_grenouille_06_narration_2c378aab47e82483eb2b",
+      "scene_id": "roi_grenouille_06",
+      "old_transition": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+      "new_transition": "Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.",
+      "emotion": "peur",
+      "parameters_unchanged": true
+    },
+    {
+      "segment_id": "roi_grenouille_09_narration_f24f6b8203b19b1217b1",
+      "scene_id": "roi_grenouille_09",
+      "old_transition": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+      "new_transition": "Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.",
+      "emotion": "surprise",
+      "parameters_unchanged": true
+    }
+  ],
+  "resume_kept_all_21_without_tts_or_asr": true
+}

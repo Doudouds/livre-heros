@@ -232,13 +232,13 @@
         {
           "id": "b",
           "text": "Jeter un regard en arrière sans s’arrêter",
-          "consequence": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+          "consequence": "La princesse jeta un regard en arrière, puis elle courut vers le château.",
           "next": "roi_grenouille_04",
           "flags": [],
-          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.</voix>",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">La princesse jeta un regard en arrière, puis elle courut vers le château.</voix>",
           "consequence_audio_spans": [
             {
-              "text": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+              "text": "La princesse jeta un regard en arrière, puis elle courut vers le château.",
               "speaker": "narrateur",
               "emotion": "neutral"
             }
@@ -402,13 +402,13 @@
         {
           "id": "b",
           "text": "Chercher une dernière fois un appui dans son regard",
-          "consequence": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+          "consequence": "Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.",
           "next": "roi_grenouille_06",
           "flags": [],
-          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.</voix>",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.</voix>",
           "consequence_audio_spans": [
             {
-              "text": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+              "text": "Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.",
               "speaker": "narrateur",
               "emotion": "peur"
             }
@@ -633,13 +633,13 @@
         {
           "id": "b",
           "text": "Regarder d’abord l’endroit où la grenouille est retombée",
-          "consequence": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+          "consequence": "Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.",
           "next": "roi_grenouille_09",
           "flags": [],
-          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.</voix>",
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.</voix>",
           "consequence_audio_spans": [
             {
-              "text": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+              "text": "Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.",
               "speaker": "narrateur",
               "emotion": "surprise"
             }

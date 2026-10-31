@@ -375,6 +375,21 @@ strictement conservés. L'audit reproductible `python -m tools.audit_automatic_a
 vérifie les onze fichiers et enregistre ses résultats dans
 `reports/roi_grenouille/automatic/quality_audit_medium.json`.
 
+## Refus persistants sur un raccord ajouté
+
+Lire la portion réellement bloquée et les transcriptions des deux modèles avant
+de multiplier les relances. Un lot à 18/21 peut échouer seulement sur trois
+phrases de raccord, alors que toute la narration commune est déjà en cache.
+
+Une courte conséquence ajoutée pour un choix peut être reformulée pour une
+lecture plus claire, à action et émotion identiques. Le corps canonique du
+conte reste strictement inchangé. Par exemple, le raccord « il attendait
+qu'elle tînt parole » peut devenir « il attendait qu'elle respecte sa promesse ».
+Recompiler le manuscrit et son balisage, puis comparer les deux plans : seuls
+les identifiants des variantes concernées doivent changer. Conserver les anciens
+essais, les prises valides et les mêmes profils ; garder les contrôles ASR et
+le seuil WER. Auditer les deux modes après la reprise.
+
 ## Vérifier une modification du pipeline
 
 `tests/test_story_audio.py` couvre le balisage, les parcours, le cache, les

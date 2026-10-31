@@ -165,3 +165,21 @@ Medium. Son résultat est dans
 La reconnaissance automatique vérifie les paroles, pas l'émotion ni chaque
 nuance de prononciation. L'écoute du premier passage sert à valider le rendu
 avant de demander la suite du conte.
+
+## Trois raccords interactifs clarifiés
+
+Le lot interactif restait à 18/21 sur trois conséquences du choix 2, au début
+des passages 4, 6 et 9. Les tournures « ses pas l'emportaient », « qu'elle tînt
+parole » et l'accord final de « remplacée » étaient mal retranscrits de manière
+répétée. Les trois raccords ajoutés ont été reformulés à action identique,
+avec leurs émotions neutre, peur et surprise. Le texte canonique, les options
+des choix, la palette et les seuils ASR restent inchangés.
+
+Seuls les identifiants de ces trois variantes changent. Les 18 variantes déjà
+prêtes et les 11 WAV automatiques conservent leurs textes et leurs prises.
+Le diagnostic et les contrôles de cette reprise sont conservés dans
+`reports/roi_grenouille/reparation_20261031/`.
+Les audits valident les **21 variantes interactives et les 11 fichiers
+automatiques**, avec les 29 WAV déjà présents strictement conservés.
+Fermer puis relancer le lecteur après cette mise à jour pour qu'il charge
+les nouveaux raccords et leurs identifiants audio.

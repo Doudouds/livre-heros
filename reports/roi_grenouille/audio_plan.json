@@ -1,6 +1,4 @@
 {
-  "book": "roi_grenouille",
-  "total": 21,
   "segments": [
     {
       "book": "roi_grenouille",
@@ -660,12 +658,12 @@
     {
       "book": "roi_grenouille",
       "scene_id": "roi_grenouille_04",
-      "segment_id": "roi_grenouille_04_narration_2ee5e0e399a24182ce5d",
+      "segment_id": "roi_grenouille_04_narration_f796a7051b95490f9143",
       "title": "La visite au château",
-      "text": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.\n\nMais il ne lui servit à rien de pousser ses 'coâ ! coâ ! coâ !' aussi fort qu'elle pouvait. La jeune fille ne l'écoutait pas. Elle se hâtait de rentrer à la maison et bientôt la pauvre grenouille fut oubliée. Il ne lui restait plus qu'à replonger dans la fontaine.\n\nLe lendemain, comme la petite princesse était à table, mangeant dans sa jolie assiette d'or, avec le roi et tous les gens de la Cour, on entendit - plouf ! plouf ! plouf ! plouf ! - quelque chose qui montait l'escalier de marbre. Puis on frappa à la porte et une voix dit : « Fille du roi, la plus jeune, ouvre-moi ! » Elle se leva de table pour voir qui était là. Quand elle ouvrit, elle aperçut la grenouille. Elle repoussa bien vite la porte et alla reprendre sa place. Elle avait très peur. Le roi vit que son cœur battait fort et dit : « Que crains-tu, mon enfant ? Y aurait-il un géant derrière la porte, qui viendrait te chercher ? » - « Oh ! non, » répondit-elle, « ce n'est pas un géant, mais une vilaine grenouille. » - « Que te veut cette grenouille ? »\n\nQue doit faire la princesse ? Choix 1 : Répondre tout de suite à son père. Ou choix 2 : Regarder la porte avant de répondre au roi.",
+      "text": "La princesse jeta un regard en arrière, puis elle courut vers le château.\n\nMais il ne lui servit à rien de pousser ses 'coâ ! coâ ! coâ !' aussi fort qu'elle pouvait. La jeune fille ne l'écoutait pas. Elle se hâtait de rentrer à la maison et bientôt la pauvre grenouille fut oubliée. Il ne lui restait plus qu'à replonger dans la fontaine.\n\nLe lendemain, comme la petite princesse était à table, mangeant dans sa jolie assiette d'or, avec le roi et tous les gens de la Cour, on entendit - plouf ! plouf ! plouf ! plouf ! - quelque chose qui montait l'escalier de marbre. Puis on frappa à la porte et une voix dit : « Fille du roi, la plus jeune, ouvre-moi ! » Elle se leva de table pour voir qui était là. Quand elle ouvrit, elle aperçut la grenouille. Elle repoussa bien vite la porte et alla reprendre sa place. Elle avait très peur. Le roi vit que son cœur battait fort et dit : « Que crains-tu, mon enfant ? Y aurait-il un géant derrière la porte, qui viendrait te chercher ? » - « Oh ! non, » répondit-elle, « ce n'est pas un géant, mais une vilaine grenouille. » - « Que te veut cette grenouille ? »\n\nQue doit faire la princesse ? Choix 1 : Répondre tout de suite à son père. Ou choix 2 : Regarder la porte avant de répondre au roi.",
       "spans": [
         {
-          "text": "La princesse jeta un regard en arrière, mais ses pas l’emportaient déjà vers le château.",
+          "text": "La princesse jeta un regard en arrière, puis elle courut vers le château.",
           "speaker": "narrateur",
           "emotion": "neutral",
           "parameters": {
@@ -783,7 +781,7 @@
           }
         }
       ],
-      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_04_narration_2ee5e0e399a24182ce5d.wav",
+      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_04_narration_f796a7051b95490f9143.wav",
       "lead_in_ms": 1000,
       "pause_ms": 150,
       "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
@@ -1092,12 +1090,12 @@
     {
       "book": "roi_grenouille",
       "scene_id": "roi_grenouille_06",
-      "segment_id": "roi_grenouille_06_narration_2060566da92278c1c898",
+      "segment_id": "roi_grenouille_06_narration_2c378aab47e82483eb2b",
       "title": "À la table du roi",
-      "text": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.\n\nElle se leva et ouvrit la porte. La grenouille sautilla dans la salle, toujours sur ses talons, jusqu'à sa chaise. Là, elle s'arrêta et dit : « Prends-moi auprès de toi ! » La princesse hésita. Mais le roi lui donna l'ordre d'obéir. Quand la grenouille fut installée sur la chaise, elle demanda à monter sur la table. Et quand elle y fut, elle dit : « Approche ta petite assiette d'or, nous allons y manger ensemble. »\n\nQue doit faire la princesse ? Choix 1 : Baisser les yeux vers l’assiette. Ou choix 2 : Rester droite sur sa chaise pour approcher l’assiette.",
+      "text": "Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.\n\nElle se leva et ouvrit la porte. La grenouille sautilla dans la salle, toujours sur ses talons, jusqu'à sa chaise. Là, elle s'arrêta et dit : « Prends-moi auprès de toi ! » La princesse hésita. Mais le roi lui donna l'ordre d'obéir. Quand la grenouille fut installée sur la chaise, elle demanda à monter sur la table. Et quand elle y fut, elle dit : « Approche ta petite assiette d'or, nous allons y manger ensemble. »\n\nQue doit faire la princesse ? Choix 1 : Baisser les yeux vers l’assiette. Ou choix 2 : Rester droite sur sa chaise pour approcher l’assiette.",
       "spans": [
         {
-          "text": "Elle chercha encore un appui dans le regard du roi ; il attendait qu’elle tînt parole.",
+          "text": "Elle chercha encore du soutien dans le regard du roi. Il attendait qu'elle respecte sa promesse.",
           "speaker": "narrateur",
           "emotion": "peur",
           "parameters": {
@@ -1189,7 +1187,7 @@
           }
         }
       ],
-      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_06_narration_2060566da92278c1c898.wav",
+      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_06_narration_2c378aab47e82483eb2b.wav",
       "lead_in_ms": 1000,
       "pause_ms": 150,
       "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
@@ -1727,12 +1725,12 @@
     {
       "book": "roi_grenouille",
       "scene_id": "roi_grenouille_09",
-      "segment_id": "roi_grenouille_09_narration_5d9a8188806c11aa0c10",
+      "segment_id": "roi_grenouille_09_narration_f24f6b8203b19b1217b1",
       "title": "Les huit chevaux blancs",
-      "text": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.\n\nIl en fut fait selon la volonté du père de la princesse. Il devint son compagnon aimé et son époux. Il lui raconta qu'une méchante sorcière lui avait jeté un sort et la princesse seule pouvait l'en libérer. Le lendemain, ils partiraient tous deux pour son royaume. Ils s'endormirent et, au matin, quand le soleil se leva, on vit arriver une voiture attelée de huit chevaux blancs. Ils avaient de blancs plumets sur la tête et leurs harnais étaient d'or. À l'arrière se tenait le valet du jeune roi. C'était le fidèle Henri. Il avait eu tant de chagrin quand il avait vu son seigneur transformé en grenouille qu'il s'était fait bander la poitrine de trois cercles de fer pour que son cœur n'éclatât pas de douleur. La voiture devait emmener le prince dans son royaume.\n\nQue doit faire la princesse ? Choix 1 : S’approcher de la voiture auprès du prince. Ou choix 2 : Remercier Henri avant de s’approcher de la voiture.",
+      "text": "Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.\n\nIl en fut fait selon la volonté du père de la princesse. Il devint son compagnon aimé et son époux. Il lui raconta qu'une méchante sorcière lui avait jeté un sort et la princesse seule pouvait l'en libérer. Le lendemain, ils partiraient tous deux pour son royaume. Ils s'endormirent et, au matin, quand le soleil se leva, on vit arriver une voiture attelée de huit chevaux blancs. Ils avaient de blancs plumets sur la tête et leurs harnais étaient d'or. À l'arrière se tenait le valet du jeune roi. C'était le fidèle Henri. Il avait eu tant de chagrin quand il avait vu son seigneur transformé en grenouille qu'il s'était fait bander la poitrine de trois cercles de fer pour que son cœur n'éclatât pas de douleur. La voiture devait emmener le prince dans son royaume.\n\nQue doit faire la princesse ? Choix 1 : S’approcher de la voiture auprès du prince. Ou choix 2 : Remercier Henri avant de s’approcher de la voiture.",
       "spans": [
         {
-          "text": "Elle regarda le sol où la grenouille était retombée, puis le jeune homme qui l’avait remplacée.",
+          "text": "Elle regarda le sol, puis le jeune homme qui se tenait à la place de la grenouille.",
           "speaker": "narrateur",
           "emotion": "surprise",
           "parameters": {
@@ -1837,7 +1835,7 @@
           }
         }
       ],
-      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_09_narration_5d9a8188806c11aa0c10.wav",
+      "output_file": "D:\\livre_heros\\audio\\experiments\\roi_grenouille\\files\\roi_grenouille_09_narration_f24f6b8203b19b1217b1.wav",
       "lead_in_ms": 1000,
       "pause_ms": 150,
       "palette_sha256": "3e92d0e4b8ce80ed820fb04e135bf0788c5cf324d93e25fd602409170632471a",
@@ -2146,5 +2144,7 @@
       "seed": 20261018
     }
   ],
-  "dry_run": true
+  "dry_run": false,
+  "voice_sha256": "e12fed44e64c19349596165b0129f8a52ebec54f47f9bac31d1fd05ac33ff9ac",
+  "policy": "25b382a5c809736cd030856b2354aa945d7fce316c806cf4f74944fb5a12d9f3"
 }
