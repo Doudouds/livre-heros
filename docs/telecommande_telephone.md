@@ -103,10 +103,10 @@ adresses et le code.
 
 Cette interface web locale reste disponible en complément de
 [l’application Android native](application_android.md). Le lien `/android`
-permet de télécharger l’APK préparée sur ce PC. Le déploiement sur Raspberry Pi
-et son éventuel point d’accès Wi-Fi restent les étapes suivantes.
-La lecture sur Linux nécessite `aplay` ; le réglage du volume
-et la progression de cette version ont été préparés pour Windows.
+permet de télécharger l’APK préparée sur ce lecteur.
+Le [déploiement sur Raspberry Pi](installation_raspberry_pi.md) utilise le même
+service avec mpv/ALSA : volume, progression et démarrage automatique sont pris
+en charge sous Linux. Le point d’accès Wi-Fi autonome reste une étape ultérieure.
 
 ## Architecture et vérifications
 

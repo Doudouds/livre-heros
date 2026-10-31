@@ -11,4 +11,5 @@ audio/runtime/
 *.partial
 tmp/audio_playback/
 dist/android/
+dist/raspberry/
 reports/admin/

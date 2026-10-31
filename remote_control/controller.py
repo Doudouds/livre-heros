@@ -216,7 +216,7 @@ class PlaybackController:
             if type(volume) is not int or not 0 <= volume <= 100:
                 raise ValueError('Le volume doit être compris entre 0 et 100.')
             if not getattr(self.audio, 'set_volume', lambda _: False)(volume):
-                raise ValueError('Le volume se règle sur le PC avec ce périphérique.')
+                raise ValueError('Le volume se règle sur le lecteur avec ce périphérique.')
         else:
             raise ValueError('Commande inconnue.')
         self._previous_state = self.audio.state

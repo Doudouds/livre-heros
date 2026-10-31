@@ -16,8 +16,8 @@ Voir le [guide du panneau administrateur](docs/administration_contes.md).
 
 Une **application Android native en Kotlin** contrôle le lecteur : bibliothèque,
 jeu à deux choix, écoute automatique, Lecture/Pause/Reprise, Rejouer, Recommencer,
-volume et progression. Le son reste sur le PC ; le même protocole pourra servir
-au Raspberry Pi.
+volume et progression. Le son est joué sur le PC ou sur le Raspberry Pi qui
+héberge le service.
 
 Lancer **Telecommande_Telephone.cmd**, puis ouvrir sur le téléphone le lien
 **Application Android** affiché dans la console pour télécharger l’APK. Après
@@ -47,6 +47,14 @@ déconnecté. Les fichiers absents suspendent ce mode sans sauter de passage.
 Ce lanceur fonctionne séparément de l’application Tkinter. Les commandes ne
 pilotent pas une fenêtre déjà ouverte avec `Lancer.cmd`. Il ne génère aucun son
 nouveau et ne demande aucun paquet pip. [Guide de connexion et de dépannage](docs/telecommande_telephone.md).
+
+## Installer le lecteur sur Raspberry Pi
+
+Le même service fonctionne sur Raspberry Pi OS avec une sortie audio USB,
+volume, progression et démarrage automatique. Les WAV existants des deux modes
+sont copiés sur la carte SD avec leurs reçus ; aucun modèle de synthèse n’est
+nécessaire sur le Pi. L’application Android le retrouve sur le Wi-Fi.
+[Installation par SSH et diagnostic audio](docs/installation_raspberry_pi.md).
 
 ## Générer les audio d'un conte
 

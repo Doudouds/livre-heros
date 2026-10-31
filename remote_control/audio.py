@@ -1,4 +1,4 @@
-"""Adaptateur PC : WAV locaux, progression réelle et volume de cette lecture."""
+"""WAV locaux Windows/Linux, progression réelle et volume de cette lecture."""
 import sys
 
 from audio.audio_player import AUDIO_ERRORS, LocalAudioPlayer, WindowsWavePlayer
@@ -39,23 +39,37 @@ class RemoteWindowsWavePlayer(WindowsWavePlayer):
 
 
 class RemoteAudioPlayer(LocalAudioPlayer):
-    def __init__(self, root, audio_root='audio/files'):
+    def __init__(self, root, audio_root='audio/files', *, device='alsa/default'):
         super().__init__(root, audio_root)
         if sys.platform == 'win32':
             self.windows = RemoteWindowsWavePlayer()
+        elif sys.platform.startswith('linux'):
+            from .linux_audio import LinuxWavePlayer
+            self.native_backend = LinuxWavePlayer(device)
+
+    @property
+    def backend(self):
+        return self.windows or self.native_backend
 
     @property
     def volume(self):
-        return self.windows.volume if self.windows else None
+        return self.backend.volume if self.backend else None
 
     @property
     def volume_supported(self):
-        return bool(self.windows and self.windows.volume_supported)
+        return bool(self.backend and self.backend.volume_supported)
 
     def set_volume(self, value):
-        return bool(self.windows and self.windows.set_volume(value))
+        return bool(self.backend and self.backend.set_volume(value))
 
     def progress(self):
+        if self.native_backend:
+            try:
+                return self.native_backend.progress()
+            except AUDIO_ERRORS as exc:
+                self.last_error = str(exc)
+                self.stop()
+                return None
         if not self.windows or not self.windows.opened:
             return None
         try:

@@ -28,6 +28,14 @@ ASSETS = {'/': ('index.html', 'text/html; charset=utf-8'),
 def local_addresses():
     addresses = {'127.0.0.1'}
     try:
+        # Pas de paquet envoyé : demande au noyau l'adresse de la route par défaut.
+        # Sur Raspberry Pi OS, le nom d'hôte résout souvent seulement en 127.0.1.1.
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as route:
+            route.connect(('192.0.2.1', 9))
+            addresses.add(route.getsockname()[0])
+    except OSError:
+        pass
+    try:
         for entry in socket.getaddrinfo(socket.gethostname(), None, socket.AF_INET, socket.SOCK_STREAM):
             address = entry[4][0]
             if not ipaddress.ip_address(address).is_link_local:
@@ -107,7 +115,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
     def authorized(self):
         candidate = self.headers.get('X-Remote-Token', '')
         if not hmac.compare_digest(candidate.encode(), self.server.token.encode()):
-            self.send(401, {'error': 'Ouvre le lien de connexion affiché sur le PC.'})
+            self.send(401, {'error': 'Utilise le code de connexion du lecteur.'})
             return False
         return True
 
@@ -171,7 +179,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
             self.server.pair_attempts[key] = (since, attempts + 1)
         code = payload.get('code')
         if not isinstance(code, str) or not hmac.compare_digest(code.encode(), self.server.pair_code.encode()):
-            self.send(401, {'error': 'Code incorrect. Utilisez les huit chiffres affichés sur le PC.'})
+            self.send(401, {'error': 'Code incorrect. Utilisez les huit chiffres du lecteur.'})
             return
         self.send(200, {'token': self.server.token})
 

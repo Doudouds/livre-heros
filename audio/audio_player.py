@@ -155,6 +155,7 @@ class LocalAudioPlayer:
         self.lead_in_ms = lead_in_ms
         self.process = None
         self.windows = None
+        self.native_backend = None
         self.last_error = None
         self._state = "unavailable"
         self._path = None
@@ -164,7 +165,8 @@ class LocalAudioPlayer:
     def state(self):
         if self._state == "playing":
             try:
-                if self.windows and self.windows.mode() == "stopped":
+                backend = self.windows or self.native_backend
+                if backend and backend.mode() == "stopped":
                     self._state = "ready"
                 elif self.process and self.process.poll() is not None:
                     self._state = "ready"
@@ -185,10 +187,12 @@ class LocalAudioPlayer:
             self._path = wave_with_lead_in(path, self.lead_in_ms, self.root / "tmp/audio_playback",
                                           short_copy=sys.platform=='win32' and len(str(path))>=128)
             self._selection = (segment_id, audio_file)
-            if sys.platform == "win32":
+            if sys.platform == "win32" and self.native_backend is None:
                 if self.windows is None:
                     self.windows = WindowsWavePlayer()
-                self.windows.start(self._path)
+            backend = self.windows or self.native_backend
+            if backend:
+                backend.start(self._path)
             else:
                 player = shutil.which("aplay")
                 if player is None:
@@ -207,8 +211,9 @@ class LocalAudioPlayer:
         if self.state != "playing":
             return False
         try:
-            if self.windows:
-                self.windows.pause()
+            backend = self.windows or self.native_backend
+            if backend:
+                backend.pause()
             elif self.process:
                 self.process.send_signal(signal.SIGSTOP)
             self._state = "paused"
@@ -227,8 +232,9 @@ class LocalAudioPlayer:
         if state != "paused":
             return False
         try:
-            if self.windows:
-                self.windows.resume()
+            backend = self.windows or self.native_backend
+            if backend:
+                backend.resume()
             elif self.process:
                 self.process.send_signal(signal.SIGCONT)
             self._state = "playing"
@@ -242,8 +248,9 @@ class LocalAudioPlayer:
         if self._selection is None:
             return False
         try:
-            if self.windows:
-                self.windows.replay()
+            backend = self.windows or self.native_backend
+            if backend:
+                backend.replay()
                 self._state = "playing"
                 return True
             return self.play(*self._selection)
@@ -254,8 +261,9 @@ class LocalAudioPlayer:
 
     def stop(self):
         try:
-            if self.windows:
-                self.windows.close()
+            backend = self.windows or self.native_backend
+            if backend:
+                backend.close()
             if self.process and self.process.poll() is None:
                 # Un aplay suspendu doit reprendre pour traiter sa terminaison.
                 if self._state == "paused":

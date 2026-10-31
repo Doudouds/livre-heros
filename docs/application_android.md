@@ -2,8 +2,9 @@
 
 Cette application possède une interface Android native écrite en Kotlin. Elle
 n’embarque ni navigateur ni WebView. Le téléphone sert de télécommande ; le
-lecteur Python sur le PC garde les moteurs, la session et les WAV. L’application
-continuera à utiliser la même API lorsque le lecteur sera porté sur Raspberry Pi.
+lecteur Python sur le PC ou le Raspberry Pi garde les moteurs, la session et
+les WAV. Les deux plateformes utilisent la même API.
+Voir [l’installation autonome sur Raspberry Pi](installation_raspberry_pi.md).
 
 ## Installer et se connecter
 
@@ -38,7 +39,7 @@ service cloud ou accès aux contacts n’est requis.
 
 ## Recherche sur le réseau local
 
-Le lanceur PC active un petit répondeur UDP sur le port **18766**, en plus de
+Le lecteur PC ou Raspberry Pi active un répondeur UDP sur le port **18766**, en plus de
 son serveur HTTP. Le téléphone effectue une recherche de trois secondes, avec
 trois demandes espacées sur les adresses de diffusion de ses réseaux locaux.
 Il utilise le Wi-Fi ou Ethernet lorsqu’ils sont disponibles, même sans accès
