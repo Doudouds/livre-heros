@@ -46,6 +46,7 @@ def parser():
     result.add_argument('--regeneration-id',help='Identifiant de demande conservé pour reprendre une nouvelle prise')
     result.add_argument('--span',type=int,action='append',help='Portion à refaire (à partir de 1), répétable avec --regenerate')
     result.add_argument('--restore-take',help='Restaurer une prise historique de la sélection, après contrôle intégral')
+    result.add_argument('--emotion',help='Ton approuvé pour les --span sélectionnés ; default rétablit le manuscrit')
     return result
 
 
@@ -168,6 +169,9 @@ def main(argv=None):
             raise ValueError('--regeneration-id exige --regenerate.')
         if args.span is not None and not args.regenerate:
             raise ValueError('--span exige --regenerate et un segment explicite.')
+        palette = Content.read(ROOT/'audio/emotion_profiles.json')['profiles']
+        if args.emotion is not None and (not args.span or args.emotion not in ('default',*palette)):
+            raise ValueError('--emotion exige --span et un profil approuvé (ou default).')
         if args.restore_take and (not args.segment_id or args.regenerate or args.recheck_only):
             raise ValueError('--restore-take exige --segment-id, sans --regenerate ni --recheck-only.')
         if not 1 <= args.threads <= 32 or not 1 <= args.attempts <= 10:
@@ -260,7 +264,7 @@ def main(argv=None):
                            regenerate_ids={p['segment_id'] for p in plans} if args.regenerate else set(),
                            regeneration_id=args.regeneration_id,
                            regenerate_spans={n-1 for n in args.span} if args.span is not None else None,
-                           restore_take=args.restore_take)
+                           restore_take=args.restore_take,emotion=args.emotion,palette=palette)
         print('Ctrl+C interrompt. Relancer exactement la même commande reprend les prises validées.',flush=True)
         result = runner.run(plans)
         remaining = 'à compléter après réécoute' if args.recheck_only else 'en échec'

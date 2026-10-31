@@ -39,8 +39,27 @@ bibliothèque.
 Ouvrir **Portions à reprendre**. Chaque ligne est un passage déjà balisé avec
 un ton : une phrase ou un groupe de phrases, un raccord, l'introduction ou
 l'annonce des choix. Sélectionner une ligne pour lire son texte intégral et
-**Écouter la portion**. Avec Ctrl + clic, choisir plusieurs portions, puis
-**Refaire la sélection**. Le texte et les réglages approuvés restent identiques.
+**Écouter en service**. Avec Ctrl + clic, choisir plusieurs portions, puis
+**Refaire la sélection**. Le texte reste identique.
+
+Le menu **Ton de la reprise** contient tous les profils de la palette approuvée :
+joie, tristesse, colère, peur, émerveillement, tendresse, surprise, détermination,
+soulagement, soulagement apaisé, malice et neutre. **Conserver le ton actuel**
+garde le rendu en service ; **Ton du manuscrit** rétablit le balisage initial.
+Le choix s'applique uniquement aux portions sélectionnées au prochain lancement.
+Il ne modifie ni la référence vocale, ni la palette globale, ni le texte du conte.
+Les tons sont tracés dans le reçu et les recettes de la prise. Une reprise
+ultérieure conserve ces tons ; restaurer une ancienne version rétablit aussi ses
+tons. Le changement concerne cette variante et ce mode, pas les autres WAV.
+
+Une portion en production apparaît en **rouge avec ⌛** ; les autres indiquent
+qu'elles attendent, sont conservées ou passent les contrôles. En cas d'erreur,
+le panneau affiche **⚠**, le motif du refus et le maintien de la version en
+service. **Écouter le dernier essai** permet d'entendre la portion produite en
+cache, même si l'assemblage complet n'a pas été publié. Ce bouton ne valide ni
+ne publie cet essai. **Écouter en service** lit toujours la version publiée.
+Les longs chemins de cache sont copiés dans un chemin de lecture court pour
+le lecteur Windows ; leurs échantillons et leurs reçus restent intacts.
 
 Seules les portions choisies reçoivent de nouvelles prises. Les autres sont
 reprises depuis la version actuellement en service, avec exactement les mêmes
@@ -49,6 +68,12 @@ réassemblé avec son silence initial et passe à nouveau le contrôle Medium.
 Un composant manquant ou un refus concernant une portion hors sélection
 arrête le remplacement : le logiciel ne refait pas silencieusement le reste.
 Une interruption conserve la sélection et les portions nouvelles déjà terminées.
+
+Quand seuls les choix ou une fin narrative sont mal reconnus, Medium contrôle
+séparément les échantillons correspondants du WAV assemblé, avec les mêmes
+critères. Une hallucination de reconnaissance sur la fin narrative ne doit
+pas être attribuée aux choix ni provoquer leur régénération. Les transcriptions
+brutes et les preuves de ces contre-vérifications restent auditées.
 
 La sélection suit les limites du balisage vocal ; elle ne découpe pas un mot
 ou une zone arbitraire au milieu d'une phrase.
@@ -136,6 +161,7 @@ Le panneau réutilise `generer_audio_conte.py` :
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --regenerate
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --regenerate --span 2 --span 4
+python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --regenerate --span 2 --emotion joie
 python generer_audio_conte.py --book roi_grenouille --segment-id IDENTIFIANT_EXACT --restore-take IDENTIFIANT_PRISE
 ```
 
@@ -145,3 +171,6 @@ lorsque l'interface la reprend. `--dry-run` vérifie la sélection sans synthès
 `--span` numérote les portions à partir de 1 et peut être répété. Il exige
 `--regenerate`. `--restore-take` exige `--segment-id` et ne se combine pas avec
 une nouvelle prise ni avec `--recheck-only`.
+`--emotion PROFIL` exige une sélection `--span` ; `--emotion default` remet
+le ton du manuscrit sur cette sélection. Les reprises de demandes interrompues
+conservent le choix du ton.

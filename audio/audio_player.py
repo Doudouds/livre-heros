@@ -51,17 +51,18 @@ class SilentAudioPlayer:
         pass
 
 
-def wave_with_lead_in(source, milliseconds, cache_root):
+def wave_with_lead_in(source, milliseconds, cache_root, *, short_copy=False):
     """Copie de lecture : vrai silence PCM pour laisser le périphérique démarrer.
 
     L'original et son reçu TTS restent intacts. Le cache se renouvelle si le
     fichier source ou la durée du silence change. Écriture atomique, par blocs.
     """
-    if not milliseconds:
+    if not milliseconds and not short_copy:
         return source
     stat = source.stat()
     identity = f"{source}|{stat.st_mtime_ns}|{stat.st_size}|{milliseconds}"
-    target = cache_root / (hashlib.sha256(identity.encode("utf-8")).hexdigest() + ".wav")
+    key = hashlib.sha256(identity.encode("utf-8")).hexdigest()
+    target = cache_root / (key[:24 if short_copy else 64] + ".wav")
     if target.is_file():
         return target
     cache_root.mkdir(parents=True, exist_ok=True)
@@ -181,7 +182,8 @@ class LocalAudioPlayer:
                 path = (self.root / audio_file.replace("{segment_id}", segment_id)).resolve()
             if not path.is_relative_to(self.root) or not path.is_file():
                 return False
-            self._path = wave_with_lead_in(path, self.lead_in_ms, self.root / "tmp/audio_playback")
+            self._path = wave_with_lead_in(path, self.lead_in_ms, self.root / "tmp/audio_playback",
+                                          short_copy=sys.platform=='win32' and len(str(path))>=128)
             self._selection = (segment_id, audio_file)
             if sys.platform == "win32":
                 if self.windows is None:

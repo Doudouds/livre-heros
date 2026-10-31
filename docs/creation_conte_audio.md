@@ -145,6 +145,11 @@ L'onglet **Portions à reprendre** refait uniquement les passages sélectionnés
 en conservant les autres échantillons. L'historique garde dix versions validées
 par segment et mode, actuelle comprise ; une restauration repasse le contrôle
 intégral sans synthèse. Voir le guide du panneau pour ces actions et leur reprise.
+Le ton d'une reprise peut être choisi dans la palette approuvée, sans modifier
+le manuscrit ni les autres portions : le reçu conserve `tone_overrides` et
+`effective_profile`, les recettes gardent les paramètres effectivement utilisés.
+Une restauration rétablit les tons de la prise choisie. L'audit vérifie ces
+profils de prise en plus de l'identité canonique, de la voix et de la palette.
 
 Depuis PowerShell, dans le projet :
 
@@ -304,6 +309,10 @@ sont synthétisées une seule fois par profil et réutilisées depuis le cache.
    le refus global, les deux preuves et les longueurs physiques ; l'audit
    recontrôle ces preuves. Un refus global déjà enregistré peut être réutilisé
    seulement si sa politique, son texte et les octets du WAV correspondent.
+   Si la narration séparée n'échoue que sur sa fin, contre-vérifier sa dernière
+   portion dans le WAV assemblé, pause avant les choix comprise, avec Medium.
+   La preuve conserve aussi cette fin narrative et ses longueurs. Ne pas
+   attribuer un refus narratif à la portion d'annonce des choix.
    Un refus persistant fait régénérer seulement les portions identifiées comme
    problématiques, avec une autre graine ; les autres sont conservées. Si le
    contrôle global reste incertain alors que chaque portion est validée,

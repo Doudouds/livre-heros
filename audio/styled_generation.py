@@ -7,6 +7,7 @@ import uuid
 
 from audio.speech_verification import IncompleteSpeech, compare_transcript
 from audio.take_history import archive_take, prune_takes, read_take
+from audio.take_tones import effective_spans, effective_profile, receipt_tones
 from audio.tts_batch import (Batch, PCM, ModelLoadError, atomic_json, atomic_wave, batch_lock,
                             digest, file_hash, read_wave, receipt_matches, receipt_path,
                             write_receipt)
@@ -24,7 +25,7 @@ class StyledRun:
     def __init__(self, *, cache_dir, output_dir, report, voice_sha, model, environment,
                  threads, backend_factory, verifier_factory, verifier_identity,
                  attempts=3, progress=print, recheck_only=False, regenerate_ids=None, regeneration_id=None,
-                 regenerate_spans=None, restore_take=None):
+                 regenerate_spans=None, restore_take=None, emotion=None, palette=None):
         self.cache_dir,self.output_dir,self.report = map(Path,(cache_dir,output_dir,report))
         self.voice_sha,self.model,self.environment = voice_sha,model,environment
         self.threads,self.attempts = threads,attempts
@@ -33,6 +34,7 @@ class StyledRun:
         self.regeneration_id = regeneration_id
         self.regenerate_spans = set(regenerate_spans) if regenerate_spans is not None else None
         self.restore_take = restore_take
+        self.emotion,self.palette = emotion,palette or {}
         self.backend_factory,self.verifier_factory = backend_factory,verifier_factory
         self.verifier_identity = verifier_identity
         self.policy = digest(verifier_identity)
@@ -55,6 +57,8 @@ class StyledRun:
                 raise ValueError('Sélection de portions invalide pour cette nouvelle prise.')
         if self.restore_take and (len(plans)!=1 or self.regenerate_ids or self.recheck_only):
             raise ValueError('La restauration exige un seul segment, sans synthèse ni réécoute seule.')
+        if self.emotion is not None and (self.regenerate_spans is None or self.emotion not in ('default',*self.palette)):
+            raise ValueError('Choisir un ton approuvé et les portions à reprendre.')
         for plan in plans:
             profile,identity = self.identity(plan)
             target = Path(plan['output_file'])
@@ -65,6 +69,8 @@ class StyledRun:
             if isinstance(receipt,dict) and receipt.get('profile') != profile:
                 raise ValueError(f"Voix, texte balisé ou réglages différents : {target.name}. "
                                  'Conserver cette série et employer un autre --output-dir.')
+            if isinstance(receipt,dict):
+                receipt_tones(plan,receipt,self.palette)
             managed = isinstance(pending,dict) and pending.get('identity') == identity
             if target.exists() and not isinstance(receipt,dict) and not managed:
                 raise ValueError(f'WAV sans reçu vérifiable : {target.name}. Le déplacer avant de reprendre.')
@@ -84,7 +90,7 @@ class StyledRun:
             self.verifier = self.verifier_factory()
         return self.verifier
 
-    def verify_full(self, base, pcm, tail_frames, intro_frames=None):
+    def verify_full(self, base, pcm, tail_frames, intro_frames=None, narration_tail_frames=None):
         verifier = self.speech_verifier()
         cached = None
         if base['spans'][-1].get('role') == 'choix':
@@ -118,8 +124,28 @@ class StyledRun:
             if not base['text'].endswith(last) or not 0 < tail_frames < len(pcm.frames):
                 raise ValueError('Découpage des annonces incorrect.')
             reviewer = verifier.reviewer() if hasattr(verifier,'reviewer') else verifier
-            head_check = reviewer.verify(base['text'][:-len(last)].strip(),
-                               PCM(pcm.sample_rate,pcm.frames[:-tail_frames]),vad_filter=True)
+            head_text = base['text'][:-len(last)].strip()
+            head_pcm = PCM(pcm.sample_rate,pcm.frames[:-tail_frames])
+            try:
+                head_check = reviewer.verify(head_text,head_pcm,vad_filter=True)
+            except IncompleteSpeech as head_error:
+                if head_error.report.get('reasons') != ['fin du texte non retrouvée'] or not narration_tail_frames:
+                    head_error.report.update(scope='narration')
+                    raise
+                # Le WAV narratif se termine par la pause avant les choix.
+                # Relire sa vraie dernière portion, pause comprise, sans enlever
+                # de mots de la transcription ni toucher aux seuils.
+                frames = narration_tail_frames+pcm.sample_rate*2*base['pause_ms']//1000
+                if not 0 < frames <= len(head_pcm.frames):
+                    raise ValueError('Découpage de la fin narrative invalide.')
+                try:
+                    head_tail = reviewer.verify(base['spans'][-2]['text'],
+                                               PCM(pcm.sample_rate,head_pcm.frames[-frames:]),vad_filter=True)
+                except IncompleteSpeech as tail_error:
+                    tail_error.report.update(scope='narration_tail',affected_spans=[len(base['spans'])-2])
+                    raise
+                head_check = dict(head_error.report,passed=True,reasons=[],tail_matched=True,
+                                  method='full-and-tail',global_check=head_error.report,tail_check=head_tail,tail_frames=frames)
             try:
                 tail_check = reviewer.verify(last,PCM(pcm.sample_rate,pcm.frames[-tail_frames:]),vad_filter=True)
             except IncompleteSpeech as tail_error:
@@ -129,6 +155,8 @@ class StyledRun:
                          method='full-and-choices',global_check=exc.report,head_check=head_check,
                          tail_check=tail_check,tail_frames=tail_frames,head_frames=len(pcm.frames)-tail_frames,
                          final_review_required=True)
+            if head_check.get('method') == 'full-and-tail':
+                check.update(head_tail_text=base['spans'][-2]['text'],head_tail_frames=head_check['tail_frames'])
         if check.get('passed') is not True:
             raise ModelLoadError('Le contrôle complet ne fournit pas de preuve valide.')
         if base['spans'][0].get('role') == 'introduction':
@@ -226,7 +254,14 @@ class StyledRun:
                             tail_frames = len(tail.frames)
                 try:
                     intro_frames = len(read_wave(existing['components'][0]['file']).frames) if has_intro else None
-                    check = self.verify_full(base,pcm,tail_frames,intro_frames)
+                    narration_frames = None
+                    components = existing.get('components',[])
+                    if len(components)>1:
+                        previous_part = components[-2]
+                        path = Path(previous_part['file'])
+                        if path.is_file() and file_hash(path)==previous_part['sha256']:
+                            narration_frames = len(read_wave(path).frames)
+                    check = self.verify_full(base,pcm,tail_frames,intro_frames,narration_frames)
                 except IncompleteSpeech as exc:
                     record['reverification_rejection'] = exc.report
                 else:
@@ -257,6 +292,13 @@ class StyledRun:
             span_rounds = previous.get('span_rounds',[start_round]*len(base['spans']))
         regeneration = {}
         source_parts = None
+        tones = receipt_tones(base,existing,self.palette) if existing else {}
+        if self.emotion is not None:
+            for number in self.regenerate_spans:
+                if self.emotion=='default' or self.emotion==base['spans'][number]['emotion']:
+                    tones.pop(str(number),None)
+                else:
+                    tones[str(number)] = self.emotion
         if forced:
             requested = requested or uuid.uuid4().hex
             continuing = previous.get('regeneration_request') == requested
@@ -269,6 +311,11 @@ class StyledRun:
                 start_round = max(used)+1
                 span_rounds = [start_round]*len(base['spans'])
             regeneration = dict(regeneration_request=requested)
+            if continuing:
+                if previous.get('requested_emotion') != self.emotion:
+                    raise ValueError('Cette demande interrompue utilisait un autre ton.')
+                tones = previous.get('tone_overrides',{})
+            regeneration.update(tone_overrides=tones,requested_emotion=self.emotion)
             if selected is not None:
                 if continuing:
                     source_key = previous.get('regeneration_source')
@@ -290,38 +337,58 @@ class StyledRun:
         for round_number in range(start_round,start_round+self.attempts):
             # Un crash garde ce même numéro ; seul un refus ASR complet l'avance.
             atomic_json(counter,dict(round=round_number,status='active',policy=self.policy,span_rounds=span_rounds,**regeneration))
-            record.update(status='generating',round=round_number,span_rounds=list(span_rounds),spans=copy.deepcopy(base['spans']))
+            record.update(status='generating',stage='portions',round=round_number,span_rounds=list(span_rounds),
+                          spans=effective_spans(base,tones,self.palette))
             self.save()
             parts = []
             for number,span in enumerate(record['spans'],1):
+                kept = source_parts is not None and number-1 not in self.regenerate_spans
+                span['status'] = 'kept' if kept else 'generating'
+                record['active_portion'] = number-1
+                self.save()
                 self.progress(f"  Portion {number}/{len(record['spans'])} | {span['speaker']} | {span['emotion']}")
-                if source_parts is not None and number-1 not in self.regenerate_spans:
+                if kept:
                     pcm,details = source_parts[number-1]
                     self.progress('    Portion conservée à l’identique.')
                 else:
-                    pcm,details = self.component(span,base,span_rounds[number-1])
+                    try:
+                        pcm,details = self.component(span,base,span_rounds[number-1])
+                    except Exception as exc:
+                        span.update(status='failed',error=str(exc))
+                        self.save()
+                        raise
                 parts.append(pcm)
                 span.update(details)
+                span['status'] = 'kept' if kept else 'generated'
                 self.save()
             pcm = assemble(parts,base['lead_in_ms'],base['pause_ms'])
+            record.update(stage='verification',active_portion=None)
+            for span in record['spans']:
+                if span['status']=='generated':
+                    span['status'] = 'checking'
+            self.save()
             self.progress('  Contrôle du segment entier, question et deux choix compris…'
                           if any(s.get('role') == 'choix' for s in base['spans'])
                           else '  Contrôle de la narration complète…')
             try:
-                check = self.verify_full(base,pcm,len(parts[-1].frames),len(parts[0].frames))
+                check = self.verify_full(base,pcm,len(parts[-1].frames),len(parts[0].frames),
+                                         len(parts[-2].frames) if len(parts)>1 else None)
             except IncompleteSpeech as exc:
                 rejected = self.cache_dir/profile/'rejected_full'/f'round_{round_number}_{self.policy[:12]}.wav'
                 atomic_wave(rejected,pcm)
                 atomic_json(receipt_path(rejected),dict(sha256=file_hash(rejected),
                             text=base['text'],verification=exc.report,policy=self.policy))
                 record.update(verification=exc.report,rejected_file=str(rejected))
+                for span in record['spans']:
+                    if span.get('status')=='checking':
+                        span['status'] = 'assembly_failed'
                 self.event(segment_id=base['segment_id'],status='full-rejected',round=round_number,
                            reasons=exc.report['reasons'])
                 self.save()
                 self.progress('  Contrôle global refusé : '+ '; '.join(exc.report['reasons']))
                 if exc.report.get('affected_spans'):
                     affected = exc.report['affected_spans']
-                elif exc.report['reasons'] == ['fin du texte non retrouvée']:
+                elif exc.report['reasons'] == ['fin du texte non retrouvée'] and exc.report.get('scope') != 'narration':
                     affected = [len(parts)-1]
                 else:
                     affected = []
@@ -345,12 +412,16 @@ class StyledRun:
                 continue
             check.update(policy=self.policy,method=check.get('method','faster-whisper-small-full-segment-vad'))
             self.publish_take(base,record,pcm,check,existing,
-                              dict(round=round_number,span_rounds=list(span_rounds),created_at=time.time(),**regeneration))
+                              dict(round=round_number,span_rounds=list(span_rounds),created_at=time.time(),
+                                   effective_profile=effective_profile(profile,tones),tone_overrides=tones,
+                                   **{k:v for k,v in regeneration.items() if k!='tone_overrides'}))
             if forced:
                 atomic_json(counter,dict(round=round_number,status='ready',policy=self.policy,
                                          span_rounds=span_rounds,**regeneration))
             record.update(status='ready',reused=False,sha256=file_hash(target),verification=check,
                           seconds=len(pcm.frames)/2/pcm.sample_rate)
+            for span in record['spans']:
+                span['status'] = 'ready'
             self.event(segment_id=base['segment_id'],status='ready',file=str(target))
             self.save()
             return
@@ -361,7 +432,8 @@ class StyledRun:
         if proof.get('identity') != self.identity(base)[1] or len(proof.get('components',[])) != len(base['spans']):
             raise ValueError('La prise source ne correspond pas au découpage de ce segment.')
         result = []
-        for span,part in zip(base['spans'],proof['components']):
+        spans = effective_spans(base,receipt_tones(base,proof,self.palette),self.palette)
+        for span,part in zip(spans,proof['components']):
             path = Path(part['file'])
             if not path.resolve().is_relative_to(self.cache_dir.resolve()):
                 raise ValueError('Un composant sort du cache de ce conte.')
@@ -406,9 +478,11 @@ class StyledRun:
         if pcm != assemble([p[0] for p in parts],base['lead_in_ms'],base['pause_ms']):
             raise ValueError('La prise historique ne correspond pas à ses portions.')
         self.progress('Restauration : nouveau contrôle intégral de la prise historique, sans synthèse.')
-        check = self.verify_full(base,pcm,len(parts[-1][0].frames),len(parts[0][0].frames))
-        record['spans'] = [dict(span,**part[1]) for span,part in zip(base['spans'],parts)]
-        metadata = {key:proof[key] for key in ('round','span_rounds','regeneration_request','regenerated_spans','created_at') if key in proof}
+        check = self.verify_full(base,pcm,len(parts[-1][0].frames),len(parts[0][0].frames),
+                                 len(parts[-2][0].frames) if len(parts)>1 else None)
+        spans = effective_spans(base,receipt_tones(base,proof,self.palette),self.palette)
+        record['spans'] = [dict(span,**part[1],status='ready') for span,part in zip(spans,parts)]
+        metadata = {key:proof[key] for key in ('round','span_rounds','regeneration_request','regenerated_spans','created_at','tone_overrides','effective_profile') if key in proof}
         metadata.update(restored_from=self.restore_take,restored_at=time.time())
         self.publish_take(base,record,pcm,check,existing,metadata)
         record.update(status='ready',reused=False,sha256=file_hash(base['output_file']),verification=check,

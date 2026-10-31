@@ -13,6 +13,7 @@ import uuid
 
 from audio.tts_batch import atomic_json, batch_lock, digest, file_hash, read_wave, receipt_matches, receipt_path
 from audio.take_history import HISTORY_LIMIT, list_takes
+from audio.take_tones import effective_spans, receipt_tones
 from engine.content import Content, ROOT
 from tools.generate_story_audio import parser, plans_for_book
 
@@ -79,8 +80,17 @@ class AudioInventory:
             elif status == 'ready' and record.get('status') == 'failed':
                 reason += ' Dernière tentative refusée ; la prise actuelle est conservée.'
             result.append(dict(plan=plan,rank=scene['rank'],variant=variant,status=status,
-                               reason=reason,seconds=seconds,automatic=automatic))
+                               reason=reason,seconds=seconds,automatic=automatic,
+                               voice_spans=self.voice_spans(plan)))
         return result
+
+    def voice_spans(self, plan):
+        try:
+            proof = read_optional(receipt_path(plan['output_file']))
+            palette = Content.read(self.root/'audio/emotion_profiles.json')['profiles']
+            return effective_spans(plan,receipt_tones(plan,proof,palette),palette)
+        except (OSError,ValueError,KeyError,TypeError):
+            return plan['spans']
 
     def inspect(self, plan, voice):
         target = within(self.root,plan['output_file'])
@@ -108,8 +118,10 @@ class AudioInventory:
             parts = proof.get('components',[])
             if len(parts) != len(plan['spans']):
                 raise ValueError('Découpage vocal différent du texte actuel.')
+            palette = Content.read(self.root/'audio/emotion_profiles.json')['profiles']
+            spans = effective_spans(plan,receipt_tones(plan,proof,palette),palette)
             recipes = []
-            for span,part in zip(plan['spans'],parts):
+            for span,part in zip(spans,parts):
                 component = within(self.root,part['file'])
                 recipe = Content.read(component.parent.parent/'recipe.json')
                 if recipe['palette_sha256'] != plan['palette_sha256'] or recipe['parameters'] != span['parameters'] or part['emotion'] != span['emotion']:
@@ -151,12 +163,12 @@ class AudioInventory:
         cache = self.root/'audio/experiments'/plan['book']/'cache'
         return list_takes(cache,plan['output_file'],identity)[:HISTORY_LIMIT]
 
-    def portion_file(self, plan, number):
+    def portion_file(self, plan, number, attempt=None):
         proof = read_optional(receipt_path(plan['output_file']))
         if not receipt_matches(plan['output_file'],proof.get('identity')) or not 1 <= number <= len(proof.get('components',[])):
             raise ValueError('Ce segment ou cette portion n’est plus disponible.')
-        part = proof['components'][number-1]
-        path = within(self.root,part['file'])
+        part = attempt if attempt is not None else proof['components'][number-1]
+        path = within(self.root,part.get('component',part.get('file','')))
         component = read_optional(receipt_path(path))
         if (file_hash(path)!=part['sha256'] or not component.get('verification',{}).get('passed') or
                 not receipt_matches(path,component.get('identity'))):
@@ -211,14 +223,43 @@ class AdminJobs:
             value = copy.deepcopy(self.current)
         if not self.busy and value.get('status') == 'running':
             value['status'] = 'interrupted'
+        if value.get('status')=='succeeded' and value.get('intent',{}).get('kind')=='audio':
+            errors = self.report_errors(value)
+            if errors:
+                value.update(status='failed',error='\n'.join(errors))
         return value
+
+    def report_errors(self, job):
+        errors = []
+        for spec in job.get('commands',[]):
+            if not spec.get('report'):
+                continue
+            report = read_optional(within(self.root,spec['report']))
+            if report.get('status')!='ready':
+                details = [s.get('error','Segment non validé.') for s in report.get('segments',[]) if s.get('status')=='failed']
+                errors.extend(details or [report.get('error') or 'Le générateur n’a pas terminé la validation de ses audios.'])
+        return errors
+
+    def audio_record(self, book_id, automatic, segment_id):
+        job = self.snapshot()
+        intent = job.get('intent',{})
+        if (intent.get('kind')!='audio' or intent.get('book_id')!=book_id or
+                (intent.get('segment_id') and intent['segment_id']!=segment_id)):
+            return {},{}
+        for spec in job.get('commands',[]):
+            if ('--automatic' in spec.get('command',[])) != automatic or not spec.get('report'):
+                continue
+            report = read_optional(within(self.root,spec['report']))
+            record = next((r for r in report.get('segments',[]) if r.get('segment_id')==segment_id),{})
+            return record,intent
+        return {},intent
 
     def _save(self):
         atomic_json(self.folder/'last_job.json',self.current)
         atomic_json(Path(self.current['folder'])/'job.json',self.current)
 
     def start_audio(self, book_id, automatic=False, segment_id=None, regenerate=False, both=False, first=False,
-                    regeneration_id=None, spans=None, restore_take=None):
+                    regeneration_id=None, spans=None, restore_take=None, emotion=None):
         inventory = AudioInventory(self.root)
         if regenerate and not segment_id:
             raise ValueError('Sélectionner un audio pour demander une nouvelle prise.')
@@ -232,6 +273,9 @@ class AdminJobs:
                     any(type(n) is not int or not 1 <= n <= len(selected['plan']['spans']) for n in spans)):
                 raise ValueError('Sélectionner des portions d’un segment prêt pour cette nouvelle prise.')
             spans = sorted(set(spans))
+        palette = Content.read(self.root/'audio/emotion_profiles.json')['profiles']
+        if emotion is not None and (spans is None or emotion not in ('default',*palette)):
+            raise ValueError('Choisir des portions et un ton présent dans la palette.')
         if restore_take and (regenerate or not selected or both or first or
                              not any(v['key']==restore_take and not v['current'] for v in inventory.takes(selected['plan']))):
             raise ValueError('Sélectionner une ancienne prise validée de ce segment.')
@@ -241,11 +285,12 @@ class AdminJobs:
                 raise ValueError('Écouter puis valider les premiers audios des deux modes avant de compléter ce conte.')
         token = regeneration_id or uuid.uuid4().hex
         intent = dict(kind='audio',book_id=book_id,automatic=automatic,segment_id=segment_id,
-                      regenerate=regenerate,both=both,first=first,regeneration_id=token,spans=spans,restore_take=restore_take)
+                      regenerate=regenerate,both=both,first=first,regeneration_id=token,spans=spans,restore_take=restore_take,emotion=emotion)
         def specifications(folder):
             specs = []
             for mode in modes:
-                command = [sys.executable,str(self.root/'generer_audio_conte.py'),'--book',book_id]
+                runtime = self.root/'.venv-tts/Scripts/python.exe'
+                command = [str(runtime) if runtime.is_file() else sys.executable,str(self.root/'generer_audio_conte.py'),'--book',book_id]
                 if mode:
                     command.append('--automatic')
                 if segment_id:
@@ -256,6 +301,8 @@ class AdminJobs:
                     command += ['--regenerate','--regeneration-id',token]
                 for number in spans or []:
                     command += ['--span',str(number)]
+                if emotion is not None:
+                    command += ['--emotion',emotion]
                 if restore_take:
                     command += ['--restore-take',restore_take]
                 report = folder/('automatic' if mode else 'interactive')/'generation_status.json'
@@ -320,12 +367,17 @@ class AdminJobs:
                         if hasattr(source,'close'):
                             source.close()
                     if code:
-                        failed.append(f'Tâche {index+1} terminée avec le code {code}. Voir le journal.')
+                        details = self.report_errors(dict(commands=[spec])) if spec.get('report') else []
+                        failed.extend(details or [f'Tâche {index+1} terminée avec le code {code}. Voir le journal.'])
                 if self.cancelled.is_set():
                     status = 'stopped'
                 elif failed:
                     status = 'failed'
                 else:
+                    if self.current.get('intent',{}).get('kind')=='audio':
+                        errors = self.report_errors(self.current)
+                        if errors:
+                            raise ValueError('\n'.join(errors))
                     if finish:
                         finish()
                     status = 'succeeded'

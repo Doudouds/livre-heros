@@ -27,5 +27,14 @@ def validate_evidence(expected, proof, pcm, *, tail_text=None, tail_pcm=None):
             head_proof = proof.get('head_check',{})
             if head_proof.get('passed') is not True or proof.get('head_frames') != len(pcm.frames)-len(tail_pcm.frames):
                 raise ValueError('Narration séparée non vérifiée ou mauvais découpage.')
-            compare_transcript(expected[:-len(tail_text)].strip(),head_proof['transcript'])
+            head = type(pcm)(pcm.sample_rate,pcm.frames[:-len(tail_pcm.frames)])
+            if head_proof.get('method') == 'full-and-tail':
+                length = proof.get('head_tail_frames',0)
+                if not 0 < length <= len(head.frames):
+                    raise ValueError('Échantillons de fin narrative absents.')
+                validate_evidence(expected[:-len(tail_text)].strip(),head_proof,head,
+                                  tail_text=proof.get('head_tail_text'),
+                                  tail_pcm=type(pcm)(pcm.sample_rate,head.frames[-length:]))
+            else:
+                compare_transcript(expected[:-len(tail_text)].strip(),head_proof['transcript'])
         return compare_transcript(tail_text,tail_proof['transcript'])

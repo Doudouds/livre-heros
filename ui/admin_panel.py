@@ -64,7 +64,8 @@ class AdminPanel:
         footer = ttk.Frame(outer)
         footer.pack(side='bottom',fill='x',pady=(10,0),before=self.tabs)
         self.job_text = tk.StringVar(value='Aucune tâche en cours.')
-        ttk.Label(footer,textvariable=self.job_text,wraplength=850).pack(side='left',fill='x',expand=True)
+        self.job_label = ttk.Label(footer,textvariable=self.job_text,wraplength=850)
+        self.job_label.pack(side='left',fill='x',expand=True)
         self.stop_button = ttk.Button(footer,text='Arrêter la tâche',command=self.jobs.stop,style='Audio.TButton')
         self.stop_button.pack(side='right')
         self.resume_button = ttk.Button(footer,text='Reprendre',command=self.resume,style='Audio.TButton')
@@ -140,23 +141,46 @@ class AdminPanel:
 
     def _portions_tab(self, frame):
         ttk.Label(frame,text='Choisir une portion ; Ctrl + clic pour en choisir plusieurs.',wraplength=560).pack(anchor='w',pady=6)
-        self.portion_tree = ttk.Treeview(frame,columns=('number','tone','text'),show='headings',selectmode='extended',height=3)
-        for key,title,width in (('number','N°',35),('tone','Ton',105),('text','Texte',350)):
+        controls = ttk.Frame(frame)
+        controls.pack(side='bottom',fill='x')
+        body = ttk.Panedwindow(frame,orient='horizontal')
+        body.pack(fill='both',expand=True)
+        left,text_frame = ttk.Frame(body),ttk.Frame(body)
+        body.add(left,weight=3)
+        body.add(text_frame,weight=2)
+        self.portion_tree = ttk.Treeview(left,columns=('number','tone','state'),show='headings',selectmode='extended',height=3,style='AdminPortions.Treeview')
+        for key,title,width in (('number','N°',45),('tone','Ton en service',110),('state','Dernier essai',145)):
             self.portion_tree.heading(key,text=title)
             self.portion_tree.column(key,width=width,minwidth=30)
-        scroll = ttk.Scrollbar(frame,orient='vertical',command=self.portion_tree.yview)
+        scroll = ttk.Scrollbar(left,orient='vertical',command=self.portion_tree.yview)
         self.portion_tree.configure(yscrollcommand=scroll.set)
         scroll.pack(side='right',fill='y')
         self.portion_tree.pack(fill='both',expand=True)
         self.portion_tree.bind('<<TreeviewSelect>>',lambda event:self.show_portions())
-        actions = ttk.Frame(frame)
+        for tag in ('generating','checking','assembly_failed','failed'):
+            self.portion_tree.tag_configure(tag,foreground='#b00020',background='#fff0ed')
+        self.portion_tree.tag_configure('ready',foreground='#247149')
+        tones = ttk.Frame(controls)
+        tones.pack(fill='x',pady=(6,0))
+        ttk.Label(tones,text='Ton de la reprise').pack(side='left')
+        self.tone = tk.StringVar(value='Conserver le ton actuel')
+        palette = Content.read(self.root/'audio/emotion_profiles.json')['profiles']
+        self.tone_options = {'Conserver le ton actuel':None,'Ton du manuscrit':'default',
+                             **{EMOTIONS.get(key,key):key for key in palette}}
+        self.tone_combo = ttk.Combobox(tones,textvariable=self.tone,values=list(self.tone_options),state='readonly',width=27)
+        self.tone_combo.pack(side='left',padx=8)
+        self.tone_selection = None
+        actions = ttk.Frame(controls)
         actions.pack(fill='x',pady=6)
-        self.listen_portion_button = ttk.Button(actions,text='Écouter la portion',command=self.listen_portion,style='Audio.TButton')
+        self.listen_portion_button = ttk.Button(actions,text='Écouter en service',command=self.listen_portion,style='Audio.TButton')
         self.listen_portion_button.pack(side='left')
         self.regenerate_portions_button = ttk.Button(actions,text='Refaire la sélection',command=self.regenerate_portions,style='Audio.TButton')
         self.regenerate_portions_button.pack(side='left',padx=6)
-        text_frame = ttk.Frame(frame)
-        text_frame.pack(fill='both',expand=True)
+        self.listen_attempt_button = ttk.Button(actions,text='Écouter le dernier essai',command=self.listen_attempt,style='Audio.TButton')
+        self.listen_attempt_button.pack(side='left')
+        self.portion_status = tk.StringVar(value='Le nouveau ton s’applique à la sélection lors de la reprise.')
+        self.portion_label = ttk.Label(controls,textvariable=self.portion_status,wraplength=650)
+        self.portion_label.pack(anchor='w',pady=(0,3))
         self.portion_text = self._text(text_frame)
         self.portion_text.configure(height=4)
 
@@ -300,7 +324,7 @@ class AdminPanel:
         self.detail_title.set(f'{row["rank"]}. {plan["title"]} · {row["variant"]}')
         self.detail_status.set(STATUS[row['status']]+' · '+row['reason']+
                                (f' · {row["seconds"]:.1f} s' if row['seconds'] else ''))
-        value = '\n\n'.join('['+EMOTIONS.get(s['emotion'],s['emotion'])+' · '+s['speaker']+']\n'+s['text'] for s in plan['spans'])
+        value = '\n\n'.join('['+EMOTIONS.get(s['emotion'],s['emotion'])+' · '+s['speaker']+']\n'+s['text'] for s in row['voice_spans'])
         if value != self.last_detail:
             self.put(self.detail,value)
             self.last_detail = value
@@ -309,13 +333,16 @@ class AdminPanel:
 
     def refresh_portions_and_history(self, row):
         plan = row['plan']
-        portion_signature = (plan['segment_id'],digest(plan['spans']))
+        portion_signature = (plan['segment_id'],digest(row['voice_spans']))
         if self.portion_segment != portion_signature:
+            selection = self.portion_tree.selection() if self.portion_segment and self.portion_segment[0]==plan['segment_id'] else ()
             self.portion_tree.delete(*self.portion_tree.get_children())
-            for number,span in enumerate(plan['spans'],1):
-                self.portion_tree.insert('','end',iid=str(number),values=(number,EMOTIONS.get(span['emotion'],span['emotion']),' '.join(span['text'].split())))
+            for number,span in enumerate(row['voice_spans'],1):
+                self.portion_tree.insert('','end',iid=str(number),values=(number,EMOTIONS.get(span['emotion'],span['emotion']),'En service'))
             self.portion_segment = portion_signature
+            self.portion_tree.selection_set(selection)
             self.show_portions()
+        self.refresh_portion_states(row)
         proof_path = receipt_path(plan['output_file'])
         proof = read_optional(proof_path)
         directory = self.root/'audio/experiments'/plan['book']/'cache/previous_versions'/proof.get('identity','missing')
@@ -329,6 +356,9 @@ class AdminPanel:
                 metadata = version['proof']
                 portions = metadata.get('regenerated_spans')
                 scope = 'Portion(s) '+', '.join(str(n+1) for n in portions) if portions else ('Segment entier' if metadata.get('regeneration_request') else 'Version initiale')
+                tones = metadata.get('tone_overrides',{})
+                if tones:
+                    scope += ' · '+', '.join(dict.fromkeys(EMOTIONS.get(t,t) for t in tones.values()))
                 self.history_tree.insert('','end',iid=key,values=(datetime.fromtimestamp(version['time']).strftime('%d/%m/%Y %H:%M'),scope,'Actuelle' if version['current'] else 'Conservée'))
             if self.take_rows:
                 self.history_tree.selection_set(selection[0] if selection and selection[0] in self.take_rows else next(iter(self.take_rows)))
@@ -337,9 +367,43 @@ class AdminPanel:
     def show_portions(self):
         row = self.selected()
         numbers = sorted(int(n) for n in self.portion_tree.selection())
+        selection = (row['plan']['segment_id'] if row else None,tuple(numbers))
+        if self.tone_selection != selection:
+            self.tone.set('Conserver le ton actuel')
+            self.tone_selection = selection
         text = '\n\n'.join(row['plan']['spans'][n-1]['text'] for n in numbers) if row else ''
         self.put(self.portion_text,text or 'Sélectionner la ou les portions à reprendre. Les autres resteront identiques.')
         self.update_buttons()
+
+    def refresh_portion_states(self, row):
+        record,intent = self.jobs.audio_record(self.selected_book(),row['automatic'],row['plan']['segment_id'])
+        selected = intent.get('spans') or list(range(1,len(row['plan']['spans'])+1))
+        parts = record.get('spans',[])
+        statuses = dict(generating='⌛ Production',checking='⌛ Vérification',kept='Conservée',generated='Prise produite',
+                        assembly_failed='⚠ Segment refusé',failed='⚠ Échec',ready='Validée',queued='… En attente',stopped='⏸ Interrompue')
+        for n in range(1,len(row['plan']['spans'])+1):
+            status = parts[n-1].get('status') if n<=len(parts) else None
+            if not status and intent and n in selected:
+                status = 'queued' if self.jobs.busy else ('assembly_failed' if record.get('status')=='failed' else None)
+            if status in ('generating','checking') and not self.jobs.busy:
+                status = 'failed' if self.jobs.snapshot().get('status')=='failed' else 'stopped'
+            if record.get('status')=='ready' and status:
+                status = 'ready'
+            self.portion_tree.set(str(n),'number',('⌛ ' if status in ('generating','checking') else '⚠ ' if status in ('failed','assembly_failed') else '')+str(n))
+            self.portion_tree.set(str(n),'state',statuses.get(status,'En service'))
+            self.portion_tree.item(str(n),tags=(status,) if status else ())
+        highlighted = any(set(self.portion_tree.item(key,'tags')) & {'generating','checking','failed','assembly_failed'} for key in self.portion_tree.selection())
+        ttk.Style().map('AdminPortions.Treeview',foreground=[('selected','#b00020' if highlighted else 'white')],
+                        background=[('selected','#ffe4dc' if highlighted else '#4a6984')])
+        if record.get('status')=='failed':
+            self.portion_status.set('⚠ Essai non publié ; version en service conservée. Le détail du refus est dans le journal et en bas du panneau.')
+            self.portion_label.configure(foreground='#b00020')
+        elif self.jobs.busy and intent:
+            self.portion_status.set('⌛ Contrôle du segment complet…' if record.get('stage')=='verification' else '⌛ Production en cours. La version en service reste conservée.')
+            self.portion_label.configure(foreground='#b00020')
+        else:
+            self.portion_status.set('Le ton choisi s’applique à la sélection lors de la reprise.')
+            self.portion_label.configure(foreground=self.owner.INK)
 
     def selected_take(self):
         selected = self.history_tree.selection()
@@ -356,6 +420,13 @@ class AdminPanel:
         portions = self.portion_tree.selection()
         self.listen_portion_button.configure(state='normal' if valid and not busy and len(portions)==1 else 'disabled')
         self.regenerate_portions_button.configure(state='normal' if valid and not busy and portions else 'disabled')
+        self.tone_combo.configure(state='readonly' if valid and not busy and portions else 'disabled')
+        record,intent = self.jobs.audio_record(book,row['automatic'],row['plan']['segment_id']) if row else ({},{})
+        selected_number = int(portions[0]) if len(portions)==1 else None
+        attempt = record.get('spans',[])
+        can_preview = (selected_number and selected_number<=len(attempt) and attempt[selected_number-1].get('component') and
+                       (not intent.get('spans') or selected_number in intent['spans']))
+        self.listen_attempt_button.configure(state='normal' if can_preview and not busy else 'disabled')
         take = self.selected_take()
         self.listen_take_button.configure(state='normal' if take and not busy else 'disabled')
         self.restore_button.configure(state='normal' if take and not take['current'] and valid and not busy else 'disabled')
@@ -396,7 +467,18 @@ class AdminPanel:
     def play_path(self, path):
         self.audio.audio_root = path.parent
         if not self.audio.play(path.stem,str(path)):
-            raise ValueError(self.audio.last_error or 'Audio indisponible.')
+            raise ValueError('Impossible de lire cet extrait. '+(self.audio.last_error or 'Le fichier est indisponible.'))
+
+    def listen_attempt(self):
+        row = self.selected()
+        selected = self.portion_tree.selection()
+        if row and len(selected)==1:
+            try:
+                number = int(selected[0])
+                record,_ = self.jobs.audio_record(self.selected_book(),row['automatic'],row['plan']['segment_id'])
+                self.play_path(self.inventory.portion_file(row['plan'],number,record['spans'][number-1]))
+            except (OSError,ValueError,KeyError,IndexError) as exc:
+                messagebox.showerror('Dernier essai',str(exc),parent=self.window)
 
     def listen_take(self):
         take = self.selected_take()
@@ -413,7 +495,7 @@ class AdminPanel:
         row = self.selected()
         if row and self.portion_tree.selection():
             self.audio_job(automatic=row['automatic'],segment_id=row['plan']['segment_id'],regenerate=True,
-                           spans=sorted(int(n) for n in self.portion_tree.selection()))
+                           spans=sorted(int(n) for n in self.portion_tree.selection()),emotion=self.tone_options[self.tone.get()])
 
     def restore_selected_take(self):
         row,take = self.selected(),self.selected_take()
@@ -569,6 +651,7 @@ class AdminPanel:
         state = self.jobs.snapshot()
         status = state.get('status')
         self.job_text.set((state.get('label','')+' · '+JOB_STATUS.get(status,status or '')+('\n'+state['error'] if state.get('error') else '')) if state else 'Aucune tâche en cours.')
+        self.job_label.configure(foreground='#b00020' if status in ('failed','interrupted') else self.owner.INK)
         self.stop_button.configure(state='normal' if self.jobs.busy else 'disabled')
         self.resume_button.configure(state='normal' if not self.jobs.busy and status in ('failed','stopped','interrupted') else 'disabled')
         log = self.jobs.log_tail()
@@ -584,6 +667,9 @@ class AdminPanel:
             self.last_refresh = time.monotonic()
             self.refresh_rows()
         self.update_buttons()
+        row = self.selected()
+        if row:
+            self.refresh_portion_states(row)
         self.poll_id = self.window.after(800,self.poll)
 
     def close(self):

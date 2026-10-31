@@ -6,6 +6,7 @@ from pathlib import Path
 from audio.speech_verification import compare_transcript
 from audio.tts_batch import atomic_json, digest, file_hash, read_wave, receipt_matches, receipt_path
 from audio.verification_evidence import validate_evidence
+from audio.take_tones import effective_spans, receipt_tones
 from engine.content import Content, ROOT
 from tools.generate_faithful_audio import assemble
 from tools.generate_story_audio import parser as generation_parser, plans_for_book
@@ -47,7 +48,9 @@ def audit(book_id, *, automatic=True, segment=None, report_dir=None):
                 compare_transcript(plan['spans'][0]['text'],intro['transcript'])
             assert len(proof['components']) == len(plan['spans']),'Portions manquantes.'
             parts,recipes = [],[]
-            for span,component in zip(plan['spans'],proof['components']):
+            palette = Content.read(ROOT/'audio/emotion_profiles.json')['profiles']
+            spans = effective_spans(plan,receipt_tones(plan,proof,palette),palette)
+            for span,component in zip(spans,proof['components']):
                 path = Path(component['file'])
                 recipe = Content.read(path.parent.parent/'recipe.json')
                 assert digest(recipe) == path.parent.parent.name,'Profil du cache corrompu.'
@@ -72,6 +75,12 @@ def audit(book_id, *, automatic=True, segment=None, report_dir=None):
             assert proof['profile'] == profile and receipt_matches(target,identity),'Identité texte/voix incohérente.'
             pcm = read_wave(target)
             assert pcm == assemble(parts,1000,plan['pause_ms']),'Assemblage différent des prises.'
+            check = proof['verification']
+            if check.get('method')=='full-and-choices' and check.get('head_check',{}).get('method')=='full-and-tail':
+                assert check['head_check'].get('tail_check',{}).get('review_verifier')=='Whisper Medium','Fin narrative non vérifiée indépendamment.'
+                assert check.get('head_tail_text')==plan['spans'][-2]['text'],'Fin narrative différente du balisage.'
+                length = len(parts[-2].frames)+pcm.sample_rate*2*plan['pause_ms']//1000
+                assert check.get('head_tail_frames')==length,'Découpage de fin narrative différent des prises.'
             assert content.books[book_id]['audio_lead_in_ms'] == 0,'Silence ajouté par le lecteur.'
             validate_evidence(plan['text'],proof['verification'],pcm,
                               tail_text=plan['spans'][-1]['text'],tail_pcm=parts[-1])
