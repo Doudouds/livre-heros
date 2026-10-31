@@ -138,9 +138,12 @@ def install(args):
         for name in ('sessions', 'tmp'):
             (staged / name).symlink_to(root / name, target_is_directory=True)
         print(f'Contrôle réel de la sortie USB : {device} (WAV silencieux)…', flush=True)
-        report = json.loads(subprocess.check_output(
+        checked = subprocess.run(
             ['sudo', '-u', user, '-g', 'audio', '/usr/bin/python3', '-m',
-             'tools.check_reader', '--audio-device', device], cwd=staged, text=True))
+             'tools.check_reader', '--audio-device', device], cwd=staged, text=True, capture_output=True)
+        if checked.returncode:
+            raise RuntimeError('Le contrôle audio a échoué :\n' + checked.stderr[-6000:])
+        report = json.loads(checked.stdout)
         release = root / 'releases' / args.sha256[:20]
         if not release.exists():
             staged.rename(release)

@@ -18,11 +18,13 @@ from main_remote import main
 
 
 class FakeMpv:
-    def __init__(self, connection):
+    def __init__(self, connection, startup_delay=0):
         self.channel = connection
         self.finished = False
         self.commands = []
-        self.properties = {'duration': 2, 'playback-time': 0.125, 'pause': False, 'volume': 70}
+        self.properties = {'duration': 2, 'playback-time': 0.125, 'pause': False, 'volume': 70,
+                           'mpv-version': 'mpv 0.40.0'}
+        self.startup_delay = startup_delay
         self.thread = threading.Thread(target=self.run, daemon=True)
         self.thread.start()
 
@@ -30,6 +32,7 @@ class FakeMpv:
         self.channel.sendall(json.dumps(message).encode() + b'\n')
 
     def run(self):
+        threading.Event().wait(self.startup_delay)
         buffer = b''
         try:
             while data := self.channel.recv(65536):
@@ -43,7 +46,10 @@ class FakeMpv:
                     if command[0] == 'loadfile':
                         self.send({'event': 'file-loaded'})
                     elif command[0] == 'get_property':
-                        reply['data'] = self.properties[command[1]]
+                        if command[1] in self.properties:
+                            reply['data'] = self.properties[command[1]]
+                        else:
+                            reply['error'] = 'property unavailable'
                     elif command[0] == 'set_property':
                         self.properties[command[1]] = command[2]
                     self.send(reply)
@@ -68,6 +74,8 @@ class LinuxAudioTests(unittest.TestCase):
     def setUp(self):
         self.player = LinuxWavePlayer('alsa/plughw:CARD=USB,DEV=0')
         self.processes = []
+        self.startup_delay = 0
+        self.startup_error = None
         original_pair = socket.socketpair
 
         def pair():
@@ -82,7 +90,11 @@ class LinuxAudioTests(unittest.TestCase):
             self.assertIn('--load-scripts=no', args)
             self.assertIn('--audio-device=alsa/plughw:CARD=USB,DEV=0', args)
             self.assertFalse(any('ipc-server' in arg for arg in args))
-            process = FakeMpv(self.child.dup())
+            process = FakeMpv(self.child.dup(), self.startup_delay)
+            if self.startup_error:
+                kwargs['stderr'].write(self.startup_error.encode())
+                kwargs['stderr'].flush()
+                process.properties.pop('mpv-version')
             self.processes.append(process)
             return process
 
@@ -104,7 +116,8 @@ class LinuxAudioTests(unittest.TestCase):
         self.assertTrue(self.player.set_volume(20))
         self.player.start(PurePosixPath('/tmp/une histoire.wav'))
         process = self.processes[-1]
-        self.assertEqual(process.commands[0], ['loadfile', '/tmp/une histoire.wav', 'replace'])
+        self.assertEqual(process.commands[:2], [['get_property', 'mpv-version'],
+                                             ['loadfile', '/tmp/une histoire.wav', 'replace']])
         self.assertEqual(self.player.mode(), 'playing')
         self.player.pause()
         self.assertEqual(self.player.mode(), 'paused')
@@ -154,6 +167,20 @@ class LinuxAudioTests(unittest.TestCase):
         for device in ('auto', 'null', 'alsa/default\nignored'):
             with self.assertRaises(ValueError):
                 LinuxWavePlayer(device)
+
+    def test_cold_start_longer_than_two_seconds_is_ready_before_loading_wav(self):
+        self.startup_delay = 2.2
+        self.player.start(PurePosixPath('/tmp/test.wav'))
+        self.assertEqual(self.player.mode(), 'playing')
+        self.assertEqual(self.processes[-1].commands[0], ['get_property', 'mpv-version'])
+
+    def test_startup_failure_keeps_mpv_diagnostic_and_closes_process_and_log(self):
+        self.startup_error = 'ALSA: device open failed'
+        with self.assertRaisesRegex(RuntimeError, 'ALSA: device open failed'):
+            self.player.start(PurePosixPath('/tmp/test.wav'))
+        self.assertIsNone(self.player.diagnostic)
+        self.assertIsNone(self.player.process)
+        self.assertTrue(self.processes[-1].finished)
 
 
 class DeploymentTests(unittest.TestCase):

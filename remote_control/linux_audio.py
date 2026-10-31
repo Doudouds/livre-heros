@@ -4,6 +4,7 @@ import select
 import shutil
 import socket
 import subprocess
+import tempfile
 import time
 
 
@@ -16,6 +17,7 @@ class LinuxWavePlayer:
         self.volume_supported = True
         self.opened = False
         self.process = self.channel = None
+        self.diagnostic = None
         self.buffer = b''
         self.request_id = 0
         self.status = 'stopped'
@@ -57,12 +59,12 @@ class LinuxWavePlayer:
         if self.error:
             raise RuntimeError(str(self.error))
 
-    def _command(self, *command):
+    def _command(self, *command, timeout=2):
         self.request_id += 1
         request_id = self.request_id
         self.channel.sendall(json.dumps({'command': command, 'request_id': request_id},
                                         ensure_ascii=False).encode() + b'\n')
-        deadline = time.monotonic() + 2
+        deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             message = self._message(deadline - time.monotonic())
             self._check()
@@ -70,7 +72,18 @@ class LinuxWavePlayer:
                 if message.get('error') != 'success':
                     raise RuntimeError(f"Commande audio refusée : {message.get('error')}")
                 return message.get('data')
-        raise RuntimeError('Le lecteur audio ne répond pas.')
+        raise RuntimeError(f'Le lecteur audio ne répond pas à {command[0]} après {timeout} secondes.')
+
+    def _failure_details(self, error):
+        details = ''
+        if self.diagnostic:
+            self.diagnostic.seek(0, 2)
+            length = self.diagnostic.tell()
+            self.diagnostic.seek(max(0, length - 3000))
+            details = self.diagnostic.read().decode('utf-8', errors='replace').strip()
+        code = self.process.poll() if self.process else None
+        return RuntimeError(f'{error}' + (f' (mpv : code {code})' if code is not None else '')
+                            + (f'\nDiagnostic mpv :\n{details}' if details else ''))
 
     def start(self, path):
         self.close()
@@ -83,25 +96,31 @@ class LinuxWavePlayer:
         self.path = path
         parent, child = socket.socketpair()
         try:
+            self.diagnostic = tempfile.TemporaryFile()
             # Le descripteur n'est accessible qu'au service et à son enfant mpv.
             # Aucune socket de commande n'est exposée sur le réseau/fichiers.
             self.process = subprocess.Popen([
                 executable, '--no-config', '--load-scripts=no', '--ytdl=no',
-                '--no-video', '--no-terminal', '--idle=yes', '--keep-open=no',
+                '--no-video', '--terminal=yes', '--msg-level=all=warn', '--idle=yes', '--keep-open=no',
                 '--input-terminal=no', '--input-default-bindings=no',
                 f'--input-ipc-client=fd://{child.fileno()}', f'--audio-device={self.device}',
                 f'--volume={self.volume}', '--volume-max=100',
             ], pass_fds=(child.fileno(),), stdin=subprocess.DEVNULL,
-                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                stdout=self.diagnostic, stderr=self.diagnostic)
             self.channel = parent
             parent.settimeout(2)
         except BaseException:
             parent.close()
+            self.close()
             raise
         finally:
             child.close()
         self.opened = True
         try:
+            # Sur un Zero 2 W à froid, le chargement de mpv et de ses bibliothèques
+            # peut dépasser les deux secondes des commandes ordinaires. Attendre
+            # sa disponibilité avant de demander le chargement du premier WAV.
+            self._command('get_property', 'mpv-version', timeout=8)
             self._command('loadfile', str(path), 'replace')
             deadline = time.monotonic() + 4
             while not self.loaded and time.monotonic() < deadline:
@@ -110,6 +129,10 @@ class LinuxWavePlayer:
             if not self.loaded:
                 raise RuntimeError('Le WAV n’a pas pu démarrer sur la sortie audio.')
             self.duration_ms = round(self._command('get_property', 'duration') * 1000)
+        except Exception as exc:
+            failure = self._failure_details(exc)
+            self.close()
+            raise failure from exc
         except BaseException:
             self.close()
             raise
@@ -167,3 +190,6 @@ class LinuxWavePlayer:
             self.process = None
         self.buffer = b''
         self.opened = False
+        if self.diagnostic:
+            self.diagnostic.close()
+            self.diagnostic = None

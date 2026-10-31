@@ -62,6 +62,13 @@ sur le réseau. Le volume est celui du lecteur, sans modifier le mixeur généra
 Une erreur de périphérique interrompt le passage ; elle ne compte pas comme
 une fin normale permettant d’avancer automatiquement.
 
+Au démarrage de mpv, le lecteur attend une réponse à son contrôle de version
+avant de charger le WAV. Cette initialisation dispose de huit secondes, car
+le premier chargement à froid sur Zero 2 W peut dépasser le délai de deux
+secondes utilisé pour les commandes ordinaires. En cas d’échec, les derniers
+messages de mpv sont conservés dans l’erreur et le rapport d’installation ;
+le diagnostic ne se limite pas au code de sortie du sous-processus Python.
+
 Pour lister les sorties sur le Pi :
 
 ```bash
@@ -119,6 +126,14 @@ Les tests Pi couvrent l’IPC réelle avec un faux processus mpv, les erreurs
 distinguées d’EOF, le choix ALSA stable, le confinement de l’unité, le contenu du
 paquet et le rejet de fichiers corrompus ou de chemins sortant du répertoire.
 Le diagnostic matériel s’exécute sur le Pi pendant l’installation.
+
+La première installation sur le Pi a passé le contrôle USB réel après ajout
+de l’attente de disponibilité de mpv : Pause/Reprise, volume, progression,
+rejeu et fin du WAV silencieux. Le service a ensuite répondu aux requêtes
+authentifiées du PC et à la découverte UDP par diffusion. Son catalogue
+annonce 21/21 WAV interactifs et 11/11 automatiques pour le Roi-grenouille.
+Cela ne remplace pas l’essai d’écoute sur l’enceinte ni le contrôle après un
+redémarrage physique.
 
 Références : [IPC et sorties audio mpv](https://mpv.io/manual/stable/),
 [audio Raspberry Pi OS](https://www.raspberrypi.com/documentation/computers/os.html#play-audio-and-video).
