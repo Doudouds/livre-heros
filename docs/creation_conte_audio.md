@@ -135,6 +135,13 @@ pas l'émotion. L'écoute humaine du premier passage reste la validation du ton.
 
 ## Lancer la production hors conversation
 
+Le [panneau administrateur PC](administration_contes.md), accessible depuis
+l'accueil ou `Administrer_Contes.cmd`, fournit le suivi des deux modes, l'écoute,
+la génération ciblée et les nouvelles prises avec conservation de la version
+actuelle jusqu'à validation. Son formulaire d'import confie à Codex un brouillon
+structuré en lecture seule, contrôlé puis intégré après relecture. Pour un
+conte importé, valider les deux premiers audios avant de lancer les lots complets.
+
 Depuis PowerShell, dans le projet :
 
 ```powershell

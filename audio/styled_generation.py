@@ -1,8 +1,11 @@
 """Production émotionnelle reprenable : prises, assemblage et publication atomique."""
 import copy
 import json
+import os
+import shutil
 from pathlib import Path
 import time
+import uuid
 
 from audio.speech_verification import IncompleteSpeech, compare_transcript
 from audio.tts_batch import (Batch, PCM, ModelLoadError, atomic_json, atomic_wave, batch_lock,
@@ -21,11 +24,13 @@ def load_optional(path):
 class StyledRun:
     def __init__(self, *, cache_dir, output_dir, report, voice_sha, model, environment,
                  threads, backend_factory, verifier_factory, verifier_identity,
-                 attempts=3, progress=print, recheck_only=False):
+                 attempts=3, progress=print, recheck_only=False, regenerate_ids=None, regeneration_id=None):
         self.cache_dir,self.output_dir,self.report = map(Path,(cache_dir,output_dir,report))
         self.voice_sha,self.model,self.environment = voice_sha,model,environment
         self.threads,self.attempts = threads,attempts
         self.recheck_only = recheck_only
+        self.regenerate_ids = set(regenerate_ids or [])
+        self.regeneration_id = regeneration_id
         self.backend_factory,self.verifier_factory = backend_factory,verifier_factory
         self.verifier_identity = verifier_identity
         self.policy = digest(verifier_identity)
@@ -186,7 +191,13 @@ class StyledRun:
         profile,identity = self.identity(base)
         target = Path(base['output_file'])
         existing = load_optional(receipt_path(target))
-        if receipt_matches(target,identity) and existing.get('verification',{}).get('passed') is True:
+        counter = self.cache_dir/'story_attempts'/(identity+'.json')
+        previous = load_optional(counter) or {}
+        forced = base['segment_id'] in self.regenerate_ids
+        requested = self.regeneration_id or (previous.get('regeneration_request') if previous.get('status') != 'ready' else None)
+        if forced and requested and existing and existing.get('regeneration_request') == requested:
+            forced = False
+        if not forced and receipt_matches(target,identity) and existing.get('verification',{}).get('passed') is True:
             pcm = read_wave(target)
             if pcm.frames[:pcm.sample_rate*2] != b'\0'*(pcm.sample_rate*2):
                 raise ValueError('Le fichier annoncé prêt ne contient pas la seconde de silence.')
@@ -221,11 +232,9 @@ class StyledRun:
                 self.save()
                 return
         # La présence du reçu seul ne vaut jamais preuve si la revalidation échoue.
-        if existing and existing.get('identity') == identity:
+        if not forced and existing and existing.get('identity') == identity:
             existing['verification'] = dict(passed=False,policy=self.policy,method='recheck-required')
             atomic_json(receipt_path(target),existing)
-        counter = self.cache_dir/'story_attempts'/(identity+'.json')
-        previous = load_optional(counter) or {}
         start_round = previous.get('round',0)
         old_records = {r['segment_id']:r for r in getattr(self,'previous_state',{}).get('segments',[])}
         if previous.get('policy') != self.policy:
@@ -236,9 +245,20 @@ class StyledRun:
                            or (existing or {}).get('span_rounds') or [start_round]*len(base['spans']))
         else:
             span_rounds = previous.get('span_rounds',[start_round]*len(base['spans']))
+        regeneration = {}
+        if forced:
+            requested = requested or uuid.uuid4().hex
+            continuing = previous.get('regeneration_request') == requested
+            if not continuing:
+                used = [start_round,(existing or {}).get('round',0),*(existing or {}).get('span_rounds',[])]
+                start_round = max(used)+1
+                span_rounds = [start_round]*len(base['spans'])
+            regeneration = dict(regeneration_request=requested)
+            record['regeneration_request'] = requested
+            self.progress('Nouvelle prise demandée ; la version actuelle reste disponible jusqu’à validation.')
         for round_number in range(start_round,start_round+self.attempts):
             # Un crash garde ce même numéro ; seul un refus ASR complet l'avance.
-            atomic_json(counter,dict(round=round_number,status='active',policy=self.policy,span_rounds=span_rounds))
+            atomic_json(counter,dict(round=round_number,status='active',policy=self.policy,span_rounds=span_rounds,**regeneration))
             record.update(status='generating',round=round_number,span_rounds=list(span_rounds),spans=copy.deepcopy(base['spans']))
             self.save()
             parts = []
@@ -281,7 +301,7 @@ class StyledRun:
                 for number in affected:
                     span_rounds[number] += 1
                 atomic_json(counter,dict(round=round_number+1,status='retry-required',
-                                         policy=self.policy,span_rounds=span_rounds))
+                                         policy=self.policy,span_rounds=span_rounds,**regeneration))
                 self.progress('  Nouvelle prise seulement pour la ou les portions '+
                               ', '.join(str(i+1) for i in affected)+'. Les autres sont conservées.')
                 continue
@@ -289,14 +309,26 @@ class StyledRun:
             if base['lead_in_ms'] != 1000 or pcm.frames[:pcm.sample_rate*2] != b'\0'*(pcm.sample_rate*2):
                 raise ValueError('La seconde de silence initial n’est pas conforme.')
             pending = Path(str(target)+'.pending.json')
+            if forced and existing and receipt_matches(target,identity):
+                archive = self.cache_dir/'previous_versions'/identity/(existing['sha256']+'.wav')
+                archive.parent.mkdir(parents=True,exist_ok=True)
+                temporary = Path(str(archive)+'.partial')
+                shutil.copyfile(target,temporary)
+                if file_hash(temporary) != existing['sha256']:
+                    raise ValueError('La version précédente a changé pendant son archivage.')
+                os.replace(temporary,archive)
+                atomic_json(receipt_path(archive),existing)
             atomic_json(pending,dict(identity=identity,profile=profile))
             atomic_wave(target,pcm)
             write_receipt(target,identity,pcm,profile=profile,segment_id=base['segment_id'],
                           text=base['text'],lead_in_ms=1000,verification=check,
-                          voice_sha256=self.voice_sha,round=round_number,span_rounds=list(span_rounds),
+                          voice_sha256=self.voice_sha,round=round_number,span_rounds=list(span_rounds),**regeneration,
                           components=[dict(file=s['component'],sha256=s['sha256'],emotion=s['emotion'],
                                            parameters=s['parameters']) for s in record['spans']])
             pending.unlink(missing_ok=True)
+            if forced:
+                atomic_json(counter,dict(round=round_number,status='ready',policy=self.policy,
+                                         span_rounds=span_rounds,**regeneration))
             record.update(status='ready',reused=False,sha256=file_hash(target),verification=check,
                           seconds=len(pcm.frames)/2/pcm.sample_rate)
             self.event(segment_id=base['segment_id'],status='ready',file=str(target))

@@ -1,5 +1,17 @@
 # Les Portes de l'Imaginaire
 
+## Administration sur PC
+
+**Administration des contes**, à l'accueil ou dans le menu **Outils**, affiche
+les audios prêts, à générer ou en échec dans les deux modes. On peut écouter un
+morceau, demander une nouvelle prise avec archivage de l'ancienne, compléter la
+génération et reprendre après un arrêt. `Administrer_Contes.cmd` ouvre ce panneau.
+
+L'onglet **Importer un conte** accepte titre, auteur et texte, puis prépare avec
+Codex un brouillon fidèle avec choix et tons. Après relecture et intégration,
+les premiers audios des deux modes sont validés avant la production complète.
+Voir le [guide du panneau administrateur](docs/administration_contes.md).
+
 ## Application Android
 
 Une **application Android native en Kotlin** contrôle le lecteur : bibliothèque,

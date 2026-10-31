@@ -32,6 +32,9 @@ class PcUI:
         self.last_choice_time = 0
         self.audio_poll = None
         self.audio_controls = None
+        self.admin_window = None
+        self.admin_jobs = None
+        self.admin_stopped_audio = False
         self.debug = tk.BooleanVar(value=debug)
         self.audio = LocalAudioPlayer(content.root, content.config["audio_root"],
                                       lead_in_ms=content.config.get("audio_lead_in_ms", 800))
@@ -64,6 +67,8 @@ class PcUI:
         tools.add_checkbutton(label="Mode debug", variable=self.debug, command=self.toggle_debug)
         tools.add_command(label="Enregistrer le journal…", command=self.save_session)
         tools.add_command(label="Rejouer un journal…", command=self.open_session)
+        tools.add_separator()
+        tools.add_command(label="Administration des contes…", command=self.open_admin)
         menu.add_cascade(label="Outils", menu=tools)
         root.config(menu=menu)
         root.protocol("WM_DELETE_WINDOW", self.close)
@@ -97,6 +102,7 @@ class PcUI:
         self.illustration_row = None
 
     def reset_reading(self):
+        self.admin_stopped_audio = False
         self.audio.stop()
         self.automatic_playback = False
         self.automatic_audio_started = False
@@ -138,6 +144,21 @@ class PcUI:
                 option = self.automatic_options.setdefault(book_id, tk.BooleanVar(value=False))
                 ttk.Checkbutton(frame, text='Écoute automatique · sans choix',
                                 variable=option).pack(anchor='w', pady=(6, 0))
+        ttk.Button(self.page,text='Administration des contes',command=self.open_admin,
+                   style='Audio.TButton').pack(anchor='e',pady=(4,0))
+
+    def open_admin(self):
+        if self.admin_window is not None and self.admin_window.window.winfo_exists():
+            self.admin_window.window.lift()
+            self.admin_window.window.focus_set()
+            return
+        if self.audio.state == 'playing':
+            self.pause_audio()
+        from engine.audio_admin import AdminJobs
+        from ui.admin_panel import AdminPanel
+        if self.admin_jobs is None:
+            self.admin_jobs = AdminJobs(self.content.root)
+        self.admin_window = AdminPanel(self,self.admin_jobs)
 
     def open_book(self, book_id):
         option = self.automatic_options.get(book_id)
@@ -235,12 +256,14 @@ class PcUI:
                 self.show_scene()
                 return
             self.automatic_done = True
-        available = state != "unavailable"
+        available = state != "unavailable" or getattr(self,'admin_stopped_audio',False)
         self.audio_buttons["play"].configure(state="normal" if (available or self.automatic_playback) and state != "playing" else "disabled")
         self.audio_buttons["pause"].configure(state="normal" if state == "playing" else "disabled")
         self.audio_buttons["replay"].configure(state="normal" if available else "disabled")
         self.audio_status.configure(text={"playing": "Lecture en cours", "paused": "En pause",
                                           "ready": "Prêt à écouter", "unavailable": "Audio indisponible"}[state])
+        if getattr(self,'admin_stopped_audio',False):
+            self.audio_status.configure(text='Prêt à écouter')
         if self.automatic_playback and state == 'unavailable':
             self.audio_status.configure(text='Audio indisponible · lecture suspendue')
         elif self.automatic_done:
@@ -249,7 +272,8 @@ class PcUI:
             self.audio_poll = self.root.after(250, self.update_audio_controls)
 
     def resume_audio(self):
-        if self.automatic_playback and self.audio.state == 'unavailable':
+        if getattr(self,'admin_stopped_audio',False) or (self.automatic_playback and self.audio.state == 'unavailable'):
+            self.admin_stopped_audio = False
             self.play_audio(*self.current_audio)
         else:
             if self.audio.resume() and self.automatic_playback:
@@ -262,12 +286,17 @@ class PcUI:
         self.update_audio_controls()
 
     def replay_audio(self):
+        if getattr(self,'admin_stopped_audio',False):
+            self.admin_stopped_audio = False
+            self.play_audio(*self.current_audio)
+            return
         if self.audio.replay() and self.automatic_playback:
             self.automatic_audio_started = True
             self.automatic_done = False
         self.update_audio_controls()
 
     def play_audio(self, segment_id, audio_file=None):
+        self.admin_stopped_audio = False
         lead_in = self.content.config.get("audio_lead_in_ms", 800)
         if isinstance(self.engine, BookEngine):
             lead_in = self.engine.book.get("audio_lead_in_ms", lead_in)
@@ -542,6 +571,12 @@ class PcUI:
                 messagebox.showerror("Journal incompatible", str(exc), parent=self.root)
 
     def close(self):
+        if getattr(self,'admin_jobs',None) is not None and self.admin_jobs.busy:
+            if not messagebox.askyesno('Tâche en cours','Quitter et interrompre la tâche ? Les prises validées et les brouillons seront conservés.',parent=self.root):
+                return
+            self.admin_jobs.stop()
+        if getattr(self,'admin_window',None) is not None:
+            self.admin_window.close()
         if self.audio_poll is not None:
             self.root.after_cancel(self.audio_poll)
             self.audio_poll = None

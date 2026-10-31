@@ -25,6 +25,7 @@ def parser():
     source = result.add_mutually_exclusive_group()
     source.add_argument('--all-segments',action='store_true',help='Tous les textes accessibles (comportement par défaut)')
     source.add_argument('--segment',type=int,help='Un passage sur le parcours --choice')
+    source.add_argument('--segment-id',help='Identifiant exact de la variante à produire')
     result.add_argument('--choice',type=int,choices=(1,2),default=1)
     result.add_argument('--limit',type=int,help='Limiter le nombre de fichiers à traiter, fichiers prêts compris')
     result.add_argument('--voice',type=Path,default=ROOT/'chatterbox/Recording.wav')
@@ -41,6 +42,8 @@ def parser():
     result.add_argument('--dry-run',action='store_true',help='Compiler et exporter le plan sans charger les modèles')
     result.add_argument('--recheck-only',action='store_true',
                         help='Réécouter les prises et fichiers en cache, sans jamais lancer de nouvelle synthèse')
+    result.add_argument('--regenerate',action='store_true',help='Nouvelle prise de la sélection ; conserver la version précédente')
+    result.add_argument('--regeneration-id',help='Identifiant de demande conservé pour reprendre une nouvelle prise')
     return result
 
 
@@ -77,7 +80,7 @@ def plan_current(engine, args, palette):
                 text=scene['spoken_text'],spans=spans,
                 output_file=str(args.output_dir/(scene['segment_id']+'.wav')),
                 lead_in_ms=1000,pause_ms=args.pause_ms,
-                palette_sha256=file_hash(ROOT/'audio/emotion_profiles.json'),
+                palette_sha256=file_hash(engine.content.root/'audio/emotion_profiles.json'),
                 palette_source=palette['approved_take'],chunk_chars=args.chunk_chars,seed=args.seed)
 
 
@@ -89,7 +92,15 @@ def plans_for_book(args, content=None):
         raise ValueError('Le mode automatique suit le choix 1 : --choice 2 est incompatible.')
     if first.book.get('audio_tagged_version') != 1:
         raise ValueError('Compiler le balisage vocal de ce conte avant sa génération.')
-    palette = Content.read(ROOT/'audio/emotion_profiles.json')
+    palette = Content.read(content.root/'audio/emotion_profiles.json')
+    selected_id = getattr(args,'segment_id',None)
+    if selected_id:
+        full_args = copy.copy(args)
+        full_args.segment_id = None
+        matches = [p for p in plans_for_book(full_args,content) if p['segment_id'] == selected_id]
+        if not matches:
+            raise ValueError('Variante audio inconnue pour ce conte et ce mode.')
+        return matches
     if args.segment is not None:
         if not 1 <= args.segment <= len(first.book['scenes']):
             raise ValueError('Numéro de passage hors du conte.')
@@ -147,6 +158,12 @@ def voice_snapshot(voice, cache_dir):
 def main(argv=None):
     args = parser().parse_args(argv)
     try:
+        if args.regenerate and not (args.segment_id or args.segment):
+            raise ValueError('--regenerate exige --segment-id ou --segment.')
+        if args.regenerate and args.recheck_only:
+            raise ValueError('Une nouvelle prise ne peut pas être demandée en réécoute seule.')
+        if args.regeneration_id and not args.regenerate:
+            raise ValueError('--regeneration-id exige --regenerate.')
         if not 1 <= args.threads <= 32 or not 1 <= args.attempts <= 10:
             raise ValueError('Threads : 1 à 32 ; tentatives : 1 à 10.')
         if not 80 <= args.chunk_chars <= 1000 or not 0 <= args.pause_ms <= 3000:
@@ -231,7 +248,9 @@ def main(argv=None):
                            backend_factory=backend_factory,
                            verifier_factory=verifier_factory,verifier_identity=asr_identity,
                            attempts=args.attempts,progress=lambda message:print(message,flush=True),
-                           recheck_only=args.recheck_only)
+                           recheck_only=args.recheck_only,
+                           regenerate_ids={p['segment_id'] for p in plans} if args.regenerate else set(),
+                           regeneration_id=args.regeneration_id)
         print('Ctrl+C interrompt. Relancer exactement la même commande reprend les prises validées.',flush=True)
         result = runner.run(plans)
         remaining = 'à compléter après réécoute' if args.recheck_only else 'en échec'

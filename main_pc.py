@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--pilot", action="store_true", help="Essayer La Maison aux Sept Cages, sans debug")
     parser.add_argument("--book", help="Ouvrir directement un livre ou conte fidèle, par son identifiant")
     parser.add_argument('--automatic', action='store_true', help='Écoute continue du livre, parcours du choix 1 sans annonces')
+    parser.add_argument('--admin',action='store_true',help='Ouvrir le panneau administrateur des contes')
     args = parser.parse_args()
     if args.automatic and not args.book:
         parser.error('--automatic nécessite --book IDENTIFIANT.')
@@ -27,9 +28,11 @@ def main():
         if args.book is not None and args.book not in content.books:
             raise ValueError("Livre ou conte inconnu : " + args.book)
         root = tk.Tk()
-        PcUI(root, content, debug=args.debug or args.seed is not None or args.arc is not None,
+        app = PcUI(root, content, debug=args.debug or args.seed is not None or args.arc is not None,
              seed=args.seed, arc=args.arc or ("cages" if args.pilot else None), book=args.book,
              automatic=args.automatic)
+        if args.admin:
+            root.after_idle(app.open_admin)
         root.mainloop()
     except (ImportError, OSError, ValueError, tk.TclError) as exc:
         print(f"Impossible de lancer l'application : {exc}", file=sys.stderr)
