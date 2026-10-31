@@ -15,6 +15,7 @@ from audio.tts_batch import atomic_json, batch_lock, digest, file_hash, read_wav
 from audio.take_history import HISTORY_LIMIT, list_takes
 from audio.take_tones import effective_spans, receipt_tones
 from engine.content import Content, ROOT
+from engine.task_log import read_task_log_tail
 from tools.generate_story_audio import parser, plans_for_book
 
 
@@ -418,9 +419,7 @@ class AdminJobs:
         if not path:
             return ''
         try:
-            with within(self.root,path).open('rb') as stream:
-                stream.seek(max(0,stream.seek(0,2)-limit))
-                raw = stream.read().decode('utf-8',errors='replace')
+            raw = read_task_log_tail(within(self.root,path),limit)
             lines = []
             for line in raw.splitlines():
                 try:

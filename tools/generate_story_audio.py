@@ -12,6 +12,7 @@ from audio.styled_generation import StyledRun
 from audio.tts_batch import atomic_json, digest, file_hash
 from engine.book_engine import BookEngine
 from engine.content import Content, ROOT
+from engine.task_log import configure_utf8_output
 from tools.compile_voice_tags import compile_tale
 from tools.generate_book_audio import future_flags
 from tools.generate_faithful_audio import normalize
@@ -159,6 +160,7 @@ def voice_snapshot(voice, cache_dir):
 
 
 def main(argv=None):
+    configure_utf8_output()
     args = parser().parse_args(argv)
     try:
         if args.regenerate and not (args.segment_id or args.segment):

@@ -15,6 +15,8 @@ ROOT = Path(__file__).resolve().parent
 
 
 if __name__ == '__main__':
+    from engine.task_log import configure_utf8_output
+    configure_utf8_output()
     runtime = ROOT/'.venv-tts/Scripts/python.exe'
     needs_runtime = not any(flag in sys.argv[1:] for flag in ('--dry-run','--help','-h'))
     if needs_runtime and Path(sys.executable).resolve() != runtime.resolve():

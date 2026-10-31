@@ -21,6 +21,9 @@ Sélectionner une ligne pour lire son texte, ses personnages et les tons choisis
 de son cache. **Compléter les deux versions** traite d'abord le jeu, puis
 l'écoute automatique, en conservant les fichiers déjà prêts. L'interface reste
 utilisable pendant les calculs ; le journal et l'état des lignes sont actualisés.
+Les processus Python écrivent leurs journaux en UTF-8, y compris lors d'un
+lancement redirigé hors du panneau. Les anciennes lignes Windows-1252 restent
+lisibles sans modifier les fichiers d'origine.
 L'écoute automatique suit le choix 1 et ne lit aucune annonce de choix.
 
 ## Demander une nouvelle prise
