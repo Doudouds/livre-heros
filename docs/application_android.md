@@ -17,8 +17,8 @@ Voir [l’installation autonome sur Raspberry Pi](installation_raspberry_pi.md).
    d’autoriser l’installation depuis le navigateur utilisé. Cette version de
    test est installée directement ; elle n’est pas publiée sur Google Play.
 4. Ouvrir **Les Portes de l’Imaginaire**, puis **Rechercher un lecteur sur le
-   Wi-Fi**. Toucher le PC ou le Raspberry Pi trouvé pour remplir son adresse,
-   puis saisir les huit chiffres du code. Si un lecteur est déjà associé,
+   Wi-Fi**. Toucher le Raspberry Pi pour ouvrir sa bibliothèque sans code.
+   Le PC demande les huit chiffres de sa console. Si un lecteur est déjà associé,
    passer par **Lecteur → Changer de lecteur** pour afficher cette recherche.
    La saisie manuelle d’une adresse comme `192.168.1.20:8765` et le collage du
    lien complet contenant `#connexion=…` restent possibles.
@@ -29,13 +29,13 @@ Voir [l’installation autonome sur Raspberry Pi](installation_raspberry_pi.md).
 L’APK peut aussi être copiée directement par USB depuis
 `dist/android/LesPortesImaginaire.apk`. Le téléchargement local ne contient
 aucun code de connexion et ne donne pas accès aux WAV, aux sauvegardes ou aux
-autres fichiers du projet. L’adresse et le code restent nécessaires dans l’app.
+autres fichiers du projet.
 
 Le bouton **Lecteur** permet de changer d’appareil sans arrêter l’histoire en
-cours. L’adresse et le jeton sont conservés dans les préférences privées de
-l’application, exclues des sauvegardes Android. Le code change à chaque
-redémarrage du lecteur ; l’app demande alors le nouveau code. Aucun compte,
-service cloud ou accès aux contacts n’est requis.
+cours. L’adresse et, si le lecteur en demande un, le jeton sont conservés dans
+les préférences privées de l’application, exclues des sauvegardes Android.
+Après un redémarrage du Pi, l’application se reconnecte sans code. Le PC exige
+son nouveau code. Aucun compte, service cloud ou accès aux contacts n’est requis.
 
 ## Recherche sur le réseau local
 
@@ -50,7 +50,7 @@ Ce protocole ciblé ne parcourt pas les adresses IP et ne recherche pas d’autr
 types d’appareils. Un identifiant aléatoire relie les réponses à la recherche
 en cours ; les résultats sont dédoublonnés. L’adresse du lecteur est celle du
 paquet reçu, et aucun code ni jeton n’est diffusé. La sélection d’un résultat
-ne déclenche pas de connexion ou de lecture : le code d’association reste requis.
+tente la connexion sans lancer de lecture.
 
 La recherche s’arrête à son échéance, lorsque l’application passe en arrière-plan
 ou lorsqu’une connexion commence. Elle ne bloque pas les commandes du lecteur

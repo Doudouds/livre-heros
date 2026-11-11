@@ -88,16 +88,16 @@ avec le compte SSH habituel et l’accès au groupe audio, pas en root. Les droi
 du service limitent les écritures à ses sauvegardes et à son cache de lecture.
 Fermer SSH ne l’arrête pas.
 
-Dans Android, toucher **Rechercher un lecteur sur le Wi-Fi**, choisir le nom du
-Pi, puis saisir le code affiché à la fin de l’installation. Le lecteur demande
-un nouveau code après chaque redémarrage du service. Le retrouver par SSH :
+Dans Android 1.2 ou plus récent, toucher **Rechercher un lecteur sur le Wi-Fi**
+et choisir le nom du Pi. La bibliothèque s’ouvre sans code, y compris après
+un redémarrage. On peut aussi ouvrir `http://ADRESSE_DU_PI:8765/` dans un
+navigateur ou saisir l’adresse du Pi dans l’application.
 
-```bash
-cat ~/.local/share/portes-imaginaire/sessions/remote/connection.json
-```
-
-Ce fichier privé contient le code courant, le port et le PID, jamais le jeton
-du client. Le code n’est pas envoyé dans les réponses de découverte.
+Pour mettre à jour un Pi déjà installé, relancer la procédure d’installation
+ci-dessus : elle conserve les sauvegardes et active l’accès sans code. Sur le
+téléphone, installer la nouvelle APK si l’ancienne demande encore un code.
+Les appareils du réseau local peuvent piloter le lecteur ; utiliser un réseau
+de confiance et laisser le port 8765 fermé aux connexions depuis Internet.
 
 ```bash
 sudo systemctl status portes-imaginaire.service

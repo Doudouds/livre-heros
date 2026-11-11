@@ -14,7 +14,7 @@ data class Endpoint(val base: String, val embeddedToken: String = "") {
     companion object {
         fun parse(input: String): Endpoint {
             val value = input.trim()
-            require(value.isNotEmpty()) { "Saisissez l’adresse du lecteur affichée sur le PC." }
+            require(value.isNotEmpty()) { "Saisissez l’adresse du lecteur sur le réseau local." }
             val uri = try { URI(if ("://" in value) value else "http://$value") }
             catch (_: Exception) { throw IllegalArgumentException("Adresse du lecteur incorrecte.") }
             val scheme = uri.scheme?.lowercase()
@@ -126,7 +126,7 @@ class RemoteApi(val endpoint: Endpoint, val token: String = "") {
         connection.readTimeout = 6000
         connection.instanceFollowRedirects = false
         connection.useCaches = false
-        if (authenticated) connection.setRequestProperty("X-Remote-Token", token)
+        if (authenticated && token.isNotEmpty()) connection.setRequestProperty("X-Remote-Token", token)
         connection.setRequestProperty("Accept", "application/json")
         try {
             if (payload != null) {

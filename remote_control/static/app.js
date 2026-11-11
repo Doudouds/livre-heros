@@ -30,7 +30,7 @@ async function api(path, payload, authenticate = true) {
   try {
     const response = await fetch(path, {
       method: payload === undefined ? 'GET' : 'POST',
-      headers: { ...(authenticate ? { 'X-Remote-Token': token } : {}), ...(payload === undefined ? {} : { 'Content-Type': 'application/json' }) },
+      headers: { ...(authenticate && token ? { 'X-Remote-Token': token } : {}), ...(payload === undefined ? {} : { 'Content-Type': 'application/json' }) },
       body: payload === undefined ? undefined : JSON.stringify(payload),
       signal: abort.signal, cache: 'no-store', credentials: 'omit'
     });
@@ -215,20 +215,23 @@ async function command(action, extra = {}) {
 }
 
 async function refresh() {
-  if (!token) { $('login').hidden = false; connection(false, 'Connexion requise'); return; }
+  const requestToken = token;
   try {
     const next = await api('/api/state');
     if (!library) { library = await api('/api/library'); renderLibrary(); }
+    if (!$('login').hidden) notice();
     $('login').hidden = true; $('app').hidden = false;
-    connection(true, 'Connecté au PC');
+    connection(true, 'Connecté au lecteur');
     renderState(next);
   } catch (error) {
     if (error.status === 401) {
+      if (requestToken !== token) return;
+      const showPrompt = $('login').hidden;
       token = ''; try { localStorage.removeItem(storageKey); } catch (_) { /* Rien à effacer. */ }
       state = null; library = null; lastRendered = -1;
       $('login').hidden = false; $('app').hidden = true;
       connection(false, 'Connexion requise');
-      notice('Saisissez le code du lancement actuel affiché sur le PC.');
+      if (showPrompt) notice('Saisissez le code du lancement actuel affiché sur le PC.');
     } else connection(false, 'Lecteur déconnecté · nouvel essai…');
   }
 }

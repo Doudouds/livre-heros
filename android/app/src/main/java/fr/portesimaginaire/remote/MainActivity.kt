@@ -162,29 +162,28 @@ class MainActivity : Activity() {
             setSingleLine(true); contentDescription = "Adresse du lecteur"; textSize = 16f
         }
         card.addView(address, matchWrap())
-        space(card, 20)
-        card.addView(text("Code affiché sur le PC", 13, bold = true))
-        val code = EditText(this).apply {
-            hint = "1234 5678"; inputType = InputType.TYPE_CLASS_NUMBER; setSingleLine(true)
-            contentDescription = "Code à huit chiffres"; textSize = 20f; letterSpacing = .15f; isSaveEnabled = false
-        }
-        card.addView(code, matchWrap())
+        val code = if (coordinator.codeRequired) {
+            space(card, 20)
+            card.addView(text("Code affiché dans la console du lecteur", 13, bold = true))
+            EditText(this).apply {
+                hint = "1234 5678"; inputType = InputType.TYPE_CLASS_NUMBER; setSingleLine(true)
+                contentDescription = "Code à huit chiffres"; textSize = 20f; letterSpacing = .15f; isSaveEnabled = false
+            }.also { card.addView(it, matchWrap()) }
+        } else null
         selectDiscoveredReader = { reader ->
             address.setText(reader.endpoint.base)
-            code.requestFocus()
-            scroll.post { scroll.smoothScrollTo(0, card.top + code.top - dp(20)) }
+            code?.text?.clear()
+            coordinator.connect(reader.endpoint.base, "")
         }
         space(card, 20)
         val connect = button("Se connecter au lecteur  →") {
-            (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(code.windowToken, 0)
-            coordinator.connect(address.text.toString(), code.text.toString())
+            (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).hideSoftInputFromWindow(address.windowToken, 0)
+            coordinator.connect(address.text.toString(), code?.text?.toString().orEmpty())
         }
         card.addView(connect, LinearLayout.LayoutParams(-1, dp(52)))
         controls.add(connect to { true })
         space(body, 22)
-        body.addView(text("Sur le PC, lancez Telecommande_Telephone.cmd. Les deux appareils doivent partager le même Wi-Fi. Le son est joué par le PC.", 13, muted))
-        space(body, 12)
-        body.addView(text("Vous pouvez aussi coller le lien complet affiché par le lecteur : le code ne sera alors pas nécessaire.", 12, muted))
+        body.addView(text("Le téléphone et le lecteur doivent partager le même Wi-Fi. Sélectionnez votre Raspberry Pi pour vous connecter sans code. Le son est joué par le lecteur.", 13, muted))
     }
 
     private fun updateDiscovery() {

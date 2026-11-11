@@ -81,7 +81,7 @@ User={user}
 SupplementaryGroups=audio
 WorkingDirectory={root}/current
 Environment=PYTHONDONTWRITEBYTECODE=1
-ExecStart=/usr/bin/python3 -u {root}/current/main_remote.py --port {port} --audio-device {device} --connection-file {root}/sessions/remote/connection.json
+ExecStart=/usr/bin/python3 -u {root}/current/main_remote.py --port {port} --audio-device {device} --no-code
 Restart=on-failure
 RestartSec=3
 TimeoutStopSec=10
@@ -156,20 +156,20 @@ def install(args):
         run('sudo', 'systemctl', 'daemon-reload')
         run('sudo', 'systemctl', 'enable', SERVICE)
         run('sudo', 'systemctl', 'restart', SERVICE)
-    connection = root / 'sessions/remote/connection.json'
     deadline = time.monotonic() + 20
     while time.monotonic() < deadline:
         try:
-            data = json.loads(connection.read_text())
-            with urllib.request.urlopen(f'http://127.0.0.1:{args.port}/', timeout=2) as response:
-                if response.status == 200:
-                    report.update(hostname=platform.node(), port=args.port, code=data['code'],
+            with urllib.request.urlopen(f'http://127.0.0.1:{args.port}/api/state', timeout=2) as response:
+                state = json.load(response)
+                if response.status == 200 and isinstance(state, dict) and 'revision' in state:
+                    report.update(hostname=platform.node(), port=args.port,
                                   status='installed', root=str(root))
-                    print(f"\nLecteur actif. Code Android : {data['code'][:4]} {data['code'][4:]}", flush=True)
+                    print('\nLecteur actif. Dans Android, sélectionnez-le sur le Wi-Fi : aucun code requis.', flush=True)
                     print(f'Service : sudo systemctl status {SERVICE}', flush=True)
                     return report
         except (OSError, ValueError):
-            time.sleep(0.25)
+            pass
+        time.sleep(0.25)
     raise RuntimeError(f'Le service ne répond pas. Consulter : sudo journalctl -u {SERVICE} -n 40')
 
 

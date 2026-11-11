@@ -23,7 +23,9 @@ def parser():
     result.add_argument('--no-restore', action='store_true', help='Commencer sans reprendre la dernière session')
     result.add_argument('--no-discovery', action='store_true', help='Désactiver la découverte locale depuis Android')
     result.add_argument('--audio-device', default='alsa/default', help='Sortie Linux mpv, par exemple alsa/plughw:CARD=Device,DEV=0')
-    result.add_argument('--connection-file', type=Path, help='Fichier privé contenant le code courant (service Raspberry Pi)')
+    pairing = result.add_mutually_exclusive_group()
+    pairing.add_argument('--no-code', action='store_true', help='Autoriser la télécommande sans code depuis les adresses locales')
+    pairing.add_argument('--connection-file', type=Path, help='Fichier privé contenant le code courant')
     return result
 
 
@@ -46,7 +48,7 @@ def main(argv=None):
         service = PlaybackService(lambda: PlaybackController(
             content, audio=RemoteAudioPlayer(content.root, content.config['audio_root'], device=args.audio_device),
             session_path=session, restore=not args.no_restore))
-        server = RemoteServer((args.host, args.port), service)
+        server = RemoteServer((args.host, args.port), service, no_code=args.no_code)
         if args.connection_file:
             args.connection_file.parent.mkdir(parents=True, exist_ok=True)
             temporary = args.connection_file.with_suffix('.partial')
@@ -66,19 +68,23 @@ def main(argv=None):
         if discovery:
             print('Dans l’application Android : Rechercher un lecteur, puis sélectionner cet appareil.', flush=True)
         addresses = local_addresses() if args.host == '0.0.0.0' else [args.host]
+        fragment = '' if args.no_code or args.connection_file else f'#connexion={server.token}'
         for address in addresses:
             label = 'Sur ce PC ' if address == '127.0.0.1' else 'Téléphone '
-            fragment = '' if args.connection_file else f'#connexion={server.token}'
             print(f'{label}: http://{address}:{server.server_port}/{fragment}', flush=True)
             if address != '127.0.0.1':
                 print(f'Application Android : http://{address}:{server.server_port}/android', flush=True)
-        print('\nOuvre le lien Téléphone ou saisis le code dans la page de connexion.', flush=True)
-        print(f'Code : {server.pair_code[:4]} {server.pair_code[4:]}', flush=True)
+        if args.no_code:
+            print('\nAccès sans code depuis le réseau local.', flush=True)
+        else:
+            print('\nOuvre le lien Téléphone ou saisis le code dans la page de connexion.', flush=True)
+            print(f'Code : {server.pair_code[:4]} {server.pair_code[4:]}', flush=True)
         if sys.platform == 'win32':
             print('Autorise Python sur le réseau privé si Windows le demande.', flush=True)
         print('Ctrl+C arrête le service et le son.\n', flush=True)
         if args.open:
-            webbrowser.open(f'http://127.0.0.1:{server.server_port}/#connexion={server.token}')
+            open_fragment = '' if args.no_code else f'#connexion={server.token}'
+            webbrowser.open(f'http://127.0.0.1:{server.server_port}/{open_fragment}')
         server.serve_forever(poll_interval=0.2)
     except KeyboardInterrupt:
         print('\nTélécommande arrêtée.', flush=True)

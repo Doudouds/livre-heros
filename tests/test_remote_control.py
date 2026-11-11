@@ -293,9 +293,10 @@ class RemoteHTTPTests(PlaybackFixture):
         self.service.close()
         super().tearDown()
 
-    def request(self, path, payload=None, *, token=True, headers=None, raw=None):
-        connection = http.client.HTTPConnection('127.0.0.1', self.server.server_port, timeout=5)
-        fields = {'X-Remote-Token': self.server.token} if token else {}
+    def request(self, path, payload=None, *, token=True, headers=None, raw=None, server=None):
+        server = server or self.server
+        connection = http.client.HTTPConnection('127.0.0.1', server.server_port, timeout=5)
+        fields = {'X-Remote-Token': server.token} if token else {}
         if payload is not None or raw is not None:
             fields['Content-Type'] = 'application/json'
         fields.update(headers or {})
@@ -314,6 +315,36 @@ class RemoteHTTPTests(PlaybackFixture):
         status, _, data = self.request('/api/connect', {'code': self.server.pair_code}, token=False)
         self.assertEqual(status, 200)
         self.assertEqual(json.loads(data)['token'], self.server.token)
+
+    def test_local_mode_controls_playback_without_pairing_but_checks_peer_host_and_origin(self):
+        with RemoteServer(('127.0.0.1', 0), self.service, no_code=True) as local:
+            real_accept = local.get_request
+            thread = threading.Thread(target=local.serve_forever, kwargs={'poll_interval': 0.01})
+            thread.start()
+            try:
+                def request(path, payload=None, **kwargs):
+                    return self.request(path, payload, token=False, server=local, **kwargs)[0]
+
+                self.assertIsNone(local.pair_code)
+                self.assertIsNone(local.token)
+                self.assertEqual(request('/api/connect', {}), 404)
+                self.assertEqual(request('/api/library'), 200)
+                self.assertEqual(request('/api/state', headers={'X-Remote-Token': 'old'}), 200)
+                command = {'action': 'start', 'kind': 'book', 'id': 'roi_grenouille', 'revision': 0}
+                self.assertEqual(request('/api/command', command, headers={'Origin': 'https://example.com'}), 403)
+                self.assertEqual(request('/api/command', command, headers={'Host': 'unrelated.example'}), 403)
+
+                def public_peer():
+                    connection, (_, port) = real_accept()
+                    return connection, ('203.0.113.12', port)
+
+                with patch.object(local, 'get_request', side_effect=public_peer):
+                    self.assertEqual(request('/api/command', command, headers={'X-Forwarded-For': '127.0.0.1'}), 403)
+                self.assertFalse(self.controller.engine)
+                self.assertEqual(request('/api/command', command), 200)
+            finally:
+                local.shutdown()
+                thread.join(timeout=2)
 
     def test_http_second_launcher_cannot_share_the_same_port(self):
         with self.assertRaises(OSError):

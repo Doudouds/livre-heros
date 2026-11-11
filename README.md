@@ -21,9 +21,10 @@ héberge le service.
 
 Lancer **Telecommande_Telephone.cmd**, puis ouvrir sur le téléphone le lien
 **Application Android** affiché dans la console pour télécharger l’APK. Après
-installation, utiliser **Rechercher un lecteur sur le Wi-Fi**, sélectionner
-le PC et saisir son code à huit chiffres. Les deux appareils doivent partager
-le même réseau local. La saisie manuelle de l’adresse reste disponible.
+installation, utiliser **Rechercher un lecteur sur le Wi-Fi** et sélectionner
+son lecteur. Le Raspberry Pi se connecte sans code ; le lanceur PC demande
+ses huit chiffres. Les appareils doivent partager le même réseau local.
+La saisie manuelle de l’adresse reste disponible.
 
 L’APK est produite dans `dist/android/LesPortesImaginaire.apk`, hors de Git.
 **Compiler_Application_Android.cmd** la reconstruit avec Android Studio/son SDK,

@@ -30,7 +30,7 @@ class ReaderDeviceTest {
         val args = InstrumentationRegistry.getArguments()
         val address = args.getString("readerAddress").orEmpty()
         val code = args.getString("readerCode").orEmpty()
-        assumeTrue("Fournir un lecteur de test et son code temporaire.", address.isNotEmpty() && code.length == 8)
+        assumeTrue("Fournir un lecteur de test, avec son code s’il en demande un.", address.isNotEmpty())
         val instrumentation = InstrumentationRegistry.getInstrumentation()
         lateinit var model: RemoteCoordinator
         fun main(block: () -> Unit) = instrumentation.runOnMainSync(block)

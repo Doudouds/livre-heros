@@ -31,7 +31,8 @@ service, il demandera le nouveau code. Aucun code ni jeton n’est enregistré d
 le dépôt ou dans la sauvegarde de lecture.
 
 Dans l’application Android 1.1, **Rechercher un lecteur sur le Wi-Fi** affiche
-les lecteurs lancés sur ce réseau et remplit l’adresse en touchant un résultat.
+les lecteurs lancés sur ce réseau. À partir de la version 1.2, toucher un
+résultat tente directement la connexion.
 Le lanceur PC répond aux demandes de découverte sur le port UDP 18766. Cette
 fonction ne change pas le fonctionnement de la télécommande web et ne diffuse
 jamais le code d’association. `--no-discovery` permet de la désactiver.
@@ -106,7 +107,9 @@ Cette interface web locale reste disponible en complément de
 permet de télécharger l’APK préparée sur ce lecteur.
 Le [déploiement sur Raspberry Pi](installation_raspberry_pi.md) utilise le même
 service avec mpv/ALSA : volume, progression et démarrage automatique sont pris
-en charge sous Linux. Le point d’accès Wi-Fi autonome reste une étape ultérieure.
+en charge sous Linux. Le Pi est configuré avec `--no-code` : le navigateur et
+l’application Android se connectent directement depuis le réseau local. Le
+point d’accès Wi-Fi autonome reste une étape ultérieure.
 
 ## Architecture et vérifications
 

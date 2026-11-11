@@ -23,6 +23,14 @@ ASSETS = {'/': ('index.html', 'text/html; charset=utf-8'),
           '/app.js': ('app.js', 'text/javascript; charset=utf-8'),
           '/style.css': ('style.css', 'text/css; charset=utf-8'),
           '/icon.svg': ('icon.svg', 'image/svg+xml')}
+LOCAL_NETWORKS = tuple(map(ipaddress.IPv4Network, (
+    '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', '169.254.0.0/16', '127.0.0.0/8',
+)))
+
+
+def is_local_peer(address):
+    peer = ipaddress.IPv4Address(address)
+    return any(peer in network for network in LOCAL_NETWORKS)
 
 
 def local_addresses():
@@ -55,11 +63,12 @@ class RemoteServer(ThreadingHTTPServer):
             self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_EXCLUSIVEADDRUSE, 1)
         super().server_bind()
 
-    def __init__(self, address, service, *, token=None):
+    def __init__(self, address, service, *, token=None, no_code=False):
         super().__init__(address, RemoteHandler)
         self.service = service
-        self.token = token or secrets.token_urlsafe(24)
-        self.pair_code = f'{secrets.randbelow(100000000):08d}'
+        self.no_code = no_code
+        self.token = None if no_code else token or secrets.token_urlsafe(24)
+        self.pair_code = None if no_code else f'{secrets.randbelow(100000000):08d}'
         self.pair_attempts = {}
         self.pair_lock = threading.Lock()
         names = {'localhost', socket.gethostname().lower(), socket.getfqdn().lower(), *local_addresses()}
@@ -99,6 +108,9 @@ class RemoteHandler(BaseHTTPRequestHandler):
             pass
 
     def valid_host(self):
+        if self.server.no_code and not is_local_peer(self.client_address[0]):
+            self.send(403, {'error': 'Ce lecteur est réservé au réseau local.'})
+            return False
         host = self.headers.get('Host', '').lower()
         # Une adresse découverte après un changement de Wi-Fi/DHCP reste valide
         # si elle correspond réellement à l'interface qui a reçu cette connexion.
@@ -113,6 +125,8 @@ class RemoteHandler(BaseHTTPRequestHandler):
         return True
 
     def authorized(self):
+        if self.server.no_code:
+            return True
         candidate = self.headers.get('X-Remote-Token', '')
         if not hmac.compare_digest(candidate.encode(), self.server.token.encode()):
             self.send(401, {'error': 'Utilise le code de connexion du lecteur.'})
@@ -142,7 +156,7 @@ class RemoteHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         if not self.valid_host():
             return
-        if self.path not in ('/api/command', '/api/connect'):
+        if self.path != '/api/command' and (self.path != '/api/connect' or self.server.no_code):
             self.send(404, {'error': 'Commande introuvable.'})
             return
         if self.path == '/api/command' and not self.authorized():

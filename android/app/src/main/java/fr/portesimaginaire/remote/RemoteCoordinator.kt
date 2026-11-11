@@ -33,6 +33,8 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
     var state: Snapshot? = null
         private set
     val needsConnection: Boolean get() = api == null
+    var codeRequired = false
+        private set
     var findingReaders = false
         private set
     var foundReaders: List<DiscoveredReader> = emptyList()
@@ -41,8 +43,8 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
         private set
 
     init {
-        val token = preferences.getString("token", "").orEmpty()
-        if (address.isNotEmpty() && token.isNotEmpty()) {
+        val token = preferences.getString("token", null)
+        if (address.isNotEmpty() && token != null) {
             api = runCatching { RemoteApi(Endpoint.parse(address), token) }.getOrNull()
         }
     }
@@ -115,15 +117,19 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
         val endpoint = try { Endpoint.parse(input) } catch (error: IllegalArgumentException) {
             message = error.message.orEmpty(); changed(false); return
         }
+        address = endpoint.base
         cancelDiscovery()
         busy = true; message = ""; changed(false)
         submit(block = {
-            val token = endpoint.embeddedToken.ifEmpty { RemoteApi(endpoint).connect(code) }
+            val token = endpoint.embeddedToken.ifEmpty {
+                if (code.isBlank()) "" else RemoteApi(endpoint).connect(code)
+            }
             val client = RemoteApi(Endpoint(endpoint.base), token)
             Triple(client, client.state(), client.library())
         }) { (client, snapshot, catalog) ->
             api = client
             address = client.endpoint.base
+            codeRequired = false
             preferences.edit().putString("address", address).putString("token", client.token).apply()
             state = snapshot; library = catalog; connected = true; message = snapshot.error
             changed(true)
@@ -136,6 +142,7 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
         epoch++
         main.removeCallbacks(poll)
         api = null; state = null; library = null; connected = false; busy = false; polling = false; message = ""
+        codeRequired = false
         preferences.edit().remove("token").apply()
         changed(true)
     }
@@ -176,11 +183,13 @@ class RemoteCoordinator(context: Context, private val changed: (Boolean) -> Unit
     }
 
     private fun failure(error: Throwable) {
-        if (error is ApiException && error.status == 401 && api != null) {
-            preferences.edit().remove("token").apply()
+        if (error is ApiException && error.status == 401) {
+            val showCode = api != null || !codeRequired
+            if (api != null) preferences.edit().remove("token").apply()
             api = null; state = null; library = null; connected = false
-            message = "Le lecteur a redémarré. Saisissez le nouveau code affiché sur le PC."
-            changed(true)
+            codeRequired = true
+            message = if (showCode) "Ce lecteur demande le code affiché dans sa console." else error.message.orEmpty()
+            changed(showCode)
         } else {
             if (error is ApiException) message = error.message.orEmpty()
             else if (error is IllegalArgumentException) message = error.message.orEmpty()

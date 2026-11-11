@@ -242,7 +242,8 @@ class DeploymentTests(unittest.TestCase):
         self.assertIn('SupplementaryGroups=audio', unit)
         self.assertIn('ProtectHome=read-only', unit)
         self.assertIn('WantedBy=multi-user.target', unit)
-        self.assertIn('--connection-file ', unit)
+        self.assertIn('--no-code', unit)
+        self.assertNotIn('--connection-file', unit)
         with self.assertRaises(ValueError):
             service_text(PurePosixPath('/home/name with space'), 'user', 'alsa/default', 8765)
 
