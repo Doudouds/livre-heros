@@ -52,7 +52,7 @@ class MainActivity : Activity() {
         root = column().apply { setBackgroundColor(paper) }
         val header = row().apply { setPadding(dp(20), dp(12), dp(16), dp(12)); gravity = Gravity.CENTER_VERTICAL }
         val icon = ImageView(this).apply {
-            setImageResource(R.drawable.ic_portal); background = rounded(green, 12)
+            setImageResource(R.drawable.story_logo)
             importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
         }
         header.addView(icon, LinearLayout.LayoutParams(dp(38), dp(38)))
