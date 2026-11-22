@@ -14,7 +14,7 @@ from audio.speech_verification import compare_transcript
 from audio.tts_batch import atomic_json, atomic_wave, file_hash, PCM, read_wave, receipt_path
 from audio.voice_markup import render_markup
 from audio.take_history import archive_take, list_takes, read_take, take_key
-from engine.audio_admin import AdminJobs, AudioInventory
+from engine.audio_admin import AdminJobs, AudioInventory, audio_job_progress
 from engine.content import Content, ROOT
 from engine.story_import import StoryImports
 from tests.test_story_audio import fake_plan, runner, Verifier
@@ -368,6 +368,19 @@ class ImportTests(unittest.TestCase):
 
 
 class JobTests(unittest.TestCase):
+    def test_audio_progress_counts_completed_files_across_modes(self):
+        state = dict(status='running',command_index=0,intent={'kind':'audio'},commands=[
+            {'progress_total':3},{'progress_total':2}])
+        progress = audio_job_progress(state,'--- audio 1/2 ---\nSegment 2/3 | Suite')
+        self.assertEqual((progress['percent'],progress['completed'],progress['total']),(20,1,5))
+        self.assertEqual(progress['current'],'Segment 2/3 en cours')
+        state['command_index']=1
+        progress = audio_job_progress(state,'--- audio 2/2 ---\nSegment 1/2 | Début')
+        self.assertEqual((progress['percent'],progress['completed'],progress['total']),(60,3,5))
+        state['status']='succeeded'
+        progress = audio_job_progress(state,'')
+        self.assertEqual((progress['percent'],progress['completed'],progress['total']),(100,5,5))
+
     def test_partial_job_builds_exact_portion_command_and_rejects_invalid_selection(self):
         inventory = AudioInventory()
         row = inventory.rows('roi_grenouille')[0]
@@ -443,6 +456,8 @@ class AdminUITests(unittest.TestCase):
                 app.open_admin()
                 panel = app.admin_window
                 panel.window.withdraw()
+                panel.book_combo.current(panel.book_ids.index('roi_grenouille'))
+                panel.refresh_rows()
                 root.update()
                 self.assertEqual(len(panel.tree.get_children()),21)
                 self.assertTrue(all(r['status']=='ready' for r in panel.rows_by_id.values()))

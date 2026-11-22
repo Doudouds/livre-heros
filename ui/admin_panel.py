@@ -8,7 +8,8 @@ from datetime import datetime
 from tkinter import filedialog, messagebox, ttk
 
 from audio.audio_player import LocalAudioPlayer
-from engine.audio_admin import AudioInventory, AdminJobs, codex_executable, hidden_process_options, read_optional, within
+from engine.audio_admin import (AudioInventory, AdminJobs, audio_job_progress, codex_executable,
+                                hidden_process_options, read_optional, within)
 from audio.tts_batch import digest, file_hash, receipt_matches, receipt_path
 from engine.content import Content
 from engine.story_import import StoryImports
@@ -64,8 +65,12 @@ class AdminPanel:
         footer = ttk.Frame(outer)
         footer.pack(side='bottom',fill='x',pady=(10,0),before=self.tabs)
         self.job_text = tk.StringVar(value='Aucune tâche en cours.')
-        self.job_label = ttk.Label(footer,textvariable=self.job_text,wraplength=850)
-        self.job_label.pack(side='left',fill='x',expand=True)
+        job_info = ttk.Frame(footer)
+        job_info.pack(side='left',fill='x',expand=True)
+        self.job_label = ttk.Label(job_info,textvariable=self.job_text,wraplength=850)
+        self.job_label.pack(side='top',anchor='w',fill='x',expand=True)
+        self.progress_bar = ttk.Progressbar(job_info,orient='horizontal',mode='determinate',maximum=100)
+        self.progress_bar.pack(side='bottom',fill='x',pady=(3,0))
         self.stop_button = ttk.Button(footer,text='Arrêter la tâche',command=self.jobs.stop,style='Audio.TButton')
         self.stop_button.pack(side='right')
         self.resume_button = ttk.Button(footer,text='Reprendre',command=self.resume,style='Audio.TButton')
@@ -680,11 +685,22 @@ class AdminPanel:
             del self.connection_result
         state = self.jobs.snapshot()
         status = state.get('status')
-        self.job_text.set((state.get('label','')+' · '+JOB_STATUS.get(status,status or '')+('\n'+state['error'] if state.get('error') else '')) if state else 'Aucune tâche en cours.')
+        log = self.jobs.log_tail()
+        progress = audio_job_progress(state,log) if state else None
+        message = (state.get('label','')+' · '+JOB_STATUS.get(status,status or '')) if state else 'Aucune tâche en cours.'
+        if progress:
+            message += f" · {progress['percent']} % · {progress['completed']}/{progress['total']} fichiers traités"
+            if progress['current']:
+                message += ' · '+progress['current']
+            self.progress_bar.configure(value=progress['percent'])
+        else:
+            self.progress_bar.configure(value=0)
+        if state and state.get('error'):
+            message += '\n'+state['error']
+        self.job_text.set(message)
         self.job_label.configure(foreground='#b00020' if status in ('failed','interrupted') else self.owner.INK)
         self.stop_button.configure(state='normal' if self.jobs.busy else 'disabled')
         self.resume_button.configure(state='normal' if not self.jobs.busy and status in ('failed','stopped','interrupted') else 'disabled')
-        log = self.jobs.log_tail()
         if log != self.last_log:
             self.put(self.journal,log)
             self.journal.see('end')

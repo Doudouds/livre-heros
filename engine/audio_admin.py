@@ -3,6 +3,7 @@ import copy
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import signal
 import subprocess
@@ -32,6 +33,43 @@ def within(root, path):
     if not result.is_relative_to(Path(root).resolve()):
         raise ValueError('Ce chemin sort du projet.')
     return result
+
+
+def audio_job_progress(state, log):
+    """Progression par fichiers traités, basée sur les lignes du générateur."""
+    if state.get('intent',{}).get('kind') != 'audio':
+        return None
+    commands = state.get('commands',[])
+    if not commands:
+        return None
+    totals = [max(1,int(spec.get('progress_total',1))) for spec in commands]
+    total = sum(totals)
+    status = state.get('status')
+    if status == 'succeeded':
+        return dict(percent=100,completed=total,total=total,current='')
+    index = min(max(0,int(state.get('command_index',0))),len(commands)-1)
+    completed = sum(totals[:index])
+    lines = log.splitlines()
+    marker = f'--- audio {index+1}/{len(commands)} ---'
+    marker_positions = [n for n,line in enumerate(lines) if line.strip().lower()==marker]
+    if marker_positions:
+        lines = lines[marker_positions[-1]+1:]
+    current_total = totals[index]
+    terminal = any(line.startswith('Terminé :') for line in lines)
+    segment = None
+    for line in lines:
+        match = re.match(r'^Segment (\d+)/(\d+)\s*\|',line.strip())
+        if match and int(match.group(2)) == current_total:
+            segment = int(match.group(1))
+    current = ''
+    if terminal:
+        completed += current_total
+    elif segment is not None:
+        completed += segment-1
+        mode = commands[index].get('progress_mode')
+        current = (f'{mode} · ' if mode else '')+f'Segment {segment}/{current_total} en cours'
+    percent = min(99,(completed*100)//total) if status=='running' else min(100,(completed*100)//total)
+    return dict(percent=percent,completed=min(completed,total),total=total,current=current)
 
 
 class AudioInventory:
@@ -326,6 +364,8 @@ class AdminJobs:
                 if restore_take:
                     command += ['--restore-take',restore_take]
                 report = folder/('automatic' if mode else 'interactive')/'generation_status.json'
+                progress_total = 1 if segment_id or first else len(rows[mode])
+                progress_mode = 'Écoute automatique' if mode else 'Jeu interactif'
                 # Une action ciblée ne remplace pas le rapport du lot complet.
                 if segment_id or first:
                     command += ['--report',str(report)]
@@ -336,11 +376,13 @@ class AdminJobs:
                     remote_command = [sys.executable,'-m','engine.remote_audio','--root',str(self.root),
                                       '--config',str(self.remote_config_path),'--request-id',request_id,
                                       '--book',book_id,'--',*command[2:]]
-                    specs.append(dict(command=remote_command,report=str(report),
+                    specs.append(dict(command=remote_command,report=str(report),progress_total=progress_total,
+                                      progress_mode=progress_mode,
                                       remote=dict(request_id=request_id,config=str(self.remote_config_path),
                                                   target=remote_config['target'])))
                 else:
-                    specs.append(dict(command=command,report=str(report)))
+                    specs.append(dict(command=command,report=str(report),progress_total=progress_total,
+                                      progress_mode=progress_mode))
             return specs
         label = 'Génération audio'
         if regenerate:
@@ -384,6 +426,8 @@ class AdminJobs:
                     with self.lock:
                         self.current['command_index'] = index
                         self._save()
+                    log.write(f"\n--- audio {index+1}/{len(self.current['commands'])} ---\n".encode('utf-8'))
+                    log.flush()
                     source = open(spec['stdin'],'rb') if spec.get('stdin') else subprocess.DEVNULL
                     try:
                         with self.lock:
