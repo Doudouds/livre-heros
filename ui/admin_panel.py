@@ -52,7 +52,7 @@ class AdminPanel:
         heading.pack(fill='x')
         ttk.Label(heading,text='Atelier des contes',font=('Georgia',24)).pack(side='left')
         ttk.Button(heading,text='Actualiser',command=self.refresh_all,style='Audio.TButton').pack(side='right')
-        ttk.Label(outer,text='Préparer les textes, suivre les deux versions et écouter chaque prise.',style='Sub.TLabel').pack(anchor='w',pady=(4,12))
+        ttk.Label(outer,text=f'Préparer les textes, suivre les deux versions et écouter chaque prise. Calcul audio : {self.jobs.worker_label}.',style='Sub.TLabel').pack(anchor='w',pady=(4,12))
         self.tabs = ttk.Notebook(outer)
         self.tabs.pack(fill='both',expand=True)
         audio_tab = ttk.Frame(self.tabs,padding=12)

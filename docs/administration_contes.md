@@ -177,3 +177,46 @@ une nouvelle prise ni avec `--recheck-only`.
 `--emotion PROFIL` exige une sélection `--span` ; `--emotion default` remet
 le ton du manuscrit sur cette sélection. Les reprises de demandes interrompues
 conservent le choix du ton.
+
+## Calcul audio sur un PC Debian par SSH
+
+Le panneau reste sur le portable. Pour envoyer ses tâches audio au worker Debian,
+créer sur le portable `sessions/audio_worker.json` (ce dossier est ignoré par Git) :
+
+```json
+{
+  "target": "edouard@debianPC",
+  "root": "/home/edouard/livre-heros-worker",
+  "python": "/home/edouard/livre-heros-worker/.venv-tts/bin/python",
+  "threads": 4
+}
+```
+
+`target` doit être la destination SSH déjà connue du portable. Vérifier d’abord
+que `ssh edouard@debianPC` se connecte sans demander de mot de passe ou de
+confirmation interactive ; le panneau lance des tâches sans terminal visible.
+Le répertoire distant doit contenir le projet et son environnement `.venv-tts`.
+Au prochain démarrage, le panneau indique « Calcul audio : PC fixe … ».
+
+Avant le premier audio, télécharger sur Debian les poids Chatterbox de la révision
+figée dans le projet. Dans la racine du worker, environnement `.venv-tts` activé :
+
+```sh
+python - <<'PY'
+from audio.chatterbox_backend import prepare_model
+from engine.content import Content, ROOT
+
+settings = Content.read(ROOT/'audio/generation_settings.json')
+directory, identity = prepare_model(ROOT/'audio/experiments/roi_grenouille/cache',
+                                    revision=settings['model']['revision'])
+print('Modèle V3 prêt :', directory, identity['revision'])
+PY
+```
+
+Avant chaque commande, le panneau synchronise le code, les manuscrits, la
+référence vocale, la palette et la configuration. Le worker garde ses poids,
+ses dépendances Linux, ses caches et ses WAV ; seuls les fichiers modifiés par
+la tâche reviennent sur le portable. Les tons, le mode automatique, les reçus,
+les rapports, l’arrêt et la reprise suivent le même parcours que pour une
+génération locale. Les modèles et dépendances installés sur le portable ne sont
+pas copiés sur Debian.

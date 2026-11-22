@@ -216,6 +216,21 @@ class AdminJobs:
         self.current = read_optional(self.folder/'last_job.json')
 
     @property
+    def remote_config_path(self):
+        return self.root/'sessions/audio_worker.json'
+
+    @property
+    def worker_label(self):
+        if not self.remote_config_path.is_file():
+            return 'ce portable'
+        try:
+            from engine.remote_audio import load_config
+            config = load_config(self.remote_config_path)
+            return f"PC fixe {config['target']}"
+        except (OSError,ValueError,KeyError):
+            return 'worker SSH à configurer'
+
+    @property
     def busy(self):
         return bool(self.thread and self.thread.is_alive())
 
@@ -289,6 +304,10 @@ class AdminJobs:
                       regenerate=regenerate,both=both,first=first,regeneration_id=token,spans=spans,restore_take=restore_take,emotion=emotion)
         def specifications(folder):
             specs = []
+            remote_config = None
+            if self.remote_config_path.is_file():
+                from engine.remote_audio import load_config
+                remote_config = load_config(self.remote_config_path)
             for mode in modes:
                 runtime = self.root/'.venv-tts/Scripts/python.exe'
                 command = [str(runtime) if runtime.is_file() else sys.executable,str(self.root/'generer_audio_conte.py'),'--book',book_id]
@@ -312,7 +331,16 @@ class AdminJobs:
                     command += ['--report',str(report)]
                 else:
                     report = self.root/'reports'/book_id/('automatic/generation_status.json' if mode else 'generation_status.json')
-                specs.append(dict(command=command,report=str(report)))
+                if remote_config:
+                    request_id = uuid.uuid4().hex
+                    remote_command = [sys.executable,'-m','engine.remote_audio','--root',str(self.root),
+                                      '--config',str(self.remote_config_path),'--request-id',request_id,
+                                      '--book',book_id,'--',*command[2:]]
+                    specs.append(dict(command=remote_command,report=str(report),
+                                      remote=dict(request_id=request_id,config=str(self.remote_config_path),
+                                                  target=remote_config['target'])))
+                else:
+                    specs.append(dict(command=command,report=str(report)))
             return specs
         label = 'Génération audio'
         if regenerate:
@@ -397,11 +425,33 @@ class AdminJobs:
         self.cancelled.set()
         with self.lock:
             process = self.process
+            index = self.current.get('command_index',0)
+            commands = self.current.get('commands',[])
+            remote = commands[index].get('remote') if 0 <= index < len(commands) else None
+            if remote:
+                def cancel_remote_job():
+                    try:
+                        from engine.remote_audio import cancel_remote
+                        cancel_remote(remote['config'],remote['request_id'])
+                    except Exception as exc:
+                        try:
+                            with Path(self.current['log']).open('a',encoding='utf-8') as log:
+                                log.write(f'\nArrêt SSH distant : {exc}\n')
+                        except OSError:
+                            pass
+                threading.Thread(target=cancel_remote_job,daemon=True,name='cancel-remote-audio').start()
             if process is not None and process.poll() is None:
                 if os.name == 'nt':
                     # Le Python du venv est un redirecteur : arrêter aussi son enfant.
-                    subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],stdout=subprocess.DEVNULL,
-                                   stderr=subprocess.DEVNULL,check=False,creationflags=subprocess.CREATE_NO_WINDOW)
+                    result = subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],stdout=subprocess.DEVNULL,
+                                             stderr=subprocess.DEVNULL,check=False,creationflags=subprocess.CREATE_NO_WINDOW)
+                    if result.returncode:
+                        # Certaines sessions Windows refusent taskkill malgré la propriété
+                        # du processus ; TerminateProcess reste disponible pour le parent.
+                        try:
+                            process.terminate()
+                        except OSError:
+                            pass
                 else:
                     os.killpg(process.pid,signal.SIGTERM)
 
