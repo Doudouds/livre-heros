@@ -7,7 +7,7 @@ import unittest
 import tarfile
 from unittest.mock import patch, PropertyMock
 
-from engine.remote_audio import create_source_archive, load_config, safe_extract
+from engine.remote_audio import create_source_archive, load_config, run_remote, safe_extract
 from engine.remote_audio_worker import changed_files
 import engine.remote_audio_worker as worker
 from engine.audio_admin import AdminJobs, AudioInventory
@@ -67,6 +67,38 @@ class RemoteAudioTests(unittest.TestCase):
             report.write_text('{}',encoding='utf-8')
             paths=changed_files(root,'book',time.time_ns()-1_000_000_000,'request',str(report))
             self.assertIn(report,paths)
+
+    def test_remote_run_bootstraps_worker_before_invoking_module(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            (root/'engine').mkdir()
+            (root/'engine/remote_audio_worker.py').write_text('worker',encoding='utf-8')
+            config=root/'sessions/audio_worker.json'
+            config.parent.mkdir()
+            config.write_text(json.dumps({'target':'edouard@debianPC',
+                'root':'/home/edouard/livre-heros-worker',
+                'python':'/home/edouard/livre-heros-worker/.venv-tts/bin/python','threads':4}),encoding='utf-8')
+            calls=[]
+
+            def fake_run(command, **kwargs):
+                calls.append(command)
+                if command[0]=='ssh':
+                    return type('Result',(),{'returncode':0})()
+                if command[0]=='scp' and command[-1].endswith('remote-result-'+'a'*32+'.tar.gz'):
+                    with tarfile.open(command[-1],'w:gz'):
+                        pass
+                return type('Result',(),{'returncode':0})()
+
+            with patch('engine.remote_audio.shutil.which',return_value='ssh'), \
+                 patch('engine.remote_audio.checked_ssh'), \
+                 patch('engine.remote_audio.subprocess.run',side_effect=fake_run):
+                self.assertEqual(run_remote(root,config,'a'*32,'book',['--book','book']),0)
+
+            bootstrap=next(i for i,call in enumerate(calls)
+                           if call[0]=='scp' and call[-2].endswith('remote_audio_worker.py'))
+            invoke=next(i for i,call in enumerate(calls)
+                        if call[0]=='ssh' and 'engine.remote_audio_worker' in call[-1])
+            self.assertLess(bootstrap,invoke)
 
     def test_admin_routes_selected_tone_to_remote_worker(self):
         with tempfile.TemporaryDirectory() as temp:

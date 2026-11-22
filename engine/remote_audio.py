@@ -110,11 +110,19 @@ def run_remote(root, config_path, request_id, book, generator_args):
     try:
         create_source_archive(root, local_archive)
         remote_upload = f"{config['root']}/{upload_relative}"
-        mkdir = f"mkdir -p {shlex.quote(config['root'])}/.remote_admin/uploads {shlex.quote(config['root'])}/.remote_admin/results"
+        mkdir = (f"mkdir -p {shlex.quote(config['root'])}/.remote_admin/uploads "
+                 f"{shlex.quote(config['root'])}/.remote_admin/results "
+                 f"{shlex.quote(config['root'])}/engine")
         checked_ssh(config, mkdir)
         subprocess.run(['scp', '-q', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10',
                         str(local_archive), f"{config['target']}:{remote_upload}"],
                        check=True, timeout=120)
+        # Bootstrap the runner before invoking it: the source archive can update
+        # the remote project only after this module has started and extracted it.
+        worker_module = root/'engine'/'remote_audio_worker.py'
+        remote_worker = f"{config['target']}:{config['root']}/engine/remote_audio_worker.py"
+        subprocess.run(['scp', '-q', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=10',
+                        str(worker_module), remote_worker], check=True, timeout=30)
         remote_command = [config['python'], '-m', 'engine.remote_audio_worker', 'run',
                           '--root', config['root'], '--request-id', request_id,
                           '--book', book, '--source-archive', remote_upload]
