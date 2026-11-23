@@ -1,0 +1,1188 @@
+{
+  "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8",
+  "title": "Les trois cheveux d'or du diable",
+  "author": "les frères Grimm",
+  "illustrated": false,
+  "narrative_person": 3,
+  "decision_count": 20,
+  "start": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_01",
+  "choice_question": "Que doit faire le personnage ?",
+  "library_label": "Le conte",
+  "open_label": "Ouvrir ce conte",
+  "library_description": "Un conte fidèle, avec deux choix à chaque étape.",
+  "ending_notice": "Fin du conte · Les trois cheveux d'or du diable.",
+  "restart_label": "Rejouer ce conte",
+  "audio_lead_in_ms": 0,
+  "embedded_lead_in_ms": 1000,
+  "admin_preview_required": true,
+  "source": {
+    "file": "content/authored/books/conte_les_trois_cheveux_d_or_du_diable_57ff02a8_source.txt",
+    "canonical_text": "content/authored/books/conte_les_trois_cheveux_d_or_du_diable_57ff02a8_source.txt",
+    "sha256": "46b415dc59c8196f2bda6e25104f74b28d8e2bef60f71ac0b789b7baa7c7af70",
+    "canonical_sha256": "46b415dc59c8196f2bda6e25104f74b28d8e2bef60f71ac0b789b7baa7c7af70"
+  },
+  "audio_intro": {
+    "author_credit": "des frères Grimm",
+    "text": "Les trois cheveux d'or du diable, des frères Grimm.",
+    "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Les trois cheveux d'or du diable, des frères Grimm.</voix>",
+    "pronunciations": [
+      {
+        "written": "Grimm",
+        "spoken": "grime"
+      }
+    ],
+    "audio_spans": [
+      {
+        "text": "Les trois cheveux d'or du diable, des frères Grimm.",
+        "speaker": "narrateur",
+        "emotion": "neutral",
+        "role": "introduction",
+        "pronunciations": [
+          {
+            "written": "Grimm",
+            "spoken": "grime"
+          }
+        ]
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_01",
+      "rank": 1,
+      "title": "La prédiction",
+      "text": "Il était une fois une pauvre femme qui mit au monde un fils, et comme il était coiffé quand il naquit, on lui prédit que, dans sa quatorzième année, il épouserait la fille du roi. Sur ces entrefaites, le roi passa par le village, sans que personne le reconnût; et comme il demandait ce qu'il y avait de nouveau, on lui répondit qu'il venait de naître un enfant coiffé, que tout ce qu'il entreprendrait lui réussirait, et qu'on lui avait prédit que, lorsqu'il aurait quatorze ans, il épouserait la fille du roi.",
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il était une fois une pauvre femme qui mit au monde un fils, et comme il était coiffé quand il naquit, on lui prédit que, dans sa quatorzième année, il épouserait la fille du roi. Sur ces entrefaites, le roi passa par le village, sans que personne le reconnût; et comme il demandait ce qu'il y avait de nouveau, on lui répondit qu'il venait de naître un enfant coiffé, que tout ce qu'il entreprendrait lui réussirait, et qu'on lui avait prédit que, lorsqu'il aurait quatorze ans, il épouserait la fille du roi.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il garde un visage calme en écoutant le villageois.",
+          "consequence": "Le roi retint sa colère et alla trouver les parents du nouveau-né.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le roi retint sa colère et alla trouver les parents du nouveau-né.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_02",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le roi retint sa colère et alla trouver les parents du nouveau-né.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il laisse paraître son mécontentement devant les habitants.",
+          "consequence": "La prédiction le fâcha, et il alla trouver les parents du nouveau-né.",
+          "consequence_audio_markup": "<voix emotion=\"colere\" speaker=\"narrateur\">La prédiction le fâcha, et il alla trouver les parents du nouveau-né.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_02",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "La prédiction le fâcha, et il alla trouver les parents du nouveau-né.",
+              "speaker": "narrateur",
+              "emotion": "colere"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le roi accueille-t-il cette prédiction ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le roi accueille-t-il cette prédiction ? Choix 1 : Il garde un visage calme en écoutant le villageois. Ou choix 2 : Il laisse paraître son mécontentement devant les habitants.</voix>",
+      "audio_spans": [
+        {
+          "text": "Il était une fois une pauvre femme qui mit au monde un fils, et comme il était coiffé quand il naquit, on lui prédit que, dans sa quatorzième année, il épouserait la fille du roi. Sur ces entrefaites, le roi passa par le village, sans que personne le reconnût; et comme il demandait ce qu'il y avait de nouveau, on lui répondit qu'il venait de naître un enfant coiffé, que tout ce qu'il entreprendrait lui réussirait, et qu'on lui avait prédit que, lorsqu'il aurait quatorze ans, il épouserait la fille du roi.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le roi accueille-t-il cette prédiction ? Choix 1 : Il garde un visage calme en écoutant le villageois. Ou choix 2 : Il laisse paraître son mécontentement devant les habitants.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_02",
+      "rank": 2,
+      "title": "L’enfant confié au roi",
+      "text": "Le roi avait un mauvais cœur, et cette prédiction le fâcha. Il alla trouver les parents du nouveau-né, et leur dit d'un air tout amical: « Vous êtes de pauvres gens, donnez-moi votre enfant, j'en aurai bien soin. » Ils refusèrent d'abord; mais l'étranger leur offrit de l'or, et ils se dirent: « Puisque l'enfant est né coiffé, ce qui arrive est pour son bien. » Ils finirent par consentir et par livrer leur fils.",
+      "audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le roi avait un mauvais cœur, et cette prédiction le fâcha. Il alla trouver les parents du nouveau-né, et leur dit d'un air tout amical: « Vous êtes de pauvres gens, donnez-moi votre enfant, j'en aurai bien soin. » Ils refusèrent d'abord; mais l'étranger leur offrit de l'or, et ils se dirent: « Puisque l'enfant est né coiffé, ce qui arrive est pour son bien. » Ils finirent par consentir et par livrer leur fils.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ils acceptent l’or après s’être rassurés sur le sort de leur fils.",
+          "consequence": "Ils consentirent et livrèrent leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Ils consentirent et livrèrent leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_03",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Ils consentirent et livrèrent leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Ils hésitent encore un instant avant de confier l’enfant.",
+          "consequence": "Ils finirent par consentir et livrer leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.",
+          "consequence_audio_markup": "<voix emotion=\"tristesse\" speaker=\"narrateur\">Ils finirent par consentir et livrer leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_03",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Ils finirent par consentir et livrer leur fils; le roi l’emporta jusqu’au bord d’une rivière profonde.",
+              "speaker": "narrateur",
+              "emotion": "tristesse"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment les parents réagissent-ils à l’offre du roi ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment les parents réagissent-ils à l’offre du roi ? Choix 1 : Ils acceptent l’or après s’être rassurés sur le sort de leur fils. Ou choix 2 : Ils hésitent encore un instant avant de confier l’enfant.</voix>",
+      "audio_spans": [
+        {
+          "text": "Le roi avait un mauvais cœur, et cette prédiction le fâcha. Il alla trouver les parents du nouveau-né, et leur dit d'un air tout amical: « Vous êtes de pauvres gens, donnez-moi votre enfant, j'en aurai bien soin. » Ils refusèrent d'abord; mais l'étranger leur offrit de l'or, et ils se dirent: « Puisque l'enfant est né coiffé, ce qui arrive est pour son bien. » Ils finirent par consentir et par livrer leur fils.",
+          "speaker": "narrateur",
+          "emotion": "malice"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment les parents réagissent-ils à l’offre du roi ? Choix 1 : Ils acceptent l’or après s’être rassurés sur le sort de leur fils. Ou choix 2 : Ils hésitent encore un instant avant de confier l’enfant.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_03",
+      "rank": 3,
+      "title": "La boîte sur la rivière",
+      "text": "Le roi le mit dans une boite, et chevaucha avec ce fardeau jusqu'au bord d'une rivière profonde où il le jeta, en pensant qu'il délivrait sa fille d'un galant sur lequel elle ne comptait guère. Mais la botte, loin de couler à fond, se mit à flotter comme un petit batelet, sans qu'il entrât dedans une seule goutte d'eau;",
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Le roi le mit dans une boite, et chevaucha avec ce fardeau jusqu'au bord d'une rivière profonde où il le jeta, en pensant qu'il délivrait sa fille d'un galant sur lequel elle ne comptait guère. Mais la botte, loin de couler à fond, se mit à flotter comme un petit batelet, sans qu'il entrât dedans une seule goutte d'eau;</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il regarde un instant le courant depuis la rive.",
+          "consequence": "Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_04",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il pousse la boîte d’un geste brusque vers le courant.",
+          "consequence": "Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_04",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il jeta l’enfant dans la rivière, mais la botte se mit à flotter sans prendre l’eau.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Que fait le roi avant de jeter la boîte ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Que fait le roi avant de jeter la boîte ? Choix 1 : Il regarde un instant le courant depuis la rive. Ou choix 2 : Il pousse la boîte d’un geste brusque vers le courant.</voix>",
+      "audio_spans": [
+        {
+          "text": "Le roi le mit dans une boite, et chevaucha avec ce fardeau jusqu'au bord d'une rivière profonde où il le jeta, en pensant qu'il délivrait sa fille d'un galant sur lequel elle ne comptait guère. Mais la botte, loin de couler à fond, se mit à flotter comme un petit batelet, sans qu'il entrât dedans une seule goutte d'eau;",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Que fait le roi avant de jeter la boîte ? Choix 1 : Il regarde un instant le courant depuis la rive. Ou choix 2 : Il pousse la boîte d’un geste brusque vers le courant.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_04",
+      "rank": 4,
+      "title": "Au moulin",
+      "text": "elle alla ainsi à la dérive jusqu'à deux lieues de la capitale, et s'arrêta contre l'écluse d'un moulin. Un garçon meunier qui se trouvait là par bonheur l'aperçut et l'attira avec un croc; il s'attendait, en l'ouvrant, à y trouver de grands trésors: mais c'était un joli petit garçon, frais et éveillé. Il le porta au moulin; le meunier et sa femme, qui n'avaient pas d'enfants, reçurent celui-là comme si Dieu le leur eût envoyé. Ils traitèrent de leur mieux le petit orphelin, qui grandit chez eux en forces et en bonnes qualités.",
+      "audio_markup": "<voix emotion=\"tendresse\" speaker=\"narrateur\">elle alla ainsi à la dérive jusqu'à deux lieues de la capitale, et s'arrêta contre l'écluse d'un moulin. Un garçon meunier qui se trouvait là par bonheur l'aperçut et l'attira avec un croc; il s'attendait, en l'ouvrant, à y trouver de grands trésors: mais c'était un joli petit garçon, frais et éveillé. Il le porta au moulin; le meunier et sa femme, qui n'avaient pas d'enfants, reçurent celui-là comme si Dieu le leur eût envoyé. Ils traitèrent de leur mieux le petit orphelin, qui grandit chez eux en forces et en bonnes qualités.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il l’ouvre avec précaution, curieux de découvrir son contenu.",
+          "consequence": "Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.",
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_05",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il la tire vivement vers lui avant de soulever le couvercle.",
+          "consequence": "Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.",
+          "consequence_audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_05",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il l’attira avec un croc et l’ouvrit; le meunier et sa femme accueillirent le petit garçon.",
+              "speaker": "narrateur",
+              "emotion": "surprise"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le garçon meunier ouvre-t-il la boîte ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le garçon meunier ouvre-t-il la boîte ? Choix 1 : Il l’ouvre avec précaution, curieux de découvrir son contenu. Ou choix 2 : Il la tire vivement vers lui avant de soulever le couvercle.</voix>",
+      "audio_spans": [
+        {
+          "text": "elle alla ainsi à la dérive jusqu'à deux lieues de la capitale, et s'arrêta contre l'écluse d'un moulin. Un garçon meunier qui se trouvait là par bonheur l'aperçut et l'attira avec un croc; il s'attendait, en l'ouvrant, à y trouver de grands trésors: mais c'était un joli petit garçon, frais et éveillé. Il le porta au moulin; le meunier et sa femme, qui n'avaient pas d'enfants, reçurent celui-là comme si Dieu le leur eût envoyé. Ils traitèrent de leur mieux le petit orphelin, qui grandit chez eux en forces et en bonnes qualités.",
+          "speaker": "narrateur",
+          "emotion": "tendresse"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le garçon meunier ouvre-t-il la boîte ? Choix 1 : Il l’ouvre avec précaution, curieux de découvrir son contenu. Ou choix 2 : Il la tire vivement vers lui avant de soulever le couvercle.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_05",
+      "rank": 5,
+      "title": "La lettre du roi",
+      "text": "Un jour, le roi, surpris par la pluie, entra dans le moulin et demanda au meunier si ce grand jeune homme était son fils. « Non, sire, répondit-il: c'est un enfant trouvé qui est venu dans une boîte échouer contre notre écluse, il y a quatorze ans; notre garçon meunier l'a tiré de l'eau. » Le roi reconnut alors que c'était l'enfant né coiffé qu'il avait jeté à la rivière. « Bonnes gens, dit-il, ce jeune homme ne pourrait-il pas porter une lettre de ma part à la reine? Je lui donnerais deux pièces d'or pour sa peine. - Comme Votre Majesté l'ordonnera, » répondirent-ils; et ils dirent au jeune homme de se tenir prêt.",
+      "audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Un jour, le roi, surpris par la pluie, entra dans le moulin et demanda au meunier si ce grand jeune homme était son fils. « Non, sire, répondit-il: c'est un enfant trouvé qui est venu dans une boîte échouer contre notre écluse, il y a quatorze ans; notre garçon meunier l'a tiré de l'eau. » Le roi reconnut alors que c'était l'enfant né coiffé qu'il avait jeté à la rivière. « Bonnes gens, dit-il, ce jeune homme ne pourrait-il pas porter une lettre de ma part à la reine? Je lui donnerais deux pièces d'or pour sa peine. - Comme Votre Majesté l'ordonnera, » répondirent-ils; et ils dirent au jeune homme de se tenir prêt.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il incline respectueusement la tête.",
+          "consequence": "Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_06",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il accepte d’un signe de la main.",
+          "consequence": "Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_06",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le meunier répondit que sa Majesté l’ordonnerait, et le jeune homme se tint prêt.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le meunier répond-il à la demande du roi ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le meunier répond-il à la demande du roi ? Choix 1 : Il incline respectueusement la tête. Ou choix 2 : Il accepte d’un signe de la main.</voix>",
+      "audio_spans": [
+        {
+          "text": "Un jour, le roi, surpris par la pluie, entra dans le moulin et demanda au meunier si ce grand jeune homme était son fils. « Non, sire, répondit-il: c'est un enfant trouvé qui est venu dans une boîte échouer contre notre écluse, il y a quatorze ans; notre garçon meunier l'a tiré de l'eau. » Le roi reconnut alors que c'était l'enfant né coiffé qu'il avait jeté à la rivière. « Bonnes gens, dit-il, ce jeune homme ne pourrait-il pas porter une lettre de ma part à la reine? Je lui donnerais deux pièces d'or pour sa peine. - Comme Votre Majesté l'ordonnera, » répondirent-ils; et ils dirent au jeune homme de se tenir prêt.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le meunier répond-il à la demande du roi ? Choix 1 : Il incline respectueusement la tête. Ou choix 2 : Il accepte d’un signe de la main.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_06",
+      "rank": 6,
+      "title": "Le chemin dans la forêt",
+      "text": "Le roi écrivit à la reine une lettre où il lui mandait de se saisir du messager, de le mettre à mort et de l'enterrer, de façon à ce qu'il trouvât la chose faite à son retour. Le garçon se mit en route avec la lettre, mais il s'égara et arriva le soir dans une grande forêt. Au milieu des ténèbres, il aperçut de loin une faible lumière, et, se dirigeant de ce côté, il atteignit une petite maisonnette où il trouva une vieille femme assise près du feu. Elle parut toute surprise de voir le jeune homme et lui dit: « D'où viens-tu et que veux-tu? - Je viens du moulin, répondit-il; je porte une lettre à la reine; j'ai perdu mon chemin, et je voudrais bien passer la nuit ici.",
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Le roi écrivit à la reine une lettre où il lui mandait de se saisir du messager, de le mettre à mort et de l'enterrer, de façon à ce qu'il trouvât la chose faite à son retour. Le garçon se mit en route avec la lettre, mais il s'égara et arriva le soir dans une grande forêt. Au milieu des ténèbres, il aperçut de loin une faible lumière, et, se dirigeant de ce côté, il atteignit une petite maisonnette où il trouva une vieille femme assise près du feu. Elle parut toute surprise de voir le jeune homme et lui dit: « D'où viens-tu et que veux-tu? - Je viens du moulin, répondit-il; je porte une lettre à la reine; j'ai perdu mon chemin, et je voudrais bien passer la nuit ici.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il lui parle doucement depuis le seuil.",
+          "consequence": "Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_07",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il s’avance près du feu pour lui expliquer sa situation.",
+          "consequence": "Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_07",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il demanda à la vieille femme un abri pour la nuit, et elle lui répondit qu’il était chez des voleurs.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme aborde-t-il la vieille femme ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme aborde-t-il la vieille femme ? Choix 1 : Il lui parle doucement depuis le seuil. Ou choix 2 : Il s’avance près du feu pour lui expliquer sa situation.</voix>",
+      "audio_spans": [
+        {
+          "text": "Le roi écrivit à la reine une lettre où il lui mandait de se saisir du messager, de le mettre à mort et de l'enterrer, de façon à ce qu'il trouvât la chose faite à son retour. Le garçon se mit en route avec la lettre, mais il s'égara et arriva le soir dans une grande forêt. Au milieu des ténèbres, il aperçut de loin une faible lumière, et, se dirigeant de ce côté, il atteignit une petite maisonnette où il trouva une vieille femme assise près du feu. Elle parut toute surprise de voir le jeune homme et lui dit: « D'où viens-tu et que veux-tu? - Je viens du moulin, répondit-il; je porte une lettre à la reine; j'ai perdu mon chemin, et je voudrais bien passer la nuit ici.",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme aborde-t-il la vieille femme ? Choix 1 : Il lui parle doucement depuis le seuil. Ou choix 2 : Il s’avance près du feu pour lui expliquer sa situation.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_07",
+      "rank": 7,
+      "title": "La maison des voleurs",
+      "text": "- Malheureux enfant, répliqua la femme, tu es tombé dans une maison de voleurs, et, s'ils te trouvent ici, c'est fait de toi. - A la grâce de Dieu! dit le jeune homme, je n'ai pas peur; et, d'ailleurs, je suis si fatigué qu'il m'est impossible d'aller plus loin. » Il se coucha sur un banc et s'endormit. Les voleurs rentrèrent bientôt après, et ils demandèrent avec colère pourquoi cet étranger était là. « Ah! dit la vieille, c'est un pauvre enfant qui s'est égaré dans le bois; je l'ai reçu par compassion. Il porte une lettre à la reine. »",
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">- Malheureux enfant, répliqua la femme, tu es tombé dans une maison de voleurs, et, s'ils te trouvent ici, c'est fait de toi. - A la grâce de Dieu! dit le jeune homme, je n'ai pas peur; et, d'ailleurs, je suis si fatigué qu'il m'est impossible d'aller plus loin. » Il se coucha sur un banc et s'endormit. Les voleurs rentrèrent bientôt après, et ils demandèrent avec colère pourquoi cet étranger était là. « Ah! dit la vieille, c'est un pauvre enfant qui s'est égaré dans le bois; je l'ai reçu par compassion. Il porte une lettre à la reine. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il s’allonge sur le banc sans discuter davantage.",
+          "consequence": "La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.",
+          "consequence_audio_markup": "<voix emotion=\"tendresse\" speaker=\"narrateur\">La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_08",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.",
+              "speaker": "narrateur",
+              "emotion": "tendresse"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il s’installe près du feu avant de s’endormir.",
+          "consequence": "La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.",
+          "consequence_audio_markup": "<voix emotion=\"tendresse\" speaker=\"narrateur\">La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_08",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "La vieille le reçut par compassion, et il dormit sur le banc tandis que les voleurs rentraient.",
+              "speaker": "narrateur",
+              "emotion": "tendresse"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Où le jeune homme s’endort-il ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Où le jeune homme s’endort-il ? Choix 1 : Il s’allonge sur le banc sans discuter davantage. Ou choix 2 : Il s’installe près du feu avant de s’endormir.</voix>",
+      "audio_spans": [
+        {
+          "text": "- Malheureux enfant, répliqua la femme, tu es tombé dans une maison de voleurs, et, s'ils te trouvent ici, c'est fait de toi. - A la grâce de Dieu! dit le jeune homme, je n'ai pas peur; et, d'ailleurs, je suis si fatigué qu'il m'est impossible d'aller plus loin. » Il se coucha sur un banc et s'endormit. Les voleurs rentrèrent bientôt après, et ils demandèrent avec colère pourquoi cet étranger était là. « Ah! dit la vieille, c'est un pauvre enfant qui s'est égaré dans le bois; je l'ai reçu par compassion. Il porte une lettre à la reine. »",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Où le jeune homme s’endort-il ? Choix 1 : Il s’allonge sur le banc sans discuter davantage. Ou choix 2 : Il s’installe près du feu avant de s’endormir.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_08",
+      "rank": 8,
+      "title": "La lettre remplacée",
+      "text": "Les voleurs prirent la lettre pour la lire, et virent qu'elle enjoignait de mettre à mort le messager. Malgré la dureté de leur cœur, ils eurent pitié du pauvre diable; leur capitaine déchira la lettre, et en mit une autre à la place qui enjoignait qu'aussitôt que le jeune homme arriverait, on lui fit immédiatement épouser la fille du roi. Puis les voleurs le laissèrent dormir sur son banc jusqu'au matin, et, quand il fut éveillé, ils lui remirent la lettre et lui montrèrent son chemin.",
+      "audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">Les voleurs prirent la lettre pour la lire, et virent qu'elle enjoignait de mettre à mort le messager. Malgré la dureté de leur cœur, ils eurent pitié du pauvre diable; leur capitaine déchira la lettre, et en mit une autre à la place qui enjoignait qu'aussitôt que le jeune homme arriverait, on lui fit immédiatement épouser la fille du roi. Puis les voleurs le laissèrent dormir sur son banc jusqu'au matin, et, quand il fut éveillé, ils lui remirent la lettre et lui montrèrent son chemin.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il la déchire avec soin avant d’en glisser une autre à sa place.",
+          "consequence": "Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_09",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il échange rapidement les lettres pendant que le jeune homme dort.",
+          "consequence": "Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_09",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le capitaine remplaça la lettre; au matin, les voleurs la remirent au jeune homme et lui montrèrent son chemin.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le capitaine remplace-t-il la lettre ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le capitaine remplace-t-il la lettre ? Choix 1 : Il la déchire avec soin avant d’en glisser une autre à sa place. Ou choix 2 : Il échange rapidement les lettres pendant que le jeune homme dort.</voix>",
+      "audio_spans": [
+        {
+          "text": "Les voleurs prirent la lettre pour la lire, et virent qu'elle enjoignait de mettre à mort le messager. Malgré la dureté de leur cœur, ils eurent pitié du pauvre diable; leur capitaine déchira la lettre, et en mit une autre à la place qui enjoignait qu'aussitôt que le jeune homme arriverait, on lui fit immédiatement épouser la fille du roi. Puis les voleurs le laissèrent dormir sur son banc jusqu'au matin, et, quand il fut éveillé, ils lui remirent la lettre et lui montrèrent son chemin.",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le capitaine remplace-t-il la lettre ? Choix 1 : Il la déchire avec soin avant d’en glisser une autre à sa place. Ou choix 2 : Il échange rapidement les lettres pendant que le jeune homme dort.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_09",
+      "rank": 9,
+      "title": "Les noces et la nouvelle épreuve",
+      "text": "La reine, ayant reçu la lettre, exécuta ce qu'elle contenait: on fit des noces splendides; la fille du roi épousa l'enfant né coiffé, et, comme il était beau et aimable, elle fut enchantée de vivre avec lui. Quelque temps après, le roi revint dans son palais; et trouva que la prédiction était accomplie et que l'enfant né coiffé avait épousé sa fille. « Comment cela s'est-il fait? dit-il; j'avais donné dans ma lettre un ordre tout différent. » La reine lui montra la lettre , et lui dit qu'il pouvait voir ce qu'elle contenait. Il la lut et vit bien qu'on avait changé la sienne. Il demanda au jeune homme ce qu'était devenue la lettre qu'il lui avait confiée, et pourquoi il en avait remis une autre. « Je n'en sais rien, répliqua celui-ci; il faut qu'on l'ait changée la nuit, quand j'ai couché dans la forêt. »",
+      "audio_markup": "<voix emotion=\"surprise\" speaker=\"narrateur\">La reine, ayant reçu la lettre, exécuta ce qu'elle contenait: on fit des noces splendides; la fille du roi épousa l'enfant né coiffé, et, comme il était beau et aimable, elle fut enchantée de vivre avec lui. Quelque temps après, le roi revint dans son palais; et trouva que la prédiction était accomplie et que l'enfant né coiffé avait épousé sa fille. « Comment cela s'est-il fait? dit-il; j'avais donné dans ma lettre un ordre tout différent. » La reine lui montra la lettre , et lui dit qu'il pouvait voir ce qu'elle contenait. Il la lut et vit bien qu'on avait changé la sienne. Il demanda au jeune homme ce qu'était devenue la lettre qu'il lui avait confiée, et pourquoi il en avait remis une autre. « Je n'en sais rien, répliqua celui-ci; il faut qu'on l'ait changée la nuit, quand j'ai couché dans la forêt. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il répond sans détour qu’il ignore qui a changé la lettre.",
+          "consequence": "Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_10",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il baisse les yeux en évoquant sa nuit dans la forêt.",
+          "consequence": "Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.",
+          "consequence_audio_markup": "<voix emotion=\"tristesse\" speaker=\"narrateur\">Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_10",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le jeune homme expliqua qu’il ignorait qui avait changé la lettre; le roi lui imposa alors une épreuve.",
+              "speaker": "narrateur",
+              "emotion": "tristesse"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme répond-il au roi ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme répond-il au roi ? Choix 1 : Il répond sans détour qu’il ignore qui a changé la lettre. Ou choix 2 : Il baisse les yeux en évoquant sa nuit dans la forêt.</voix>",
+      "audio_spans": [
+        {
+          "text": "La reine, ayant reçu la lettre, exécuta ce qu'elle contenait: on fit des noces splendides; la fille du roi épousa l'enfant né coiffé, et, comme il était beau et aimable, elle fut enchantée de vivre avec lui. Quelque temps après, le roi revint dans son palais; et trouva que la prédiction était accomplie et que l'enfant né coiffé avait épousé sa fille. « Comment cela s'est-il fait? dit-il; j'avais donné dans ma lettre un ordre tout différent. » La reine lui montra la lettre , et lui dit qu'il pouvait voir ce qu'elle contenait. Il la lut et vit bien qu'on avait changé la sienne. Il demanda au jeune homme ce qu'était devenue la lettre qu'il lui avait confiée, et pourquoi il en avait remis une autre. « Je n'en sais rien, répliqua celui-ci; il faut qu'on l'ait changée la nuit, quand j'ai couché dans la forêt. »",
+          "speaker": "narrateur",
+          "emotion": "surprise"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme répond-il au roi ? Choix 1 : Il répond sans détour qu’il ignore qui a changé la lettre. Ou choix 2 : Il baisse les yeux en évoquant sa nuit dans la forêt.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_10",
+      "rank": 10,
+      "title": "La mission du roi",
+      "text": "Le roi en colère lui dit: « Cela ne se passera pas ainsi. Celui qui prétend à ma fille doit me rapporter de l'enfer trois cheveux d'or de la tête du diable. Rapporte-les-moi, et ma fille t'appartiendra. » Le roi espérait bien qu'il ne reviendrait jamais d'une pareille commission. Le jeune homme répondit: « Le diable ne me fait pas peur; j'irai chercher les trois cheveux d'or. » Et il prit congé du roi et se mit en route.",
+      "audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Le roi en colère lui dit: « Cela ne se passera pas ainsi. Celui qui prétend à ma fille doit me rapporter de l'enfer trois cheveux d'or de la tête du diable. Rapporte-les-moi, et ma fille t'appartiendra. » Le roi espérait bien qu'il ne reviendrait jamais d'une pareille commission. Le jeune homme répondit: « Le diable ne me fait pas peur; j'irai chercher les trois cheveux d'or. » Et il prit congé du roi et se mit en route.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il s’incline avant de partir résolument.",
+          "consequence": "Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.",
+          "consequence_audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_11",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.",
+              "speaker": "narrateur",
+              "emotion": "determination"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il se redresse et part sans hésiter.",
+          "consequence": "Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.",
+          "consequence_audio_markup": "<voix emotion=\"determination\" speaker=\"narrateur\">Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_11",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le jeune homme prit congé du roi et se mit en route pour chercher les trois cheveux d’or.",
+              "speaker": "narrateur",
+              "emotion": "determination"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme prend-il congé du roi ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme prend-il congé du roi ? Choix 1 : Il s’incline avant de partir résolument. Ou choix 2 : Il se redresse et part sans hésiter.</voix>",
+      "audio_spans": [
+        {
+          "text": "Le roi en colère lui dit: « Cela ne se passera pas ainsi. Celui qui prétend à ma fille doit me rapporter de l'enfer trois cheveux d'or de la tête du diable. Rapporte-les-moi, et ma fille t'appartiendra. » Le roi espérait bien qu'il ne reviendrait jamais d'une pareille commission. Le jeune homme répondit: « Le diable ne me fait pas peur; j'irai chercher les trois cheveux d'or. » Et il prit congé du roi et se mit en route.",
+          "speaker": "narrateur",
+          "emotion": "determination"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme prend-il congé du roi ? Choix 1 : Il s’incline avant de partir résolument. Ou choix 2 : Il se redresse et part sans hésiter.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_11",
+      "rank": 11,
+      "title": "La première ville",
+      "text": "Il arriva devant une grande ville. A la porte, la sentinelle lui demanda quel était son état et ce qu'il savait: « Tout, répondit-il. - Alors, dit la sentinelle, rends-nous le service de nous apprendre pourquoi la fontaine de notre marché, qui nous donnait toujours du vin, s'est desséchée et ne fournit même plus d'eau. - Attendez, répondit-il, je vous le dirai à mon retour. »",
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il arriva devant une grande ville. A la porte, la sentinelle lui demanda quel était son état et ce qu'il savait: « Tout, répondit-il. - Alors, dit la sentinelle, rends-nous le service de nous apprendre pourquoi la fontaine de notre marché, qui nous donnait toujours du vin, s'est desséchée et ne fournit même plus d'eau. - Attendez, répondit-il, je vous le dirai à mon retour. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il répond d’un ton assuré qu’il sait tout.",
+          "consequence": "Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_12",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il lui adresse un signe rassurant avant de promettre une réponse.",
+          "consequence": "Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_12",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il promit de répondre à son retour et poursuivit son chemin vers une autre ville.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment répond-il à la sentinelle ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment répond-il à la sentinelle ? Choix 1 : Il répond d’un ton assuré qu’il sait tout. Ou choix 2 : Il lui adresse un signe rassurant avant de promettre une réponse.</voix>",
+      "audio_spans": [
+        {
+          "text": "Il arriva devant une grande ville. A la porte, la sentinelle lui demanda quel était son état et ce qu'il savait: « Tout, répondit-il. - Alors, dit la sentinelle, rends-nous le service de nous apprendre pourquoi la fontaine de notre marché, qui nous donnait toujours du vin, s'est desséchée et ne fournit même plus d'eau. - Attendez, répondit-il, je vous le dirai à mon retour. »",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment répond-il à la sentinelle ? Choix 1 : Il répond d’un ton assuré qu’il sait tout. Ou choix 2 : Il lui adresse un signe rassurant avant de promettre une réponse.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_12",
+      "rank": 12,
+      "title": "La ville à l’arbre d’or",
+      "text": "Plus loin, il arriva devant une autre ville. La sentinelle de la porte lui demanda son état et ce qu'il savait. « Tout, répondit-il. - Rends-nous alors le service de nous apprendre pourquoi le grand arbre de notre ville, qui nous rapportait des pommes d'or, n'a plus même de feuilles. - Attendez, répondit-il, je vous le dirai à mon retour. » Plus loin encore il arriva devant une grande rivière qu'il s'agissait de passer. Le passager lui demanda son état et ce qu'il savait. , Tout, répondit-il. - Alors, dit le passager, rends-moi le service de m'apprendre si je dois toujours rester à ce poste, sans jamais être relevé. - Attends, répondit-il, je te le dirai à mon retour. »",
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Plus loin, il arriva devant une autre ville. La sentinelle de la porte lui demanda son état et ce qu'il savait. « Tout, répondit-il. - Rends-nous alors le service de nous apprendre pourquoi le grand arbre de notre ville, qui nous rapportait des pommes d'or, n'a plus même de feuilles. - Attendez, répondit-il, je vous le dirai à mon retour. » Plus loin encore il arriva devant une grande rivière qu'il s'agissait de passer. Le passager lui demanda son état et ce qu'il savait. , Tout, répondit-il. - Alors, dit le passager, rends-moi le service de m'apprendre si je dois toujours rester à ce poste, sans jamais être relevé. - Attends, répondit-il, je te le dirai à mon retour. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il lui répond avec assurance, comme aux sentinelles.",
+          "consequence": "Il promit au passager de lui répondre à son retour, puis traversa la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il promit au passager de lui répondre à son retour, puis traversa la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_13",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il promit au passager de lui répondre à son retour, puis traversa la rivière.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il prend le temps de l’écouter avant de lui répondre.",
+          "consequence": "Il promit au passager de lui répondre à son retour, puis traversa la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il promit au passager de lui répondre à son retour, puis traversa la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_13",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il promit au passager de lui répondre à son retour, puis traversa la rivière.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme s’adresse-t-il au passager ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme s’adresse-t-il au passager ? Choix 1 : Il lui répond avec assurance, comme aux sentinelles. Ou choix 2 : Il prend le temps de l’écouter avant de lui répondre.</voix>",
+      "audio_spans": [
+        {
+          "text": "Plus loin, il arriva devant une autre ville. La sentinelle de la porte lui demanda son état et ce qu'il savait. « Tout, répondit-il. - Rends-nous alors le service de nous apprendre pourquoi le grand arbre de notre ville, qui nous rapportait des pommes d'or, n'a plus même de feuilles. - Attendez, répondit-il, je vous le dirai à mon retour. » Plus loin encore il arriva devant une grande rivière qu'il s'agissait de passer. Le passager lui demanda son état et ce qu'il savait. , Tout, répondit-il. - Alors, dit le passager, rends-moi le service de m'apprendre si je dois toujours rester à ce poste, sans jamais être relevé. - Attends, répondit-il, je te le dirai à mon retour. »",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme s’adresse-t-il au passager ? Choix 1 : Il lui répond avec assurance, comme aux sentinelles. Ou choix 2 : Il prend le temps de l’écouter avant de lui répondre.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_13",
+      "rank": 13,
+      "title": "À l’entrée de l’enfer",
+      "text": "De l'autre côté de l'eau, il trouva la bouche de l'enfer. Elle était noire et enfumée. Le diable n'était pas chez lui; il n'y avait que son hôtesse, assise dans un large fauteuil. « Que demandes-tu? lui ditelle d'un ton assez doux. « Il me faut trois cheveux d'or de la tête du diable, sans quoi je n'obtiendrai pas ma femme. - C'est beaucoup demander, dit-elle, et si le diable t'aperçoit quand il rentrera, tu passeras un mauvais quart d'heure. Cependant tu m'intéresses, et je vais tâcher de te venir en aide. » Elle le changea en fourmi et lui dit: « Monte dans les plis de ma robe; là tu seras en sûreté - Merci, répondit-il, voilà qui va bien; mais j'aurais besoin en outre de savoir trois choses: pourquoi une fontaine qui versait toujours du vin ne fournit même plus d'eau; pourquoi un arbre qui portait des pommes d'or n'a plus même de feuilles; et si un certain passager doit toujours rester à son poste sans jamais être relevé. - Ce sont trois questions difficiles, dit-elle; mais tiens-toi bien tranquille, et sois attentif à ce que le diable dira quand je lui arracherai les trois cheveux d'or. »",
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">De l'autre côté de l'eau, il trouva la bouche de l'enfer. Elle était noire et enfumée. Le diable n'était pas chez lui; il n'y avait que son hôtesse, assise dans un large fauteuil. « Que demandes-tu? lui ditelle d'un ton assez doux. « Il me faut trois cheveux d'or de la tête du diable, sans quoi je n'obtiendrai pas ma femme. - C'est beaucoup demander, dit-elle, et si le diable t'aperçoit quand il rentrera, tu passeras un mauvais quart d'heure. Cependant tu m'intéresses, et je vais tâcher de te venir en aide. » Elle le changea en fourmi et lui dit: « Monte dans les plis de ma robe; là tu seras en sûreté - Merci, répondit-il, voilà qui va bien; mais j'aurais besoin en outre de savoir trois choses: pourquoi une fontaine qui versait toujours du vin ne fournit même plus d'eau; pourquoi un arbre qui portait des pommes d'or n'a plus même de feuilles; et si un certain passager doit toujours rester à son poste sans jamais être relevé. - Ce sont trois questions difficiles, dit-elle; mais tiens-toi bien tranquille, et sois attentif à ce que le diable dira quand je lui arracherai les trois cheveux d'or. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il grimpe dans les plis de la robe de l’hôtesse.",
+          "consequence": "L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_14",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il se tient immobile dans le creux du tissu.",
+          "consequence": "L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.",
+          "consequence_audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_14",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse le changea en fourmi et le cacha dans les plis de sa robe, où il attendit le diable.",
+              "speaker": "narrateur",
+              "emotion": "peur"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme se cache-t-il ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme se cache-t-il ? Choix 1 : Il grimpe dans les plis de la robe de l’hôtesse. Ou choix 2 : Il se tient immobile dans le creux du tissu.</voix>",
+      "audio_spans": [
+        {
+          "text": "De l'autre côté de l'eau, il trouva la bouche de l'enfer. Elle était noire et enfumée. Le diable n'était pas chez lui; il n'y avait que son hôtesse, assise dans un large fauteuil. « Que demandes-tu? lui ditelle d'un ton assez doux. « Il me faut trois cheveux d'or de la tête du diable, sans quoi je n'obtiendrai pas ma femme. - C'est beaucoup demander, dit-elle, et si le diable t'aperçoit quand il rentrera, tu passeras un mauvais quart d'heure. Cependant tu m'intéresses, et je vais tâcher de te venir en aide. » Elle le changea en fourmi et lui dit: « Monte dans les plis de ma robe; là tu seras en sûreté - Merci, répondit-il, voilà qui va bien; mais j'aurais besoin en outre de savoir trois choses: pourquoi une fontaine qui versait toujours du vin ne fournit même plus d'eau; pourquoi un arbre qui portait des pommes d'or n'a plus même de feuilles; et si un certain passager doit toujours rester à son poste sans jamais être relevé. - Ce sont trois questions difficiles, dit-elle; mais tiens-toi bien tranquille, et sois attentif à ce que le diable dira quand je lui arracherai les trois cheveux d'or. »",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme se cache-t-il ? Choix 1 : Il grimpe dans les plis de la robe de l’hôtesse. Ou choix 2 : Il se tient immobile dans le creux du tissu.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_14",
+      "rank": 14,
+      "title": "Le premier cheveu",
+      "text": "Quand le soir arriva, le diable revint chez lui. A peine était-il entré qu'il remarqua une odeur extraordinaire. « Il y a du nouveau ici, dit-il; je sens la chair humaine. » Et il alla fureter dans tous les coins, mais sans rien trouver. L'hôtesse lui chercha querelle. « Je viens de balayer et de ranger, dit-elle, et tu vas tout bouleverser ici, tu crois toujours sentir la chair humaine. Assieds-toi et mange ton souper. » Quand il eut soupé, il était fatigué; il posa su tête sur les genoux de son hôtesse, et lui dit de lui chercher un peu les poux; mais il ne tarda pas à s'endormir et à ronfler. La vieille saisit un cheveu d'or, l'arracha et le mit de côté. « Hé, s'écria le diable, qu'as-tu donc fait? - J'ai eu un mauvais rêve, dit l'hôtesse, et je t'ai pris par les cheveux. - Qu'as-tu donc rêvé? demanda le diable.",
+      "audio_markup": "<voix emotion=\"peur\" speaker=\"narrateur\">Quand le soir arriva, le diable revint chez lui. A peine était-il entré qu'il remarqua une odeur extraordinaire. « Il y a du nouveau ici, dit-il; je sens la chair humaine. » Et il alla fureter dans tous les coins, mais sans rien trouver. L'hôtesse lui chercha querelle. « Je viens de balayer et de ranger, dit-elle, et tu vas tout bouleverser ici, tu crois toujours sentir la chair humaine. Assieds-toi et mange ton souper. » Quand il eut soupé, il était fatigué; il posa su tête sur les genoux de son hôtesse, et lui dit de lui chercher un peu les poux; mais il ne tarda pas à s'endormir et à ronfler. La vieille saisit un cheveu d'or, l'arracha et le mit de côté. « Hé, s'écria le diable, qu'as-tu donc fait? - J'ai eu un mauvais rêve, dit l'hôtesse, et je t'ai pris par les cheveux. - Qu'as-tu donc rêvé? demanda le diable.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Elle attend que le diable s’endorme profondément.",
+          "consequence": "L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_15",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Elle agit doucement en lui cherchant les poux.",
+          "consequence": "L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_15",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse arracha le premier cheveu d’or pendant que le diable dormait, puis répondit qu’elle avait fait un mauvais rêve.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment l’hôtesse retire-t-elle le premier cheveu ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment l’hôtesse retire-t-elle le premier cheveu ? Choix 1 : Elle attend que le diable s’endorme profondément. Ou choix 2 : Elle agit doucement en lui cherchant les poux.</voix>",
+      "audio_spans": [
+        {
+          "text": "Quand le soir arriva, le diable revint chez lui. A peine était-il entré qu'il remarqua une odeur extraordinaire. « Il y a du nouveau ici, dit-il; je sens la chair humaine. » Et il alla fureter dans tous les coins, mais sans rien trouver. L'hôtesse lui chercha querelle. « Je viens de balayer et de ranger, dit-elle, et tu vas tout bouleverser ici, tu crois toujours sentir la chair humaine. Assieds-toi et mange ton souper. » Quand il eut soupé, il était fatigué; il posa su tête sur les genoux de son hôtesse, et lui dit de lui chercher un peu les poux; mais il ne tarda pas à s'endormir et à ronfler. La vieille saisit un cheveu d'or, l'arracha et le mit de côté. « Hé, s'écria le diable, qu'as-tu donc fait? - J'ai eu un mauvais rêve, dit l'hôtesse, et je t'ai pris par les cheveux. - Qu'as-tu donc rêvé? demanda le diable.",
+          "speaker": "narrateur",
+          "emotion": "peur"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment l’hôtesse retire-t-elle le premier cheveu ? Choix 1 : Elle attend que le diable s’endorme profondément. Ou choix 2 : Elle agit doucement en lui cherchant les poux.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_15",
+      "rank": 15,
+      "title": "Le secret de la fontaine",
+      "text": "- J'ai rêvé que la fontaine d'un marché, qui versait toujours du vin, s'était arrêtée et qu'elle ne donnait plus même d'eau; quelle en peut être la cause? - Ah! si on le savait! répliqua le diable: il y a un crapaud sous une pierre dans la fontaine; on n'aurait qu'à le tuer, le vin recommencerait à couler. » L'hôtesse se remit à lui chercher les poux; il se rendormit et ronfla de façon à ébranler les vitres. Alors elle lui arracha le second cheveu. « Heu! que fais-tu? s'écria le diable en colère. - Ne t'inquiète pas, répondit-elle, c'est un rêve que j'ai fait. - Qu'as-tu rêvé encore? demanda-t-il.",
+      "audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">- J'ai rêvé que la fontaine d'un marché, qui versait toujours du vin, s'était arrêtée et qu'elle ne donnait plus même d'eau; quelle en peut être la cause? - Ah! si on le savait! répliqua le diable: il y a un crapaud sous une pierre dans la fontaine; on n'aurait qu'à le tuer, le vin recommencerait à couler. » L'hôtesse se remit à lui chercher les poux; il se rendormit et ronfla de façon à ébranler les vitres. Alors elle lui arracha le second cheveu. « Heu! que fais-tu? s'écria le diable en colère. - Ne t'inquiète pas, répondit-elle, c'est un rêve que j'ai fait. - Qu'as-tu rêvé encore? demanda-t-il.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Elle feint de s’inquiéter pour le rêve qu’elle raconte.",
+          "consequence": "Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_16",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Elle le rassure d’une voix douce après avoir pris le second cheveu.",
+          "consequence": "Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_16",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le diable révéla qu’un crapaud se cachait sous une pierre dans la fontaine; l’hôtesse attendit son prochain sommeil.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment l’hôtesse relance-t-elle la conversation ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment l’hôtesse relance-t-elle la conversation ? Choix 1 : Elle feint de s’inquiéter pour le rêve qu’elle raconte. Ou choix 2 : Elle le rassure d’une voix douce après avoir pris le second cheveu.</voix>",
+      "audio_spans": [
+        {
+          "text": "- J'ai rêvé que la fontaine d'un marché, qui versait toujours du vin, s'était arrêtée et qu'elle ne donnait plus même d'eau; quelle en peut être la cause? - Ah! si on le savait! répliqua le diable: il y a un crapaud sous une pierre dans la fontaine; on n'aurait qu'à le tuer, le vin recommencerait à couler. » L'hôtesse se remit à lui chercher les poux; il se rendormit et ronfla de façon à ébranler les vitres. Alors elle lui arracha le second cheveu. « Heu! que fais-tu? s'écria le diable en colère. - Ne t'inquiète pas, répondit-elle, c'est un rêve que j'ai fait. - Qu'as-tu rêvé encore? demanda-t-il.",
+          "speaker": "narrateur",
+          "emotion": "malice"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment l’hôtesse relance-t-elle la conversation ? Choix 1 : Elle feint de s’inquiéter pour le rêve qu’elle raconte. Ou choix 2 : Elle le rassure d’une voix douce après avoir pris le second cheveu.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_16",
+      "rank": 16,
+      "title": "Le secret de l’arbre",
+      "text": "- J'ai rêvé que dans un pays il y a un arbre qui portait toujours des pommes d'or, et qui n'a plus même de feuilles; quelle en pourrait être la cause? - Ah! si on le savait! répliqua le diable: il y a une souris qui ronge la racine; on n'aurait qu'à la tuer, il reviendrait des pommes d'or à l'arbre; mais si elle continue à la ronger, l'arbre mourra tout à fait. Maintenant laisse-moi en repos avec tes rêves. Si tu me réveilles encore, je te donnerai un soufflet. » L'hôtesse l'apaisa et se remit à lui chercher ses poux jusqu'à ce qu'il fût rendormi et ronflant. Alors elle saisit le troisième cheveu d'or et l'arracha. Le diable se leva en criant et voulait la battre; elle le radoucit encore en disant: « Qui peut se garder d'un mauvais rêve? - Qu'as-tu donc rêvé encore? demanda-t-il avec curiosité.",
+      "audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">- J'ai rêvé que dans un pays il y a un arbre qui portait toujours des pommes d'or, et qui n'a plus même de feuilles; quelle en pourrait être la cause? - Ah! si on le savait! répliqua le diable: il y a une souris qui ronge la racine; on n'aurait qu'à la tuer, il reviendrait des pommes d'or à l'arbre; mais si elle continue à la ronger, l'arbre mourra tout à fait. Maintenant laisse-moi en repos avec tes rêves. Si tu me réveilles encore, je te donnerai un soufflet. » L'hôtesse l'apaisa et se remit à lui chercher ses poux jusqu'à ce qu'il fût rendormi et ronflant. Alors elle saisit le troisième cheveu d'or et l'arracha. Le diable se leva en criant et voulait la battre; elle le radoucit encore en disant: « Qui peut se garder d'un mauvais rêve? - Qu'as-tu donc rêvé encore? demanda-t-il avec curiosité.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Elle lui parle doucement et reprend son geste habituel.",
+          "consequence": "L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_17",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Elle détourne son attention en évoquant les mauvais rêves.",
+          "consequence": "L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_17",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "L’hôtesse l’apaisa et lui demanda quel rêve l’avait encore troublée; le diable répondit avec curiosité.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment l’hôtesse apaise-t-elle le diable ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment l’hôtesse apaise-t-elle le diable ? Choix 1 : Elle lui parle doucement et reprend son geste habituel. Ou choix 2 : Elle détourne son attention en évoquant les mauvais rêves.</voix>",
+      "audio_spans": [
+        {
+          "text": "- J'ai rêvé que dans un pays il y a un arbre qui portait toujours des pommes d'or, et qui n'a plus même de feuilles; quelle en pourrait être la cause? - Ah! si on le savait! répliqua le diable: il y a une souris qui ronge la racine; on n'aurait qu'à la tuer, il reviendrait des pommes d'or à l'arbre; mais si elle continue à la ronger, l'arbre mourra tout à fait. Maintenant laisse-moi en repos avec tes rêves. Si tu me réveilles encore, je te donnerai un soufflet. » L'hôtesse l'apaisa et se remit à lui chercher ses poux jusqu'à ce qu'il fût rendormi et ronflant. Alors elle saisit le troisième cheveu d'or et l'arracha. Le diable se leva en criant et voulait la battre; elle le radoucit encore en disant: « Qui peut se garder d'un mauvais rêve? - Qu'as-tu donc rêvé encore? demanda-t-il avec curiosité.",
+          "speaker": "narrateur",
+          "emotion": "malice"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment l’hôtesse apaise-t-elle le diable ? Choix 1 : Elle lui parle doucement et reprend son geste habituel. Ou choix 2 : Elle détourne son attention en évoquant les mauvais rêves.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_17",
+      "rank": 17,
+      "title": "Le secret du passager",
+      "text": "- J'ai rêvé d'un passager qui se plaignait de toujours passer l'eau avec sa barque, sans que personne le remplaçât jamais. - Hé! le sot! répondit le diable: le premier qui viendra pour passer la rivière, il n'a qu'à lui mettre sa rame à la main, il sera libre et l'autre sera obligé de faire le passage à son tour. » Comme l'hôtesse lui avait arraché les trois cheveux d'or, et qu'elle avait tiré de lui les trois réponses, elle le laissa en repos, et il dormit jusqu'au matin. Quand le diable eut quitté la maison, la vieille prit la fourmi dans les plis de sa robe et rendit au jeune homme sa figure humaine. « Voilà les trois cheveux, lui dit-elle; mais as-tu bien entendu les réponses du diable à tes questions? -Très bien, répondit-il, et je m'en souviendrai. - Te voilà donc hors d'embarras, dit-elle, et tu peux reprendre ta route. » Il remercia la vieille qui l'avait si bien aidé, et sortit de l'enfer, fort joyeux d'avoir si heureusement réussi.",
+      "audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">- J'ai rêvé d'un passager qui se plaignait de toujours passer l'eau avec sa barque, sans que personne le remplaçât jamais. - Hé! le sot! répondit le diable: le premier qui viendra pour passer la rivière, il n'a qu'à lui mettre sa rame à la main, il sera libre et l'autre sera obligé de faire le passage à son tour. » Comme l'hôtesse lui avait arraché les trois cheveux d'or, et qu'elle avait tiré de lui les trois réponses, elle le laissa en repos, et il dormit jusqu'au matin. Quand le diable eut quitté la maison, la vieille prit la fourmi dans les plis de sa robe et rendit au jeune homme sa figure humaine. « Voilà les trois cheveux, lui dit-elle; mais as-tu bien entendu les réponses du diable à tes questions? -Très bien, répondit-il, et je m'en souviendrai. - Te voilà donc hors d'embarras, dit-elle, et tu peux reprendre ta route. » Il remercia la vieille qui l'avait si bien aidé, et sortit de l'enfer, fort joyeux d'avoir si heureusement réussi.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il la remercie chaleureusement avant de repartir.",
+          "consequence": "Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_18",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.",
+              "speaker": "narrateur",
+              "emotion": "soulagement"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il incline la tête avec gratitude et reprend sa route.",
+          "consequence": "Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_18",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il remercia la vieille et quitta l’enfer, puis retrouva le passager au bord de la rivière.",
+              "speaker": "narrateur",
+              "emotion": "soulagement"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme remercie-t-il la vieille ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme remercie-t-il la vieille ? Choix 1 : Il la remercie chaleureusement avant de repartir. Ou choix 2 : Il incline la tête avec gratitude et reprend sa route.</voix>",
+      "audio_spans": [
+        {
+          "text": "- J'ai rêvé d'un passager qui se plaignait de toujours passer l'eau avec sa barque, sans que personne le remplaçât jamais. - Hé! le sot! répondit le diable: le premier qui viendra pour passer la rivière, il n'a qu'à lui mettre sa rame à la main, il sera libre et l'autre sera obligé de faire le passage à son tour. » Comme l'hôtesse lui avait arraché les trois cheveux d'or, et qu'elle avait tiré de lui les trois réponses, elle le laissa en repos, et il dormit jusqu'au matin. Quand le diable eut quitté la maison, la vieille prit la fourmi dans les plis de sa robe et rendit au jeune homme sa figure humaine. « Voilà les trois cheveux, lui dit-elle; mais as-tu bien entendu les réponses du diable à tes questions? -Très bien, répondit-il, et je m'en souviendrai. - Te voilà donc hors d'embarras, dit-elle, et tu peux reprendre ta route. » Il remercia la vieille qui l'avait si bien aidé, et sortit de l'enfer, fort joyeux d'avoir si heureusement réussi.",
+          "speaker": "narrateur",
+          "emotion": "soulagement"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme remercie-t-il la vieille ? Choix 1 : Il la remercie chaleureusement avant de repartir. Ou choix 2 : Il incline la tête avec gratitude et reprend sa route.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_18",
+      "rank": 18,
+      "title": "Le retour par la rivière",
+      "text": "Quand il arriva au passager, avant de lui donner la réponse promise, il se fit d'abord passer de l'autre côté, et alors il lui lit part du conseil donné par le diable: « Le premier qui viendra pour passer la rivière, tu n'as qu'à lui mettre ta rame à la main. » Plus loin, il retrouva la ville à l'arbre stérile; la sentinelle attendait aussi sa réponse: « Tuez la souris qui ronge les racines » dit-il, et les pommes d'or reviendront. » La sentinelle, pour le remercier, lui donna deux ânes chargés d'or.",
+      "audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Quand il arriva au passager, avant de lui donner la réponse promise, il se fit d'abord passer de l'autre côté, et alors il lui lit part du conseil donné par le diable: « Le premier qui viendra pour passer la rivière, tu n'as qu'à lui mettre ta rame à la main. » Plus loin, il retrouva la ville à l'arbre stérile; la sentinelle attendait aussi sa réponse: « Tuez la souris qui ronge les racines » dit-il, et les pommes d'or reviendront. » La sentinelle, pour le remercier, lui donna deux ânes chargés d'or.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il monte dans la barque et attend que le passager rame.",
+          "consequence": "Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_19",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il s’assied dans la barque et garde les yeux sur la rive.",
+          "consequence": "Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.",
+          "consequence_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_19",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il se fit passer de l’autre côté, transmit le conseil au passager et reçut deux ânes chargés d’or à la ville de l’arbre.",
+              "speaker": "narrateur",
+              "emotion": "neutral"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme traverse-t-il avant de donner son conseil ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme traverse-t-il avant de donner son conseil ? Choix 1 : Il monte dans la barque et attend que le passager rame. Ou choix 2 : Il s’assied dans la barque et garde les yeux sur la rive.</voix>",
+      "audio_spans": [
+        {
+          "text": "Quand il arriva au passager, avant de lui donner la réponse promise, il se fit d'abord passer de l'autre côté, et alors il lui lit part du conseil donné par le diable: « Le premier qui viendra pour passer la rivière, tu n'as qu'à lui mettre ta rame à la main. » Plus loin, il retrouva la ville à l'arbre stérile; la sentinelle attendait aussi sa réponse: « Tuez la souris qui ronge les racines » dit-il, et les pommes d'or reviendront. » La sentinelle, pour le remercier, lui donna deux ânes chargés d'or.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme traverse-t-il avant de donner son conseil ? Choix 1 : Il monte dans la barque et attend que le passager rame. Ou choix 2 : Il s’assied dans la barque et garde les yeux sur la rive.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_19",
+      "rank": 19,
+      "title": "La fontaine et le retour",
+      "text": "Enfin il parvint à la ville dont la fontaine était à sec. Il dit à la sentinelle: « Il y a un crapaud sous une pierre dans la fontaine; cherchez-le et tuez-le, et le vin recommencera à couler en abondance. » La sentinelle le remercia et lui donna encore deux ânes chargés d'or. Enfin, l'enfant né coiffé revint près de sa femme, qui se réjouit dans son cœur en le voyant de retour et en apprenant que tout s'était bien passé. Il remit au roi les trois cheveux d'or du diable.",
+      "audio_markup": "<voix emotion=\"soulagement\">Enfin il parvint à la ville dont la fontaine était à sec. Il dit à la sentinelle: « Il y a un crapaud sous une pierre dans la fontaine; cherchez-le et tuez-le, et le vin recommencera à couler en abondance. » La sentinelle le remercia et lui donna encore deux ânes chargés d'or. Enfin, l'enfant né coiffé revint près de sa femme, qui se réjouit dans son cœur en le voyant de retour et en apprenant que tout s'était bien passé. Il remit au roi les trois cheveux d'or du diable.</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il lui explique calmement où chercher le crapaud.",
+          "consequence": "Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.",
+          "consequence_audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_20",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.",
+              "speaker": "narrateur",
+              "emotion": "soulagement"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il désigne la fontaine d’un geste précis.",
+          "consequence": "Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.",
+          "consequence_audio_markup": "<voix emotion=\"soulagement\" speaker=\"narrateur\">Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_20",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Il révéla la cause du tarissement, reçut deux ânes chargés d’or et retrouva sa femme avant de remettre les trois cheveux au roi.",
+              "speaker": "narrateur",
+              "emotion": "soulagement"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment annonce-t-il la solution à la sentinelle ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment annonce-t-il la solution à la sentinelle ? Choix 1 : Il lui explique calmement où chercher le crapaud. Ou choix 2 : Il désigne la fontaine d’un geste précis.</voix>",
+      "audio_spans": [
+        {
+          "text": "Enfin il parvint à la ville dont la fontaine était à sec. Il dit à la sentinelle: « Il y a un crapaud sous une pierre dans la fontaine; cherchez-le et tuez-le, et le vin recommencera à couler en abondance. » La sentinelle le remercia et lui donna encore deux ânes chargés d'or. Enfin, l'enfant né coiffé revint près de sa femme, qui se réjouit dans son cœur en le voyant de retour et en apprenant que tout s'était bien passé. Il remit au roi les trois cheveux d'or du diable.",
+          "speaker": "narrateur",
+          "emotion": "soulagement"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment annonce-t-il la solution à la sentinelle ? Choix 1 : Il lui explique calmement où chercher le crapaud. Ou choix 2 : Il désigne la fontaine d’un geste précis.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_20",
+      "rank": 20,
+      "title": "L’or du rivage",
+      "text": "Celui-ci, en apercevant les quatre ânes chargés d'or, fut grandement satisfait et lui dit: « Maintenant toutes les conditions sont remplies, et ma fille est à toi. Mais, mon cher gendre, dis-moi d'où te vient tant d'or, car c'est un trésor énorme que tu rapportes. - Je l'ai pris, dit-il, de l'autre côté d'une rivière que j'ai traversée; c'est le sable du rivage. - Pourrais-je m'en procurer autant? lui demanda le roi, qui était un avare. - Tant que vous voudrez, répondit-il. Vous trouverez un passager; adressez-vous à lui pour passer l'eau, et vous pourrez remplir vos sacs. »",
+      "audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Celui-ci, en apercevant les quatre ânes chargés d'or, fut grandement satisfait et lui dit: « Maintenant toutes les conditions sont remplies, et ma fille est à toi. Mais, mon cher gendre, dis-moi d'où te vient tant d'or, car c'est un trésor énorme que tu rapportes. - Je l'ai pris, dit-il, de l'autre côté d'une rivière que j'ai traversée; c'est le sable du rivage. - Pourrais-je m'en procurer autant? lui demanda le roi, qui était un avare. - Tant que vous voudrez, répondit-il. Vous trouverez un passager; adressez-vous à lui pour passer l'eau, et vous pourrez remplir vos sacs. »</voix>",
+      "kind": "decision",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Il répond sans se presser et lui indique le passager.",
+          "consequence": "Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_21",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "text": "Il désigne le chemin du rivage d’un geste assuré.",
+          "consequence": "Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.",
+          "consequence_audio_markup": "<voix emotion=\"malice\" speaker=\"narrateur\">Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.</voix>",
+          "next": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_21",
+          "flags": [],
+          "consequence_audio_spans": [
+            {
+              "text": "Le roi, attiré par l’or, se mit aussitôt en route vers la rivière.",
+              "speaker": "narrateur",
+              "emotion": "malice"
+            }
+          ]
+        }
+      ],
+      "choice_question": "Comment le jeune homme répond-il à la curiosité du roi ?",
+      "choice_audio_markup": "<voix emotion=\"neutral\" speaker=\"narrateur\">Comment le jeune homme répond-il à la curiosité du roi ? Choix 1 : Il répond sans se presser et lui indique le passager. Ou choix 2 : Il désigne le chemin du rivage d’un geste assuré.</voix>",
+      "audio_spans": [
+        {
+          "text": "Celui-ci, en apercevant les quatre ânes chargés d'or, fut grandement satisfait et lui dit: « Maintenant toutes les conditions sont remplies, et ma fille est à toi. Mais, mon cher gendre, dis-moi d'où te vient tant d'or, car c'est un trésor énorme que tu rapportes. - Je l'ai pris, dit-il, de l'autre côté d'une rivière que j'ai traversée; c'est le sable du rivage. - Pourrais-je m'en procurer autant? lui demanda le roi, qui était un avare. - Tant que vous voudrez, répondit-il. Vous trouverez un passager; adressez-vous à lui pour passer l'eau, et vous pourrez remplir vos sacs. »",
+          "speaker": "narrateur",
+          "emotion": "malice"
+        }
+      ],
+      "choice_audio_spans": [
+        {
+          "text": "Comment le jeune homme répond-il à la curiosité du roi ? Choix 1 : Il répond sans se presser et lui indique le passager. Ou choix 2 : Il désigne le chemin du rivage d’un geste assuré.",
+          "speaker": "narrateur",
+          "emotion": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "conte_les_trois_cheveux_d_or_du_diable_57ff02a8_21",
+      "rank": 21,
+      "title": "La rame du roi",
+      "text": "L'avide monarque se mit aussitôt en route, et arrivéau bord de l'eau, il fit signe au passager de lui amener sa barque. Le passager le fit entrer, et, quand ils furent à l'autre bord, il lui mit la rame à la main et sauta dehors. Le roi devint ainsi passager en punition de ses péchés. « L'est-il encore? - Eh! sans doute, puisque personne ne lui a repris la rame. »",
+      "audio_markup": "<voix emotion=\"soulagement_apaisement\" speaker=\"narrateur\">L'avide monarque se mit aussitôt en route, et arrivéau bord de l'eau, il fit signe au passager de lui amener sa barque. Le passager le fit entrer, et, quand ils furent à l'autre bord, il lui mit la rame à la main et sauta dehors. Le roi devint ainsi passager en punition de ses péchés. « L'est-il encore? - Eh! sans doute, puisque personne ne lui a repris la rame. »</voix>",
+      "kind": "ending",
+      "choices": [],
+      "audio_spans": [
+        {
+          "text": "L'avide monarque se mit aussitôt en route, et arrivéau bord de l'eau, il fit signe au passager de lui amener sa barque. Le passager le fit entrer, et, quand ils furent à l'autre bord, il lui mit la rame à la main et sauta dehors. Le roi devint ainsi passager en punition de ses péchés. « L'est-il encore? - Eh! sans doute, puisque personne ne lui a repris la rame. »",
+          "speaker": "narrateur",
+          "emotion": "soulagement_apaisement"
+        }
+      ]
+    }
+  ],
+  "audio_tagged_version": 1
+}

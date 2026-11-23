@@ -9,7 +9,8 @@
   "audio_lead_in_ms": 800,
   "book_audio_roots": {
     "passeuse_ch1": "audio/experiments/passeuse_ch1/files",
-    "roi_grenouille": "audio/experiments/roi_grenouille/files"
+    "roi_grenouille": "audio/experiments/roi_grenouille/files",
+    "conte_les_trois_cheveux_d_or_du_diable_57ff02a8": "audio/experiments/conte_les_trois_cheveux_d_or_du_diable_57ff02a8/files"
   },
   "gpio": {"left": null, "right": null, "debounce_ms": 180}
 }
