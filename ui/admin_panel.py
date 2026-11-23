@@ -65,12 +65,19 @@ class AdminPanel:
         footer = ttk.Frame(outer)
         footer.pack(side='bottom',fill='x',pady=(10,0),before=self.tabs)
         self.job_text = tk.StringVar(value='Aucune tâche en cours.')
+        self.stage_text = tk.StringVar(value='')
         job_info = ttk.Frame(footer)
         job_info.pack(side='left',fill='x',expand=True)
+        job_info.columnconfigure(0,weight=1)
         self.job_label = ttk.Label(job_info,textvariable=self.job_text,wraplength=850)
-        self.job_label.pack(side='top',anchor='w',fill='x',expand=True)
+        self.job_label.grid(row=0,column=0,sticky='ew')
         self.progress_bar = ttk.Progressbar(job_info,orient='horizontal',mode='determinate',maximum=100)
-        self.progress_bar.pack(side='bottom',fill='x',pady=(3,0))
+        self.progress_bar.grid(row=1,column=0,sticky='ew',pady=(3,0))
+        self.stage_label = ttk.Label(job_info,textvariable=self.stage_text,wraplength=850,style='Sub.TLabel')
+        self.stage_label.grid(row=2,column=0,sticky='ew',pady=(3,0))
+        self.stage_progress_bar = ttk.Progressbar(job_info,orient='horizontal',mode='determinate',maximum=100)
+        self.stage_progress_bar.grid(row=3,column=0,sticky='ew',pady=(2,0))
+        self.subprogress_running = False
         self.stop_button = ttk.Button(footer,text='Arrêter la tâche',command=self.jobs.stop,style='Audio.TButton')
         self.stop_button.pack(side='right')
         self.resume_button = ttk.Button(footer,text='Reprendre',command=self.resume,style='Audio.TButton')
@@ -686,15 +693,38 @@ class AdminPanel:
         state = self.jobs.snapshot()
         status = state.get('status')
         log = self.jobs.log_tail()
-        progress = audio_job_progress(state,log) if state else None
+        progress_log = self.jobs.progress_log_tail() if state else ''
+        progress = audio_job_progress(state,progress_log) if state else None
         message = (state.get('label','')+' · '+JOB_STATUS.get(status,status or '')) if state else 'Aucune tâche en cours.'
         if progress:
             message += f" · {progress['percent']} % · {progress['completed']}/{progress['total']} fichiers traités"
             if progress['current']:
                 message += ' · '+progress['current']
             self.progress_bar.configure(value=progress['percent'])
+            self.stage_text.set(progress.get('stage',''))
+            stage_percent = progress.get('stage_percent')
+            if self.jobs.busy and stage_percent is not None:
+                if self.subprogress_running:
+                    self.stage_progress_bar.stop()
+                    self.subprogress_running = False
+                self.stage_progress_bar.configure(mode='determinate',value=stage_percent)
+            elif self.jobs.busy and progress.get('stage'):
+                self.stage_progress_bar.configure(mode='indeterminate')
+                if not self.subprogress_running:
+                    self.stage_progress_bar.start(15)
+                    self.subprogress_running = True
+            else:
+                if self.subprogress_running:
+                    self.stage_progress_bar.stop()
+                    self.subprogress_running = False
+                self.stage_progress_bar.configure(mode='determinate',value=0)
         else:
             self.progress_bar.configure(value=0)
+            self.stage_text.set('')
+            if self.subprogress_running:
+                self.stage_progress_bar.stop()
+                self.subprogress_running = False
+            self.stage_progress_bar.configure(mode='determinate',value=0)
         if state and state.get('error'):
             message += '\n'+state['error']
         self.job_text.set(message)
@@ -720,6 +750,9 @@ class AdminPanel:
 
     def close(self):
         self.audio.stop()
+        if self.subprogress_running:
+            self.stage_progress_bar.stop()
+            self.subprogress_running = False
         if self.poll_id:
             self.window.after_cancel(self.poll_id)
             self.poll_id = None

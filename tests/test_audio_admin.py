@@ -381,6 +381,23 @@ class JobTests(unittest.TestCase):
         progress = audio_job_progress(state,'')
         self.assertEqual((progress['percent'],progress['completed'],progress['total']),(100,5,5))
 
+    def test_audio_progress_reports_live_portion_and_chatterbox_sampling(self):
+        state = dict(status='running',command_index=0,intent={'kind':'audio'},commands=[
+            {'progress_total':1,'progress_mode':'Jeu interactif'},
+            {'progress_total':1,'progress_mode':'Écoute automatique'}])
+        log = ('--- audio 1/2 ---\nSegment 1/1 | Début\n'
+               'Portion 2/3 | narrateur | neutral\nChunk 1/2 | 180 caractères\n'
+               'Sampling: 45%|████▌     | 448/1000 [02:22<03:07, 2.94it/s]')
+        progress = audio_job_progress(state,log)
+        self.assertEqual(progress['percent'],0)
+        self.assertEqual(progress['current'],
+                         'Jeu interactif · Segment 1/1 en cours · portion 2/3 · bloc 1/2')
+        self.assertEqual(progress['stage_percent'],45)
+        self.assertEqual(progress['stage'],'Synthèse Chatterbox · bloc à 45 % (1/2)')
+        progress = audio_job_progress(state,log+'\n  Chargement de Whisper Medium pour une vérification indépendante…')
+        self.assertIsNone(progress['stage_percent'])
+        self.assertEqual(progress['stage'],'Contrôle par Whisper Medium')
+
     def test_partial_job_builds_exact_portion_command_and_rejects_invalid_selection(self):
         inventory = AudioInventory()
         row = inventory.rows('roi_grenouille')[0]

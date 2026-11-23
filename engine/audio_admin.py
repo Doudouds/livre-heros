@@ -36,7 +36,7 @@ def within(root, path):
 
 
 def audio_job_progress(state, log):
-    """Progression par fichiers traités, basée sur les lignes du générateur."""
+    """Progression des fichiers et de la sous-étape audio actuellement active."""
     if state.get('intent',{}).get('kind') != 'audio':
         return None
     commands = state.get('commands',[])
@@ -57,19 +57,63 @@ def audio_job_progress(state, log):
     current_total = totals[index]
     terminal = any(line.startswith('Terminé :') for line in lines)
     segment = None
+    portion = None
+    chunk = None
+    sampling = None
+    stage = ''
     for line in lines:
-        match = re.match(r'^Segment (\d+)/(\d+)\s*\|',line.strip())
+        clean = line.strip()
+        match = re.match(r'^Segment (\d+)/(\d+)\s*\|',clean)
         if match and int(match.group(2)) == current_total:
             segment = int(match.group(1))
+            sampling = None
+            stage = 'Préparation du segment'
+        match = re.match(r'^Portion (\d+)/(\d+)\s*\|',clean)
+        if match:
+            portion = (int(match.group(1)),int(match.group(2)))
+            sampling = None
+            stage = 'Préparation de la portion'
+        match = re.match(r'^Chunk (\d+)/(\d+)\s*\|',clean)
+        if match:
+            chunk = (int(match.group(1)),int(match.group(2)))
+            sampling = None
+            stage = 'Synthèse de la portion'
+        match = re.search(r'Sampling:\s*(\d+)%',clean)
+        if match:
+            sampling = int(match.group(1))
+            stage = 'Synthèse Chatterbox'
+        lowered = clean.lower()
+        if 'préparation des modèles locaux' in lowered:
+            sampling = None
+            stage = 'Préparation des modèles locaux'
+        elif 'chargement de chatterbox' in lowered:
+            sampling = None
+            stage = 'Chargement de Chatterbox'
+        elif 'chargement de whisper medium' in lowered:
+            sampling = None
+            stage = 'Contrôle par Whisper Medium'
+        elif 'contrôle du segment entier' in lowered or 'contrôle de la narration complète' in lowered:
+            sampling = None
+            stage = 'Vérification du segment'
     current = ''
     if terminal:
         completed += current_total
     elif segment is not None:
         completed += segment-1
         mode = commands[index].get('progress_mode')
-        current = (f'{mode} · ' if mode else '')+f'Segment {segment}/{current_total} en cours'
+        parts = [(f'{mode} · ' if mode else '')+f'Segment {segment}/{current_total} en cours']
+        if portion:
+            parts.append(f'portion {portion[0]}/{portion[1]}')
+        if chunk:
+            parts.append(f'bloc {chunk[0]}/{chunk[1]}')
+        current = ' · '.join(parts)
+    if sampling is not None:
+        stage += f' · bloc à {sampling} %'
+        if chunk:
+            stage += f' ({chunk[0]}/{chunk[1]})'
     percent = min(99,(completed*100)//total) if status=='running' else min(100,(completed*100)//total)
-    return dict(percent=percent,completed=min(completed,total),total=total,current=current)
+    return dict(percent=percent,completed=min(completed,total),total=total,current=current,
+                stage=stage,stage_percent=sampling)
 
 
 class AudioInventory:
@@ -525,5 +569,15 @@ class AdminJobs:
                 if line and not line.startswith('Sampling:'):
                     lines.append(line)
             return '\n'.join(lines[-100:])
+        except OSError:
+            return ''
+
+    def progress_log_tail(self, limit=16000):
+        """Tail brut destiné au statut, incluant les mises à jour Sampling de tqdm."""
+        path = self.snapshot().get('log')
+        if not path:
+            return ''
+        try:
+            return read_task_log_tail(within(self.root,path),limit)
         except OSError:
             return ''
